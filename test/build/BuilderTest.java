@@ -14,16 +14,16 @@ public class BuilderTest extends UnitTest {
 
 	@Test
 	public void serializeDrugBankTest() throws FileNotFoundException, IOException {
-//		Builder builder = new Builder();
-//		builder.serializeDrugBank();
-//		File file = new File("data/drugbank.ser");
-//		assertTrue(file.exists());
+		Builder builder = new Builder();
+		builder.serializeDrugBank();
+		File file = new File("data/drugbank.ser");
+		assertTrue(file.exists());
 	}
 
 	@Test
 	public void addGoAnnotationTest() throws FileNotFoundException, IOException, ClassNotFoundException {
-//		Builder builder = new Builder();
-//		builder.addGoAnnotations();
+		Builder builder = new Builder();
+		builder.addGoAnnotations();
 	}
 
 	@Test
@@ -33,8 +33,6 @@ public class BuilderTest extends UnitTest {
 		File file = new File("data/go.ser");
 		assertTrue(file.exists());
 	}
-
-	
 
 
 }

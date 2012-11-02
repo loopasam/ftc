@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="0.032" errors="0" skipped="0" tests="1" name="build.ApplicationTest">
+  <testcase classname="build.ApplicationTest" name="testThatIndexPageWorks" time="0.032">
+      </testcase>
+</testsuite>

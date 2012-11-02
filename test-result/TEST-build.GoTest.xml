@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="4.609" errors="0" skipped="0" tests="3" name="build.GoTest">
+  <testcase classname="build.GoTest" name="testGetParents" time="1.575">
+      </testcase>
+  <testcase classname="build.GoTest" name="testTerms" time="1.503">
+      </testcase>
+  <testcase classname="build.GoTest" name="testRelationsTerms" time="1.531">
+      </testcase>
+</testsuite>
