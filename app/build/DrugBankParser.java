@@ -18,6 +18,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
+import play.Logger;
+
 import core.XMLBurger;
 
 /**
@@ -28,7 +30,7 @@ public class DrugBankParser extends Parser {
 
 	private DrugBank drugbank;
 
-	final static String DRUGBANK_DONLOAD_URL = "http://www.drugbank.ca/system/downloads/current/drugbank.xml.zip";
+	final static String DRUGBANK_DOWNLOAD_URL = "http://www.drugbank.ca/system/downloads/current/drugbank.xml.zip";
 
 	public void setDrugbank(DrugBank drugbank) {
 		this.drugbank = drugbank;
@@ -55,10 +57,12 @@ public class DrugBankParser extends Parser {
 	@Override
 	public void start() throws IOException {
 
-		URL website = new URL(DRUGBANK_DONLOAD_URL);
+		Logger.info("Downloading the zip file...");
+		URL website = new URL(DRUGBANK_DOWNLOAD_URL);
 		File tempXmlFile = new File("data/tmp/drugbank.xml.zip");
 		org.apache.commons.io.FileUtils.copyURLToFile(website, tempXmlFile);
 
+		Logger.info("Unpacking the zip file...");
 		unpack(tempXmlFile, "data/tmp/");
 
 		XMLBurger burger = new XMLBurger("data/tmp/drugbank.xml");
@@ -232,6 +236,7 @@ public class DrugBankParser extends Parser {
 	 */
 	@Override
 	public DrugBank save() throws FileNotFoundException, IOException {
+		Logger.info("Saving DrugBank serialized...");
 		ObjectOutput out = null;
 		out = new ObjectOutputStream(new FileOutputStream(this.getPathOut()));
 		out.writeObject(this.getDrugbank());

@@ -13,15 +13,28 @@ import models.*;
 public class BuilderTest extends UnitTest {
 
 	@Test
-	public void serializeDrugBank() throws FileNotFoundException, IOException {
+	public void serializeDrugBankTest() throws FileNotFoundException, IOException {
+//		Builder builder = new Builder();
+//		builder.serializeDrugBank();
+//		File file = new File("data/drugbank.ser");
+//		assertTrue(file.exists());
+	}
+
+	@Test
+	public void addGoAnnotationTest() throws FileNotFoundException, IOException, ClassNotFoundException {
+//		Builder builder = new Builder();
+//		builder.addGoAnnotations();
+	}
+
+	@Test
+	public void serializeGOTest() throws FileNotFoundException, IOException, ClassNotFoundException {
 		Builder builder = new Builder();
-		builder.serializeDrugBank();
-		File file = new File("data/drugbank.ser");
+		builder.serializeGo();
+		File file = new File("data/go.ser");
 		assertTrue(file.exists());
 	}
 
-
-
+	
 
 
 }
