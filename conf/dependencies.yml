@@ -1,4 +1,10 @@
 # Application dependencies
-
 require:
     - play
+    - provided -> xml-burger 1.0 
+repositories: 
+    - provided: 
+        type:       local 
+        artifact:   "${application.path}/jar/[module]-[revision].jar" 
+        contains: 
+            - provided -> *
