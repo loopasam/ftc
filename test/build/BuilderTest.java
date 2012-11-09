@@ -16,7 +16,7 @@ public class BuilderTest extends UnitTest {
 	public void serializeDrugBankTest() throws FileNotFoundException, IOException {
 		Builder builder = new Builder();
 		builder.serializeDrugBank();
-		File file = new File("data/drugbank.ser");
+		File file = new File("data/tmp/drugbank.ser");
 		assertTrue(file.exists());
 	}
 
@@ -30,7 +30,7 @@ public class BuilderTest extends UnitTest {
 	public void serializeGOTest() throws FileNotFoundException, IOException, ClassNotFoundException {
 		Builder builder = new Builder();
 		builder.serializeGo();
-		File file = new File("data/go.ser");
+		File file = new File("data/tmp/go.ser");
 		assertTrue(file.exists());
 	}
 

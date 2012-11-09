@@ -36,7 +36,7 @@ public class GoaConnector {
 
 
 	public GoaConnector() throws FileNotFoundException, IOException, ClassNotFoundException {
-		DrugBank drugBank = new DrugBank("data/drugbank.ser");
+		DrugBank drugBank = new DrugBank("data/tmp/drugbank.ser");
 		this.setDrugbank(drugBank);
 	}
 
@@ -99,7 +99,7 @@ public class GoaConnector {
 	public DrugBank save() throws FileNotFoundException, IOException {
 		Logger.info("Saving DrugBank updated with GOA...");
 		ObjectOutput out = null;
-		out = new ObjectOutputStream(new FileOutputStream("data/drugbank-goa.ser"));
+		out = new ObjectOutputStream(new FileOutputStream("data/tmp/drugbank-goa.ser"));
 		out.writeObject(this.getDrugbank());
 		out.close();
 		return this.getDrugbank();

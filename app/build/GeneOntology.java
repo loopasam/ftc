@@ -136,4 +136,17 @@ public class GeneOntology implements Serializable {
 
 	}
 
+	public boolean isTermACellularComponent(String goId) {
+		if(this.getTerm(goId) != null){
+			GoTerm termToTest = this.getTerm(goId);
+			if(termToTest.getNamespace().equals("cellular_component")){
+				return true;
+			}
+		}else{
+			System.err.println("Term does not exists in the version of GO used: " + goId);
+		}
+		return false;
+
+	}
+
 }

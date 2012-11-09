@@ -1,6 +1,7 @@
 # Application dependencies
 require:
     - play
+    - uk.ac.ebi.brain -> Brain 1.2
     - provided -> xml-burger 1.0 
 repositories: 
     - provided: 

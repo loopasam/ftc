@@ -13,7 +13,7 @@ public class Builder {
 
 	public DrugBank serializeDrugBank() throws FileNotFoundException, IOException {
 		Logger.info("Parsing DrugBank...");
-		DrugBankParser drugBankParser = new DrugBankParser("data/drugbank.ser");
+		DrugBankParser drugBankParser = new DrugBankParser("data/tmp/drugbank.ser");
 		drugBankParser.start();
 		return drugBankParser.save();
 	}
@@ -27,9 +27,18 @@ public class Builder {
 
 	public void serializeGo() throws IOException {
 		Logger.info("Parsing GO...");
-		GOParser goParser = new GOParser("data/go.ser");
+		GOParser goParser = new GOParser("data/tmp/go.ser");
 		goParser.start();
 		goParser.save();
+	}
+
+	public void exportFullStructureToOwl() {
+		FullOwlExporter exporter = new FullOwlExporter("data/ftc-full.owl");
+		exporter.start();
+	}
+
+	public void exportMinimalStructureToOwl() {
+		
 	}
 
 
