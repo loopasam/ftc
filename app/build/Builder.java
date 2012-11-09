@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.apache.ivy.plugins.parser.xml.XmlModuleDescriptorParser.Parser;
 
 import play.Logger;
+import uk.ac.ebi.brain.error.BrainException;
 
 public class Builder {
 
@@ -32,13 +33,13 @@ public class Builder {
 		goParser.save();
 	}
 
-	public void exportFullStructureToOwl() {
-		FullOwlExporter exporter = new FullOwlExporter("data/ftc-full.owl");
+	public void exportFullStructureToOwl() throws BrainException, FileNotFoundException, IOException, ClassNotFoundException {
+		FullOwlExporter exporter = new FullOwlExporter("data/ftc-full.owl", "ftc-full.owl");
 		exporter.start();
 	}
 
 	public void exportMinimalStructureToOwl() {
-		
+
 	}
 
 

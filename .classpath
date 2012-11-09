@@ -5,7 +5,23 @@
 	
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/play-1.2.5.jar" sourcepath="/home/samuel/workspace/lib/play-1.2.5/framework/src" />
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/owlapi-parsers-3.4.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/elk-owl-model-0.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/Brain-1.2.jar" sourcepath="/home/samuel/.ivy2/cache/uk.ac.ebi.brain/Brain/sources/Brain-1.2-sources.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/owlapi-tools-3.4.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/elk-reasoner-0.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/elk-util-common-0.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/elk-util-concurrent-0.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/elk-owl-implementation-0.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/elk-util-io-0.3.1.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/xml-burger-1.0.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/elk-owlapi-0.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/elk-util-logging-0.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/elk-util-hashing-0.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/elk-util-collections-0.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/owlapi-api-3.4.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/owlapi-apibinding-3.4.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/owlapi-impl-3.4.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/lib/jsr107cache-1.0.jar"/>
