@@ -34,7 +34,7 @@ public class Builder {
 	}
 
 	public void exportFullStructureToOwl() throws BrainException, FileNotFoundException, IOException, ClassNotFoundException {
-		FullOwlExporter exporter = new FullOwlExporter("data/ftc-full.owl", "ftc-full.owl");
+		FullOwlExporter exporter = new FullOwlExporter("data/ftc-kb-full.owl", "ftc-kb-full.owl");
 		exporter.start();
 		exporter.save();
 	}

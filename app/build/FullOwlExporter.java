@@ -23,9 +23,9 @@ public class FullOwlExporter extends OwlExporter {
 
 	@Override
 	public void start() throws FileNotFoundException, IOException, ClassNotFoundException, BrainException {
-		
+
 		//Converts GO into OWL
-		
+
 		Logger.info("Converting GO into OWL...");
 		GeneOntology go = new GeneOntology("data/tmp/go.ser");
 		Logger.info("Adding the Go terms to the Brain...");
@@ -70,9 +70,12 @@ public class FullOwlExporter extends OwlExporter {
 		for (String unsupportedRelation : unsupportedRelations) {
 			Logger.info("The relation '"+unsupportedRelation+"' present in the GO is not supported in the FTC");
 		}
-		
+
 		//End conversion GO
-		
+
+
+		//TODO adding proteins
+		//TODO adding drugs
 		
 	}
 
