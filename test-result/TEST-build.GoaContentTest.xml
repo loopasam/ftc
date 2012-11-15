@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<testsuite failures="0" time="2.933" errors="0" skipped="0" tests="1" name="build.GoaContentTest">
-  <testcase classname="build.GoaContentTest" name="checkAnnotationAfterConnection" time="2.933">
+<testsuite failures="0" time="2.958" errors="0" skipped="0" tests="1" name="build.GoaContentTest">
+  <testcase classname="build.GoaContentTest" name="checkAnnotationAfterConnection" time="2.958">
       </testcase>
 </testsuite>

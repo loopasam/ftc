@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<testsuite failures="0" time="4.113" errors="0" skipped="0" tests="3" name="build.GoContentTest">
-  <testcase classname="build.GoContentTest" name="testGetParents" time="1.572">
+<testsuite failures="0" time="4.744" errors="0" skipped="0" tests="3" name="build.GoContentTest">
+  <testcase classname="build.GoContentTest" name="testGetParents" time="1.735">
       </testcase>
-  <testcase classname="build.GoContentTest" name="testTerms" time="1.367">
+  <testcase classname="build.GoContentTest" name="testTerms" time="1.605">
       </testcase>
-  <testcase classname="build.GoContentTest" name="testRelationsTerms" time="1.174">
+  <testcase classname="build.GoContentTest" name="testRelationsTerms" time="1.404">
       </testcase>
 </testsuite>

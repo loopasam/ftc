@@ -19,12 +19,6 @@ AnnotationProperty: rdfs:comment
 Datatype: xsd:string
 
     
-ObjectProperty: FTC_R0000001
-
-    Annotations: 
-        rdfs:label "involved-in"^^xsd:string
-    
-    
 ObjectProperty: <http://purl.obolibrary.org/obo/RO_0002212>
 
     Annotations: 
@@ -32,12 +26,6 @@ ObjectProperty: <http://purl.obolibrary.org/obo/RO_0002212>
     
     SubPropertyOf: 
         <http://purl.obolibrary.org/obo/RO_0002211>
-    
-    
-ObjectProperty: FTC_R0000002
-
-    Annotations: 
-        rdfs:label "has-function"^^xsd:string
     
     
 ObjectProperty: <http://purl.obolibrary.org/obo/RO_0002213>
@@ -49,6 +37,12 @@ ObjectProperty: <http://purl.obolibrary.org/obo/RO_0002213>
         <http://purl.obolibrary.org/obo/RO_0002211>
     
     
+ObjectProperty: FTC_R1
+
+    Annotations: 
+        rdfs:label "involved-in"^^xsd:string
+    
+    
 ObjectProperty: <http://purl.obolibrary.org/obo/BFO_0000050>
 
     Annotations: 
@@ -56,6 +50,12 @@ ObjectProperty: <http://purl.obolibrary.org/obo/BFO_0000050>
     
     Characteristics: 
         Transitive
+    
+    
+ObjectProperty: FTC_R2
+
+    Annotations: 
+        rdfs:label "has-function"^^xsd:string
     
     
 ObjectProperty: <http://purl.obolibrary.org/obo/BFO_0000051>
@@ -78,6 +78,39 @@ ObjectProperty: <http://purl.obolibrary.org/obo/RO_0002211>
     
 Class: owl:Thing
 
+    
+Class: <http://purl.uniprot.org/core/Protein>
+
+    Annotations: 
+        rdfs:label "protein"^^xsd:string
+    
+    
+Class: <http://purl.obolibrary.org/obo/CHEBI_24431>
+
+    Annotations: 
+        rdfs:label "chemical entity"^^xsd:string
+    
+    
+Class: FTC_C1
+
+    Annotations: 
+        rdfs:label "agent"^^xsd:string
+    
+    SubClassOf: 
+        <http://purl.obolibrary.org/obo/CHEBI_50906>
+    
+    
+Class: <http://purl.obolibrary.org/obo/GO_0008150>
+
+    Annotations: 
+        rdfs:label "biological process"^^xsd:string
+    
+    
+Class: <http://purl.obolibrary.org/obo/CHEBI_50906>
+
+    Annotations: 
+        rdfs:label "role"^^xsd:string
+    
     
 Class: <http://purl.obolibrary.org/obo/GO_0003674>
 
