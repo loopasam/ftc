@@ -10,11 +10,11 @@ import org.junit.Test;
 
 import play.test.UnitTest;
 
-public class GoaTest extends UnitTest {
+public class GoaContentTest extends UnitTest {
 
 	@Test
 	public void checkAnnotationAfterConnection() throws FileNotFoundException, IOException, ClassNotFoundException{
-		DrugBank drugBank = new DrugBank("data/drugbank-goa.ser");
+		DrugBank drugBank = new DrugBank("data/tmp/drugbank-goa.ser");
 		Partner partner = drugBank.getPartner(54);
 		assertNotNull(partner.getAnnotations());
 		assertTrue(partner.getAnnotations().size() > 0);

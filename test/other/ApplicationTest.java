@@ -1,4 +1,4 @@
-package build;
+package other;
 import org.junit.*;
 import play.test.*;
 import play.mvc.*;

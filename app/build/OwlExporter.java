@@ -9,6 +9,7 @@ import uk.ac.ebi.brain.error.BadPrefixException;
 import uk.ac.ebi.brain.error.BrainException;
 import uk.ac.ebi.brain.error.ExistingObjectPropertyException;
 import uk.ac.ebi.brain.error.NewOntologyException;
+import uk.ac.ebi.brain.error.StorageException;
 
 public abstract class OwlExporter {
 
@@ -44,15 +45,55 @@ public abstract class OwlExporter {
 	public OwlExporter(String pathOut, String ontologyName) throws BrainException {
 		this.setPathOut(pathOut);
 		this.setOntologyName(ontologyName);
+				
 		Brain brain = new Brain(PREFIX, this.getOntologyName());
-		//TODO preparer le skeleton de l'ontology avec les bonnes URI
-		brain.addObjectProperty("part-of");
-		
+
+		//TBox specifications - Core classes
+
+		brain.addClass("http://purl.obolibrary.org/obo/GO_0003674");
+		brain.label("GO_0003674", "molecular function");
+
+		//RBox specifications
+
+		//GO RBox logic - See http://www.geneontology.org/GO.ontology-ext.relations.shtml
+		brain.addObjectProperty("http://purl.obolibrary.org/obo/BFO_0000050");
+		brain.label("BFO_0000050", "part-of");
+		brain.transitive("BFO_0000050");
+
+		brain.addObjectProperty("http://purl.obolibrary.org/obo/RO_0002211");
+		brain.label("RO_0002211", "regulates");
+
+		brain.addObjectProperty("http://purl.obolibrary.org/obo/RO_0002213");
+		brain.label("RO_0002213", "positively-regulates");
+
+		brain.addObjectProperty("http://purl.obolibrary.org/obo/RO_0002212");
+		brain.label("RO_0002212", "negatively-regulates");
+
+		brain.addObjectProperty("http://purl.obolibrary.org/obo/BFO_0000051");
+		brain.comment("BFO_0000051", "has-part");
+		brain.transitive("BFO_0000051");
+
+
+		brain.subPropertyOf("RO_0002212", "RO_0002211");
+		brain.subPropertyOf("RO_0002213", "RO_0002211");
+		brain.chain("RO_0002211 o BFO_0000050", "RO_0002211");
+
+
+		//FTC RBox logic
+		brain.addObjectProperty("FTC_R0000001");
+		brain.label("FTC_R0000001", "involved-in");
+
+		brain.addObjectProperty("FTC_R0000002");
+		brain.label("FTC_R0000002", "has-function");
+
+
 		this.setBrain(brain);
 	}
 
 	public abstract void start() throws FileNotFoundException, IOException, ClassNotFoundException;
 
-	public abstract void save();
+	public void save() throws StorageException {
+		this.getBrain().save(this.getPathOut());
+	}
 
 }

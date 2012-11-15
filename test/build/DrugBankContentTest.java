@@ -8,11 +8,13 @@ import org.junit.Test;
 
 import play.test.UnitTest;
 
-public class DrugBankTest extends UnitTest {
+public class DrugBankContentTest extends UnitTest {
+	
+	
 
 	@Test
 	public void checkDrugDrugBank() throws FileNotFoundException, IOException, ClassNotFoundException {
-		DrugBank drugBank = new DrugBank("data/drugbank.ser");
+		DrugBank drugBank = new DrugBank("data/tmp/drugbank.ser");
 		Drug drug = drugBank.getDrug("DB00001");
 		assertEquals("biotech", drug.getType());
 		Drug drug1 = drugBank.getDrug("DB00203");
@@ -34,7 +36,7 @@ public class DrugBankTest extends UnitTest {
 	}
 	@Test
 	public void checkPartnerDrugBank() throws FileNotFoundException, IOException, ClassNotFoundException {
-		DrugBank drugBank = new DrugBank("data/drugbank.ser");
+		DrugBank drugBank = new DrugBank("data/tmp/drugbank.ser");
 		Partner partner = drugBank.getPartner(3188);
 		assertEquals("IspD/ispF bifunctional enzyme [Includes: 2-C-methyl-D-erythritol 4- phosphate cytidylyltransferase", partner.getName());
 		assertEquals("Q9PM68", partner.getUniprotIdentifer());
@@ -45,7 +47,7 @@ public class DrugBankTest extends UnitTest {
 
 	@Test
 	public void checkUnknownRelationDrugBank() throws FileNotFoundException, IOException, ClassNotFoundException{
-		DrugBank drugBank = new DrugBank("data/drugbank.ser");
+		DrugBank drugBank = new DrugBank("data/tmp/drugbank.ser");
 		Drug drug = drugBank.getDrug("DB00002");	
 		assertEquals("Cetuximab", drug.getName());
 		assertEquals(12, drug.getTargetRelations().size());
@@ -56,7 +58,7 @@ public class DrugBankTest extends UnitTest {
 
 	@Test
 	public void checkSpeciesDrugBank() throws FileNotFoundException, IOException, ClassNotFoundException{
-		DrugBank drugBank = new DrugBank("data/drugbank.ser");
+		DrugBank drugBank = new DrugBank("data/tmp/drugbank.ser");
 		Partner partner = drugBank.getPartner(1);
 		Species species = partner.getSpecies();
 		assertEquals("bacterial", species.getCategory());

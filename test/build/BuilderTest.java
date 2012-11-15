@@ -8,31 +8,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 import play.test.*;
+import uk.ac.ebi.brain.error.BrainException;
 import models.*;
 
 public class BuilderTest extends UnitTest {
 
 	@Test
-	public void serializeDrugBankTest() throws FileNotFoundException, IOException {
+	public void exportToOwlFull() throws BrainException, FileNotFoundException, IOException, ClassNotFoundException {
 		Builder builder = new Builder();
-		builder.serializeDrugBank();
-		File file = new File("data/tmp/drugbank.ser");
+		builder.exportFullStructureToOwl();
+		File file = new File("data/ftc-full.owl");
 		assertTrue(file.exists());
 	}
-
-	@Test
-	public void addGoAnnotationTest() throws FileNotFoundException, IOException, ClassNotFoundException {
-		Builder builder = new Builder();
-		builder.addGoAnnotations();
-	}
-
-	@Test
-	public void serializeGOTest() throws FileNotFoundException, IOException, ClassNotFoundException {
-		Builder builder = new Builder();
-		builder.serializeGo();
-		File file = new File("data/tmp/go.ser");
-		assertTrue(file.exists());
-	}
-
 
 }

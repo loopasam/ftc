@@ -1,0 +1,87 @@
+Prefix: : <http://www.ebi.ac.uk/ftc/>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+
+Ontology: <http://www.ebi.ac.uk/ftc/ftc-full.owl>
+
+
+AnnotationProperty: rdfs:label
+
+    
+AnnotationProperty: rdfs:comment
+
+    
+Datatype: xsd:string
+
+    
+ObjectProperty: FTC_R0000001
+
+    Annotations: 
+        rdfs:label "involved-in"^^xsd:string
+    
+    
+ObjectProperty: <http://purl.obolibrary.org/obo/RO_0002212>
+
+    Annotations: 
+        rdfs:label "negatively-regulates"^^xsd:string
+    
+    SubPropertyOf: 
+        <http://purl.obolibrary.org/obo/RO_0002211>
+    
+    
+ObjectProperty: FTC_R0000002
+
+    Annotations: 
+        rdfs:label "has-function"^^xsd:string
+    
+    
+ObjectProperty: <http://purl.obolibrary.org/obo/RO_0002213>
+
+    Annotations: 
+        rdfs:label "positively-regulates"^^xsd:string
+    
+    SubPropertyOf: 
+        <http://purl.obolibrary.org/obo/RO_0002211>
+    
+    
+ObjectProperty: <http://purl.obolibrary.org/obo/BFO_0000050>
+
+    Annotations: 
+        rdfs:label "part-of"^^xsd:string
+    
+    Characteristics: 
+        Transitive
+    
+    
+ObjectProperty: <http://purl.obolibrary.org/obo/BFO_0000051>
+
+    Annotations: 
+        rdfs:comment "has-part"^^xsd:string
+    
+    Characteristics: 
+        Transitive
+    
+    
+ObjectProperty: <http://purl.obolibrary.org/obo/RO_0002211>
+
+    Annotations: 
+        rdfs:label "regulates"^^xsd:string
+    
+    SubPropertyChain: 
+        <http://purl.obolibrary.org/obo/RO_0002211> o <http://purl.obolibrary.org/obo/BFO_0000050>
+    
+    
+Class: owl:Thing
+
+    
+Class: <http://purl.obolibrary.org/obo/GO_0003674>
+
+    Annotations: 
+        rdfs:label "molecular function"^^xsd:string
+    
+    

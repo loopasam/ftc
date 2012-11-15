@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="2.558" errors="0" skipped="0" tests="4" name="build.DrugBankContentTest">
+  <testcase classname="build.DrugBankContentTest" name="checkDrugDrugBank" time="0.921">
+      </testcase>
+  <testcase classname="build.DrugBankContentTest" name="checkPartnerDrugBank" time="0.576">
+      </testcase>
+  <testcase classname="build.DrugBankContentTest" name="checkUnknownRelationDrugBank" time="0.534">
+      </testcase>
+  <testcase classname="build.DrugBankContentTest" name="checkSpeciesDrugBank" time="0.527">
+      </testcase>
+</testsuite>
