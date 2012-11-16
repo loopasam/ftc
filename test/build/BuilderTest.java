@@ -17,7 +17,7 @@ public class BuilderTest extends UnitTest {
 	public void exportToOwlFull() throws BrainException, FileNotFoundException, IOException, ClassNotFoundException {
 		Builder builder = new Builder();
 		builder.exportFullStructureToOwl();
-		File file = new File("data/ftc-full.owl");
+		File file = new File("data/ftc-kb-full.owl");
 		assertTrue(file.exists());
 	}
 
