@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<testsuite failures="0" time="23.635" errors="0" skipped="0" tests="1" name="build.SerializeGoTest">
-  <testcase classname="build.SerializeGoTest" name="serializeGOTest" time="23.635">
+<testsuite failures="0" time="79.747" errors="0" skipped="0" tests="1" name="build.SerializeGoTest">
+  <testcase classname="build.SerializeGoTest" name="serializeGOTest" time="79.747">
       </testcase>
 </testsuite>
