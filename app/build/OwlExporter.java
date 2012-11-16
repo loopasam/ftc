@@ -63,7 +63,6 @@ public abstract class OwlExporter {
 		brain.prefix("http://purl.uniprot.org/core/", "uniprot");
 		brain.prefix("http://purl.obolibrary.org/obo/", "obo");
 
-
 		//TBox specifications - Core external classes
 
 		brain.addClass("http://purl.obolibrary.org/obo/GO_0003674");
@@ -95,8 +94,8 @@ public abstract class OwlExporter {
 		//Role of something capable of producing a therapeutic effect
 		brain.addClass("FTC_C1");
 		brain.label("FTC_C1", "therapeutic agent");
-		brain.subClassOf("FTC_C1", "CHEBI_50906");
-		brain.comment("FTC_C1", "Role of something capable of producing a therapeutic effect.");
+		brain.subClassOf("FTC_C1", "CHEBI_23888");
+		brain.comment("FTC_C1", "Role of a drug capable of producing a therapeutic effect.");
 
 		//RBox specifications
 
@@ -176,7 +175,7 @@ public abstract class OwlExporter {
 				"refers to the specific molecular targets to " +
 				"which the drug binds, such as an enzyme or receptor.");
 
-
+		
 		this.setBrain(brain);
 
 		//Mapper to convert strings from the GO.ser into OWL properties
@@ -198,13 +197,12 @@ public abstract class OwlExporter {
 	}
 
 	protected boolean relationSupported(GoRelation relation) {
-
 		if(this.getGoRelationsMapper().containsKey(relation.getType())){
 			return true;
 		}else{
 			return false;
 		}
 	}
-
+	
 
 }

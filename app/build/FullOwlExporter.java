@@ -75,8 +75,94 @@ public class FullOwlExporter extends OwlExporter {
 
 
 		//TODO adding proteins
-		//TODO adding drugs
-		
+		//TODO adding FTC classes
+
+		//TODO: Do the BP first
+
+		Logger.info("Creating the FTC categories...");
+
+		for (GoTerm goTerm : go.getBioProcesses()) {
+			String goTermId = goTerm.getId().replace(":", "_");
+			for (GoRelation relation : goTerm.getRelations()) {
+				if(relation.getType().equals("positively_regulates")){
+
+					GoTerm positivelyRegulatedparentTerm = go.getTerm(relation.getTarget());
+					String stemParentTerm = positivelyRegulatedparentTerm.getId().replace("GO:", "");
+
+					//Anti-pattern
+					String antiClassId = "FTC_A" + stemParentTerm;
+					if(!this.getBrain().knowsClass(antiClassId)){
+						this.getBrain().addClass(antiClassId);
+					}
+					this.getBrain().label(antiClassId, "Anti-" + positivelyRegulatedparentTerm.getName() + " agent");
+					this.getBrain().subClassOf(antiClassId, "FTC_C1");
+					//The expression uses the class name (ex: 'negative regulation of blood coagulation') and
+					//not the corresponding class expression ('negatively-regulates some blood-coagulation')
+					//as only subclasses are considered in class expressions. By using the full class name
+					//('negative regulation of blood coagulation') we get the subclasses and not the descendant classes
+					//Some classes got better classified this way, (ex: pro-fibrinolysis becomes a subclass
+					//of anti-blood coagulation when using the full class name.)
+					String antiExpression = "CHEBI_23888 and FTC_R4 some (Protein and FTC_R1 some (GO_0008150 and " +
+							goTermId + "))";
+
+
+					this.getBrain().equivalentClasses(antiClassId, antiExpression);
+
+					//Pro-pattern
+					String proClassId = "FTC_P" + stemParentTerm;
+					if(!this.getBrain().knowsClass(proClassId)){
+						this.getBrain().addClass(proClassId);
+					}
+
+					this.getBrain().label(proClassId, "Pro-" + positivelyRegulatedparentTerm.getName() + " agent");
+					this.getBrain().subClassOf(proClassId, "FTC_C1");
+					String proExpression = "CHEBI_23888 and FTC_R5 some (Protein and FTC_R1 some (GO_0008150 and " +
+							goTermId + "))";
+
+					this.getBrain().equivalentClasses(proClassId, proExpression);
+
+
+				}else if(relation.getType().equals("negatively_regulates")){
+
+					GoTerm negativelyRegulatedparentTerm = go.getTerm(relation.getTarget());
+					String stemParentTerm = negativelyRegulatedparentTerm.getId().replace("GO:", "");
+
+					//Anti-pattern
+					String antiClassId = "FTC_A" + stemParentTerm;
+					if(!this.getBrain().knowsClass(antiClassId)){
+						this.getBrain().addClass(antiClassId);
+					}
+					this.getBrain().label(antiClassId, "Anti-" + negativelyRegulatedparentTerm.getName() + " agent");
+					this.getBrain().subClassOf(antiClassId, "FTC_C1");
+
+					String antiExpression = "CHEBI_23888 and FTC_R5 some (Protein and FTC_R1 some (GO_0008150 and " +
+							goTermId + "))";
+
+
+					this.getBrain().equivalentClasses(antiClassId, antiExpression);
+
+					//Pro-pattern
+					String proClassId = "FTC_P" + stemParentTerm;
+					if(!this.getBrain().knowsClass(proClassId)){
+						this.getBrain().addClass(proClassId);
+					}
+
+					this.getBrain().label(proClassId, "Pro-" + negativelyRegulatedparentTerm.getName() + " agent");
+					this.getBrain().subClassOf(proClassId, "FTC_C1");
+					String proExpression = "CHEBI_23888 and FTC_R4 some (Protein and FTC_R1 some (GO_0008150 and " +
+							goTermId + "))";
+
+
+					this.getBrain().equivalentClasses(proClassId, proExpression);
+
+
+				}
+			}
+
+		}
+
+
+		Logger.info("done");
 	}
 
 

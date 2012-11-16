@@ -87,6 +87,7 @@ public class GoaConnector {
 					partner.setAnnotations(annotations);
 				}else{
 					Logger.warn("The partner " + partner.getName() + " is not found in humans (GOA Connector)");
+					counter++;
 				}
 			}else{
 				Logger.warn("The partner " + partner.getName() + " has no Uniprot identifer (GOA Connector)");
