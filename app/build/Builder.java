@@ -39,9 +39,6 @@ public class Builder {
 		exporter.save();
 	}
 
-	public void exportMinimalStructureToOwl() {
-
-	}
 
 
 }

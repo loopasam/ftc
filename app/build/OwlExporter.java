@@ -71,6 +71,7 @@ public abstract class OwlExporter {
 	}
 
 	//TODO comment on what this is doing 
+	//TODO exporter des meta infos pour l'ontology
 	public OwlExporter(String pathOut, String ontologyName) throws BrainException, IOException {
 		this.setPathOut(pathOut);
 		this.setOntologyName(ontologyName);

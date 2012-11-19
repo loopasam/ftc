@@ -11,7 +11,7 @@ import play.test.*;
 import uk.ac.ebi.brain.error.BrainException;
 import models.*;
 
-public class BuilderTest extends UnitTest {
+public class ExportTest extends UnitTest {
 
 	@Test
 	public void exportToOwlFull() throws BrainException, FileNotFoundException, IOException, ClassNotFoundException {
@@ -20,5 +20,8 @@ public class BuilderTest extends UnitTest {
 		File file = new File("data/ftc-kb-full.owl");
 		assertTrue(file.exists());
 	}
+	
+	
+	
 
 }
