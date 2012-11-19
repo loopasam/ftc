@@ -1,8 +1,16 @@
 package build;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.semanticweb.owlapi.model.OWLObjectProperty;
 
 import play.Logger;
 
@@ -21,7 +29,15 @@ public abstract class OwlExporter {
 	public static String PREFIX = "http://www.ebi.ac.uk/ftc/";
 	private String ontologyName;
 	private HashMap<String, String> goRelationsMapper;
+	private HashMap<String, String> drugBankRelationsMapper;
 
+
+	public HashMap<String, String> getDrugBankRelationsMapper() {
+		return drugBankRelationsMapper;
+	}
+	public void setDrugBankRelationsMapper(HashMap<String, String> drugBankRelationsMapper) {
+		this.drugBankRelationsMapper = drugBankRelationsMapper;
+	}
 	public String getOntologyName() {
 		return ontologyName;
 	}
@@ -55,12 +71,14 @@ public abstract class OwlExporter {
 	}
 
 	//TODO comment on what this is doing 
-	public OwlExporter(String pathOut, String ontologyName) throws BrainException {
+	public OwlExporter(String pathOut, String ontologyName) throws BrainException, IOException {
 		this.setPathOut(pathOut);
 		this.setOntologyName(ontologyName);
 
 		Brain brain = new Brain(PREFIX, this.getOntologyName());
-		brain.prefix("http://purl.uniprot.org/core/", "uniprot");
+		brain.prefix("http://purl.uniprot.org/core/", "core-uniprot");
+		brain.prefix("http://www.drugbank.ca/drugs/", "drugbank");
+		brain.prefix("http://purl.uniprot.org/uniprot/", "uniprot");
 		brain.prefix("http://purl.obolibrary.org/obo/", "obo");
 
 		//TBox specifications - Core external classes
@@ -175,7 +193,7 @@ public abstract class OwlExporter {
 				"refers to the specific molecular targets to " +
 				"which the drug binds, such as an enzyme or receptor.");
 
-		
+
 		this.setBrain(brain);
 
 		//Mapper to convert strings from the GO.ser into OWL properties
@@ -187,6 +205,25 @@ public abstract class OwlExporter {
 		goRelationMapper.put("negatively_regulates", "RO_0002212");
 		goRelationMapper.put("has_part", "BFO_0000051");
 		this.setGoRelationsMapper(goRelationMapper);
+
+		Logger.info("Loading the formal mappings of DrugBank relations...");
+		this.setDrugBankRelationsMapper(loadDrugBankMapper());
+	}
+
+	private HashMap<String, String> loadDrugBankMapper() throws IOException {
+		FileInputStream fstream = new FileInputStream("data/drugbank-relations-mappings.txt");
+		DataInputStream in = new DataInputStream(fstream);
+		BufferedReader br = new BufferedReader(new InputStreamReader(in));
+		String line;
+		HashMap<String, String> relationMapping = new HashMap<String, String>();
+		while ((line = br.readLine()) != null)   {
+			Pattern pattern = Pattern.compile("(.*) -> (.*)");
+			Matcher matcher = pattern.matcher(line);
+			matcher.find();
+			relationMapping.put(matcher.group(1), matcher.group(2));
+		}
+		br.close();
+		return relationMapping;
 	}
 
 	public abstract void start() throws FileNotFoundException, IOException, ClassNotFoundException, BrainException;
@@ -203,6 +240,6 @@ public abstract class OwlExporter {
 			return false;
 		}
 	}
-	
+
 
 }

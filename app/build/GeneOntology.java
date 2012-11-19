@@ -95,6 +95,21 @@ public class GeneOntology implements Serializable {
 		}
 		return goTerms;
 	}
+	
+	
+	/**
+	 * @return
+	 */
+	public ArrayList<GoTerm> getMolecularFunctions() {
+
+		ArrayList<GoTerm> goTerms = new ArrayList<GoTerm>();
+		for (GoTerm term : this.getTerms()) {
+			if(term.getNamespace().equals("molecular_function")){
+				goTerms.add(term);
+			}
+		}
+		return goTerms;
+	}
 
 	/**
 	 * @return
