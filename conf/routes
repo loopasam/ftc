@@ -1,6 +1,13 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
-# ~~~~
+
+# Secure module
+GET     /auth                                       Security.auth
+*     /logout                                       Security.logout
+GET     /login                                       Security.login
+
+GET     /admin                                       Administration.index
+
 
 # Home page
 GET     /                                       Application.index
