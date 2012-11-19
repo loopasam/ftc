@@ -57,7 +57,9 @@ public class Security extends Controller {
 				"https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile" +
 				"&state=%2Fprofile&redirect_uri=http%3A%2F%2F" +
 				"localhost:9000%2Fauth" +
-				"&response_type=code&client_id=1009954177381.apps.googleusercontent.com&approval_prompt=force";
+				"&response_type=code" +
+				"&client_id=1009954177381.apps.googleusercontent.com" +
+				"&approval_prompt=auto";
 		//The response is redirected on the auth() method.
 		redirect(urlGoogleOAuth);
 	}
