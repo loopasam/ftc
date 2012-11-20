@@ -1,6 +1,0 @@
-22:43:20,188 INFO  ~ Starting /home/samuel/git/ftc
-22:43:20,941 WARN  ~ You're running Play! in DEV mode
-22:43:21,058 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
-22:43:27,807 INFO  ~ Application 'ftc' is now started !
-22:45:13,027 INFO  ~ entering method
-22:46:27,096 INFO  ~ entering method

@@ -7,10 +7,15 @@ GET     /auth                                       Security.auth
 GET     /login                                       Security.login
 
 GET     /admin                                       Administration.index
+GET     /update                                       Administration.update
+GET     /build                                       Administration.build
+GET     /makedb                                       Administration.createDBFromKB
 
 
 # Home page
 GET     /                                       Application.index
+GET     /{classId}                                       Application.classVisu
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

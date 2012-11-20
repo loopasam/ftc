@@ -16,7 +16,7 @@ import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.Http;
 
-
+//TODO: put the right URL (instead of dev)
 public class Security extends Controller {
 
 	@Before(unless={"login", "auth", "logout"})

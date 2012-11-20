@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="0.053" errors="0" skipped="0" tests="1" name="build.ModelTest">
+  <testcase classname="build.ModelTest" name="populate" time="0.053">
+      </testcase>
+</testsuite>

@@ -3,14 +3,17 @@ package build;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+
 import org.apache.ivy.plugins.parser.xml.XmlModuleDescriptorParser.Parser;
 
 import play.Logger;
+import play.test.Fixtures;
 import uk.ac.ebi.brain.error.BrainException;
 
 public class Builder {
 
 	//TODO do a clean method that removes the tmp folder content
+	//TODO method to drop the DB
 
 	public DrugBank serializeDrugBank() throws FileNotFoundException, IOException {
 		Logger.info("Parsing DrugBank...");
@@ -39,6 +42,15 @@ public class Builder {
 		exporter.save();
 	}
 
+	public void deleteDatabase() {
+		Logger.info("Deleting database...");
+		Fixtures.deleteDatabase();
+		Logger.info("Database deleted");
+	}
 
+	public void createAndPopulateDatabase() throws BrainException {
+		DatabaseFiller filler = new DatabaseFiller("data/ftc-kb-full.owl");
+		filler.start();
+	}
 
 }

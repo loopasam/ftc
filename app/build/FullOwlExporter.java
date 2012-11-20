@@ -80,6 +80,7 @@ public class FullOwlExporter extends OwlExporter {
 									this.getBrain().addClass(drugBankFullClassName);
 									this.getBrain().label(drugBankClassName, drug.getName());
 									this.getBrain().subClassOf(drugBankClassName, "CHEBI_23888");
+									this.getBrain().subClassOf(drugBankClassName, "FTC_C2");
 								}
 
 								if(!this.getBrain().knowsClass(targetClassName)){

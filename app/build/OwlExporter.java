@@ -115,6 +115,11 @@ public abstract class OwlExporter {
 		brain.label("FTC_C1", "therapeutic agent");
 		brain.subClassOf("FTC_C1", "CHEBI_23888");
 		brain.comment("FTC_C1", "Role of a drug capable of producing a therapeutic effect.");
+		
+		//Class used to identified chemicals from DrugBank
+		brain.addClass("FTC_C2");
+		brain.label("FTC_C2", "DrugBank compound");
+		brain.comment("FTC_C2", "Drug coming from DrugBank");
 
 		//RBox specifications
 

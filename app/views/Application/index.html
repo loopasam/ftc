@@ -1,4 +1,8 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{welcome /}
+<ul>
+    #{list items:FtcClasses, as:'ftcClass' }
+        <li>${ftcClass.label} (${ftcClass.ftcId}) - ${ftcClass.subClasses}</li>
+    #{/list}
+</ul>

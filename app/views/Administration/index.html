@@ -1,6 +1,15 @@
-#{extends 'main.html' /} #{set title:'Home' /}
+#{extends 'main.html' /} #{set title:'Administration' /}
 
-<h1>Administration Methods</h1>
+<h1><a href="@{Administration.index()}">Administration</a></h1>
+<p><a href="@{Security.logout()}">Logout</a></p>
+<p><a href="@{Application.index()}">Home</a></p>
 
-<p><a href="#">Clear temporary files</a></p>
-<p><a href="#">Build database</a></p>
+#{if flash.success}
+    <p style="color:orange">
+        ${flash.success}
+    </p>
+#{/if}
+
+<p><a href="@{Administration.update()}">Update current database (not functioning atm)</a></p>
+<p><a href="@{Administration.build()}">Override and make knowledge-base from scratch</a></p>
+<p><a href="@{Administration.createDBFromKB()}">Convert KB into database</a></p>
