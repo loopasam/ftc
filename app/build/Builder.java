@@ -48,7 +48,7 @@ public class Builder {
 		Logger.info("Database deleted");
 	}
 
-	public void createAndPopulateDatabase() throws BrainException {
+	public void createAndPopulateDatabase() throws BrainException, IOException {
 		DatabaseFiller filler = new DatabaseFiller("data/ftc-kb-full.owl");
 		filler.start();
 	}

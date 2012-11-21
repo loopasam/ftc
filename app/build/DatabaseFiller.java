@@ -3,6 +3,8 @@ package build;
 import groovy.lang.Tuple;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -38,7 +40,7 @@ public class DatabaseFiller {
 		this.pathToKb = pathToKb;
 	}
 
-	public void start() throws BrainException {
+	public void start() throws BrainException, IOException {
 		Logger.info("Learning the KB...");
 		Brain brain = new Brain();
 		brain.learn(this.getPathToKb());
@@ -81,12 +83,12 @@ public class DatabaseFiller {
 
 	}
 
-	private void saveGraph(Brain brain, String ftcClass) throws BrainException {
+	private void saveGraph(Brain brain, String ftcClass) throws BrainException, IOException {
 
 		GraphViz gv = new GraphViz();
 		gv.addln(gv.start_graph());
-		gv.addln("node [shape=box];");
-		gv.addln("graph [splines=true overlap=false rankdir = \"BT\"];");
+		gv.addln("node [shape=box style = filled color=salmon2];");
+		gv.addln("graph [splines=true size=150,15! overlap=false rankdir = \"BT\"];");
 		DotRelations alreadyVisited = new DotRelations();
 		//Classes not informative, not to be displayed
 		List<String> undesirableClasses = brain.getSuperClasses("FTC_C1", false);
@@ -99,10 +101,18 @@ public class DatabaseFiller {
 		}
 
 		gv.addln(gv.end_graph());
-		System.out.println(gv.getDotSource());
 		String type = "svg";
 		File out = new File("public/images/graphs/" + ftcClass + "." + type);
 		gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
+		String svgContent = play.vfs.VirtualFile.fromRelativePath("public/images/graphs/" + ftcClass + "." + type).contentAsString();
+		String withoutXlinkSvgContent = svgContent.replaceAll("xlink:href", "target='_top' xlink:href")
+				.replaceAll("<svg.*\n", "<svg");
+		FileWriter fout = new FileWriter(out);
+		
+//		fout.write(svgContent);
+		fout.write(withoutXlinkSvgContent);
+		fout.close();
+
 
 	}
 

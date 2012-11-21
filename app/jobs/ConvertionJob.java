@@ -10,7 +10,7 @@ import uk.ac.ebi.brain.error.BrainException;
 
 public class ConvertionJob extends Job {
 
-	public void doJob() throws BrainException {
+	public void doJob() throws BrainException, IOException {
 		Logger.info("Create the builder...");
 		Builder builder = new Builder();
 		builder.deleteDatabase();

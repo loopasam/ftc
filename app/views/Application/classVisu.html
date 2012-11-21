@@ -1,8 +1,8 @@
-#{extends 'main.html' /}
-#{set title:'FTC Class' /}
+#{extends 'main.html' /} #{set title:'FTC Class' /}
 
 <h1>${ftcClass.label}</h1>
 
- (${ftcClass.ftcId}) - ${ftcClass.subClasses}
- 
-<img src="${ftcClass.pathToGraph}" />
+(${ftcClass.ftcId}) - ${ftcClass.subClasses}
+<div id="svg-wraper" style="width: 70%; border: 2px solid orange;">
+    <object data="@{Application.svg(classId)}" type="image/svg+xml" />
+</div>
