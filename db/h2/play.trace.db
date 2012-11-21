@@ -100,3 +100,12 @@ org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic c
 	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.refurbishIdleResource(C3P0PooledConnectionPool.java:310)
 	at com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask.run(BasicResourcePool.java:1999)
 	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+11-21 19:07:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table "FTCCLASS"; SQL statement:
+select ftcclass0_.id as id63_, ftcclass0_.ftcId as ftcId63_, ftcclass0_.label as label63_, ftcclass0_.widthSvg as widthSvg63_ from FtcClass ftcclass0_ where ftcclass0_.ftcId=? limit ? [50200-166]
+11-21 20:11:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table "FTCCLASS"; SQL statement:
+select ftcclass0_.id as id69_, ftcclass0_.ftcId as ftcId69_, ftcclass0_.label as label69_, ftcclass0_.widthSvg as widthSvg69_ from FtcClass ftcclass0_ where ftcclass0_.ftcId=? limit ? [50200-166]
+11-21 20:11:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table "FTCCLASS"; SQL statement:
+select ftcclass0_.id as id69_, ftcclass0_.ftcId as ftcId69_, ftcclass0_.label as label69_, ftcclass0_.widthSvg as widthSvg69_ from FtcClass ftcclass0_ where ftcclass0_.ftcId=? limit ? [50200-166]

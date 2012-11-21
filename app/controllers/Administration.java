@@ -34,10 +34,15 @@ public class Administration extends Controller {
 		new FullBuildJob().now();		
 		index();
 	}
-	
+
 	public static void createDBFromKB() {
-		flash.success("Convertion into DB started - Follow progresses on the log file or console");
-		new ConvertionJob().now();
+
+		if(Cache.get("jobRunning") != null){
+			flash.success("A job is already running!");
+		}else{
+			flash.success("Convertion into DB started - Follow progresses on the log file or console");
+			new ConvertionJob().now();
+		}
 		index();
 	}
 

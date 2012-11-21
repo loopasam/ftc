@@ -17,7 +17,7 @@ public class ModelTest extends UnitTest {
 
 	@Test
 	public void populate(){
-		new FtcClass("FTC_A0001", "Anti-whatever Agent").save();
+		new FtcClass("FTC_A0001", "Anti-whatever Agent", null, null, 0).save();
 		assertEquals(1, FtcClass.count());
 	}
 

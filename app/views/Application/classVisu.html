@@ -2,7 +2,7 @@
 
 <h1>${ftcClass.label}</h1>
 
-(${ftcClass.ftcId}) - ${ftcClass.subClasses}
-<div id="svg-wraper" style="width: 70%; border: 2px solid orange;">
-    <object data="@{Application.svg(classId)}" type="image/svg+xml" />
+<div id="svg-wraper" style="width: ${ratioSvg};">
+    <object data="@{Application.svg(ftcClass)}" type="image/svg+xml" ></object>
 </div>
+

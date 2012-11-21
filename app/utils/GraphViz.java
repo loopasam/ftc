@@ -165,6 +165,7 @@ public class GraphViz
 
 		try {
 
+			//Extension to use the tmp directory of the app rather than absolute OS path
 			VirtualFile vf = VirtualFile.fromRelativePath(GraphViz.TEMP_DIR);
 			File realFile = vf.getRealFile();
 			img = File.createTempFile("graph_", "."+type, realFile);
@@ -205,10 +206,10 @@ public class GraphViz
 	 * @param str Source of the graph (in dot language).
 	 * @return The file (as a File object) that contains the source of the graph.
 	 */
-	private File writeDotSourceToFile(String str) throws java.io.IOException
-	{
+	private File writeDotSourceToFile(String str) throws java.io.IOException	{
 		File temp;
 		try {
+			//Use Play virtual file to create the temp file
 			VirtualFile vf = VirtualFile.fromRelativePath(GraphViz.TEMP_DIR);
 			File realFile = vf.getRealFile();
 			temp = File.createTempFile("graph_", ".dot.tmp", realFile);

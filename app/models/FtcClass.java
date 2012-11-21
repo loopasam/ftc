@@ -12,17 +12,17 @@ public class FtcClass extends Model {
 
 	public String label;
 	public String ftcId;
-	public String pathToGraph;
+	public int widthSvg;
 	//	public List<String> superClasses;
 
 	@ElementCollection
 	public List<String> subClasses;
 
-	public FtcClass(String ftcId, String label, List<String> subClasses, String pathToGraph) {
+	public FtcClass(String ftcId, String label, List<String> subClasses, int widthSvg) {
 		this.ftcId = ftcId;
 		this.label = label;
 		this.subClasses = subClasses;
-		this.pathToGraph = pathToGraph;
+		this.widthSvg = widthSvg;
 		//		this.superClasses = superClasses;
 	}
 
