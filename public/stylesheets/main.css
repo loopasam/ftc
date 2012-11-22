@@ -8,9 +8,11 @@ h1 {
 }
 
 #header {
-	background-color: orange;
+	border-bottom: 4px solid #72d93f;
 	margin-right: 0px;
 	margin-left: 0px;
 	padding: 1%;
+	color: #838383;
+	font-weight: bold;
 	font-size: xx-large;
 }

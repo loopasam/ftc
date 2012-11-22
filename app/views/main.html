@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript" charset="${_response_encoding}"></script>
-        #{get 'moreScripts' /}
-    </head>
-    <body>
-    <div id="header">Functional Therapeutic Chemical Classification System</div>
-        #{doLayout /}
-    </body>
+<head>
+<title>#{get 'title' /}</title>
+<meta charset="${_response_encoding}">
+<link rel="stylesheet" media="screen"
+    href="@{'/public/stylesheets/main.css'}">
+#{get 'moreStyles' /}
+<link rel="shortcut icon" type="image/png"
+    href="@{'/public/images/favicon.png'}">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"
+    type="text/javascript" charset="${_response_encoding}"></script>
+#{get 'moreScripts' /}
+</head>
+<body>
+
+    <div id="header">
+        <img src="public/images/logo.png" style="vertical-align:middle">
+        <span style="">Functional Therapeutic Chemical
+            Classification System</span>
+    </div>
+
+
+    #{doLayout /}
+</body>
 </html>
