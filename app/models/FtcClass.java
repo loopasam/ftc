@@ -14,7 +14,6 @@ public class FtcClass extends Model {
 	public String label;
 	public String ftcId;
 	public int widthSvg;
-	public Blob graph;
 	//	public List<String> superClasses;
 
 	@ElementCollection

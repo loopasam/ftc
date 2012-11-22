@@ -1,5 +1,6 @@
 h1 {
-	color: orange;
+	color: #72d93f;
+	text-align: center;
 }
 
 #svg-wraper {
@@ -15,4 +16,42 @@ h1 {
 	color: #838383;
 	font-weight: bold;
 	font-size: xx-large;
+}
+
+nav ul {
+	border-bottom: 4px solid #72d93f;
+	margin-top: 0px;
+	background: #838383;
+}
+
+nav li {
+	padding: 0.5%;
+	display: inline-block;
+	margin-right: 1%;
+}
+
+nav li:hover {
+	background-color: #72d93f;
+}
+
+nav a {
+	text-decoration: none;
+	color: white;
+	font-size: x-large;
+	font-weight: bold;
+}
+
+
+.block-information {
+	margin-top: 0px;
+	margin-bottom: 1%;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.block-information > h2 {
+	margin-top: 0px;
+	border-bottom: 2px solid #72d93f;
+	padding: 0.5%;
 }

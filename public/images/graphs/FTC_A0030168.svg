@@ -11,7 +11,7 @@
 <!-- FTC_A0030168 -->
 <g id="node1" class="node"><title>FTC_A0030168</title>
 <a target='_top' xlink:href="http://localhost:9000/FTC_A0030168" xlink:title="FTC_A0030168\nAnti&#45;platelet activation\nagent ">
-<polygon fill="#00ece4" stroke="springgreen" points="138,-36 48,-36 48,-1.06581e-14 138,-0 138,-36"/>
+<polygon fill="#00ece4" stroke="#72d93f" points="138,-36 48,-36 48,-1.06581e-14 138,-0 138,-36"/>
 <text text-anchor="middle" x="93" y="-24.6" font-family="Times Roman,serif" font-size="6.00">FTC_A0030168</text>
 <text text-anchor="middle" x="93" y="-16.6" font-family="Times Roman,serif" font-size="6.00">Anti&#45;platelet activation</text>
 <text text-anchor="middle" x="93" y="-8.6" font-family="Times Roman,serif" font-size="6.00">agent </text>
@@ -20,7 +20,7 @@
 <!-- FTC_A0001775 -->
 <g id="node3" class="node"><title>FTC_A0001775</title>
 <a target='_top' xlink:href="http://localhost:9000/FTC_A0001775" xlink:title="FTC_A0001775\nAnti&#45;cell activation\nagent ">
-<polygon fill="springgreen" stroke="springgreen" points="90,-86 2.84217e-14,-86 7.10543e-15,-50 90,-50 90,-86"/>
+<polygon fill="#72d93f" stroke="#72d93f" points="90,-86 2.84217e-14,-86 7.10543e-15,-50 90,-50 90,-86"/>
 <text text-anchor="middle" x="45" y="-74.6" font-family="Times Roman,serif" font-size="6.00">FTC_A0001775</text>
 <text text-anchor="middle" x="45" y="-66.6" font-family="Times Roman,serif" font-size="6.00">Anti&#45;cell activation</text>
 <text text-anchor="middle" x="45" y="-58.6" font-family="Times Roman,serif" font-size="6.00">agent </text>
@@ -34,7 +34,7 @@
 <!-- FTC_A0007596 -->
 <g id="node11" class="node"><title>FTC_A0007596</title>
 <a target='_top' xlink:href="http://localhost:9000/FTC_A0007596" xlink:title="FTC_A0007596\nAnti&#45;blood coagulation\nagent ">
-<polygon fill="springgreen" stroke="springgreen" points="187,-86 97,-86 97,-50 187,-50 187,-86"/>
+<polygon fill="#72d93f" stroke="#72d93f" points="187,-86 97,-86 97,-50 187,-50 187,-86"/>
 <text text-anchor="middle" x="142" y="-74.6" font-family="Times Roman,serif" font-size="6.00">FTC_A0007596</text>
 <text text-anchor="middle" x="142" y="-66.6" font-family="Times Roman,serif" font-size="6.00">Anti&#45;blood coagulation</text>
 <text text-anchor="middle" x="142" y="-58.6" font-family="Times Roman,serif" font-size="6.00">agent </text>
@@ -48,7 +48,7 @@
 <!-- FTC_A0009987 -->
 <g id="node5" class="node"><title>FTC_A0009987</title>
 <a target='_top' xlink:href="http://localhost:9000/FTC_A0009987" xlink:title="FTC_A0009987\nAnti&#45;cellular process\nagent ">
-<polygon fill="springgreen" stroke="springgreen" points="90,-186 2.84217e-14,-186 7.10543e-15,-150 90,-150 90,-186"/>
+<polygon fill="#72d93f" stroke="#72d93f" points="90,-186 2.84217e-14,-186 7.10543e-15,-150 90,-150 90,-186"/>
 <text text-anchor="middle" x="45" y="-174.6" font-family="Times Roman,serif" font-size="6.00">FTC_A0009987</text>
 <text text-anchor="middle" x="45" y="-166.6" font-family="Times Roman,serif" font-size="6.00">Anti&#45;cellular process</text>
 <text text-anchor="middle" x="45" y="-158.6" font-family="Times Roman,serif" font-size="6.00">agent </text>
@@ -62,7 +62,7 @@
 <!-- FTC_A0008150 -->
 <g id="node7" class="node"><title>FTC_A0008150</title>
 <a target='_top' xlink:href="http://localhost:9000/FTC_A0008150" xlink:title="FTC_A0008150\nAnti&#45;biological_process\nagent ">
-<polygon fill="springgreen" stroke="springgreen" points="187,-236 97,-236 97,-200 187,-200 187,-236"/>
+<polygon fill="#72d93f" stroke="#72d93f" points="187,-236 97,-236 97,-200 187,-200 187,-236"/>
 <text text-anchor="middle" x="142" y="-224.6" font-family="Times Roman,serif" font-size="6.00">FTC_A0008150</text>
 <text text-anchor="middle" x="142" y="-216.6" font-family="Times Roman,serif" font-size="6.00">Anti&#45;biological_process</text>
 <text text-anchor="middle" x="142" y="-208.6" font-family="Times Roman,serif" font-size="6.00">agent </text>
@@ -76,7 +76,7 @@
 <!-- FTC_C1 -->
 <g id="node9" class="node"><title>FTC_C1</title>
 <a target='_top' xlink:href="http://localhost:9000/FTC_C1" xlink:title="FTC_C1\ntherapeutic agent ">
-<polygon fill="springgreen" stroke="springgreen" points="187,-286 97,-286 97,-250 187,-250 187,-286"/>
+<polygon fill="#72d93f" stroke="#72d93f" points="187,-286 97,-286 97,-250 187,-250 187,-286"/>
 <text text-anchor="middle" x="142" y="-270.6" font-family="Times Roman,serif" font-size="6.00">FTC_C1</text>
 <text text-anchor="middle" x="142" y="-262.6" font-family="Times Roman,serif" font-size="6.00">therapeutic agent </text>
 </a>
@@ -89,7 +89,7 @@
 <!-- FTC_A0007599 -->
 <g id="node13" class="node"><title>FTC_A0007599</title>
 <a target='_top' xlink:href="http://localhost:9000/FTC_A0007599" xlink:title="FTC_A0007599\nAnti&#45;hemostasis agent\n">
-<polygon fill="springgreen" stroke="springgreen" points="187,-136 97,-136 97,-100 187,-100 187,-136"/>
+<polygon fill="#72d93f" stroke="#72d93f" points="187,-136 97,-136 97,-100 187,-100 187,-136"/>
 <text text-anchor="middle" x="142" y="-120.6" font-family="Times Roman,serif" font-size="6.00">FTC_A0007599</text>
 <text text-anchor="middle" x="142" y="-112.6" font-family="Times Roman,serif" font-size="6.00">Anti&#45;hemostasis agent</text>
 </a>
@@ -102,7 +102,7 @@
 <!-- FTC_A0050817 -->
 <g id="node21" class="node"><title>FTC_A0050817</title>
 <a target='_top' xlink:href="http://localhost:9000/FTC_A0050817" xlink:title="FTC_A0050817\nAnti&#45;coagulation agent\n">
-<polygon fill="springgreen" stroke="springgreen" points="284,-136 194,-136 194,-100 284,-100 284,-136"/>
+<polygon fill="#72d93f" stroke="#72d93f" points="284,-136 194,-136 194,-100 284,-100 284,-136"/>
 <text text-anchor="middle" x="239" y="-120.6" font-family="Times Roman,serif" font-size="6.00">FTC_A0050817</text>
 <text text-anchor="middle" x="239" y="-112.6" font-family="Times Roman,serif" font-size="6.00">Anti&#45;coagulation agent</text>
 </a>
@@ -115,7 +115,7 @@
 <!-- FTC_A0032501 -->
 <g id="node15" class="node"><title>FTC_A0032501</title>
 <a target='_top' xlink:href="http://localhost:9000/FTC_A0032501" xlink:title="FTC_A0032501\nAnti&#45;multicellular\norganismal process\nagent ">
-<polygon fill="springgreen" stroke="springgreen" points="284,-186 194,-186 194,-150 284,-150 284,-186"/>
+<polygon fill="#72d93f" stroke="#72d93f" points="284,-186 194,-186 194,-150 284,-150 284,-186"/>
 <text text-anchor="middle" x="239" y="-178.6" font-family="Times Roman,serif" font-size="6.00">FTC_A0032501</text>
 <text text-anchor="middle" x="239" y="-170.6" font-family="Times Roman,serif" font-size="6.00">Anti&#45;multicellular</text>
 <text text-anchor="middle" x="239" y="-162.6" font-family="Times Roman,serif" font-size="6.00">organismal process</text>
@@ -130,7 +130,7 @@
 <!-- FTC_A0044707 -->
 <g id="node18" class="node"><title>FTC_A0044707</title>
 <a target='_top' xlink:href="http://localhost:9000/FTC_A0044707" xlink:title="FTC_A0044707\nAnti&#45;single&#45;multicellular\norganism process agent\n">
-<polygon fill="springgreen" stroke="springgreen" points="187,-186 97,-186 97,-150 187,-150 187,-186"/>
+<polygon fill="#72d93f" stroke="#72d93f" points="187,-186 97,-186 97,-150 187,-150 187,-186"/>
 <text text-anchor="middle" x="142" y="-174.6" font-family="Times Roman,serif" font-size="6.00">FTC_A0044707</text>
 <text text-anchor="middle" x="142" y="-166.6" font-family="Times Roman,serif" font-size="6.00">Anti&#45;single&#45;multicellular</text>
 <text text-anchor="middle" x="142" y="-158.6" font-family="Times Roman,serif" font-size="6.00">organism process agent</text>

@@ -1,8 +1,24 @@
 #{extends 'main.html' /}
-#{set title:ftcClass.ftcId /}
+#{set title:ftcClass.ftcId + ' - ' + ftcClass.label /}
 
 <h1>${ftcClass.label}</h1>
+
+<div class="block-information">
+    <h2>Definition</h2>
+    <p>blablaballba</p>
+    
+</div>
+
+<div class="block-information">
+    <h2>Direct subclasses</h2>
+     <ul>
+     #{list items:ftcClass.subClasses, as:'subClass' }
+         <li>${subClass}</li>
+      #{/list}
+      </ul>
+</div>
 
 <div id="svg-wraper" style="width: ${ratioSvg}">
     <object data="@{Application.svg(ftcClass)}" type="image/svg+xml"></object>
 </div>
+
