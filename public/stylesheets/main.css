@@ -6,3 +6,11 @@ h1 {
 	margin-right: auto;
 	margin-left: auto;
 }
+
+#header {
+	background-color: orange;
+	margin-right: 0px;
+	margin-left: 0px;
+	padding: 1%;
+	font-size: xx-large;
+}

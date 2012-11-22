@@ -14,9 +14,7 @@ import models.*;
 public class Application extends Controller {
 
 	public static void index() {
-
-		List<FtcClass> FtcClasses = FtcClass.findAll();
-		render(FtcClasses);
+		render();
 	}
 
 	public static void classVisu(String classId){
