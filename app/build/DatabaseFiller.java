@@ -29,7 +29,6 @@ public class DatabaseFiller {
 
 	private String pathToKb;
 	public final static String LOCATION_GRAPHS = "public/images/graphs/";
-	public static int MAX_WIDTH;
 
 
 	public DatabaseFiller(String pathToOwlFile) {
@@ -52,8 +51,9 @@ public class DatabaseFiller {
 
 		//FTC_C1 - only the one I've created are interesting :-P
 		//TODO: Put the FTC_C1 class instead of the current one for dev
-		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
-//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+		//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
+		//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
 		List<String> drugBankClasses = brain.getSubClasses("FTC_C2", false);
 		List<String> ftcClasses = new ArrayList<String>();
 
@@ -84,22 +84,31 @@ public class DatabaseFiller {
 			//Returns the size of the graph that will be used later on to adjust on the browser.
 			int width = saveGraph(brain, ftcClass);
 
-			//Keep the maximal width in order to define the maximal dimension of the SVG graphs
-			//TODO: max width shouldn't be handled in memory but put directly in the JPA entity
-			//TODO: tireate over all FTCclass and update the value
-			MAX_WIDTH = 0;
-			if(width > MAX_WIDTH){
-				MAX_WIDTH = width;
-				Logger.info("Max width: " + ftcId);
-			}
-
 			//Create a new JPA entity with values used for the rendering later on.
 			new FtcClass(ftcId, label, subClasses, width).save();
 
 		}
-		Logger.info("Max width: " + MAX_WIDTH);
 		brain.sleep();
+		Logger.info("Updating the graphs ratios...");
+		//Update the information about the proportion of the classes
+		List<FtcClass> ftcClassesToUpdate = FtcClass.findAll();
+		int maxWidth = 0;
+		for (FtcClass ftcClass : ftcClassesToUpdate) {
 
+			if(maxWidth < ftcClass.widthSvg){
+				maxWidth = ftcClass.widthSvg;
+			}
+
+			int ratio = ftcClass.widthSvg*100/559;
+			//If the image is bigger than minimal size, then it will be scaled down automatically by the browser
+			if(ratio > 100){
+				ratio = 100;
+			}
+			ftcClass.widthSvg = ratio;
+			ftcClass.save();
+		}
+		Logger.info("Graphs ratios updated");
+		System.out.println("max width: " + maxWidth);
 	}
 
 
@@ -109,7 +118,7 @@ public class DatabaseFiller {
 		gv.addln(gv.start_graph());
 		//Initialize the layout of the SVG graph
 		gv.addln("graph [splines=true overlap=false rankdir=BT nodesep=0.1 ranksep=0.2];");
-		gv.addln("node [shape=box style = filled color=springgreen fixedsize=true width=2 height=0.25 fontsize=6];");
+		gv.addln("node [shape=box style = filled color=springgreen fixedsize=true width=1.25 height=0.5 fontsize=6];");
 		gv.addln("edge [arrowsize=0.3 color=gray];");
 
 		//Maintain the id of the class visited in order to not display edges multiple times.
@@ -120,14 +129,13 @@ public class DatabaseFiller {
 		//Recursive function: Fill the gv object with the relations between class.
 		addSuperClasses(ftcClass, gv, brain, alreadyVisited, undesirableClasses);
 
-		List<String> drugBankClasses = brain.getSubClasses("FTC_C2", false);
-		addSubClasses(ftcClass, gv, brain, alreadyVisited, undesirableClasses, drugBankClasses);
-
 		//Once all the relations are known, adds URLs to nodes.
 		for (String node : alreadyVisited.getAllNodesOnce()) {
 			//TODO: put the good URL
 			gv.addln(node + " [URL=<http://localhost:9000/"+ node +">];");
-			gv.addln(node + " [label=\"\\N\\n" + brain.getLabel(node) + "\"];");
+			String formattedLabel = getFormattedLabel(brain.getLabel(node));
+
+			gv.addln(node + " [label=\"\\N\\n" + formattedLabel + "\"];");
 			if(ftcClass.equals(node)){
 				gv.addln(node + " [fillcolor=\"#00ece4\"];");
 			}
@@ -161,18 +169,36 @@ public class DatabaseFiller {
 
 	}
 
-	//Add the direct subclasses to the graph
-	private void addSubClasses(String ftcClass, GraphViz gv, Brain brain, DotRelations alreadyVisited, List<String> undesirableClasses, List<String> drugBankClasses) throws BrainException {
-		List<String> directSubClasses = brain.getSubClasses(ftcClass, true);
-		directSubClasses.removeAll(undesirableClasses);
-		directSubClasses.removeAll(drugBankClasses);
-		for (String directSubClass : directSubClasses) {
+	//Display the label on multiple lines in order to save horizontal space
+	private String getFormattedLabel(String label) {
 
-			if(!alreadyVisited.contains(directSubClass, ftcClass)){
-				gv.addln(directSubClass + " -> " + ftcClass + ";");
-				alreadyVisited.addRelation(directSubClass, ftcClass);
+		//TODO: deal when overflow
+
+		String formattedLabel = "";
+		String[] words = label.split(" ");
+		final int maxCharactersOnLine = 16;
+		final int maxNumberOfLine = 3;
+		int numberOfLines = 1;
+		int charactersCurrentLine = 0;
+
+		for (String word : words) {
+			charactersCurrentLine += word.length();
+			formattedLabel += word;
+			if(charactersCurrentLine > maxCharactersOnLine){
+
+				if(numberOfLines >= maxNumberOfLine){
+					return formattedLabel + " [...]";
+				}
+
+				formattedLabel += "\\n";
+				numberOfLines++;
+				charactersCurrentLine = 0;
+
+			}else{
+				formattedLabel += " ";
 			}
 		}
+		return formattedLabel;
 	}
 
 	//Adds the relations between classes for the graph

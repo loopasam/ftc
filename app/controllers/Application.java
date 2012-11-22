@@ -25,14 +25,7 @@ public class Application extends Controller {
 			error(404, "Named class '" + classId + "' does not exist");
 		}
 
-		//Normalize the width for the CSS of the parent element of the SVG. 
-		int ratio = ftcClass.widthSvg*100/DatabaseFiller.MAX_WIDTH;
-
-		//If the image is bigger than minimal size, then it will be scaled down automatically by the browser
-		if(ratio > 100){
-			ratio = 100;
-		}
-		String ratioSvg = ratio + "%";
+		String ratioSvg = ftcClass.widthSvg + "%";
 		render(ftcClass, ratioSvg);
 	}
 
