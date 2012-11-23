@@ -53,9 +53,9 @@ public class DatabaseFiller {
 		//FTC_C1 - only the one I've created are interesting :-P
 		//TODO: Put the FTC_C1 class instead of the current one for dev
 		//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
-//				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
 		
-		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
+//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
 		List<String> drugBankClasses = brain.getSubClasses("FTC_C2", false);
 		List<String> ftcClasses = new ArrayList<String>();
 
@@ -126,7 +126,7 @@ public class DatabaseFiller {
 		GraphViz gv = new GraphViz();
 		gv.addln(gv.start_graph());
 		//Initialize the layout of the SVG graph
-		gv.addln("graph [splines=true overlap=false rankdir=BT nodesep=0.1 ranksep=0.2];");
+		gv.addln("graph [splines=true overlap=false rankdir=BT nodesep=0.1 ranksep=0.2 bgcolor=\"#F4F4F4\"];");
 		gv.addln("node [shape=box style = filled color=\"#72d93f\" fixedsize=true width=1.25 height=0.5 fontsize=6];");
 		gv.addln("edge [arrowsize=0.3 color=gray];");
 

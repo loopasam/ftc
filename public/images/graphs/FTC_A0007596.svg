@@ -7,7 +7,7 @@
 <svg viewBox="0.00 0.00 195.00 244.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph1" class="graph" transform="scale(1 1) rotate(0) translate(4 240)">
 <title>G</title>
-<polygon fill="white" stroke="white" points="-4,5 -4,-240 192,-240 192,5 -4,5"/>
+<polygon fill="#f4f4f4" stroke="#f4f4f4" points="-4,5 -4,-240 192,-240 192,5 -4,5"/>
 <!-- FTC_A0007596 -->
 <g id="node1" class="node"><title>FTC_A0007596</title>
 <a target='_top' xlink:href="http://localhost:9000/FTC_A0007596" xlink:title="FTC_A0007596\nAnti&#45;blood coagulation\nagent ">
