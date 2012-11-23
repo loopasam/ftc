@@ -29,6 +29,7 @@ public class DatabaseFiller {
 
 	private String pathToKb;
 	public final static String LOCATION_GRAPHS = "public/images/graphs/";
+	//TODO add one for the full images
 
 
 	public DatabaseFiller(String pathToOwlFile) {
@@ -52,8 +53,9 @@ public class DatabaseFiller {
 		//FTC_C1 - only the one I've created are interesting :-P
 		//TODO: Put the FTC_C1 class instead of the current one for dev
 		//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
-		//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
-		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+//				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+		
+		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
 		List<String> drugBankClasses = brain.getSubClasses("FTC_C2", false);
 		List<String> ftcClasses = new ArrayList<String>();
 
@@ -93,18 +95,25 @@ public class DatabaseFiller {
 		//Update the information about the proportion of the classes
 		List<FtcClass> ftcClassesToUpdate = FtcClass.findAll();
 		int maxWidth = 0;
+
+		int counterUpdate = 1;
+
 		for (FtcClass ftcClass : ftcClassesToUpdate) {
+
+			Logger.info("Update: " + counterUpdate + "/" + total);
+			counterUpdate++;
 
 			if(maxWidth < ftcClass.widthSvg){
 				maxWidth = ftcClass.widthSvg;
 			}
 
-			int ratio = ftcClass.widthSvg*100/559;
+			int ratio = ftcClass.widthSvg*100/600;
 			//If the image is bigger than minimal size, then it will be scaled down automatically by the browser
 			if(ratio > 100){
 				ratio = 100;
 			}
 			ftcClass.widthSvg = ratio;
+			//TODO: optimiser this bit - save it in different entry and do calculation in controller
 			ftcClass.save();
 		}
 		Logger.info("Graphs ratios updated");
@@ -147,7 +156,7 @@ public class DatabaseFiller {
 		String pathSvgFile = LOCATION_GRAPHS + ftcClass + "." + type;
 		File out = new File(pathSvgFile);
 		gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
-
+		
 		//Block to hack the SVG content and replace it in an Web friendly way
 		String svgContent = play.vfs.VirtualFile.fromRelativePath(pathSvgFile).contentAsString();
 		String withoutXlinkSvgContent = svgContent.replaceAll("xlink:href", "target='_top' xlink:href")

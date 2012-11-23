@@ -109,3 +109,120 @@ select ftcclass0_.id as id69_, ftcclass0_.ftcId as ftcId69_, ftcclass0_.label as
 11-21 20:11:49 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Timeout trying to lock table "FTCCLASS"; SQL statement:
 select ftcclass0_.id as id69_, ftcclass0_.ftcId as ftcId69_, ftcclass0_.label as label69_, ftcclass0_.widthSvg as widthSvg69_ from FtcClass ftcclass0_ where ftcclass0_.ftcId=? limit ? [50200-166]
+11-23 11:40:01 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table "FTCCLASS"; SQL statement:
+select ftcclass0_.id as id6_, ftcclass0_.ftcId as ftcId6_, ftcclass0_.label as label6_, ftcclass0_.widthSvg as widthSvg6_ from FtcClass ftcclass0_ where ftcclass0_.ftcId=? limit ? [50200-166]
+11-23 11:40:03 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table "FTCCLASS"; SQL statement:
+select ftcclass0_.id as id6_, ftcclass0_.ftcId as ftcId6_, ftcclass0_.label as label6_, ftcclass0_.widthSvg as widthSvg6_ from FtcClass ftcclass0_ where ftcclass0_.ftcId=? limit ? [50200-166]
+11-23 11:41:03 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table "FTCCLASS"; SQL statement:
+select ftcclass0_.id as id6_, ftcclass0_.ftcId as ftcId6_, ftcclass0_.label as label6_, ftcclass0_.widthSvg as widthSvg6_ from FtcClass ftcclass0_ where ftcclass0_.ftcId=? limit ? [50200-166]
+11-23 11:41:06 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table "FTCCLASS"; SQL statement:
+select ftcclass0_.id as id6_, ftcclass0_.ftcId as ftcId6_, ftcclass0_.label as label6_, ftcclass0_.widthSvg as widthSvg6_ from FtcClass ftcclass0_ where ftcclass0_.ftcId=? limit ? [50200-166]
+11-23 12:22:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-166]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1386)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1361)
+	at org.h2.jdbc.JdbcConnection.getMetaData(JdbcConnection.java:307)
+	at com.mchange.v2.c3p0.impl.DefaultConnectionTester.activeCheckConnectionNoQuery(DefaultConnectionTester.java:185)
+	at com.mchange.v2.c3p0.impl.DefaultConnectionTester.activeCheckConnection(DefaultConnectionTester.java:62)
+	at com.mchange.v2.c3p0.AbstractConnectionTester.activeCheckConnection(AbstractConnectionTester.java:67)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.testPooledConnection(C3P0PooledConnectionPool.java:368)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.refurbishIdleResource(C3P0PooledConnectionPool.java:310)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask.run(BasicResourcePool.java:1999)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+11-23 12:22:59 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-166]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1386)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1361)
+	at org.h2.jdbc.JdbcConnection.getMetaData(JdbcConnection.java:307)
+	at com.mchange.v2.c3p0.impl.DefaultConnectionTester.activeCheckConnectionNoQuery(DefaultConnectionTester.java:185)
+	at com.mchange.v2.c3p0.impl.DefaultConnectionTester.activeCheckConnection(DefaultConnectionTester.java:62)
+	at com.mchange.v2.c3p0.AbstractConnectionTester.activeCheckConnection(AbstractConnectionTester.java:67)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.testPooledConnection(C3P0PooledConnectionPool.java:368)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.refurbishIdleResource(C3P0PooledConnectionPool.java:310)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask.run(BasicResourcePool.java:1999)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+11-23 12:22:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-166]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1386)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1361)
+	at org.h2.jdbc.JdbcConnection.getAutoCommit(JdbcConnection.java:423)
+	at com.mchange.v2.c3p0.impl.C3P0ImplUtils.resetTxnState(C3P0ImplUtils.java:270)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.reset(NewPooledConnection.java:388)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.markClosedProxyConnection(NewPooledConnection.java:362)
+	at com.mchange.v2.c3p0.impl.NewProxyConnection.close(NewProxyConnection.java:1246)
+	at com.mchange.v1.db.sql.ConnectionUtils.attemptClose(ConnectionUtils.java:41)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.testPooledConnection(C3P0PooledConnectionPool.java:413)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.refurbishIdleResource(C3P0PooledConnectionPool.java:310)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask.run(BasicResourcePool.java:1999)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+11-23 12:22:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-166]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1386)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1361)
+	at org.h2.jdbc.JdbcConnection.getMetaData(JdbcConnection.java:307)
+	at com.mchange.v2.c3p0.impl.DefaultConnectionTester.activeCheckConnectionNoQuery(DefaultConnectionTester.java:185)
+	at com.mchange.v2.c3p0.impl.DefaultConnectionTester.activeCheckConnection(DefaultConnectionTester.java:62)
+	at com.mchange.v2.c3p0.AbstractConnectionTester.activeCheckConnection(AbstractConnectionTester.java:67)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.testPooledConnection(C3P0PooledConnectionPool.java:368)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.refurbishIdleResource(C3P0PooledConnectionPool.java:310)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask.run(BasicResourcePool.java:1999)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+11-23 12:22:59 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-166]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1386)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1361)
+	at org.h2.jdbc.JdbcConnection.getAutoCommit(JdbcConnection.java:423)
+	at com.mchange.v2.c3p0.impl.C3P0ImplUtils.resetTxnState(C3P0ImplUtils.java:270)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.reset(NewPooledConnection.java:388)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.markClosedProxyConnection(NewPooledConnection.java:362)
+	at com.mchange.v2.c3p0.impl.NewProxyConnection.close(NewProxyConnection.java:1246)
+	at com.mchange.v1.db.sql.ConnectionUtils.attemptClose(ConnectionUtils.java:41)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.testPooledConnection(C3P0PooledConnectionPool.java:413)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.refurbishIdleResource(C3P0PooledConnectionPool.java:310)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask.run(BasicResourcePool.java:1999)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+11-23 12:22:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-166]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329)
+	at org.h2.message.DbException.get(DbException.java:169)
+	at org.h2.message.DbException.get(DbException.java:146)
+	at org.h2.message.DbException.get(DbException.java:135)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1386)
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1361)
+	at org.h2.jdbc.JdbcConnection.getAutoCommit(JdbcConnection.java:423)
+	at com.mchange.v2.c3p0.impl.C3P0ImplUtils.resetTxnState(C3P0ImplUtils.java:270)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.reset(NewPooledConnection.java:388)
+	at com.mchange.v2.c3p0.impl.NewPooledConnection.markClosedProxyConnection(NewPooledConnection.java:362)
+	at com.mchange.v2.c3p0.impl.NewProxyConnection.close(NewProxyConnection.java:1246)
+	at com.mchange.v1.db.sql.ConnectionUtils.attemptClose(ConnectionUtils.java:41)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.testPooledConnection(C3P0PooledConnectionPool.java:413)
+	at com.mchange.v2.c3p0.impl.C3P0PooledConnectionPool$1PooledConnectionResourcePoolManager.refurbishIdleResource(C3P0PooledConnectionPool.java:310)
+	at com.mchange.v2.resourcepool.BasicResourcePool$AsyncTestIdleResourceTask.run(BasicResourcePool.java:1999)
+	at com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:547)
+11-23 16:45:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Timeout trying to lock table "FTCCLASS"; SQL statement:
+select ftcclass0_.id as id21_, ftcclass0_.ftcId as ftcId21_, ftcclass0_.label as label21_, ftcclass0_.widthSvg as widthSvg21_ from FtcClass ftcclass0_ where ftcclass0_.ftcId=? limit ? [50200-166]

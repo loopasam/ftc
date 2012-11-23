@@ -3,6 +3,11 @@ h1 {
 	text-align: center;
 }
 
+#classId {
+	background-color: #72d93f;
+	color: white;
+}
+
 #svg-wraper {
 	margin-right: auto;
 	margin-left: auto;
@@ -18,29 +23,28 @@ h1 {
 	font-size: xx-large;
 }
 
-nav ul {
+#menu ul {
 	border-bottom: 4px solid #72d93f;
 	margin-top: 0px;
 	background: #838383;
 }
 
-nav li {
+#menu li {
 	padding: 0.5%;
 	display: inline-block;
 	margin-right: 1%;
 }
 
-nav li:hover {
+#menu li:hover {
 	background-color: #72d93f;
 }
 
-nav a {
+#menu a {
 	text-decoration: none;
 	color: white;
-	font-size: x-large;
+	font-size: large;
 	font-weight: bold;
 }
-
 
 .block-information {
 	margin-top: 0px;
@@ -50,8 +54,52 @@ nav a {
 	margin-right: auto;
 }
 
-.block-information > h2 {
+.block-information>h2 {
 	margin-top: 0px;
 	border-bottom: 2px solid #72d93f;
 	padding: 0.5%;
+}
+
+.block-information ul {
+	text-align: center;	
+}
+
+.block-information li {
+	padding: 0.5%;
+	display: inline-block;
+	margin-right: 1%;
+	margin-bottom: 1%;
+	border: 3px solid #838383;
+}
+
+.block-information li:hover {
+	background-color: #72d93f;
+}
+
+.block-information a {
+	text-decoration: none;
+	color: #000;
+}
+
+.zoom {
+	background-color: orange;
+	position: fixed;
+	width: 50px;
+	height: 50px;
+	border: 2px solid black;
+}
+
+#zoom-in {
+	top: 0px;
+	left: 0px;
+}
+
+#zoom-out {
+	top: 50px;
+	left: 0px;
+}
+
+#map {
+	margin-right: auto;
+	margin-left: auto;
 }

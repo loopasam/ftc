@@ -46,6 +46,7 @@ public class Security extends Controller {
 				Date expirationDate = new Date(Long.parseLong(time)); // surround with try/catch?
 				Date now = new Date();
 				if (expirationDate == null || expirationDate.before(now)) {
+					//TODO: handle this, at the moment redirect to logout, should be better done
 					Logger.info("Admin - cookie expired");
 					logout();
 				}
@@ -102,7 +103,7 @@ public class Security extends Controller {
 					if(email.equals(emailAdmin)){
 						session.put("username", email);
 						Date expiration = new Date();
-						String duration = "1d";
+						String duration = "10mn";
 						expiration.setTime(expiration.getTime() + Time.parseDuration(duration));
 						response.setCookie("rememberme", Crypto.sign(email + "-" + expiration.getTime()) + "-" + email + "-" + expiration.getTime(), duration);
 						Logger.info("Admin - Everything went fine");
