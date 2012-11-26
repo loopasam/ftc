@@ -34,14 +34,21 @@ public class Application extends Controller {
 			subClasses.add(subClass);
 		}
 
-		render(ftcClass, ratioSvg, subClasses);
+		List<FtcClass> superClasses = new ArrayList<FtcClass>();
+		//Get the super classes object
+		for (String superClassId : ftcClass.superClasses) {
+			FtcClass superClass = FtcClass.find("byFtcId", superClassId).first();
+			superClasses.add(superClass);
+		}
+		
+		render(ftcClass, ratioSvg, subClasses, superClasses);
 	}
 
 	public static void map(String classId) {
 		FtcClass ftcClass = FtcClass.find("byFtcId", classId).first();
 		render(ftcClass);
 	}
-	
+
 	public static void svg(FtcClass ftcClass) {
 		renderBinary(new File(DatabaseFiller.LOCATION_GRAPHS + ftcClass.ftcId + ".svg"));
 	}

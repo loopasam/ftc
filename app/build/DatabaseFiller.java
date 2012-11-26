@@ -53,9 +53,9 @@ public class DatabaseFiller {
 		//FTC_C1 - only the one I've created are interesting :-P
 		//TODO: Put the FTC_C1 class instead of the current one for dev
 		//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
-				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
-		
-//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
+		//				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+
+		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
 		List<String> drugBankClasses = brain.getSubClasses("FTC_C2", false);
 		List<String> ftcClasses = new ArrayList<String>();
 
@@ -76,9 +76,10 @@ public class DatabaseFiller {
 			counter++;
 			String label = brain.getLabel(ftcClass);
 			String ftcId = ftcClass;
-			//TODO: get the rdfs:comment + other info if needed
-			//TODO implement the superclasses
-			//						List<String> superClasses = brain.getSuperClasses(ftcClass, true);
+			String comment = brain.getComment(ftcClass);
+
+			List<String> superClasses = brain.getSuperClasses(ftcClass, true);
+
 			List<String> subClasses = brain.getSubClasses(ftcClass, true);
 			subClasses.removeAll(drugBankClasses);
 
@@ -87,7 +88,7 @@ public class DatabaseFiller {
 			int width = saveGraph(brain, ftcClass);
 
 			//Create a new JPA entity with values used for the rendering later on.
-			new FtcClass(ftcId, label, subClasses, width).save();
+			new FtcClass(ftcId, label, comment, subClasses, superClasses, width).save();
 
 		}
 		brain.sleep();
@@ -156,7 +157,7 @@ public class DatabaseFiller {
 		String pathSvgFile = LOCATION_GRAPHS + ftcClass + "." + type;
 		File out = new File(pathSvgFile);
 		gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
-		
+
 		//Block to hack the SVG content and replace it in an Web friendly way
 		String svgContent = play.vfs.VirtualFile.fromRelativePath(pathSvgFile).contentAsString();
 		String withoutXlinkSvgContent = svgContent.replaceAll("xlink:href", "target='_top' xlink:href")
@@ -180,8 +181,6 @@ public class DatabaseFiller {
 
 	//Display the label on multiple lines in order to save horizontal space
 	private String getFormattedLabel(String label) {
-
-		//TODO: deal when overflow
 
 		String formattedLabel = "";
 		String[] words = label.split(" ");

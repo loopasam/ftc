@@ -5,27 +5,38 @@
 
 <div class="block-information">
     <h2>Definition</h2>
-    <p>blablaballba</p>
+    <p>${ftcClass.comment}</p>
     
 </div>
 
 <nav class="block-information">
-    <h2>Direct super classes</h2>
+    <h2>Super class${superClasses.size().pluralize('es')}</h2>
+    
+    #{if superClasses.size() == 0}
+    	<p>No superclasses.</p>
+    #{/if}
+    #{else}
         <ul>
-            #{list items:subClasses, as:'subClass' }
-            <li><a href="@{Application.classVisu(subClass.ftcId)}"><span id="classId">${subClass.ftcId}</span> - ${subClass.label}</a></li>
+            #{list items:superClasses, as:'superClass' }
+            <a href="@{Application.classVisu(superClass.ftcId)}"><li>${superClass.ftcId} - ${superClass.label}</li></a>
             #{/list}
-      </ul>   
+      </ul>
+     #{/else}  
 </nav>
 
-
 <nav class="block-information">
-    <h2>Direct subclasses</h2>
+    <h2>Subclass${subClasses.size().pluralize('es')}</h2>
+    
+    #{if subClasses.size() == 0}
+    <p]>No subclasses.</p>
+    #{/if}
+    #{else}
         <ul>
             #{list items:subClasses, as:'subClass' }
-            <li><a href="@{Application.classVisu(subClass.ftcId)}">${subClass.ftcId} - ${subClass.label}</a></li>
+            <a href="@{Application.classVisu(subClass.ftcId)}"><li>${subClass.ftcId} - ${subClass.label}</li></a>
             #{/list}
-      </ul>   
+      </ul>  
+    #{/else}
 </nav>
 
 <nav class="block-information">
