@@ -53,7 +53,7 @@ public class DatabaseFiller {
 		//FTC_C1 - only the one I've created are interesting :-P
 		//TODO: Put the FTC_C1 class instead of the current one for dev
 		//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
-		//				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+//						List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
 
 		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
 		List<String> drugBankClasses = brain.getSubClasses("FTC_C2", false);
