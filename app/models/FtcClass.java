@@ -1,6 +1,8 @@
 package models;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -10,6 +12,8 @@ import javax.persistence.Lob;
 import javax.validation.constraints.Max;
 
 import org.hibernate.annotations.Type;
+
+import build.DatabaseFiller;
 
 import play.db.jpa.Blob;
 import play.db.jpa.Model;
@@ -37,6 +41,16 @@ public class FtcClass extends Model {
 		this.widthSvg = width;
 		this.superClasses = superClasses;
 		this.comment = comment;
+	}
+
+	//TODO a faire plus propre ne pas storer de fichier dans les dossiers Svg
+	//TODO: get the height and width of the window
+	public String svgText() {
+		String svgContent = play.vfs.VirtualFile.fromRelativePath(DatabaseFiller.LOCATION_GRAPHS + this.ftcId + ".svg").contentAsString();
+		String svgWithTunedViewBox = svgContent.replaceAll("viewBox=\".*\" xmlns=\"http://www.w3.org/2000/svg\"",
+				"xmlns=\"http://www.w3.org/2000/svg\"");
+				
+		return svgWithTunedViewBox;
 	}
 
 }

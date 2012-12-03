@@ -53,8 +53,8 @@ public class Application extends Controller {
 		render(ftcClass, ratioSvg, subClasses, superClasses);
 	}
 
-	public static void svg(String ftcId) {
-		renderBinary(new File(DatabaseFiller.LOCATION_GRAPHS + ftcId + ".svg"));
+	public static void svg(FtcClass ftcClass) {
+		renderBinary(new File(DatabaseFiller.LOCATION_GRAPHS + ftcClass.ftcId + ".svg"));
 	}
 
 
@@ -69,8 +69,9 @@ public class Application extends Controller {
 		render(ftcClass, x, y, xmax, ymax);
 	}
 
-	//	public static void scaledSvg(String ftcId, int x, int y, int xmax, int ymax) {
-	//		String svgContent = play.vfs.VirtualFile.fromRelativePath(DatabaseFiller.LOCATION_GRAPHS + ftcId + ".svg").contentAsString();
+//		public static void scaledSvg(FtcClass ftcClass) {
+			
+//			String svgContent = play.vfs.VirtualFile.fromRelativePath(DatabaseFiller.LOCATION_GRAPHS + ftcClass.ftcId + ".svg").contentAsString();
 	//		String svgWithTunedViewBox = svgContent.replaceAll("viewBox=\".*\" xmlns=", "viewBox=\""+x + " " + y + " " + xmax + " " + ymax +"\" xmlns=");
 	//		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	//		byte buf[] = svgWithTunedViewBox.getBytes(); 
@@ -82,6 +83,6 @@ public class Application extends Controller {
 	//		ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
 	//		Response.current().contentType = "image/svg+xml";
 	//		renderBinary(bais);
-	//	}
+//		}
 
 }
