@@ -52,10 +52,11 @@ public class DatabaseFiller {
 
 		//FTC_C1 - only the one I've created are interesting :-P
 		//TODO: Put the FTC_C1 class instead of the current one for dev
-		//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
-//						List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
-
+//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
+//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
 		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
+		
+		
 		List<String> drugBankClasses = brain.getSubClasses("FTC_C2", false);
 		List<String> ftcClasses = new ArrayList<String>();
 
@@ -92,33 +93,7 @@ public class DatabaseFiller {
 
 		}
 		brain.sleep();
-		Logger.info("Updating the graphs ratios...");
-		//Update the information about the proportion of the classes
-		List<FtcClass> ftcClassesToUpdate = FtcClass.findAll();
-		int maxWidth = 0;
 
-		int counterUpdate = 1;
-
-		for (FtcClass ftcClass : ftcClassesToUpdate) {
-
-			Logger.info("Update: " + counterUpdate + "/" + total);
-			counterUpdate++;
-
-			if(maxWidth < ftcClass.widthSvg){
-				maxWidth = ftcClass.widthSvg;
-			}
-
-			int ratio = ftcClass.widthSvg*100/600;
-			//If the image is bigger than minimal size, then it will be scaled down automatically by the browser
-			if(ratio > 100){
-				ratio = 100;
-			}
-			ftcClass.widthSvg = ratio;
-			//TODO: optimiser this bit - save it in different entry and do calculation in controller
-			ftcClass.save();
-		}
-		Logger.info("Graphs ratios updated");
-		System.out.println("max width: " + maxWidth);
 	}
 
 
@@ -172,7 +147,7 @@ public class DatabaseFiller {
 		}
 
 		//Write the corrected file
-		FileWriter fout = new FileWriter(out);		
+		FileWriter fout = new FileWriter(out);
 		fout.write(withoutXlinkSvgContent);
 		fout.close();
 		return width;

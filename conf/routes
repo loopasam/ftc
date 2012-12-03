@@ -15,7 +15,7 @@ GET     /makedb                                       Administration.createDBFro
 # Home page
 GET     /                                       Application.index
 GET     /{classId}                                       Application.classVisu
-GET     /svg/{ftcClass}                                       Application.svg
+GET     /svg/{ftcId}                                       Application.svg
 GET     /map/{classId}                                       Application.map
 
 
