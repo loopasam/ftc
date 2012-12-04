@@ -99,7 +99,6 @@ public class DatabaseFiller {
 
 		GraphViz gv = new GraphViz();
 		gv.addln(gv.start_graph());
-		//TODO put the good color names
 		//Initialize the layout of the SVG graph
 		gv.addln("graph [splines=true overlap=false rankdir=BT nodesep=0.1 ranksep=0.2 bgcolor=\"#F4F4F4\"];");
 		gv.addln("node [shape=box style = filled color=\"#72d93f\" fixedsize=true width=1.25 height=0.5 fontsize=6];");

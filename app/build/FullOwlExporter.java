@@ -64,7 +64,7 @@ public class FullOwlExporter extends OwlExporter {
 						//Iterates over the actions linking the drug to the partner to see 
 						//if the action is mapped to an OWL property (meaningfull)
 						for (String action : relation.getActions()) {
-							
+
 							if(this.getDrugBankRelationsMapper().get(action) != null){
 
 
@@ -131,8 +131,10 @@ public class FullOwlExporter extends OwlExporter {
 			String antiClassId = "FTC_A" + stemGoTerm;
 			this.getBrain().addClass(antiClassId);
 			this.getBrain().label(antiClassId, "Anti-" + goTerm.getName() + " agent");
+			String idForUrl = goTerm.getId().replaceAll("_", ":");
 			this.getBrain().comment(antiClassId, "Agent that stops, prevents, or reduces the frequency, " +
-					"rate or extent of " + goTerm.getName() + ". The " + goTerm.getName() + " is defined as " + goTerm.getDefinition());
+					"rate or extent of the " +
+					"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + goTerm.getName() + "</a>.");
 			this.getBrain().subClassOf(antiClassId, "FTC_C1");
 
 			String antiExpression = "CHEBI_23888 and FTC_R4 some (Protein and FTC_R2 some (GO_0003674 and " +
@@ -146,7 +148,8 @@ public class FullOwlExporter extends OwlExporter {
 
 			this.getBrain().label(proClassId, "Pro-" + goTerm.getName() + " agent");
 			this.getBrain().comment(proClassId, "Agent that activates or increases the frequency, " +
-					"rate or extent of " + goTerm.getName() + ". The " + goTerm.getName() + " is defined as " + goTerm.getDefinition());
+					"rate or extent of the " +
+					"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + goTerm.getName() + "</a>.");			
 			this.getBrain().subClassOf(proClassId, "FTC_C1");
 			String proExpression = "CHEBI_23888 and FTC_R5 some (Protein and FTC_R2 some (GO_0003674 and " +
 					goTermId + "))";
@@ -173,10 +176,13 @@ public class FullOwlExporter extends OwlExporter {
 						this.getBrain().addClass(antiClassId);
 					}
 					this.getBrain().label(antiClassId, "Anti-" + positivelyRegulatedparentTerm.getName() + " agent");
+
+
+					String idForUrl = positivelyRegulatedparentTerm.getId().replaceAll("_", ":");
 					this.getBrain().comment(antiClassId, "Agent that stops, prevents, or reduces the frequency, " +
-							"rate or extent of " + positivelyRegulatedparentTerm.getName() + 
-							". The " + positivelyRegulatedparentTerm.getName() + 
-							" is defined as " + positivelyRegulatedparentTerm.getDefinition());
+							"rate or extent of the " +
+							"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + 
+							positivelyRegulatedparentTerm.getName() + "</a>.");					
 					this.getBrain().subClassOf(antiClassId, "FTC_C1");
 					//TODO: a mettre le probleme en dessous en test une fois que la FTC est classififed
 					//TODO better written justification for patterns on wiki
@@ -200,9 +206,9 @@ public class FullOwlExporter extends OwlExporter {
 
 					this.getBrain().label(proClassId, "Pro-" + positivelyRegulatedparentTerm.getName() + " agent");
 					this.getBrain().comment(proClassId, "Agent that activates or increases the frequency, " +
-							"rate or extent of " + positivelyRegulatedparentTerm.getName() + 
-							". The " + positivelyRegulatedparentTerm.getName() + 
-							" is defined as " + positivelyRegulatedparentTerm.getDefinition());
+							"rate or extent of the " +
+							"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + 
+							positivelyRegulatedparentTerm.getName() + "</a>.");					
 					this.getBrain().subClassOf(proClassId, "FTC_C1");
 					String proExpression = "CHEBI_23888 and FTC_R5 some (Protein and FTC_R1 some (GO_0008150 and " +
 							goTermId + "))";
@@ -221,10 +227,13 @@ public class FullOwlExporter extends OwlExporter {
 						this.getBrain().addClass(antiClassId);
 					}
 					this.getBrain().label(antiClassId, "Anti-" + negativelyRegulatedparentTerm.getName() + " agent");
+
+
+					String idForUrl = negativelyRegulatedparentTerm.getId().replaceAll("_", ":");
 					this.getBrain().comment(antiClassId, "Agent that stops, prevents, or reduces the frequency, " +
-							"rate or extent of " + negativelyRegulatedparentTerm.getName() + 
-							". The " + negativelyRegulatedparentTerm.getName() + 
-							" is defined as " + negativelyRegulatedparentTerm.getDefinition());
+							"rate or extent of the " +
+							"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + 
+							negativelyRegulatedparentTerm.getName() + "</a>.");					
 					this.getBrain().subClassOf(antiClassId, "FTC_C1");
 
 					String antiExpression = "CHEBI_23888 and FTC_R5 some (Protein and FTC_R1 some (GO_0008150 and " +
@@ -240,9 +249,9 @@ public class FullOwlExporter extends OwlExporter {
 
 					this.getBrain().label(proClassId, "Pro-" + negativelyRegulatedparentTerm.getName() + " agent");
 					this.getBrain().comment(proClassId, "Agent that activates or increases the frequency, " +
-							"rate or extent of " + negativelyRegulatedparentTerm.getName() + 
-							". The " + negativelyRegulatedparentTerm.getName() + 
-							" is defined as " + negativelyRegulatedparentTerm.getDefinition());
+							"rate or extent of the " +
+							"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + 
+							negativelyRegulatedparentTerm.getName() + "</a>.");					
 					this.getBrain().subClassOf(proClassId, "FTC_C1");
 					String proExpression = "CHEBI_23888 and FTC_R4 some (Protein and FTC_R1 some (GO_0008150 and " +
 							goTermId + "))";

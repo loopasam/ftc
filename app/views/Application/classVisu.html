@@ -3,9 +3,9 @@
 
 <h1><span id="classId">${ftcClass.ftcId}</span> - ${ftcClass.label}</h1>
 
-<div class="block-information">
+<div class="block-information" id="definition">
     <h2>Definition</h2>
-    <p>${ftcClass.comment}</p>
+    <p>${ftcClass.comment.raw()}</p>
     
 </div>
 
@@ -28,7 +28,7 @@
     <h2>Subclass${subClasses.size().pluralize('es')}</h2>
     
     #{if subClasses.size() == 0}
-    <p]>No subclasses.</p>
+    <p>No subclasses.</p>
     #{/if}
     #{else}
         <ul>

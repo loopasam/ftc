@@ -38,6 +38,12 @@ $(document).ready(function() {
 	$('#graph1').attr('transform', newTransformAttribute);
 });
 </script>
+<div id="title-map"><a href="@{Application.classVisu(ftcClass.ftcId)}">${ftcClass.ftcId} - ${ftcClass.label}</a></div>
+<div id="instructions">
+<strong>Mousewheel</strong><br />Zoom in/out<hr />
+<strong>Drag</strong><br />Pan the map
+</div>
+<div id="compass"></div>
 <div id="wraper">
 ${ftcClass.svgMap().raw()}
 </body>
