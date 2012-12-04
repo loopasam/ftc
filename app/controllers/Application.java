@@ -31,6 +31,7 @@ public class Application extends Controller {
 		//Arbitrary value, seems to be the good ratio in terms of UX
 		int ratio = ftcClass.widthSvg*100/600;
 		//If the image is bigger than minimal size, then it will be scaled down automatically by the browser
+		//Larger maps dcan be explored with the map functionality
 		if(ratio > 100){
 			ratio = 100;
 		}
@@ -53,36 +54,10 @@ public class Application extends Controller {
 		render(ftcClass, ratioSvg, subClasses, superClasses);
 	}
 
-	public static void svg(FtcClass ftcClass) {
-		renderBinary(new File(DatabaseFiller.LOCATION_GRAPHS + ftcClass.ftcId + ".svg"));
-	}
-
 
 	public static void map(String classId) {
 		FtcClass ftcClass = FtcClass.find("byFtcId", classId).first();
-		int x = 0;
-		int y = 0;
-		//TODO: changer ymax par widdth etc...
-		//TODO: send also the ratio for the width
-		int xmax = ftcClass.widthSvg;
-		int ymax = 284;
-		render(ftcClass, x, y, xmax, ymax);
+		render(ftcClass);
 	}
-
-//		public static void scaledSvg(FtcClass ftcClass) {
-			
-//			String svgContent = play.vfs.VirtualFile.fromRelativePath(DatabaseFiller.LOCATION_GRAPHS + ftcClass.ftcId + ".svg").contentAsString();
-	//		String svgWithTunedViewBox = svgContent.replaceAll("viewBox=\".*\" xmlns=", "viewBox=\""+x + " " + y + " " + xmax + " " + ymax +"\" xmlns=");
-	//		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-	//		byte buf[] = svgWithTunedViewBox.getBytes(); 
-	//		try {
-	//			baos.write(buf);
-	//		} catch (IOException e) {
-	//			e.printStackTrace();
-	//		} 
-	//		ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-	//		Response.current().contentType = "image/svg+xml";
-	//		renderBinary(bais);
-//		}
 
 }

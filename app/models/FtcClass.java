@@ -24,9 +24,14 @@ public class FtcClass extends Model {
 	public String label;
 	public String ftcId;
 	public int widthSvg;
+	public int heightSvg;
 
 	@Lob
 	public String comment;
+
+	@Lob
+	public String svgGraph;
+
 
 	@ElementCollection
 	public List<String> superClasses;
@@ -34,23 +39,19 @@ public class FtcClass extends Model {
 	@ElementCollection
 	public List<String> subClasses;
 
-	public FtcClass(String ftcId, String label, String comment, List<String> subClasses, List<String> superClasses, int width) {
+	public FtcClass(String ftcId, String label, String comment, List<String> subClasses, List<String> superClasses) {
 		this.ftcId = ftcId;
 		this.label = label;
 		this.subClasses = subClasses;
-		this.widthSvg = width;
 		this.superClasses = superClasses;
 		this.comment = comment;
 	}
 
-	//TODO a faire plus propre ne pas storer de fichier dans les dossiers Svg
-	//TODO: get the height and width of the window
-	public String svgText() {
-		String svgContent = play.vfs.VirtualFile.fromRelativePath(DatabaseFiller.LOCATION_GRAPHS + this.ftcId + ".svg").contentAsString();
-		String svgWithTunedViewBox = svgContent.replaceAll("viewBox=\".*\" xmlns=\"http://www.w3.org/2000/svg\"",
+	//Hack to remove the viewBox in order to profit from the zoom/pan library
+	public String svgMap() {
+		String svgMap = this.svgGraph.replaceAll("viewBox=\".*\" xmlns=\"http://www.w3.org/2000/svg\"",
 				"xmlns=\"http://www.w3.org/2000/svg\"");
-				
-		return svgWithTunedViewBox;
+		return svgMap;
 	}
 
 }

@@ -28,9 +28,7 @@ import utils.GraphViz;
 public class DatabaseFiller {
 
 	private String pathToKb;
-	public final static String LOCATION_GRAPHS = "public/images/graphs/";
-	//TODO add one for the full images
-
+	public final static String LOCATION_GRAPHS = "data/tmp/graphs/";
 
 	public DatabaseFiller(String pathToOwlFile) {
 		this.setPathToKb(pathToOwlFile);
@@ -84,23 +82,24 @@ public class DatabaseFiller {
 			List<String> subClasses = brain.getSubClasses(ftcClass, true);
 			subClasses.removeAll(drugBankClasses);
 
-			//Save the graph as SVG to be ready to be rendered.
-			//Returns the size of the graph that will be used later on to adjust on the browser.
-			int width = saveGraph(brain, ftcClass);
-
 			//Create a new JPA entity with values used for the rendering later on.
-			new FtcClass(ftcId, label, comment, subClasses, superClasses, width).save();
-
+			FtcClass ftcClassObject = new FtcClass(ftcId, label, comment, subClasses, superClasses);
+			//Save the graph as SVG to be ready to be rendered. The string of the content of the SVG is saved
+			//on the database
+			saveGraph(brain, ftcClassObject);
+			//Saves the object in the database
+			ftcClassObject.save();
 		}
 		brain.sleep();
 
 	}
 
 
-	private int saveGraph(Brain brain, String ftcClass) throws BrainException, IOException {
+	private void saveGraph(Brain brain, FtcClass ftcClass) throws BrainException, IOException {
 
 		GraphViz gv = new GraphViz();
 		gv.addln(gv.start_graph());
+		//TODO put the good color names
 		//Initialize the layout of the SVG graph
 		gv.addln("graph [splines=true overlap=false rankdir=BT nodesep=0.1 ranksep=0.2 bgcolor=\"#F4F4F4\"];");
 		gv.addln("node [shape=box style = filled color=\"#72d93f\" fixedsize=true width=1.25 height=0.5 fontsize=6];");
@@ -112,7 +111,7 @@ public class DatabaseFiller {
 		List<String> undesirableClasses = brain.getSuperClasses("FTC_C1", false);
 
 		//Recursive function: Fill the gv object with the relations between class.
-		addSuperClasses(ftcClass, gv, brain, alreadyVisited, undesirableClasses);
+		addSuperClasses(ftcClass.ftcId, gv, brain, alreadyVisited, undesirableClasses);
 
 		//Once all the relations are known, adds URLs to nodes.
 		for (String node : alreadyVisited.getAllNodesOnce()) {
@@ -121,15 +120,16 @@ public class DatabaseFiller {
 			String formattedLabel = getFormattedLabel(brain.getLabel(node));
 
 			gv.addln(node + " [label=\"\\N\\n" + formattedLabel + "\"];");
-			if(ftcClass.equals(node)){
+			if(ftcClass.ftcId.equals(node)){
 				gv.addln(node + " [fillcolor=\"#00ece4\"];");
 			}
 		}
 
 		gv.addln(gv.end_graph());
 		String type = "svg";
-		//Save the SVG graph. Arbitrary location
-		String pathSvgFile = LOCATION_GRAPHS + ftcClass + "." + type;
+		//Save the SVG graph. Arbitrary temporary location
+		//Has to be done has the dot program is used to generate the graph
+		String pathSvgFile = LOCATION_GRAPHS + ftcClass.ftcId + "." + type;
 		File out = new File(pathSvgFile);
 		gv.writeGraphToFile( gv.getGraph( gv.getDotSource(), type ), out );
 
@@ -137,21 +137,23 @@ public class DatabaseFiller {
 		String svgContent = play.vfs.VirtualFile.fromRelativePath(pathSvgFile).contentAsString();
 		String withoutXlinkSvgContent = svgContent.replaceAll("xlink:href", "target='_top' xlink:href")
 				.replaceAll("<svg.*\n", "<svg");
-
-		//Get the with of the SVG. Used later to render the SVG correctly on the browser
-		Pattern pattern = Pattern.compile("viewBox=\"\\d+\\.\\d\\d \\d+\\.\\d\\d (\\d+)\\.\\d\\d \\d+\\.\\d\\d\"");
+		
+		//Get the width and height of the SVG. Used later to render the SVG correctly on the browser
+		Pattern pattern = Pattern.compile("viewBox=\"\\d+\\.\\d\\d \\d+\\.\\d\\d (\\d+)\\.\\d\\d (\\d+)\\.\\d\\d\"");
 		Matcher matcher = pattern.matcher(withoutXlinkSvgContent);
 		int width = 0;
+		int height = 0;
 		while (matcher.find()) {
 			width = Integer.parseInt(matcher.group(1));
+			height = Integer.parseInt(matcher.group(2));
 		}
+		
+		//Set the width and height values
+		ftcClass.widthSvg = width;
+		ftcClass.heightSvg = height;
 
-		//Write the corrected file
-		FileWriter fout = new FileWriter(out);
-		fout.write(withoutXlinkSvgContent);
-		fout.close();
-		return width;
-
+		//Save the content of the SVG done in a web friendly way
+		ftcClass.svgGraph = withoutXlinkSvgContent;
 	}
 
 	//Display the label on multiple lines in order to save horizontal space
@@ -184,7 +186,7 @@ public class DatabaseFiller {
 		return formattedLabel;
 	}
 
-	//Adds the relations between classes for the graph
+	//Adds the relations between classes for the graph using the DOT syntax
 	private void addSuperClasses(String ftcClass, GraphViz gv, Brain brain, DotRelations alreadyVisited, List<String> undesirableClasses) throws BrainException {
 		List<String> directSuperClasses = brain.getSuperClasses(ftcClass, true);
 		directSuperClasses.removeAll(undesirableClasses);

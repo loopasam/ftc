@@ -104,3 +104,7 @@ h1 {
 	margin-right: auto;
 	margin-left: auto;
 }
+
+.node:hover {
+	text-decoration: underline;
+}

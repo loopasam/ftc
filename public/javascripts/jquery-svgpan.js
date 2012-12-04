@@ -118,7 +118,6 @@
 		factory(jQuery);
 	}
 }(function ($) {
-	console.log("inside pan");
 	"use strict";
 	var NONE = 0,
 	PAN = 1,
@@ -134,8 +133,6 @@
 		$parent = $root.parent(),
 		recentOffset = $root.offset(),
 		
-//		console.log($root);
-
 		// FF sometimes doesn't calculate this anything near correctly
 		// for SVGs.
 		offsetIsBroken = Math.abs($root.offset().left) > 1e5,
@@ -260,7 +257,6 @@
 				recentOffset = $root.offset();
 				$root.bind('mousemove', handleMouseMove);
 				isMouseOverElem = true;
-				console.log("mouse over element");
 			}
 		},
 
@@ -362,24 +358,18 @@
        @param zoomScale Float zoom sensitivity, defaults to .2
 	 **/
 	$.fn.svgPan = function (viewportId, enablePan, enableZoom, enableDrag, zoomScale) {
-		console.log("method called");
 		enablePan = typeof enablePan !== 'undefined' ? enablePan : true;
 		enableZoom = typeof enableZoom !== 'undefined' ? enableZoom : true;
 		enableDrag = typeof enableDrag !== 'undefined' ? enableDrag : false;
 		zoomScale = typeof zoomScale !== 'undefined' ? zoomScale : 0.2;
-
-		console.log(this);
 		
 		return $.each(this, function (i, el) {
-			console.log("inside each");
 			var $el = $(el),
 			svg,
 			viewport;
 			// only call upon elements that are SVGs and haven't already been initialized.
 			if ($el.is('svg') && $el.data('SVGPan') !== true) {
 				viewport = $el.find('#' + viewportId)[0];
-				console.log("getting the viewport id");
-				console.log(viewport);
 				if (viewport) {
 					init($el[0], viewport, enablePan, enableZoom, enableDrag, zoomScale);
 				} else {
