@@ -38,13 +38,20 @@ public class FtcClass extends Model {
 
 	@ElementCollection
 	public List<String> subClasses;
+	
+	@ElementCollection
+	public List<String> directAgents;
+	
+	@ElementCollection
+	public List<String> indirectAgents;
 
-	public FtcClass(String ftcId, String label, String comment, List<String> subClasses, List<String> superClasses) {
+	public FtcClass(String ftcId, String label, String comment, List<String> subClasses, List<String> superClasses, List<String> directAgents) {
 		this.ftcId = ftcId;
 		this.label = label;
 		this.subClasses = subClasses;
 		this.superClasses = superClasses;
 		this.comment = comment;
+		this.directAgents = directAgents;
 	}
 
 	//Hack to remove the viewBox in order to profit from the zoom/pan library

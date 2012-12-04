@@ -40,6 +40,13 @@ h1 {
 	margin-right: 1%;
 }
 
+.transition {
+	-webkit-transition: all 0.1s ease-out; 
+	-moz-transition: all 0.1s ease-out; 
+	-o-transition: all 0.1s ease-out; 
+	transition: all 0.1s ease-out; 
+}
+
 #menu li:hover {
 	background-color: #72d93f;
 }

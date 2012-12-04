@@ -22,20 +22,15 @@ public class Security extends Controller {
 
 	@Before(unless={"login", "auth", "logout"})
 	static void checkAccess() throws Throwable {
-		Logger.info("-----");
-		Logger.info("Admin - At before");
 		if(!session.contains("username")) {
-			Logger.info("User not logged, shows login screen");
 			login();
 		}
-		Logger.info("Admin - User logged");
 	}
 
 	public static void login() throws Throwable {
 
 		Http.Cookie remember = request.cookies.get("rememberme");
 		if(remember != null) {
-			Logger.info("Admin - remeber different of null");
 			int firstIndex = remember.value.indexOf("-");
 			int lastIndex = remember.value.lastIndexOf("-");
 			if (lastIndex > firstIndex) {
@@ -46,19 +41,15 @@ public class Security extends Controller {
 				Date expirationDate = new Date(Long.parseLong(time)); // surround with try/catch?
 				Date now = new Date();
 				if (expirationDate == null || expirationDate.before(now)) {
-					//TODO: handle this, at the moment redirect to logout, should be better done
-					Logger.info("Admin - cookie expired");
 					logout();
 				}
 				if(Crypto.sign(restOfCookie).equals(sign)) {
-					Logger.info("Admin - correct cookie");
 					session.put("username", username);
 					Administration.index();
 				}
 			}
 		}
 
-		Logger.info("Admin - Doing the Google OAuth");
 		//The user is supposed to let access to it's information
 		String urlGoogleOAuth = "https://accounts.google.com/o/oauth2/auth?" +
 				"scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+" +
@@ -75,14 +66,11 @@ public class Security extends Controller {
 
 	public static void auth(String code) {
 
-		Logger.info("Admin - Back from Google OAuth");
 		//Depending on what the user entered, could be an error
 		if(code == null){
-			Logger.info("Admin - Code is null --> home page");
 			redirect("Application.index");
 		}
 
-		Logger.info("Admin - Call for token");
 		//call for access token
 		HttpResponse res = WS.url("https://accounts.google.com/o/oauth2/token").
 				setParameter("code", code).setParameter("client_id", "1009954177381.apps.googleusercontent.com").
@@ -114,14 +102,12 @@ public class Security extends Controller {
 			}
 
 		}
-		Logger.info("Admin - Access token was null going to show the home page");
 		Application.index();
 	}
 
 	public static void logout() throws Throwable {
 		session.clear();
 		response.removeCookie("rememberme");
-		Logger.info("Admin - logout");
 		Application.index();
 	}
 

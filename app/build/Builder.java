@@ -51,6 +51,7 @@ public class Builder {
 	public void createAndPopulateDatabase() throws BrainException, IOException {
 		DatabaseFiller filler = new DatabaseFiller("data/ftc-kb-full.owl");
 		filler.start();
+//		filler.test();
 	}
 
 }

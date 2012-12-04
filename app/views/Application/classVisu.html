@@ -17,11 +17,14 @@
     #{/if}
     #{else}
         <ul>
+        
             #{list items:superClasses, as:'superClass' }
-            <a href="@{Application.classVisu(superClass.ftcId)}"><li>${superClass.ftcId} - ${superClass.label}</li></a>
+            #{if superClass != null}
+            <a href="@{Application.classVisu(superClass.ftcId)}"><li class="transition">${superClass.ftcId} - ${superClass.label}</li></a>
+            #{/if}
             #{/list}
       </ul>
-     #{/else}  
+     #{/else}
 </nav>
 
 <nav class="block-information">
@@ -32,12 +35,22 @@
     #{/if}
     #{else}
         <ul>
+        
             #{list items:subClasses, as:'subClass' }
-            <a href="@{Application.classVisu(subClass.ftcId)}"><li>${subClass.ftcId} - ${subClass.label}</li></a>
+            #{if subClass != null}
+            <a href="@{Application.classVisu(subClass.ftcId)}"><li class="transition">${subClass.ftcId} - ${subClass.label}</li></a>
+            #{/if}
             #{/list}
+        
       </ul>  
     #{/else}
 </nav>
+
+<nav class="block-information">
+    <h2>Agents</h2>
+    <p>${ftcClass.directAgents}</p>
+</nav>
+
 
 <nav class="block-information">
 <h2>Taxonomic Tree</h2>

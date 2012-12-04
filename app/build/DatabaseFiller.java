@@ -50,11 +50,14 @@ public class DatabaseFiller {
 
 		//FTC_C1 - only the one I've created are interesting :-P
 		//TODO: Put the FTC_C1 class instead of the current one for dev
-//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
-//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+//				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
+		//Anti-blood coaguilation - x-small
+//				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+		//Anti molecular function --> bigger (2500 classes)
 		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
-		
-		
+//		ftcAndDrugBankClasses.add("FTC_A0008150");
+
+
 		List<String> drugBankClasses = brain.getSubClasses("FTC_C2", false);
 		List<String> ftcClasses = new ArrayList<String>();
 
@@ -82,8 +85,16 @@ public class DatabaseFiller {
 			List<String> subClasses = brain.getSubClasses(ftcClass, true);
 			subClasses.removeAll(drugBankClasses);
 
+			subClasses = brain.getSubClasses(ftcClass, true);
+			List<String> directAgents = new ArrayList<String>();
+			for (String subClass : subClasses) {
+				if(drugBankClasses.contains(subClass)){
+					directAgents.add(subClass);
+				}
+			}
+			
 			//Create a new JPA entity with values used for the rendering later on.
-			FtcClass ftcClassObject = new FtcClass(ftcId, label, comment, subClasses, superClasses);
+			FtcClass ftcClassObject = new FtcClass(ftcId, label, comment, subClasses, superClasses, directAgents);
 			//Save the graph as SVG to be ready to be rendered. The string of the content of the SVG is saved
 			//on the database
 			saveGraph(brain, ftcClassObject);
@@ -91,7 +102,6 @@ public class DatabaseFiller {
 			ftcClassObject.save();
 		}
 		brain.sleep();
-
 	}
 
 
@@ -108,10 +118,8 @@ public class DatabaseFiller {
 		DotRelations alreadyVisited = new DotRelations();
 		//Classes not informative, not to be displayed - Arbitrary value.
 		List<String> undesirableClasses = brain.getSuperClasses("FTC_C1", false);
-
 		//Recursive function: Fill the gv object with the relations between class.
 		addSuperClasses(ftcClass.ftcId, gv, brain, alreadyVisited, undesirableClasses);
-
 		//Once all the relations are known, adds URLs to nodes.
 		for (String node : alreadyVisited.getAllNodesOnce()) {
 			//TODO: put the good URL
@@ -136,7 +144,7 @@ public class DatabaseFiller {
 		String svgContent = play.vfs.VirtualFile.fromRelativePath(pathSvgFile).contentAsString();
 		String withoutXlinkSvgContent = svgContent.replaceAll("xlink:href", "target='_top' xlink:href")
 				.replaceAll("<svg.*\n", "<svg");
-		
+
 		//Get the width and height of the SVG. Used later to render the SVG correctly on the browser
 		Pattern pattern = Pattern.compile("viewBox=\"\\d+\\.\\d\\d \\d+\\.\\d\\d (\\d+)\\.\\d\\d (\\d+)\\.\\d\\d\"");
 		Matcher matcher = pattern.matcher(withoutXlinkSvgContent);
@@ -146,7 +154,7 @@ public class DatabaseFiller {
 			width = Integer.parseInt(matcher.group(1));
 			height = Integer.parseInt(matcher.group(2));
 		}
-		
+
 		//Set the width and height values
 		ftcClass.widthSvg = width;
 		ftcClass.heightSvg = height;
@@ -196,6 +204,15 @@ public class DatabaseFiller {
 				alreadyVisited.addRelation(ftcClass, directSuperClass);
 				addSuperClasses(directSuperClass, gv, brain, alreadyVisited, undesirableClasses);
 			}
+		}
+	}
+
+	public void test() throws BrainException {
+		// TODO Auto-generated method stub
+		ArrayList<String> brains = new ArrayList<String>();
+		for (int i = 0; i < 100000; i++) {
+			String brain = "pouet";
+			brains.add(brain);
 		}
 	}
 
