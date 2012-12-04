@@ -18,12 +18,24 @@
 $(document).ready(function() {
 	//Initialisation of SVGPan - https://github.com/talos/jquery-svgpan
 	$('svg').svgPan('graph1', true, true, false, 0.2);
-	var width = $(window).width();
-	var height = $(window).height();
-	$('svg').css({height: height, width : width});
+	//Width and height of the web browser window
+	var window_width = $(window).width();
+	var window_height = $(window).height();
+	//Occupies a bit less than the whole screen
+	$('svg').css({height: window_height-10, width : window_width});
 	//Select the SVG and put it in the middle of the page
-	var content = $('#graph1').attr('transform');
-	console.log(content);
+	var transform = $('#graph1').attr('transform');
+	var regexp = /translate\((\d+) (\d+)\)/g;
+	var match = regexp.exec(transform);
+	var viewBoxWidth = parseInt(match[1]);
+	var viewBoxHeight = parseInt(match[2]);
+	
+	//Calculate the new width coordinate
+	var widthCoordinate = viewBoxWidth + (window_width - ${ftcClass.widthSvg} - viewBoxWidth)/2;
+	//Calculate the new height coordinate
+	var heightCoordinate = (viewBoxHeight/2) + (window_height/2);
+	var newTransformAttribute = transform.replace(/translate.*/g,"translate(" + widthCoordinate + " " + heightCoordinate + ")");
+	$('#graph1').attr('transform', newTransformAttribute);
 });
 </script>
 <div id="wraper">
