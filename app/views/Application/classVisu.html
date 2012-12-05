@@ -1,6 +1,12 @@
 #{extends 'main.html' /}
 #{set title:ftcClass.ftcId + ' - ' + ftcClass.label /}
 
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.collapsable').toggle
+});
+</script>
+
 <h1><span id="classId">${ftcClass.ftcId}</span> - ${ftcClass.label}</h1>
 
 <div class="block-information" id="definition">
@@ -9,7 +15,7 @@
 </div>
 
 <nav id="agents" class="block-information">
-    <h2>Agents</h2>
+    <h2><span>(-)</span> Agents</h2>
       <ul>
         #{list items:ftcClass.directAgents, as:'agent' }
         <a href="@{Application.agent(agent.drugBankId)}"><li class="transition direct">${agent.drugBankId} - ${agent.label}</li></a>
@@ -36,7 +42,9 @@
             #{list items:superClasses, as:'superClass' }
             #{if superClass != null}
             <a href="@{Application.classVisu(superClass.ftcId)}">
-            	<li class="transition direct">${superClass.ftcId} - ${superClass.label}</li>
+            	<li class="transition direct #{if superClass.indirectAgentsId.size() > 0 || superClass.directAgents.size() > 0}has-drug#{/if}">
+            	${superClass.ftcId} - ${superClass.label}
+            	</li>
             </a>
             #{/if}
             #{/list}
@@ -55,7 +63,7 @@
             #{list items:subClasses, as:'subClass' }
               #{if subClass != null}
               <a href="@{Application.classVisu(subClass.ftcId)}">
-             	<li class="transition direct #{if subClass.indirectAgentsId.size() > 0}relevant#{/if}">
+             	<li class="transition direct #{if subClass.indirectAgentsId.size() > 0 || subClass.directAgents.size() > 0}has-drug#{/if}">
              	 ${subClass.ftcId} - ${subClass.label}
              	</li>
               </a>
