@@ -84,7 +84,8 @@ public class DatabaseFiller {
 			List<String> superClasses = brain.getSuperClasses(ftcClass, true);
 
 			List<String> subClasses = brain.getSubClasses(ftcClass, true);
-			subClasses.removeAll(drugBankClasses);
+			List<String> ftcSubClass = subClasses;
+			ftcSubClass.removeAll(drugBankClasses);
 
 			//Retrieves the direct agents and store them as object
 			subClasses = brain.getSubClasses(ftcClass, true);
@@ -110,7 +111,7 @@ public class DatabaseFiller {
 			}
 
 			//Create a new JPA entity with values used for the rendering later on.
-			FtcClass ftcClassObject = new FtcClass(ftcId, label, comment, subClasses, superClasses, directAgents, indirectAgents);
+			FtcClass ftcClassObject = new FtcClass(ftcId, label, comment, ftcSubClass, superClasses, directAgents, indirectAgents);
 			//Save the graph as SVG to be ready to be rendered. The string of the content of the SVG is saved
 			//on the database
 			saveGraph(brain, ftcClassObject);

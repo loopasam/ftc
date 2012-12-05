@@ -132,6 +132,10 @@ h1 {
 	border: 2px solid #838383;
 }
 
+.numbers {
+	font-weight: lighter;
+}
+
 #map {
 	margin-right: auto;
 	margin-left: auto;

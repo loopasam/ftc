@@ -3,7 +3,11 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('.collapsable').toggle
+	$('.togglable').click(function() {
+		$(this).parent().find('.togglable').toggle();
+  		$(this).parent().parent().find('ul').toggle('fast', function() {});
+});
+	
 });
 </script>
 
@@ -15,7 +19,10 @@ $(document).ready(function() {
 </div>
 
 <nav id="agents" class="block-information">
-    <h2><span>(-)</span> Agents</h2>
+    <h2>
+    <span class="togglable">[-] </span>
+    <span class="togglable" style="display: none">[+] </span>
+    Agents<span class="numbers"> (Direct: ${ftcClass.directAgents.size()} - Indirect: ${indirectAgents.size()})</span></h2>
       <ul>
         #{list items:ftcClass.directAgents, as:'agent' }
         <a href="@{Application.agent(agent.drugBankId)}"><li class="transition direct">${agent.drugBankId} - ${agent.label}</li></a>
@@ -32,7 +39,9 @@ $(document).ready(function() {
 
 
 <nav class="block-information class-info">
-    <h2>Super class${superClasses.size().pluralize('es')}</h2>
+    <h2><span class="togglable">[-] </span>
+    <span class="togglable" style="display: none">[+] </span>
+    Super class${superClasses.size().pluralize('es')}<span class="numbers"> (${superClasses.size()})</span></h2>
     
     #{if superClasses.size() == 0}
     	<p>No superclasses.</p>
@@ -53,7 +62,9 @@ $(document).ready(function() {
 </nav>
 
 <nav class="block-information class-info">
-    <h2>Subclass${subClasses.size().pluralize('es')}</h2>
+    <h2><span class="togglable">[-] </span>
+    <span class="togglable" style="display: none">[+] </span>
+    Subclass${subClasses.size().pluralize('es')}<span class="numbers"> (${subClasses.size()})</span></h2>
     
     #{if subClasses.size() == 0}
     <p>No subclasses.</p>
