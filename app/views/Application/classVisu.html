@@ -6,10 +6,26 @@
 <div class="block-information" id="definition">
     <h2>Definition</h2>
     <p>${ftcClass.comment.raw()}</p>
-    
 </div>
 
-<nav class="block-information">
+<nav id="agents" class="block-information">
+    <h2>Agents</h2>
+      <ul>
+        #{list items:ftcClass.directAgents, as:'agent' }
+        <a href="@{Application.agent(agent.drugBankId)}"><li class="transition direct">${agent.drugBankId} - ${agent.label}</li></a>
+        #{/list}
+        
+        #{list items:indirectAgents, as:'indirectAgent' }
+        <a href="@{Application.agent(indirectAgent.drugBankId)}">
+        	<li class="transition inferred">${indirectAgent.drugBankId} - ${indirectAgent.label}</li>
+        </a>
+        #{/list}
+        
+      </ul>
+</nav>
+
+
+<nav class="block-information class-info">
     <h2>Super class${superClasses.size().pluralize('es')}</h2>
     
     #{if superClasses.size() == 0}
@@ -17,17 +33,18 @@
     #{/if}
     #{else}
         <ul>
-        
             #{list items:superClasses, as:'superClass' }
             #{if superClass != null}
-            <a href="@{Application.classVisu(superClass.ftcId)}"><li class="transition">${superClass.ftcId} - ${superClass.label}</li></a>
+            <a href="@{Application.classVisu(superClass.ftcId)}">
+            	<li class="transition direct">${superClass.ftcId} - ${superClass.label}</li>
+            </a>
             #{/if}
             #{/list}
       </ul>
      #{/else}
 </nav>
 
-<nav class="block-information">
+<nav class="block-information class-info">
     <h2>Subclass${subClasses.size().pluralize('es')}</h2>
     
     #{if subClasses.size() == 0}
@@ -35,20 +52,17 @@
     #{/if}
     #{else}
         <ul>
-        
             #{list items:subClasses, as:'subClass' }
-            #{if subClass != null}
-            <a href="@{Application.classVisu(subClass.ftcId)}"><li class="transition">${subClass.ftcId} - ${subClass.label}</li></a>
-            #{/if}
+              #{if subClass != null}
+              <a href="@{Application.classVisu(subClass.ftcId)}">
+             	<li class="transition direct #{if subClass.indirectAgentsId.size() > 0}relevant#{/if}">
+             	 ${subClass.ftcId} - ${subClass.label}
+             	</li>
+              </a>
+              #{/if}
             #{/list}
-        
       </ul>  
     #{/else}
-</nav>
-
-<nav class="block-information">
-    <h2>Agents</h2>
-    <p>${ftcClass.directAgents}</p>
 </nav>
 
 

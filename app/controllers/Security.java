@@ -94,7 +94,6 @@ public class Security extends Controller {
 						String duration = "10mn";
 						expiration.setTime(expiration.getTime() + Time.parseDuration(duration));
 						response.setCookie("rememberme", Crypto.sign(email + "-" + expiration.getTime()) + "-" + email + "-" + expiration.getTime(), duration);
-						Logger.info("Admin - Everything went fine");
 						Administration.index();
 					}
 				}

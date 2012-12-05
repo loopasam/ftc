@@ -16,7 +16,7 @@ GET     /makedb                                       Administration.createDBFro
 GET     /                                       Application.index
 GET     /{classId}                                       Application.classVisu
 GET     /map/{classId}                                       Application.map
-
+GET     /agent/{drugbankId}                                       Application.agent
 
 
 # Ignore favicon requests

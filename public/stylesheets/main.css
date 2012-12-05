@@ -82,11 +82,15 @@ h1 {
 	display: inline-block;
 	margin-right: 1%;
 	margin-bottom: 1%;
-	border: 3px solid #838383;
+}
+
+.class-info li:hover {
+	background-color: #72d93f;
+	
 }
 
 .block-information li:hover {
-	background-color: #72d93f;
+	color: #fff;
 }
 
 .block-information a {
@@ -100,26 +104,32 @@ h1 {
 	padding-bottom: 15px;
 }
 
+#agents{
+	background-color: #e0ecff;
+}
+
+#agents>h2 {
+	border-bottom: 2px solid #5395f8;
+}
+
+#agents li:hover {
+	background-color: #5395f8
+}
+
 #definition a {
 	text-decoration: underline;
 }
 
-.zoom {
-	background-color: orange;
-	position: fixed;
-	width: 50px;
-	height: 50px;
-	border: 2px solid black;
+.inferred {
+	border: 2px dashed #838383;
 }
 
-#zoom-in {
-	top: 0px;
-	left: 0px;
+.relevant {
+	font-weight: bold;
 }
 
-#zoom-out {
-	top: 50px;
-	left: 0px;
+.direct{
+	border: 2px solid #838383;
 }
 
 #map {

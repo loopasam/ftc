@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="0.008" errors="0" skipped="0" tests="1" name="other.ModelTest">
+  <testcase classname="other.ModelTest" name="createFtcClass" time="0.008">
+      </testcase>
+</testsuite>

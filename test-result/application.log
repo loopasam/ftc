@@ -1,5 +1,5 @@
-20 Nov 2012 14:39:53,955 INFO  ~ Starting /home/samuel/git/ftc
-20 Nov 2012 14:39:54,635 WARN  ~ You're running Play! in DEV mode
-20 Nov 2012 14:39:54,733 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
-20 Nov 2012 14:39:59,132 INFO  ~ Connected to jdbc:h2:mem:play;MODE=MYSQL;LOCK_MODE=0
-20 Nov 2012 14:39:59,957 INFO  ~ Application 'ftc' is now started !
+05 Dec 2012 13:52:20,813 INFO  ~ Starting /home/samuel/git/ftc
+05 Dec 2012 13:52:21,595 WARN  ~ You're running Play! in DEV mode
+05 Dec 2012 13:52:21,701 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+05 Dec 2012 13:52:29,840 INFO  ~ Connected to jdbc:h2:mem:play;MODE=MYSQL;LOCK_MODE=0
+05 Dec 2012 13:52:30,704 INFO  ~ Application 'ftc' is now started !

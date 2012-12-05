@@ -50,14 +50,26 @@ public class Application extends Controller {
 			FtcClass superClass = FtcClass.find("byFtcId", superClassId).first();
 			superClasses.add(superClass);
 		}
+		
+		List<Agent> indirectAgents = new ArrayList<Agent>();
+		//Get the indirect agents object
+		for (String indirectAgentId : ftcClass.indirectAgentsId) {
+			Agent indirectAgent = Agent.find("byDrugBankId", indirectAgentId).first();
+			indirectAgents.add(indirectAgent);
+		}
 
-		render(ftcClass, ratioSvg, subClasses, superClasses);
+		render(ftcClass, ratioSvg, subClasses, superClasses, indirectAgents);
 	}
 
 
 	public static void map(String classId) {
 		FtcClass ftcClass = FtcClass.find("byFtcId", classId).first();
 		render(ftcClass);
+	}
+
+	public static void agent(String drugbankId){
+		Agent agent = Agent.find("byDrugBankId", drugbankId).first();
+		render(agent);
 	}
 
 }
