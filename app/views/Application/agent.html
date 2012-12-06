@@ -1,4 +1,46 @@
 #{extends 'main.html' /}
 #{set title:agent.drugBankId + ' - ' + agent.label /}
 
-<h1>Agent: ${agent.label}</h1>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.togglable').click(function() {
+		$(this).parent().find('.togglable').toggle();
+  		$(this).parent().parent().find('ul').toggle('fast', function() {});
+});
+	
+});
+</script>
+
+<h1 id="agent-title"><span id="agentId">${agent.drugBankId}</span> - ${agent.label}</h1>
+<div id="thumb-drug"><img src="http://structures.wishartlab.com/molecules/DB00170/thumb.png" /></div>
+
+
+<nav class="block-information class-info">
+    <h2><span class="togglable">[-] </span>
+    <span class="togglable" style="display: none">[+] </span>
+    Super class${agent.directFtcClasses.size().pluralize('es')}<span class="numbers"> (${agent.directFtcClasses.size()})</span></h2>
+    
+    #{if agent.directFtcClasses.size() == 0}
+    	<p>No superclasses.</p>
+    #{/if}
+    #{else}
+        <ul>
+            #{list items:agent.directFtcClasses, as:'superClass' }
+            #{if superClass != null}
+            <a href="@{Application.classVisu(superClass.ftcId)}">
+            	<li class="transition direct">
+            	${superClass.ftcId} - ${superClass.label}
+            	</li>
+            </a>
+            #{/if}
+            #{/list}
+      </ul>
+     #{/else}
+</nav>
+
+<div class="block-information">
+    <h2>Functional properties (via DrugBank)</h2>
+    <p>
+    	<a href="http://www.drugbank.ca/drugs/${agent.drugBankId}">${agent.drugBankId} - ${agent.label}</a>
+    </p>
+</div>

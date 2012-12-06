@@ -20,8 +20,18 @@ public class ModelTest extends UnitTest{
 
 	@Test
 	public void createFtcClass() {
-		Agent agent = new Agent("DB0001");
-		agent.save();
+		ArrayList<Agent> agents = new ArrayList<Agent>();
+		Agent agent1 = new Agent("DB0001");
+		agents.add(agent1);
+		
+		Agent agent2 = new Agent("DB0002");
+		agents.add(agent2);
+		
+		FtcClass ftcClass1 = new FtcClass("FTC1", "", "", new ArrayList<String>(), new ArrayList<String>(), agents, new ArrayList<String>());
+		ftcClass1.save();
+		
+		FtcClass ftcClass2 = new FtcClass("FTC2", "", "", new ArrayList<String>(), new ArrayList<String>(), agents, new ArrayList<String>());
+		ftcClass2.save();
 	}
 
 }

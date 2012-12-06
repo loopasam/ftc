@@ -3,13 +3,29 @@ body {
 }
 
 h1 {
-	color: #72d93f;
 	text-align: center;
+}
+
+#class-title {
+	color: #72d93f;
+}
+
+#agent-title {
+	color: #5395f8;
 }
 
 #classId {
 	background-color: #72d93f;
 	color: white;
+}
+
+#agentId {
+	background-color: #5395f8;
+	color: white;
+}
+
+#thumb-drug {
+	text-align: center;
 }
 
 #svg-wraper {
@@ -134,6 +150,10 @@ h1 {
 
 .numbers {
 	font-weight: lighter;
+}
+
+.togglable {
+	cursor: pointer;
 }
 
 #map {

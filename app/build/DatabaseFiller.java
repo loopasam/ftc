@@ -53,9 +53,9 @@ public class DatabaseFiller {
 		//TODO: Put the FTC_C1 class instead of the current one for dev
 		//				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
 		//Anti-blood coaguilation - x-small
-//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+//				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
 		//Anti molecular function --> bigger (2500 classes)
-				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
+		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
 		//		ftcAndDrugBankClasses.add("FTC_A0008150");
 
 
@@ -93,11 +93,19 @@ public class DatabaseFiller {
 			List<Agent> directAgents = new ArrayList<Agent>();
 			for (String subClass : subClasses) {
 				if(drugBankClasses.contains(subClass)){
-					Agent agent = new Agent(subClass);
+					
+					Agent agent = Agent.find("byDrugBankId", subClass).first();
+					
+					if(agent == null){
+						//TODO don't necessarily create an agent
+						agent = new Agent(subClass);
+					}					
 					directAgentIds.add(subClass);
 					String drugLabel = brain.getLabel(subClass);
 					agent.label = drugLabel;
 					directAgents.add(agent);
+
+					
 				}
 			}
 
@@ -223,15 +231,5 @@ public class DatabaseFiller {
 			}
 		}
 	}
-
-	public void test() throws BrainException {
-		// TODO Auto-generated method stub
-		ArrayList<String> brains = new ArrayList<String>();
-		for (int i = 0; i < 100000; i++) {
-			String brain = "pouet";
-			brains.add(brain);
-		}
-	}
-
 
 }
