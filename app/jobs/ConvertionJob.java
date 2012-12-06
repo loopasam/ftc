@@ -14,7 +14,7 @@ import uk.ac.ebi.brain.error.BrainException;
 
 public class ConvertionJob extends Job implements Serializable {
 
-	public void doJob() throws BrainException, IOException {
+	public void doJob() throws BrainException, IOException, ClassNotFoundException {
 		Cache.set("jobRunning", true);
 		Logger.info("Create the builder...");
 		Builder builder = new Builder();

@@ -36,11 +36,9 @@ public class DrugBankParser extends Parser {
 		this.drugbank = drugbank;
 	}
 
-
 	public DrugBank getDrugbank() {
 		return drugbank;
 	}
-
 
 	/**
 	 * @param path
@@ -83,10 +81,29 @@ public class DrugBankParser extends Parser {
 								drug.setId(burger.getTagText());
 								name = "drug-name";
 							}
+
 							if(burger.tag("name")){
 								if(name.equals("drug-name")){
 									drug.setName(burger.getTagText());
 								}
+							}
+
+							if(burger.tag("description")){
+								if(name.equals("drug-name")){
+									drug.setDescription(burger.getTagText());
+								}
+							}
+
+							if(burger.tag("indication")){
+								drug.setIndication(burger.getTagText());
+							}
+
+							if(burger.tag("pharmacology")){
+								drug.setPharmacology(burger.getTagText());
+							}
+
+							if(burger.tag("mechanism-of-action")){
+								drug.setMechanism(burger.getTagText());
 							}
 
 							if(burger.tag("groups")){
@@ -101,6 +118,18 @@ public class DrugBankParser extends Parser {
 
 							if(burger.tag("mixtures")){while(burger.inTag("mixtures")){}}
 							if(burger.tag("packagers")){while(burger.inTag("packagers")){}}
+							if(burger.tag("prices")){while(burger.inTag("prices")){}}
+
+							if(burger.tag("categories")){
+								ArrayList<String> categories = new ArrayList<String>();
+								while(burger.inTag("categories")){
+									if(burger.tag("category")){
+										categories.add(burger.getTagText());
+									}
+								}
+								drug.setCategories(categories);
+							}
+
 
 							if(burger.tag("atc-codes")){
 								ArrayList<String> atcCodes = new ArrayList<String>();

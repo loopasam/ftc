@@ -18,9 +18,14 @@ public class Drug implements Serializable{
 	private static final long serialVersionUID = 1837611788051168494L;
 	private String id;
 	private String name;
+	private String description;
 	private ArrayList<String> groups;
 	private ArrayList<TargetRelation> targetRelations;
 	private String type;
+	private String indication;
+	private String pharmacology;
+	private String mechanism;
+	private ArrayList<String> categories;
 	private ArrayList<String> atcCodes;
 
 
@@ -28,6 +33,7 @@ public class Drug implements Serializable{
 		this.setGroups(new ArrayList<String>());
 		this.setTargetRelations(new ArrayList<TargetRelation>());
 		this.setAtcCodes(new ArrayList<String>());
+		this.setCategories(new ArrayList<String>());
 	}
 
 	public void setTargetRelations(ArrayList<TargetRelation> targetRelations) {
@@ -78,6 +84,46 @@ public class Drug implements Serializable{
 			}
 		}
 		return false;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getIndication() {
+		return indication;
+	}
+
+	public void setIndication(String indication) {
+		this.indication = indication;
+	}
+
+	public String getPharmacology() {
+		return pharmacology;
+	}
+
+	public void setPharmacology(String pharmacology) {
+		this.pharmacology = pharmacology;
+	}
+
+	public String getMechanism() {
+		return mechanism;
+	}
+
+	public void setMechanism(String mechanism) {
+		this.mechanism = mechanism;
+	}
+
+	public ArrayList<String> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(ArrayList<String> categories) {
+		this.categories = categories;
 	}
 
 }

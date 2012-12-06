@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<testsuite failures="0" time="43.967" errors="0" skipped="0" tests="1" name="build.SerializeDrugBankTest">
-  <testcase classname="build.SerializeDrugBankTest" name="serializeDrugBankTest" time="43.967">
+<testsuite failures="0" time="16.973" errors="0" skipped="0" tests="1" name="build.SerializeDrugBankTest">
+  <testcase classname="build.SerializeDrugBankTest" name="serializeDrugBankTest" time="16.973">
       </testcase>
 </testsuite>

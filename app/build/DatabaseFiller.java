@@ -43,7 +43,9 @@ public class DatabaseFiller {
 		this.pathToKb = pathToKb;
 	}
 
-	public void start() throws BrainException, IOException {
+	public void start() throws BrainException, IOException, ClassNotFoundException {
+		Logger.info("Loading DrugBank...");
+		DrugBank drugBank = new DrugBank("data/tmp/drugbank.ser");
 		Logger.info("Learning the KB...");
 		Brain brain = new Brain();
 		brain.learn(this.getPathToKb());
@@ -53,9 +55,9 @@ public class DatabaseFiller {
 		//TODO: Put the FTC_C1 class instead of the current one for dev
 		//				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
 		//Anti-blood coaguilation - x-small
-//				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
 		//Anti molecular function --> bigger (2500 classes)
-		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
+		//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
 		//		ftcAndDrugBankClasses.add("FTC_A0008150");
 
 
@@ -93,19 +95,18 @@ public class DatabaseFiller {
 			List<Agent> directAgents = new ArrayList<Agent>();
 			for (String subClass : subClasses) {
 				if(drugBankClasses.contains(subClass)){
-					
+
 					Agent agent = Agent.find("byDrugBankId", subClass).first();
-					
+
 					if(agent == null){
 						//TODO don't necessarily create an agent
-						agent = new Agent(subClass);
+
+						agent = getNewAgent(subClass, drugBank);
 					}					
 					directAgentIds.add(subClass);
 					String drugLabel = brain.getLabel(subClass);
 					agent.label = drugLabel;
 					directAgents.add(agent);
-
-					
 				}
 			}
 
@@ -129,6 +130,17 @@ public class DatabaseFiller {
 		brain.sleep();
 	}
 
+	private Agent getNewAgent(String id, DrugBank drugBank) {
+		Agent agent = new Agent(id);
+		Drug drug = drugBank.getDrug(id);
+		agent.description = drug.getDescription();
+		agent.indication = drug.getIndication();
+		agent.mechanism = drug.getMechanism();
+		agent.pharmacology = drug.getPharmacology();
+		agent.atcCodes = drug.getAtcCodes();
+		agent.categories = drug.getCategories();
+		return agent;
+	}
 
 	private void saveGraph(Brain brain, FtcClass ftcClass) throws BrainException, IOException {
 

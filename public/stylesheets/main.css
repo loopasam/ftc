@@ -120,8 +120,21 @@ h1 {
 	padding-bottom: 15px;
 }
 
+#drugbank-data a:hover{
+	text-decoration: underline;
+}
+
+#drugbank-data a {
+	padding-right: 5px;
+}
+
+
 #agents{
 	background-color: #e0ecff;
+}
+
+.action {
+	background-color: #E5FBDA;
 }
 
 #agents>h2 {

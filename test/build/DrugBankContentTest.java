@@ -9,8 +9,8 @@ import org.junit.Test;
 import play.test.UnitTest;
 
 public class DrugBankContentTest extends UnitTest {
-	
-	
+
+
 
 	@Test
 	public void checkDrugDrugBank() throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -20,8 +20,17 @@ public class DrugBankContentTest extends UnitTest {
 		Drug drug1 = drugBank.getDrug("DB00203");
 		assertEquals("small molecule", drug1.getType());
 		assertEquals("Lepirudin", drug.getName());
+		assertEquals("Lepirudin is identical to natu", drug.getDescription().substring(0, 30));
+		assertEquals("For the treatment of heparin-induced thrombocytopenia", drug.getIndication());
+		assertEquals("Lepirudin is used to break up clots and to reduce thrombocytopenia. " +
+				"It binds to thrombin and prevent", drug.getPharmacology().substring(0, 100));
+		assertEquals("Lepirudin forms a stable non-covalent complex with", drug.getMechanism().substring(0, 50));
 		assertEquals(1, drug.getGroups().size());
 		assertEquals("approved", drug.getGroups().get(0));
+		assertEquals(3, drug.getCategories().size());
+		assertEquals("Anticoagulants", drug.getCategories().get(0));
+		assertEquals(1, drug.getAtcCodes().size());
+		assertEquals("B01AE02", drug.getAtcCodes().get(0));
 		assertEquals(1, drug.getTargetRelations().size());
 		assertEquals(54, drug.getTargetRelations().get(0).getPartnerId());
 		assertEquals("yes", drug.getTargetRelations().get(0).getKnowAction());
@@ -34,6 +43,7 @@ public class DrugBankContentTest extends UnitTest {
 		assertEquals("no", drug1.getTargetRelations().get(2).getKnowAction());
 		assertEquals("inhibitor", drug1.getTargetRelations().get(0).getActions().get(0));
 	}
+
 	@Test
 	public void checkPartnerDrugBank() throws FileNotFoundException, IOException, ClassNotFoundException {
 		DrugBank drugBank = new DrugBank("data/tmp/drugbank.ser");
