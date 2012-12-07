@@ -16,10 +16,9 @@ GET     /makedb                                       Administration.createDBFro
 GET     /                                       Application.index
 
 # Menu links
-POST     /search/{query}                                       Application.postSearch
 GET     /search/{query}                                       Application.search
-GET     /search/?                                       Application.search
-
+GET     /search/                                       Application.search
+POST     /search/{query}                                       Application.postSearch
 
 # Info on DB content
 GET     /{classId}                                       Application.classVisu

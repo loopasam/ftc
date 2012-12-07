@@ -20,3 +20,11 @@
         </a>
 	#{/list}
 </ul>
+
+<ul>
+    #{list items:ftcClasses, as:'ftcClass' }
+       <a href="@{Application.classVisu(ftcClass.ftcId)}">
+           <li class="transition direct">${ftcClass.ftcId} - ${ftcClass.label}</li>
+        </a>
+    #{/list}
+</ul>

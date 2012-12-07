@@ -2,7 +2,9 @@ package controllers;
 
 import play.*;
 import play.data.validation.Required;
+import play.db.jpa.JPABase;
 import play.modules.search.Query;
+import play.modules.search.Query.SearchException;
 import play.modules.search.Search;
 import play.mvc.*;
 import play.mvc.Http.Response;
@@ -13,7 +15,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-import javax.mail.search.SearchException;
+import org.apache.lucene.queryParser.ParseException;
+import org.apache.lucene.queryParser.QueryParser;
+import org.apache.lucene.util.Version;
+
 
 import build.DatabaseFiller;
 
@@ -79,19 +84,49 @@ public class Application extends Controller {
 
 	public static void postSearch(@Required String query) {
 		if(validation.hasErrors()){
-			search("");
+			//TODO put in the flash
+			redirect("/search/");
 		}
 		search(query);
 	}
 
 	public static void search(String query) {
-		
-		Query q = Search.search("drugBankId:"+query+"~", Agent.class);		
-		List<Agent> agents = q.fetch();
-		//TODO put categories too
-		render(query, agents);
+		List<Agent> agents = null;
+		List<Agent> ftcClasses = null;
+
+		if(isValidQuery(query)){
+
+			agents = Search.search("drugBankId:" + query, Agent.class).fetch();
+			if(agents.size() == 0){
+				agents = Search.search("label:" + query + "~", Agent.class).fetch();
+				if(agents.size() == 0){
+					agents = Search.search("label:" + query + "*~", Agent.class).fetch();
+				}
+			}
+
+			ftcClasses = Search.search("ftcId:" + query, FtcClass.class).fetch();
+			if(ftcClasses.size() == 0){
+				String appendFTC = "FTC_" + query;
+				ftcClasses = Search.search("ftcId:" + appendFTC, FtcClass.class).fetch();
+				if(ftcClasses.size() == 0){
+					ftcClasses = Search.search("label:\"" + query + "\"~", FtcClass.class).fetch();
+				}
+			}
+		}
+		render(query, agents, ftcClasses);
+	}
 
 
+	private static boolean isValidQuery(String query) {
+		if(query == null){
+			return false;
+		}
+		try {
+			new QueryParser(Search.getLuceneVersion(), "_docID", Search.getAnalyser()).parse(query);
+			return true;
+		} catch (ParseException e) {
+			return false;
+		}
 	}
 
 }

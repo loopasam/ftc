@@ -20,12 +20,19 @@ import build.DatabaseFiller;
 
 import play.db.jpa.Blob;
 import play.db.jpa.Model;
+import play.modules.search.Field;
+import play.modules.search.Indexed;
 
 @Entity
+@Indexed
 public class FtcClass extends Model {
 
+	@Field
 	public String label;
+	
+	@Field
 	public String ftcId;
+	
 	public int widthSvg;
 	public int heightSvg;
 
