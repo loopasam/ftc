@@ -1,6 +1,9 @@
 package controllers;
 
 import play.*;
+import play.data.validation.Required;
+import play.modules.search.Query;
+import play.modules.search.Search;
 import play.mvc.*;
 import play.mvc.Http.Response;
 
@@ -9,6 +12,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+
+import javax.mail.search.SearchException;
 
 import build.DatabaseFiller;
 
@@ -50,7 +55,7 @@ public class Application extends Controller {
 			FtcClass superClass = FtcClass.find("byFtcId", superClassId).first();
 			superClasses.add(superClass);
 		}
-		
+
 		List<Agent> indirectAgents = new ArrayList<Agent>();
 		//Get the indirect agents object
 		for (String indirectAgentId : ftcClass.indirectAgentsId) {
@@ -70,6 +75,23 @@ public class Application extends Controller {
 	public static void agent(String drugbankId){
 		Agent agent = Agent.find("byDrugBankId", drugbankId).first();
 		render(agent);
+	}
+
+	public static void postSearch(@Required String query) {
+		if(validation.hasErrors()){
+			search("");
+		}
+		search(query);
+	}
+
+	public static void search(String query) {
+		
+		Query q = Search.search("drugBankId:"+query+"~", Agent.class);		
+		List<Agent> agents = q.fetch();
+		//TODO put categories too
+		render(query, agents);
+
+
 	}
 
 }

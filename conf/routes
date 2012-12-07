@@ -14,9 +14,18 @@ GET     /makedb                                       Administration.createDBFro
 
 # Home page
 GET     /                                       Application.index
+
+# Menu links
+POST     /search/{query}                                       Application.postSearch
+GET     /search/{query}                                       Application.search
+GET     /search/?                                       Application.search
+
+
+# Info on DB content
 GET     /{classId}                                       Application.classVisu
 GET     /map/{classId}                                       Application.map
 GET     /agent/{drugbankId}                                       Application.agent
+
 
 
 # Ignore favicon requests

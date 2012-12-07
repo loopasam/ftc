@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry excluding="views/**" kind="src" path="app"/>
 	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="search-2.0"/>
 	
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/play-1.2.5.jar" sourcepath="/home/samuel/workspace/lib/play-1.2.5/framework/src" />
@@ -22,6 +23,9 @@
 	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/owlapi-apibinding-3.4.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/Brain-1.3.jar" sourcepath="/home/samuel/.ivy2/cache/uk.ac.ebi.brain/Brain/sources/Brain-1.3-sources.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/owlapi-impl-3.4.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/modules/search-2.0/lib/search.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/modules/search-2.0/lib/lucene-analyzers-3.0.3.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/modules/search-2.0/lib/lucene-core-3.0.3.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/lib/jsr107cache-1.0.jar"/>

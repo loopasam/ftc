@@ -10,11 +10,17 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
 import play.db.jpa.Model;
+import play.modules.search.Field;
+import play.modules.search.Indexed;
 
 @Entity
+@Indexed
 public class Agent extends Model {
 
+	@Field
 	public String label;
+
+	@Field
 	public String drugBankId;
 
 	@Lob
