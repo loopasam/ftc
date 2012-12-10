@@ -2,7 +2,7 @@
 require:
     - play
     - play -> search 2.0
-    - uk.ac.ebi.brain -> Brain 1.3
+    - provided -> Brain 1.4-SNAPSHOT-jar-with-dependencies
     - provided -> xml-burger 1.0
 repositories: 
     - provided: 

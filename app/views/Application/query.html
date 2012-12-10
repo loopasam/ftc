@@ -1,0 +1,41 @@
+#{extends 'main.html' /}
+#{set title:'Search results' /}
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#input-owl-query').change(function() {
+  		console.log('Change!');
+  		var input_query = $(this).val();
+  		console.log(input_query);
+  		
+  		$.ajax({
+        	url: "/checker/" + input_query,
+        	type: "GET",
+        	// callback handler that will be called on success
+        	success: function(response, textStatus, jqXHR){
+          	  $('#errors').text(response);
+     	   },
+       		 // callback handler that will be called on error
+       		error: function(jqXHR, textStatus, errorThrown){
+          	  // log the error to the console
+          	  console.log(
+                "The following error occured: "+
+                textStatus, errorThrown
+          	  );
+        	},
+    });
+  		
+  		
+  		
+  		
+	});	
+});
+</script>
+
+<form action="" method="POST">
+    <input id="input-owl-query" type="text" name="query" value="${query}"/> 
+    <input type="submit" value="Search" />
+</form>
+
+<div id="errors" style="background-color: orange; margin-top: 20px">No errors</div>

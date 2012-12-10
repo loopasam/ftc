@@ -25,6 +25,9 @@ GET     /{classId}                                       Application.classVisu
 GET     /map/{classId}                                       Application.map
 GET     /agent/{drugbankId}                                       Application.agent
 
+# Semantic query
+GET     /query/                                       Application.query
+GET     /checker/{query}                                       Application.checker
 
 
 # Ignore favicon requests

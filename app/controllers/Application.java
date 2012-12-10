@@ -8,6 +8,8 @@ import play.modules.search.Query.SearchException;
 import play.modules.search.Search;
 import play.mvc.*;
 import play.mvc.Http.Response;
+import uk.ac.ebi.brain.core.Brain;
+import uk.ac.ebi.brain.error.ClassExpressionException;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -25,6 +27,10 @@ import build.DatabaseFiller;
 import models.*;
 
 public class Application extends Controller {
+	
+	//Static brain object there to hold the ontology in memory
+	//TODO
+	public static Brain spellChecker;
 
 	public static void index() {
 		render();
@@ -127,6 +133,21 @@ public class Application extends Controller {
 			return true;
 		} catch (ParseException e) {
 			return false;
+		}
+	}
+	
+	
+	public static void query(){
+		render();
+	}
+	
+	
+	public static void checker(String query){
+		try {
+			spellChecker.parseLabelClassExpression(query);
+			renderText("All good");
+		} catch (ClassExpressionException e) {
+			renderText(e.getMessage());			
 		}
 	}
 

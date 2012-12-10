@@ -128,6 +128,7 @@ public class DatabaseFiller {
 			ftcClassObject.save();
 		}
 		brain.sleep();
+		//TODO update the brain spellChecker
 	}
 
 	private Agent getNewAgent(String id, DrugBank drugBank) {

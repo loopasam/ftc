@@ -79,7 +79,7 @@ public class FullOwlExporter extends OwlExporter {
 								if(!this.getBrain().knowsClass(drugBankClassName)){
 									//Add the class for the drug if not present
 									this.getBrain().addClass(drugBankFullClassName);
-									this.getBrain().label(drugBankClassName, drug.getName());
+									this.getBrain().label(drugBankClassName, "'" + drug.getName() + "'");
 									this.getBrain().subClassOf(drugBankClassName, "CHEBI_23888");
 									this.getBrain().subClassOf(drugBankClassName, "FTC_C2");
 								}
@@ -87,7 +87,7 @@ public class FullOwlExporter extends OwlExporter {
 								if(!this.getBrain().knowsClass(targetClassName)){
 									//Add the class for the target if not present
 									this.getBrain().addClass(targetFullClassName);
-									this.getBrain().label(targetClassName, partner.getName());
+									this.getBrain().label(targetClassName, "'" + partner.getName() + "'");
 									this.getBrain().subClassOf(targetClassName, "Protein");
 
 									//Add the annotations (non IEA/ non CC for the protein)
@@ -130,7 +130,7 @@ public class FullOwlExporter extends OwlExporter {
 			//Anti-pattern
 			String antiClassId = "FTC_A" + stemGoTerm;
 			this.getBrain().addClass(antiClassId);
-			this.getBrain().label(antiClassId, "Anti-" + goTerm.getName() + " agent");
+			this.getBrain().label(antiClassId, "'" + "Anti-" + goTerm.getName() + " agent" + "'");
 			String idForUrl = goTerm.getId().replaceAll("_", ":");
 			this.getBrain().comment(antiClassId, "Agent that stops, prevents, or reduces the frequency, " +
 					"rate or extent of the " +
@@ -146,7 +146,7 @@ public class FullOwlExporter extends OwlExporter {
 			String proClassId = "FTC_P" + stemGoTerm;
 			this.getBrain().addClass(proClassId);
 
-			this.getBrain().label(proClassId, "Pro-" + goTerm.getName() + " agent");
+			this.getBrain().label(proClassId, "'" + "Pro-" + goTerm.getName() + " agent");
 			this.getBrain().comment(proClassId, "Agent that activates or increases the frequency, " +
 					"rate or extent of the " +
 					"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + goTerm.getName() + "</a>.");			
@@ -175,7 +175,7 @@ public class FullOwlExporter extends OwlExporter {
 					if(!this.getBrain().knowsClass(antiClassId)){
 						this.getBrain().addClass(antiClassId);
 					}
-					this.getBrain().label(antiClassId, "Anti-" + positivelyRegulatedparentTerm.getName() + " agent");
+					this.getBrain().label(antiClassId, "'" + "Anti-" + positivelyRegulatedparentTerm.getName() + " agent" + "'");
 
 
 					String idForUrl = positivelyRegulatedparentTerm.getId().replaceAll("_", ":");
@@ -204,7 +204,7 @@ public class FullOwlExporter extends OwlExporter {
 						this.getBrain().addClass(proClassId);
 					}
 
-					this.getBrain().label(proClassId, "Pro-" + positivelyRegulatedparentTerm.getName() + " agent");
+					this.getBrain().label(proClassId, "'" + "Pro-" + positivelyRegulatedparentTerm.getName() + " agent" + "'");
 					this.getBrain().comment(proClassId, "Agent that activates or increases the frequency, " +
 							"rate or extent of the " +
 							"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + 
@@ -226,7 +226,7 @@ public class FullOwlExporter extends OwlExporter {
 					if(!this.getBrain().knowsClass(antiClassId)){
 						this.getBrain().addClass(antiClassId);
 					}
-					this.getBrain().label(antiClassId, "Anti-" + negativelyRegulatedparentTerm.getName() + " agent");
+					this.getBrain().label(antiClassId, "'" + "Anti-" + negativelyRegulatedparentTerm.getName() + " agent" + "'");
 
 
 					String idForUrl = negativelyRegulatedparentTerm.getId().replaceAll("_", ":");
@@ -247,7 +247,7 @@ public class FullOwlExporter extends OwlExporter {
 						this.getBrain().addClass(proClassId);
 					}
 
-					this.getBrain().label(proClassId, "Pro-" + negativelyRegulatedparentTerm.getName() + " agent");
+					this.getBrain().label(proClassId, "'" + "Pro-" + negativelyRegulatedparentTerm.getName() + " agent" + "'");
 					this.getBrain().comment(proClassId, "Agent that activates or increases the frequency, " +
 							"rate or extent of the " +
 							"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + 
@@ -271,7 +271,7 @@ public class FullOwlExporter extends OwlExporter {
 			String classId = goTerm.getId().replaceAll(":", "_");
 			if(!this.getBrain().knowsClass(classId)){
 				this.getBrain().addClass("http://purl.obolibrary.org/obo/" + classId);
-				this.getBrain().label(classId, goTerm.getName());
+				this.getBrain().label(classId, "'" + goTerm.getName() + "'");
 			}else{
 				Logger.warn("The class '"+classId+"' ("+goTerm.getName()+") already exists");
 			}
