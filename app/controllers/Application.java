@@ -90,6 +90,7 @@ public class Application extends Controller {
 		search(query);
 	}
 
+	//TODO finir le CSS and HTML
 	public static void search(String query) {
 		List<Agent> agents = null;
 		List<Agent> ftcClasses = null;

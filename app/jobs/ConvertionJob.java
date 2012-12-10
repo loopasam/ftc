@@ -18,7 +18,8 @@ public class ConvertionJob extends Job implements Serializable {
 		Cache.set("jobRunning", true);
 		Logger.info("Create the builder...");
 		Builder builder = new Builder();
-		builder.deleteDatabase();
+		//TODO take a decision
+//		builder.deleteDatabase();
 		builder.createAndPopulateDatabase();
 		Logger.info("Job done!");
 		Cache.set("jobRunning", null);
