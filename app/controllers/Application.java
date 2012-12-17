@@ -144,40 +144,43 @@ public class Application extends Controller {
 		}
 	}
 
-
-	public static void query(){
+	//Starting page for semantic query
+	public static void initQuery(){
 		render();
 	}
 
-	//TODO action executing the query
-	public static void owlQuery(String query){
+	//Performs the query
+	public static void query(String query){
 		try {
+			//Checks whether the query is parsable
 			brain.parseLabelClassExpression(query);
 		} catch (ClassExpressionException e) {
-			//TODO generate an error for the HTML to display
+			//If not display an error
 			params.flash();
 			String errorMessage = e.getMessage()
 					.replaceAll("org.semanticweb.owlapi.expression.ParserException: ", "")
 					.replaceAll("\n", "<br />")
 					.replaceAll("^Encountered ", "Encountered <span class='parse_error'>")
 					.replaceAll(" at line ", "</span> at line ");
-			
-			
 			flash.error(errorMessage);
-			query();
+			render();
 		}
 
-		//TODO before starting the job verifying if in DB/named class, etc...
+		//The query is parsable
+		//Check if the query is already cached in the database
+		
+		
+		//The query is not cached and is then going to be executed
 		Promise<List<String>> result = new OwlQueryJob(query).now();
 		List<String> subClasses = await(result);
 		//store in DB for caching
-		Logger.info("Ready To render");
-		showResults(subClasses);
-	}
-	
-	public static void showResults(List<String> subClasses){
-		Logger.info("inside rendering method...");
 		render(subClasses);
 	}
-	
+
+	//Redirection of the query in order for it to be displayed in the
+	//address bar
+	public static void owlQuery(String query){
+		query(query);
+	}
+
 }

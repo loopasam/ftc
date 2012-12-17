@@ -34,6 +34,9 @@ public class OwlQueryJob extends Job<List<String>> {
 		Logger.info("Learning done!");
 		Logger.info("Does the query... " + this.query);
 		List<String> subClasses = brainQuery.getSubClassesFromLabel(this.query, false);
+		Logger.info("Does the equivalent query... " + this.query);
+		List<String> equivalentClasses = brainQuery.getEquivalentClassesFromLabel(this.query);
+
 		Logger.info("Query done, returns the results");
 		return subClasses;
 	}

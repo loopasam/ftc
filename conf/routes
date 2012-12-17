@@ -18,7 +18,6 @@ GET     /                                       Application.index
 # Menu links
 GET     /search/{query}                                       Application.search
 GET     /search/                                       Application.search
-POST     /search/{query}                                       Application.postSearch
 
 # Info on DB content
 GET     /{classId}                                       Application.classVisu
@@ -26,8 +25,8 @@ GET     /map/{classId}                                       Application.map
 GET     /agent/{drugbankId}                                       Application.agent
 
 # Semantic query
-GET     /query/                                       Application.query
-POST     /owlQuery/{query}                                       Application.owlQuery
+GET     /query/                                       Application.initQuery
+GET     /query/{query}                                       Application.query
 
 
 # Ignore favicon requests
