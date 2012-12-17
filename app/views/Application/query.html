@@ -1,6 +1,7 @@
 #{extends 'main.html' /}
 #{set title:'Search results' /}
 
+//TODO better error checking
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -24,18 +25,17 @@ $(document).ready(function() {
                 textStatus, errorThrown
           	  );
         	},
-    });
-  		
-  		
-  		
-  		
-	});	
+    	});
+	});
 });
 </script>
 
-<form action="" method="POST">
-    <input id="input-owl-query" type="text" name="query" value="${query}"/> 
-    <input type="submit" value="Search" />
+<form action="@{Application.owlQuery()}" method="POST">
+	<fieldset>
+	<legend>OWL Query</legend>
+   		<input id="input-owl-query" type="text" name="query" value="${query}"/ size="70"> 
+    	<input type="submit" value="Search" />
+    </fieldset>
 </form>
 
 <div id="errors" style="background-color: orange; margin-top: 20px">No errors</div>

@@ -28,7 +28,7 @@ GET     /agent/{drugbankId}                                       Application.ag
 # Semantic query
 GET     /query/                                       Application.query
 GET     /checker/{query}                                       Application.checker
-
+POST     /owlQuery/{query}                                       Application.owlQuery
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

@@ -1,0 +1,8 @@
+#{extends 'main.html' /}
+#{set title:'Results' /}
+
+<ul>
+#{list items:subClasses, as:'subClass' }
+	<li>${subClass}</li>
+#{/list}
+</ul>

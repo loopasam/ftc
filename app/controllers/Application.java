@@ -3,19 +3,26 @@ package controllers;
 import play.*;
 import play.data.validation.Required;
 import play.db.jpa.JPABase;
+import play.libs.F.Promise;
 import play.modules.search.Query;
 import play.modules.search.Query.SearchException;
 import play.modules.search.Search;
 import play.mvc.*;
 import play.mvc.Http.Response;
 import uk.ac.ebi.brain.core.Brain;
+import uk.ac.ebi.brain.error.BadPrefixException;
+import uk.ac.ebi.brain.error.BrainException;
 import uk.ac.ebi.brain.error.ClassExpressionException;
+import uk.ac.ebi.brain.error.NewOntologyException;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
+
+import jobs.FullBuildJob;
+import jobs.OwlQueryJob;
 
 import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.queryParser.QueryParser;
@@ -27,7 +34,7 @@ import build.DatabaseFiller;
 import models.*;
 
 public class Application extends Controller {
-	
+
 	//Static brain object there to hold the ontology in memory
 	//TODO
 	public static Brain spellChecker;
@@ -135,13 +142,32 @@ public class Application extends Controller {
 			return false;
 		}
 	}
-	
-	
+
+
 	public static void query(){
 		render();
 	}
-	
-	
+
+	//TODO action executing the query
+	public static void owlQuery(String query){
+		System.out.println("Inside query method");
+		try {
+			spellChecker.parseLabelClassExpression(query);
+		} catch (ClassExpressionException e) {
+			//TODO generate an error for the HTML to display
+			query();
+		}
+
+		//TODO before starting the job verifying if in DB/named class, etc...
+		Promise<List<String>> result = new OwlQueryJob(query).now();
+		List<String> subClasses = await(result);
+		//store in DB for caching
+		Logger.info("Ready To render");
+		render(subClasses);
+	}
+
+
+	//TODO better checker
 	public static void checker(String query){
 		try {
 			spellChecker.parseLabelClassExpression(query);

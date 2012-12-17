@@ -11,6 +11,9 @@
     href="@{'/public/images/logo.png'}">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"
     type="text/javascript" charset="${_response_encoding}"></script>
+    
+<script src="@{'/public/javascripts/jquery.box2d.min.js'}"
+    type="text/javascript" charset="${_response_encoding}"></script>
 #{get 'moreScripts' /}
 </head>
 <body>
@@ -33,5 +36,7 @@
 
 
     #{doLayout /}
+    
+       
 </body>
 </html>

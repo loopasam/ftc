@@ -85,25 +85,25 @@ public abstract class OwlExporter {
 		//TBox specifications - Core external classes
 
 		brain.addClass("http://purl.obolibrary.org/obo/GO_0003674");
-		brain.label("GO_0003674", "molecular function");
+		brain.label("GO_0003674", "'molecular function'");
 		brain.comment("GO_0003674", "//TODO: A molecular function as defined by GO");
 
 		brain.addClass("http://purl.obolibrary.org/obo/GO_0008150");
-		brain.label("GO_0008150", "biological process");
+		brain.label("GO_0008150", "'biological process'");
 		brain.comment("GO_0008150", "//TODO: A biological process as defined by GO");
 
 		brain.addClass("http://purl.uniprot.org/core/Protein");
-		brain.label("Protein", "protein");
+		brain.label("Protein", "'protein'");
 		brain.comment("Protein", "//TODO: A protein as defined by Uniprot");
 
 		brain.addClass("http://purl.obolibrary.org/obo/CHEBI_50906");
-		brain.label("CHEBI_50906", "role");
+		brain.label("CHEBI_50906", "'role'");
 		brain.comment("CHEBI_50906", "//TODO: A role as defined by chebi");
 
 		//The compounds from DrugBank will be considered for their role
 		//as drug
 		brain.addClass("http://purl.obolibrary.org/obo/CHEBI_23888");
-		brain.label("CHEBI_23888", "drug");
+		brain.label("CHEBI_23888", "'drug'");
 		brain.subClassOf("CHEBI_23888", "CHEBI_50906");
 		brain.comment("CHEBI_23888", "//TODO: A drug as defined by chebi. The compounds " +
 				"from DrugBank will be considered for their role as drug.");
@@ -112,37 +112,37 @@ public abstract class OwlExporter {
 
 		//Role of something capable of producing a therapeutic effect
 		brain.addClass("FTC_C1");
-		brain.label("FTC_C1", "therapeutic agent");
+		brain.label("FTC_C1", "'therapeutic agent'");
 		brain.subClassOf("FTC_C1", "CHEBI_23888");
 		brain.comment("FTC_C1", "Role of a drug capable of producing a therapeutic effect.");
 		
 		//Class used to identified chemicals from DrugBank
 		brain.addClass("FTC_C2");
-		brain.label("FTC_C2", "DrugBank compound");
+		brain.label("FTC_C2", "'DrugBank compound'");
 		brain.comment("FTC_C2", "Drug coming from DrugBank");
 
 		//RBox specifications
 
 		//GO RBox logic - See http://www.geneontology.org/GO.ontology-ext.relations.shtml
 		brain.addObjectProperty("http://purl.obolibrary.org/obo/BFO_0000050");
-		brain.label("BFO_0000050", "part-of");
+		brain.label("BFO_0000050", "'part-of'");
 		brain.transitive("BFO_0000050");
 		brain.comment("BFO_0000050", "//TODO: As defined by RO.");
 
 		brain.addObjectProperty("http://purl.obolibrary.org/obo/RO_0002211");
-		brain.label("RO_0002211", "regulates");
+		brain.label("RO_0002211", "'regulates'");
 		brain.comment("RO_0002211", "//TODO: As defined by RO.");
 
 		brain.addObjectProperty("http://purl.obolibrary.org/obo/RO_0002213");
-		brain.label("RO_0002213", "positively-regulates");
+		brain.label("RO_0002213", "'positively-regulates'");
 		brain.comment("RO_0002213", "//TODO: As defined by RO.");
 
 		brain.addObjectProperty("http://purl.obolibrary.org/obo/RO_0002212");
-		brain.label("RO_0002212", "negatively-regulates");
+		brain.label("RO_0002212", "'negatively-regulates'");
 		brain.comment("RO_0002212", "//TODO: As defined by RO.");
 
 		brain.addObjectProperty("http://purl.obolibrary.org/obo/BFO_0000051");
-		brain.label("BFO_0000051", "has-part");
+		brain.label("BFO_0000051", "'has-part'");
 		brain.transitive("BFO_0000051");
 		brain.comment("BFO_0000051", "//TODO: As defined by RO.");
 
@@ -152,13 +152,13 @@ public abstract class OwlExporter {
 
 		//FTC RBox logic
 		brain.addObjectProperty("FTC_R1");
-		brain.label("FTC_R1", "involved-in");
+		brain.label("FTC_R1", "'involved-in'");
 		brain.domain("FTC_R1", "Protein");
 		brain.range("FTC_R1", "GO_0008150");
 		brain.comment("FTC_R1", "Entails the participation of a protein in a biological process");
 
 		brain.addObjectProperty("FTC_R2");
-		brain.label("FTC_R2", "has-function");
+		brain.label("FTC_R2", "'has-function'");
 		brain.domain("FTC_R2", "Protein");
 		brain.range("FTC_R2", "GO_0003674");
 		brain.comment("FTC_R2", "Describes the molecular function born by a protein");
@@ -169,7 +169,7 @@ public abstract class OwlExporter {
 		//The property refers to the specific molecular 
 		//targets to which the drug binds, such as an enzyme or receptor.
 		brain.addObjectProperty("FTC_R3");
-		brain.label("FTC_R3", "perturbs");
+		brain.label("FTC_R3", "'perturbs'");
 		brain.domain("FTC_R3", "CHEBI_23888");
 		brain.range("FTC_R3", "Protein");
 		brain.comment("FTC_R3", "Specific biochemical interaction through which a drug " +
@@ -181,7 +181,7 @@ public abstract class OwlExporter {
 		//Specific biochemical interaction through which a drug substance will decrease
 		//the activity of a protein.
 		brain.addObjectProperty("FTC_R4");
-		brain.label("FTC_R4", "negatively-perturbs");
+		brain.label("FTC_R4", "'negatively-perturbs'");
 		brain.subPropertyOf("FTC_R4", "FTC_R3");
 		brain.comment("FTC_R4", "Specific biochemical interaction through which a drug " +
 				"substance will decrease the activity of a protein. The property " +
@@ -192,7 +192,7 @@ public abstract class OwlExporter {
 		//Specific biochemical interaction through which a drug substance will increase
 		//the activity of a protein.
 		brain.addObjectProperty("FTC_R5");
-		brain.label("FTC_R5", "positively-perturbs");
+		brain.label("FTC_R5", "'positively-perturbs'");
 		brain.subPropertyOf("FTC_R5", "FTC_R3");
 		brain.comment("FTC_R5", "Specific biochemical interaction through which a drug " +
 				"substance will increase the activity of a protein. The property " +

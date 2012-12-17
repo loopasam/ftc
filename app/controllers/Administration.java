@@ -31,7 +31,7 @@ public class Administration extends Controller {
 
 	public static void build() {
 		flash.success("Full build launched - Follow progresses on the log file or console");
-		new FullBuildJob().now();		
+		new FullBuildJob().now();
 		index();
 	}
 
