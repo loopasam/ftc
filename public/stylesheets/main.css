@@ -6,6 +6,12 @@ h1 {
 	text-align: center;
 }
 
+/* Semantic Query*/
+.parse_error{
+	background-color: orange;
+	color: black;
+}
+
 #class-title {
 	color: #72d93f;
 }

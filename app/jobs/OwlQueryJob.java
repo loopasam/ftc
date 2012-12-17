@@ -30,7 +30,7 @@ public class OwlQueryJob extends Job<List<String>> {
 		Logger.info("Starting asynchronous query...");
 		Brain brainQuery = new Brain();
 		Logger.info("Learning static brain...");
-		brainQuery.learn(Application.spellChecker);
+		brainQuery.learn(Application.brain);
 		Logger.info("Learning done!");
 		Logger.info("Does the query... " + this.query);
 		List<String> subClasses = brainQuery.getSubClassesFromLabel(this.query, false);

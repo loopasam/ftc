@@ -37,7 +37,7 @@ public class Application extends Controller {
 
 	//Static brain object there to hold the ontology in memory
 	//TODO
-	public static Brain spellChecker;
+	public static Brain brain;
 
 	public static void index() {
 		render();
@@ -131,6 +131,7 @@ public class Application extends Controller {
 	}
 
 
+	//TODO doc
 	private static boolean isValidQuery(String query) {
 		if(query == null){
 			return false;
@@ -150,11 +151,19 @@ public class Application extends Controller {
 
 	//TODO action executing the query
 	public static void owlQuery(String query){
-		System.out.println("Inside query method");
 		try {
-			spellChecker.parseLabelClassExpression(query);
+			brain.parseLabelClassExpression(query);
 		} catch (ClassExpressionException e) {
 			//TODO generate an error for the HTML to display
+			params.flash();
+			String errorMessage = e.getMessage()
+					.replaceAll("org.semanticweb.owlapi.expression.ParserException: ", "")
+					.replaceAll("\n", "<br />")
+					.replaceAll("^Encountered ", "Encountered <span class='parse_error'>")
+					.replaceAll(" at line ", "</span> at line ");
+			
+			
+			flash.error(errorMessage);
 			query();
 		}
 
@@ -163,18 +172,12 @@ public class Application extends Controller {
 		List<String> subClasses = await(result);
 		//store in DB for caching
 		Logger.info("Ready To render");
+		showResults(subClasses);
+	}
+	
+	public static void showResults(List<String> subClasses){
+		Logger.info("inside rendering method...");
 		render(subClasses);
 	}
-
-
-	//TODO better checker
-	public static void checker(String query){
-		try {
-			spellChecker.parseLabelClassExpression(query);
-			renderText("All good");
-		} catch (ClassExpressionException e) {
-			renderText(e.getMessage());			
-		}
-	}
-
+	
 }

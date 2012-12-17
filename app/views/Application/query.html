@@ -1,41 +1,39 @@
 #{extends 'main.html' /}
 #{set title:'Search results' /}
 
-//TODO better error checking
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#input-owl-query').change(function() {
-  		console.log('Change!');
-  		var input_query = $(this).val();
-  		console.log(input_query);
-  		
-  		$.ajax({
-        	url: "/checker/" + input_query,
-        	type: "GET",
-        	// callback handler that will be called on success
-        	success: function(response, textStatus, jqXHR){
-          	  $('#errors').text(response);
-     	   },
-       		 // callback handler that will be called on error
-       		error: function(jqXHR, textStatus, errorThrown){
-          	  // log the error to the console
-          	  console.log(
-                "The following error occured: "+
-                textStatus, errorThrown
-          	  );
-        	},
-    	});
+	$('#submit_button').click(function() {
+		console.log("clkicked");
+		$('#errors').hide();
+		$('#loader').show();
 	});
 });
 </script>
 
 <form action="@{Application.owlQuery()}" method="POST">
-	<fieldset>
-	<legend>OWL Query</legend>
-   		<input id="input-owl-query" type="text" name="query" value="${query}"/ size="70"> 
-    	<input type="submit" value="Search" />
-    </fieldset>
+   		<span>Thing that is </span>
+   		<input id="input-owl-query" type="text" name="query" value="${flash.query}"/ size="70"> 
+    	<input id="submit_button" type="submit" value="Search" />
 </form>
 
-<div id="errors" style="background-color: orange; margin-top: 20px">No errors</div>
+<div id="loader" style="display: none;">
+	<img src="@{'/public/images/loader.gif'}">
+</div>
+
+#{if flash.error}
+	<div id="errors" style="color: red;">
+		${flash.error.raw()}
+	</div>
+#{/if}
+
+<ul>
+<li>'drug' that ('perturbs' some ('protein' that ('involved-in' some 'blood coagulation')))</li>
+</ul>
+
+#{if flash.results}
+	<div>There are results: ${flash.results}</div>
+#{/if}
+
+//TODO while submitted put an ajax loader
