@@ -168,13 +168,20 @@ public class Application extends Controller {
 
 		//The query is parsable
 		//Check if the query is already cached in the database
-		
-		
+		OwlResult result = OwlResult.find("byQuery", query).first();
+		if(result != null){
+			render(result);
+		}
+
 		//The query is not cached and is then going to be executed
-		Promise<List<String>> result = new OwlQueryJob(query).now();
-		List<String> subClasses = await(result);
-		//store in DB for caching
-		render(subClasses);
+		Promise<OwlResult> promise = new OwlQueryJob(query).now();
+		Logger.info("Awaits for the results...");
+		result = await(promise);
+		Logger.info("Storing results in DB...");		
+		result.save();
+		//Ready to render the result
+		Logger.info("Ready to render");
+		render(result);
 	}
 
 	//Redirection of the query in order for it to be displayed in the
