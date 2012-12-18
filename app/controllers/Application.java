@@ -167,7 +167,10 @@ public class Application extends Controller {
 			render();
 		}
 
-		//The query is parsable - init the arrays for rendering
+		//The query is parsable
+		
+		//TODO check if forbidden query because too expensive (Thing at least)
+		
 		//Check if the query is already cached in the database
 		OwlResult result = OwlResult.find("byQuery", query).first();
 
@@ -179,6 +182,8 @@ public class Application extends Controller {
 		//The query is not cached and is then going to be executed
 		Promise<OwlResult> promise = new OwlQueryJob(query).now();
 		Logger.info("Awaits for the results...");
+		//TODO just retrieving the id from the job and do a query over the db with a limited number of records (range)
+		//TODO atm, just not authorize the queries with too many classes as result
 		result = await(promise);
 		Logger.info("Ready to render");
 		render(result);

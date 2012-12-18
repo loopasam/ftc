@@ -13,22 +13,59 @@ h1 {
 }
 
 /* Results Semantic Query*/
+.protein {
+	background-color: #FFEBD6;
+}
+
 .protein:hover {
-	background-color: orange;
+	background-color: #FF9933;
+}
+
+.ftc {
+	background-color: #E3F7D9;
 }
 
 .ftc:hover {
 	background-color: #72d93f;
 }
 
+.drugbank {
+	background-color: #DDEAFE;
+}
+
 .drugbank:hover {
 	background-color: #5395f8;
 }
 
-.go:hover {
-	background-color: red;
+.go {
+	background-color: #FFCCCC;
 }
 
+.go:hover {
+	background-color: #FF0000;
+}
+
+#owl-query {
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+
+/* HTML tags */
+
+code {
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    font-size: 90%;
+    line-height: 140%;
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    background: #F4F4F4;
+    padding: 0.2em 0.2em;
+    border: 1px solid #838383;
+    color: #54545A;
+}
 
 
 #class-title {
@@ -157,11 +194,11 @@ h1 {
 }
 
 #agents{
-	background-color: #e0ecff;
+	background-color: #DDEAFE;
 }
 
 .action {
-	background-color: #E5FBDA;
+	background-color: #E3F7D9;
 }
 
 #agents>h2 {

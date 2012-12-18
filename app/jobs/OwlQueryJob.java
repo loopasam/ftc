@@ -65,6 +65,21 @@ public class OwlQueryJob extends Job<OwlResult> {
 				typeMap.put(subClass, "ftc");
 			}
 		}
+		
+		for (String equivalentClass : equivalentClasses) {
+			String iri = Application.brain.getOWLClass(equivalentClass).getIRI().toString();
+
+			if(iri.contains("http://purl.uniprot.org/uniprot/")){
+				typeMap.put(equivalentClass, "protein");
+			}else if(iri.contains("http://www.drugbank.ca/drugs/")){
+				typeMap.put(equivalentClass, "drugbank");
+			}else if(iri.contains("http://purl.obolibrary.org/obo/")){
+				typeMap.put(equivalentClass, "go");
+			}else{
+				typeMap.put(equivalentClass, "ftc");
+			}
+		}
+
 		return typeMap;
 	}
 

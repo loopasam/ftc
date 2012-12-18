@@ -1,15 +1,7 @@
 #{extends 'main.html' /}
 #{set title:ftcClass.ftcId + ' - ' + ftcClass.label /}
 
-<script type="text/javascript">
-$(document).ready(function() {
-	$('.togglable').click(function() {
-		$(this).parent().find('.togglable').toggle();
-  		$(this).parent().parent().find('ul').toggle('fast', function() {});
-});
-	
-});
-</script>
+#{script 'toggle.js' /}
 
 <h1 id="class-title"><span id="classId">${ftcClass.ftcId}</span> - ${ftcClass.label}</h1>
 

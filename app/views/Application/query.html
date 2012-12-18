@@ -12,6 +12,8 @@ $(document).ready(function() {
 });
 </script>
 
+#{script 'toggle.js' /}
+
 //Use the generic tag here instead of that
 <form action="@{Application.owlQuery()}" method="POST">
    		<span>Thing that is </span>
@@ -31,32 +33,67 @@ $(document).ready(function() {
 
 //TODO here
 #{if result != null}
-<div class="block-information">
-<ul>
-<!-- Do custom tags-->
-#{list items:result.labelMap.keySet(), as:'key' }
-	#{if result.typeMap.get(key).equals("ftc")}
-		#{ftcClass key:key, value:result.labelMap.get(key) /}
-	#{/if}
-		
-	#{if result.typeMap.get(key).equals("protein")}
-		#{protein key:key, value:result.labelMap.get(key) /}
-	#{/if}
-	
-	#{if result.typeMap.get(key).equals("drugbank")}
-		#{drugbank key:key, value:result.labelMap.get(key) /}
-	#{/if}
-	
-	#{if result.typeMap.get(key).equals("go")}
-		#{go key:key, value:result.labelMap.get(key) /}
-	#{/if}
+<h3 id="owl-query">Query: <code>${result.query}</code></h3>
+<nav class="block-information">
+    <h2><span class="togglable">[-] </span>
+    <span class="togglable" style="display: none">[+] </span>
+    Equivalent class${result.equivalentClasses.size().pluralize('es')}<span class="numbers"> (${result.equivalentClasses.size()})</span></h2>
+    
+    #{if result.equivalentClasses.size() == 0}
+    	<p>No equivalent classes.</p>
+    #{/if}
+    #{else}
+        <ul>
+		#{list items:result.equivalentClasses, as:'key' }
+			#{if result.typeMap.get(key).equals("ftc")}
+				#{ftcClass key:key, value:result.labelMap.get(key) /}
+			#{/if}
+			
+			#{if result.typeMap.get(key).equals("protein")}
+				#{protein key:key, value:result.labelMap.get(key) /}
+			#{/if}
+			
+			#{if result.typeMap.get(key).equals("drugbank")}
+				#{drugbank key:key, value:result.labelMap.get(key) /}
+			#{/if}
+			
+			#{if result.typeMap.get(key).equals("go")}
+				#{go key:key, value:result.labelMap.get(key) /}
+			#{/if}
+		#{/list}
+      </ul>
+     #{/else}
+</nav>
 
-#{/list}
-</ul>
-</div>
+<nav class="block-information">
+    <h2><span class="togglable">[-] </span>
+    <span class="togglable" style="display: none">[+] </span>
+    Subclass${result.subClasses.size().pluralize('es')}<span class="numbers"> (${result.subClasses.size()})</span></h2>
+    
+    #{if result.subClasses.size() == 0}
+    	<p>No subclasses.</p>
+    #{/if}
+    #{else}
+        <ul>
+		#{list items:result.subClasses, as:'key' }
+			#{if result.typeMap.get(key).equals("ftc")}
+				#{ftcClass key:key, value:result.labelMap.get(key) /}
+			#{/if}
+			
+			#{if result.typeMap.get(key).equals("protein")}
+				#{protein key:key, value:result.labelMap.get(key) /}
+			#{/if}
+			
+			#{if result.typeMap.get(key).equals("drugbank")}
+				#{drugbank key:key, value:result.labelMap.get(key) /}
+			#{/if}
+			
+			#{if result.typeMap.get(key).equals("go")}
+				#{go key:key, value:result.labelMap.get(key) /}
+			#{/if}
+		#{/list}
+      </ul>
+     #{/else}
+</nav>
+
 #{/if}
-
-
-<ul>
-<li>'drug' that ('perturbs' some ('protein' that ('involved-in' some 'blood coagulation')))</li>
-</ul>
