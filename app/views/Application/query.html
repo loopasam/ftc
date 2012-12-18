@@ -1,37 +1,18 @@
+*{Get the header}*
 #{extends 'main.html' /}
-#{set title:'Search results' /}
+#{set title:'OWL Query' /}
 
-
-<script type="text/javascript">
-$(document).ready(function() {
-	$('#submit_button').click(function() {
-		console.log("clkicked");
-		$('#errors').hide();
-		$('#loader').show();
-	});
-});
-</script>
-
+*{Get the JS to toggle + or - boxes}*
 #{script 'toggle.js' /}
 
-//Use the generic tag here instead of that
-<form action="@{Application.owlQuery()}" method="POST">
-   		<span>Thing that is </span>
-   		<input id="input-owl-query" type="text" name="query" value="${flash.query}"/ size="70"> 
-    	<input id="submit_button" type="submit" value="Search" />
-</form>
-
-<div id="loader" style="display: none;">
-	<img src="@{'/public/images/loader.gif'}">
-</div>
-
+*{If errors, show them as well as the form}*
 #{if flash.error}
+	#{query_input /}
 	<div id="errors" style="color: red;">
 		${flash.error.raw()}
 	</div>
 #{/if}
 
-//TODO here
 #{if result != null}
 <h3 id="owl-query">Query: <code>${result.query}</code></h3>
 <nav class="block-information">

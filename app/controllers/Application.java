@@ -152,6 +152,7 @@ public class Application extends Controller {
 
 	//Performs the query
 	public static void query(String query){
+
 		try {
 			//Checks whether the query is parsable
 			brain.parseLabelClassExpression(query);
@@ -164,13 +165,14 @@ public class Application extends Controller {
 					.replaceAll("^Encountered ", "Encountered <span class='parse_error'>")
 					.replaceAll(" at line ", "</span> at line ");
 			flash.error(errorMessage);
+			
 			render();
 		}
 
 		//The query is parsable
-		
+
 		//TODO check if forbidden query because too expensive (Thing at least)
-		
+
 		//Check if the query is already cached in the database
 		OwlResult result = OwlResult.find("byQuery", query).first();
 
@@ -191,7 +193,7 @@ public class Application extends Controller {
 
 	//Redirection of the query in order for it to be displayed in the
 	//address bar
-	public static void owlQuery(String query){
+	public static void owlQuery(String query, String formWidth){
 		query(query);
 	}
 

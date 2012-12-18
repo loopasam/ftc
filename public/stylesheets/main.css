@@ -12,6 +12,40 @@ h1 {
 	color: black;
 }
 
+#input-owl-query{
+	width: 300px;
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+    font-size: 130%;
+    line-height: 140%;
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    background: #F4F4F4;
+    padding: 0.2em 0.2em;
+    border: 1px solid #838383;
+    color: #54545A;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#submit_button{
+	width: 150px;
+	height: 30px;
+	margin-top: 1em;
+	font-size: 100%;
+}
+
+#loader{
+	display: none;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100px;
+	height: 100px;
+}
+
+
 /* Results Semantic Query*/
 .protein {
 	background-color: #FFEBD6;
@@ -50,10 +84,15 @@ h1 {
 	margin-bottom: 2em;
 }
 
+#form-owl-query {
+	text-align: center;
+}
+
 
 /* HTML tags */
 
 code {
+	font-weight: normal;
     font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
     font-size: 90%;
     line-height: 140%;
