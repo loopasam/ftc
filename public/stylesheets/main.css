@@ -12,6 +12,25 @@ h1 {
 	color: black;
 }
 
+/* Results Semantic Query*/
+.protein:hover {
+	background-color: orange;
+}
+
+.ftc:hover {
+	background-color: #72d93f;
+}
+
+.drugbank:hover {
+	background-color: #5395f8;
+}
+
+.go:hover {
+	background-color: red;
+}
+
+
+
 #class-title {
 	color: #72d93f;
 }
@@ -108,7 +127,6 @@ h1 {
 
 .class-info li:hover {
 	background-color: #72d93f;
-	
 }
 
 .block-information li:hover {

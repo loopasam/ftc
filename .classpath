@@ -3,9 +3,8 @@
 	<classpathentry excluding="views/**" kind="src" path="app"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="src" path="search-2.0"/>
-	
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/play-1.2.5.jar" sourcepath="/home/samuel/workspace/lib/play-1.2.5/framework/src" />
+	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/play-1.2.5.jar" sourcepath="/home/samuel/workspace/lib/play-1.2.5/framework/src"/>
 	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/Brain-1.4-SNAPSHOT-jar-with-dependencies.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/xml-burger-1.0.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/git/ftc/modules/search-2.0/lib/search.jar"/>
@@ -78,6 +77,5 @@
 	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/lib/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/lib/validation-api-1.0.0.GA.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/lib/ezmorph-1.0.3.jar"/>
-	
 	<classpathentry kind="output" path="eclipse/classes"/>
 </classpath>

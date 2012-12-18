@@ -30,9 +30,31 @@ $(document).ready(function() {
 #{/if}
 
 //TODO here
-#{list items:result.subClasses, as:'subClass' }
-	<li>${subClass}</li>
+#{if result != null}
+<div class="block-information">
+<ul>
+<!-- Do custom tags-->
+#{list items:result.labelMap.keySet(), as:'key' }
+	#{if result.typeMap.get(key).equals("ftc")}
+		#{ftcClass key:key, value:result.labelMap.get(key) /}
+	#{/if}
+		
+	#{if result.typeMap.get(key).equals("protein")}
+		#{protein key:key, value:result.labelMap.get(key) /}
+	#{/if}
+	
+	#{if result.typeMap.get(key).equals("drugbank")}
+		#{drugbank key:key, value:result.labelMap.get(key) /}
+	#{/if}
+	
+	#{if result.typeMap.get(key).equals("go")}
+		#{go key:key, value:result.labelMap.get(key) /}
+	#{/if}
+
 #{/list}
+</ul>
+</div>
+#{/if}
 
 
 <ul>

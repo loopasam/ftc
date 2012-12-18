@@ -3,6 +3,7 @@ package controllers;
 import play.*;
 import play.data.validation.Required;
 import play.db.jpa.JPABase;
+import play.db.jpa.Model;
 import play.libs.F.Promise;
 import play.modules.search.Query;
 import play.modules.search.Query.SearchException;
@@ -166,10 +167,12 @@ public class Application extends Controller {
 			render();
 		}
 
-		//The query is parsable
+		//The query is parsable - init the arrays for rendering
 		//Check if the query is already cached in the database
 		OwlResult result = OwlResult.find("byQuery", query).first();
+
 		if(result != null){
+			Logger.info("cached inside DB");
 			render(result);
 		}
 
@@ -177,9 +180,6 @@ public class Application extends Controller {
 		Promise<OwlResult> promise = new OwlQueryJob(query).now();
 		Logger.info("Awaits for the results...");
 		result = await(promise);
-		Logger.info("Storing results in DB...");		
-		result.save();
-		//Ready to render the result
 		Logger.info("Ready to render");
 		render(result);
 	}
