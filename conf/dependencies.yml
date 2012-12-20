@@ -1,9 +1,9 @@
 # Application dependencies
 require:
     - play
-    - play -> search 2.0
     - provided -> Brain 1.4-SNAPSHOT-jar-with-dependencies
     - provided -> xml-burger 1.0
+    - provided -> guava 14.0-rc1
 repositories: 
     - provided: 
         type:       local 

@@ -20,19 +20,14 @@ import build.DatabaseFiller;
 
 import play.db.jpa.Blob;
 import play.db.jpa.Model;
-import play.modules.search.Field;
-import play.modules.search.Indexed;
 
 @Entity
-@Indexed
 public class FtcClass extends Model {
 
-	@Field
 	public String label;
-	
-	@Field
+
 	public String ftcId;
-	
+
 	public int widthSvg;
 	public int heightSvg;
 
@@ -48,14 +43,15 @@ public class FtcClass extends Model {
 	@ElementCollection
 	public List<String> subClasses;
 
-	@ManyToMany(cascade=CascadeType.ALL)
-	public List<Agent> directAgents;
+	@ElementCollection
+	public List<String> directAgents;
+
 
 	@ElementCollection
-	public List<String> indirectAgentsId;
+	public List<String> indirectAgents;
 
 	public FtcClass(String ftcId, String label, String comment, List<String> subClasses, 
-			List<String> superClasses, List<Agent> directAgents, List<String> indirectAgentsId) {
+			List<String> superClasses, List<String> directAgents, List<String> indirectAgents) {
 
 		this.ftcId = ftcId;
 		this.label = label;
@@ -63,7 +59,7 @@ public class FtcClass extends Model {
 		this.superClasses = superClasses;
 		this.comment = comment;
 		this.directAgents = directAgents;
-		this.indirectAgentsId = indirectAgentsId;
+		this.indirectAgents = indirectAgents;
 	}
 
 	//Hack to remove the viewBox in order to profit from the zoom/pan library

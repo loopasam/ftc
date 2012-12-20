@@ -5,9 +5,6 @@ import play.data.validation.Required;
 import play.db.jpa.JPABase;
 import play.db.jpa.Model;
 import play.libs.F.Promise;
-import play.modules.search.Query;
-import play.modules.search.Query.SearchException;
-import play.modules.search.Search;
 import play.mvc.*;
 import play.mvc.Http.Response;
 import uk.ac.ebi.brain.core.Brain;
@@ -25,10 +22,6 @@ import java.util.*;
 import jobs.FullBuildJob;
 import jobs.OwlQueryJob;
 
-import org.apache.lucene.queryParser.ParseException;
-import org.apache.lucene.queryParser.QueryParser;
-import org.apache.lucene.util.Version;
-
 
 import build.DatabaseFiller;
 
@@ -37,8 +30,8 @@ import models.*;
 public class Application extends Controller {
 
 	//Static brain object there to hold the ontology in memory
-	//TODO
 	public static Brain brain;
+	final public static int PAGINATION = 20; 
 
 	public static void index() {
 		render();
@@ -77,14 +70,48 @@ public class Application extends Controller {
 
 		List<Agent> indirectAgents = new ArrayList<Agent>();
 		//Get the indirect agents object
-		for (String indirectAgentId : ftcClass.indirectAgentsId) {
+		for (String indirectAgentId : range(ftcClass.indirectAgents, 0, PAGINATION)) {
 			Agent indirectAgent = Agent.find("byDrugBankId", indirectAgentId).first();
 			indirectAgents.add(indirectAgent);
 		}
 
-		render(ftcClass, ratioSvg, subClasses, superClasses, indirectAgents);
+		List<Agent> directAgents = new ArrayList<Agent>();
+		//Get the direct agents object
+		for (String directAgentId : ftcClass.directAgents) {
+			Agent directAgent = Agent.find("byDrugBankId", directAgentId).first();
+			directAgents.add(directAgent);
+		}
+
+		render(ftcClass, ratioSvg, subClasses, superClasses, indirectAgents, directAgents);
 	}
 
+
+	private static <E> List<E> range(List<E> array, int start, int end) {
+		List<E> rangedArray = new ArrayList<E>();
+		if(start < 0 || array.size() < 1){
+			return rangedArray;
+		}
+		for (int i = start; i < end; i++) {
+			if(i >= array.size()){
+				return rangedArray;
+			}
+			rangedArray.add(array.get(i));			
+		}
+		return rangedArray;
+	}
+
+
+	public static void moreIndirectAgents(String ftcClassId, int currentNumber){
+		FtcClass ftcClass = FtcClass.find("byFtcId", ftcClassId).first();
+		List<Agent> indirectAgents = new ArrayList<Agent>();
+		//Get the indirect agents object
+		for (String indirectAgentId : range(ftcClass.indirectAgents, currentNumber, currentNumber + PAGINATION)) {
+			Agent indirectAgent = Agent.find("byDrugBankId", indirectAgentId).first();
+			indirectAgents.add(indirectAgent);
+		}
+		
+		renderJSON(indirectAgents);
+	}
 
 	public static void map(String classId) {
 		FtcClass ftcClass = FtcClass.find("byFtcId", classId).first();
@@ -92,8 +119,17 @@ public class Application extends Controller {
 	}
 
 	public static void agent(String drugbankId){
+
 		Agent agent = Agent.find("byDrugBankId", drugbankId).first();
-		render(agent);
+
+		List<FtcClass> directFtcClasses = new ArrayList<FtcClass>();
+		//Get the direct FtcClass object
+		for (String directFtcClassId : agent.directFtcClasses) {
+			FtcClass directFtcClass = FtcClass.find("byFtcId", directFtcClassId).first();
+			directFtcClasses.add(directFtcClass);
+		}
+
+		render(agent, directFtcClasses);
 	}
 
 	public static void postSearch(@Required String query) {
@@ -101,49 +137,49 @@ public class Application extends Controller {
 			//TODO put in the flash
 			redirect("/search/");
 		}
-		search(query);
+		//		search(query);
 	}
 
 	//TODO finir le CSS and HTML
-	public static void search(String query) {
-		List<Agent> agents = null;
-		List<Agent> ftcClasses = null;
-
-		if(isValidQuery(query)){
-
-			agents = Search.search("drugBankId:" + query, Agent.class).fetch();
-			if(agents.size() == 0){
-				agents = Search.search("label:" + query + "~", Agent.class).fetch();
-				if(agents.size() == 0){
-					agents = Search.search("label:" + query + "*~", Agent.class).fetch();
-				}
-			}
-
-			ftcClasses = Search.search("ftcId:" + query, FtcClass.class).fetch();
-			if(ftcClasses.size() == 0){
-				String appendFTC = "FTC_" + query;
-				ftcClasses = Search.search("ftcId:" + appendFTC, FtcClass.class).fetch();
-				if(ftcClasses.size() == 0){
-					ftcClasses = Search.search("label:\"" + query + "\"~", FtcClass.class).fetch();
-				}
-			}
-		}
-		render(query, agents, ftcClasses);
-	}
+	//	public static void search(String query) {
+	//		List<Agent> agents = null;
+	//		List<Agent> ftcClasses = null;
+	//
+	//		if(isValidQuery(query)){
+	//
+	//			agents = Search.search("drugBankId:" + query, Agent.class).fetch();
+	//			if(agents.size() == 0){
+	//				agents = Search.search("label:" + query + "~", Agent.class).fetch();
+	//				if(agents.size() == 0){
+	//					agents = Search.search("label:" + query + "*~", Agent.class).fetch();
+	//				}
+	//			}
+	//
+	//			ftcClasses = Search.search("ftcId:" + query, FtcClass.class).fetch();
+	//			if(ftcClasses.size() == 0){
+	//				String appendFTC = "FTC_" + query;
+	//				ftcClasses = Search.search("ftcId:" + appendFTC, FtcClass.class).fetch();
+	//				if(ftcClasses.size() == 0){
+	//					ftcClasses = Search.search("label:\"" + query + "\"~", FtcClass.class).fetch();
+	//				}
+	//			}
+	//		}
+	//		render(query, agents, ftcClasses);
+	//	}
 
 
 	//TODO doc
-	private static boolean isValidQuery(String query) {
-		if(query == null){
-			return false;
-		}
-		try {
-			new QueryParser(Search.getLuceneVersion(), "_docID", Search.getAnalyser()).parse(query);
-			return true;
-		} catch (ParseException e) {
-			return false;
-		}
-	}
+	//	private static boolean isValidQuery(String query) {
+	//		if(query == null){
+	//			return false;
+	//		}
+	//		try {
+	//			new QueryParser(Search.getLuceneVersion(), "_docID", Search.getAnalyser()).parse(query);
+	//			return true;
+	//		} catch (ParseException e) {
+	//			return false;
+	//		}
+	//	}
 
 	//Starting page for semantic query
 	public static void initQuery(){
@@ -165,7 +201,7 @@ public class Application extends Controller {
 					.replaceAll("^Encountered ", "Encountered <span class='parse_error'>")
 					.replaceAll(" at line ", "</span> at line ");
 			flash.error(errorMessage);
-			
+
 			render();
 		}
 

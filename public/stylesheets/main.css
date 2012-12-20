@@ -106,6 +106,21 @@ code {
     color: #54545A;
 }
 
+/* Class visualisation */
+
+.showMore{
+	background-color: orange;
+	text-align: center;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.showMore:hover{
+	background-color: red;
+	cursor: pointer;
+}
+
+
 
 #class-title {
 	color: #72d93f;
@@ -232,7 +247,7 @@ code {
 	padding-right: 5px;
 }
 
-#agents{
+.agents{
 	background-color: #DDEAFE;
 }
 
@@ -240,11 +255,11 @@ code {
 	background-color: #E3F7D9;
 }
 
-#agents>h2 {
+.agents>h2 {
 	border-bottom: 2px solid #5395f8;
 }
 
-#agents li:hover {
+.agents li:hover {
 	background-color: #5395f8
 }
 

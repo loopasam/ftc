@@ -2,6 +2,7 @@
 #{set title:ftcClass.ftcId + ' - ' + ftcClass.label /}
 
 #{script 'toggle.js' /}
+#{script 'showMore.js' /}
 
 <h1 id="class-title"><span id="classId">${ftcClass.ftcId}</span> - ${ftcClass.label}</h1>
 
@@ -10,24 +11,24 @@
     <p>${ftcClass.comment.raw()}</p>
 </div>
 
-<nav id="agents" class="block-information">
+<!-- Separate in 2 parts this -->
+<nav id="indirectAgents" class="agents block-information">
     <h2>
     <span class="togglable">[-] </span>
     <span class="togglable" style="display: none">[+] </span>
-    Agents<span class="numbers"> (Direct: ${ftcClass.directAgents.size()} - Indirect: ${indirectAgents.size()})</span></h2>
+    Indirect Agents<span class="numbers"> (Indirect: <span id="currentNumber">${indirectAgents.size()}</span> 
+    of <span id="totalNumber">${ftcClass.indirectAgents.size()})</span></span></h2>
       <ul>
-        #{list items:ftcClass.directAgents, as:'agent' }
-        <a href="@{Application.agent(agent.drugBankId)}"><li class="transition direct">${agent.drugBankId} - ${agent.label}</li></a>
-        #{/list}
-        
         #{list items:indirectAgents, as:'indirectAgent' }
         <a href="@{Application.agent(indirectAgent.drugBankId)}">
         	<li class="transition inferred">${indirectAgent.drugBankId} - ${indirectAgent.label}</li>
         </a>
         #{/list}
-        
       </ul>
+      #{if indirectAgents.size() < ftcClass.indirectAgents.size()}<div class="showMore" id="showMoreIndirectAgents">Show more</div>#{/if}
 </nav>
+
+<!-- Add the direct agents too -->
 
 
 <nav class="block-information class-info">
@@ -43,7 +44,7 @@
             #{list items:superClasses, as:'superClass' }
             #{if superClass != null}
             <a href="@{Application.classVisu(superClass.ftcId)}">
-            	<li class="transition direct #{if superClass.indirectAgentsId.size() > 0 || superClass.directAgents.size() > 0}has-drug#{/if}">
+            	<li class="transition direct #{if superClass.indirectAgents.size() > 0 || superClass.directAgents.size() > 0}has-drug#{/if}">
             	${superClass.ftcId} - ${superClass.label}
             	</li>
             </a>
@@ -66,7 +67,7 @@
             #{list items:subClasses, as:'subClass' }
               #{if subClass != null}
               <a href="@{Application.classVisu(subClass.ftcId)}">
-             	<li class="transition direct #{if subClass.indirectAgentsId.size() > 0 || subClass.directAgents.size() > 0}has-drug#{/if}">
+             	<li class="transition direct #{if subClass.indirectAgents.size() > 0 || subClass.directAgents.size() > 0}has-drug#{/if}">
              	 ${subClass.ftcId} - ${subClass.label}
              	</li>
               </a>

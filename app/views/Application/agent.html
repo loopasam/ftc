@@ -22,20 +22,25 @@ $(document).ready(function() {
     <h2>
         <span class="togglable">[-] </span> <span class="togglable"
             style="display: none">[+] </span> Super
-        class${agent.directFtcClasses.size().pluralize('es')}<span
-            class="numbers"> (${agent.directFtcClasses.size()})</span>
+        class${directFtcClasses.size().pluralize('es')}<span
+            class="numbers"> (${directFtcClasses.size()})</span>
     </h2>
 
     #{if agent.directFtcClasses.size() == 0}
     <p>No superclasses.</p>
-    #{/if} #{else}
+    #{/if}
+    
+    #{else}
     <ul>
-        #{list items:agent.directFtcClasses, as:'superClass' } #{if
-        superClass != null}
+        #{list items:directFtcClasses, as:'superClass' }
+        
+        #{if superClass != null}
         <a href="@{Application.classVisu(superClass.ftcId)}">
             <li class="transition direct">${superClass.ftcId} -
                 ${superClass.label}</li>
-        </a> #{/if} #{/list}
+        </a> 
+        #{/if} 
+        #{/list}
     </ul>
     #{/else}
 </nav>

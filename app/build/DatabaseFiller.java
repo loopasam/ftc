@@ -12,6 +12,12 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import jobs.SaveJob;
+
+import com.google.common.base.Stopwatch;
+
+import controllers.Application;
+
 import models.Agent;
 import models.FtcClass;
 
@@ -44,27 +50,33 @@ public class DatabaseFiller {
 	}
 
 	public void start() throws BrainException, IOException, ClassNotFoundException {
+
+
+
 		Logger.info("Loading DrugBank...");
+		//Loads drugbank - useful later
 		DrugBank drugBank = new DrugBank("data/tmp/drugbank.ser");
-		Logger.info("Learning the KB...");
-		Brain brain = new Brain();
-		brain.learn(this.getPathToKb());
+
+		Brain brain = Application.brain;
 		Logger.info("Getting the therapeutic agents...");
 
 		//FTC_C1 - only the one I've created are interesting :-P
-		//TODO: Put the FTC_C1 class instead of the current one for dev
-		//				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
+//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
+
 		//Anti-blood coaguilation - x-small
-//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+		//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+
 		//Anti molecular function --> bigger (2500 classes)
 				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
-		//		ftcAndDrugBankClasses.add("FTC_A0008150");
 
-
+		//Get the drugbank classes - useful later
+		Logger.info("Getting drugbank compounds...");
 		List<String> drugBankClasses = brain.getSubClasses("FTC_C2", false);
 		List<String> ftcClasses = new ArrayList<String>();
 
+
 		//Retrieves only the FTC classes and not the drugBank ones
+		Logger.info("Separates drugbank compounds from FTC classes...");
 		for (String ftcOrDrugBankClass : ftcAndDrugBankClasses) {
 			if(!drugBankClasses.contains(ftcOrDrugBankClass)){
 				ftcClasses.add(ftcOrDrugBankClass);
@@ -75,10 +87,21 @@ public class DatabaseFiller {
 		int total = ftcClasses.size();
 		int counter = 1;
 
+		Stopwatch stopwatch = new Stopwatch().start();
+
+
 		//Foreach FTC class, get the subclasses, id, etc... and generates the SVG graph
 		for (String ftcClass : ftcClasses) {
 			Logger.info("Storing class " + ftcClass + " in database - " + counter+ "/" + total);
 			counter++;
+
+			//Flushes every n entry
+			if (counter%200==0) { 
+				FtcClass.em().flush(); 
+				FtcClass.em().clear();
+			}
+
+
 			String label = brain.getLabel(ftcClass);
 			String ftcId = ftcClass;
 			String comment = brain.getComment(ftcClass);
@@ -86,31 +109,24 @@ public class DatabaseFiller {
 			List<String> superClasses = brain.getSuperClasses(ftcClass, true);
 
 			List<String> subClasses = brain.getSubClasses(ftcClass, true);
-			List<String> ftcSubClass = subClasses;
+
+			//Duplicates the content of subClasses - The idea
+			//is to get only the FTC subClasses
+			List<String> ftcSubClass = new ArrayList<String>();
+			ftcSubClass.addAll(subClasses);
+			//Remove the drugbank compounds from the list
 			ftcSubClass.removeAll(drugBankClasses);
 
-			//Retrieves the direct agents and store them as object
-			subClasses = brain.getSubClasses(ftcClass, true);
 			List<String> directAgentIds = new ArrayList<String>();
-			List<Agent> directAgents = new ArrayList<Agent>();
+			//Iterates in order to retrieve the ID of direct agents
 			for (String subClass : subClasses) {
 				if(drugBankClasses.contains(subClass)){
-
-					Agent agent = Agent.find("byDrugBankId", subClass).first();
-
-					if(agent == null){
-						//TODO don't necessarily create an agent
-
-						agent = getNewAgent(subClass, drugBank);
-					}					
+					//keeps the ID
 					directAgentIds.add(subClass);
-					String drugLabel = brain.getLabel(subClass);
-					agent.label = drugLabel;
-					directAgents.add(agent);
 				}
 			}
 
-			//Retrieves the indirect agents and store them as object
+			//Retrieves the indirect agents and store their IDs
 			List<String> indirectSubClasses = brain.getSubClasses(ftcClass, false);
 			List<String> indirectAgents = new ArrayList<String>();
 			for (String indirectSubClass : indirectSubClasses) {
@@ -120,27 +136,47 @@ public class DatabaseFiller {
 			}
 
 			//Create a new JPA entity with values used for the rendering later on.
-			FtcClass ftcClassObject = new FtcClass(ftcId, label, comment, ftcSubClass, superClasses, directAgents, indirectAgents);
+			FtcClass ftcClassObject = new FtcClass(ftcId, label, comment, ftcSubClass, superClasses, directAgentIds, indirectAgents);
+
 			//Save the graph as SVG to be ready to be rendered. The string of the content of the SVG is saved
 			//on the database
 			saveGraph(brain, ftcClassObject);
+
 			//Saves the object in the database
 			ftcClassObject.save();
 		}
-		brain.sleep();
-		//TODO update the brain spellChecker
-	}
 
-	private Agent getNewAgent(String id, DrugBank drugBank) {
-		Agent agent = new Agent(id);
-		Drug drug = drugBank.getDrug(id);
-		agent.description = drug.getDescription();
-		agent.indication = drug.getIndication();
-		agent.mechanism = drug.getMechanism();
-		agent.pharmacology = drug.getPharmacology();
-		agent.atcCodes = drug.getAtcCodes();
-		agent.categories = drug.getCategories();
-		return agent;
+		//Save the agents
+		int counterAgents = 0;
+		int totalAgent = drugBankClasses.size();
+		for (String drugBankClassId : drugBankClasses) {
+
+			Logger.info("Storing agent " + drugBankClassId + " in database - " + counterAgents+ "/" + totalAgent);
+			counterAgents++;
+
+			//Flushes every n entry
+			if (counterAgents%200==0) { 
+				Agent.em().flush(); 
+				Agent.em().clear();
+			}
+
+			Agent agent = new Agent(drugBankClassId);
+			Drug drug = drugBank.getDrug(drugBankClassId);
+			agent.description = drug.getDescription();
+			agent.indication = drug.getIndication();
+			agent.mechanism = drug.getMechanism();
+			agent.pharmacology = drug.getPharmacology();
+			agent.atcCodes = drug.getAtcCodes();
+			agent.categories = drug.getCategories();
+			agent.label = brain.getLabel(drugBankClassId);
+			agent.directFtcClasses = brain.getSuperClasses(drugBankClassId, true);
+			agent.save();
+		}
+
+		brain.sleep();
+
+		stopwatch.stop();
+		Logger.info("time: " + stopwatch);
 	}
 
 	private void saveGraph(Brain brain, FtcClass ftcClass) throws BrainException, IOException {
@@ -166,7 +202,7 @@ public class DatabaseFiller {
 
 			gv.addln(node + " [label=\"\\N\\n" + formattedLabel + "\"];");
 			if(ftcClass.ftcId.equals(node)){
-				gv.addln(node + " [fillcolor=\"#00ece4\"];");
+				gv.addln(node + " [fillcolor=\"#E3F7D9\"];");
 			}
 		}
 

@@ -21,6 +21,10 @@ GET     /search/                                       Application.search
 
 # Info on DB content
 GET     /{classId}                                       Application.classVisu
+
+# AJAX more results routes
+GET     /moreIndirectAgents/{ftcClassId}/{currentNumber}                 Application.moreIndirectAgents
+
 GET     /map/{classId}                                       Application.map
 GET     /agent/{drugbankId}                                       Application.agent
 
