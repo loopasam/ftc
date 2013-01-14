@@ -56,14 +56,14 @@ public class Application extends Controller {
 
 		List<FtcClass> subClasses = new ArrayList<FtcClass>();
 		//Get the subclasses object
-		for (String subClassId : ftcClass.subClasses) {
+		for (String subClassId : range(ftcClass.subClasses, 0, PAGINATION)) {
 			FtcClass subClass = FtcClass.find("byFtcId", subClassId).first();
 			subClasses.add(subClass);
 		}
 
 		List<FtcClass> superClasses = new ArrayList<FtcClass>();
 		//Get the super classes object
-		for (String superClassId : ftcClass.superClasses) {
+		for (String superClassId : range(ftcClass.superClasses, 0, PAGINATION)) {
 			FtcClass superClass = FtcClass.find("byFtcId", superClassId).first();
 			superClasses.add(superClass);
 		}
@@ -77,7 +77,7 @@ public class Application extends Controller {
 
 		List<Agent> directAgents = new ArrayList<Agent>();
 		//Get the direct agents object
-		for (String directAgentId : ftcClass.directAgents) {
+		for (String directAgentId : range(ftcClass.directAgents, 0, PAGINATION)) {
 			Agent directAgent = Agent.find("byDrugBankId", directAgentId).first();
 			directAgents.add(directAgent);
 		}
@@ -111,6 +111,42 @@ public class Application extends Controller {
 		}
 		
 		renderJSON(indirectAgents);
+	}
+	
+	public static void moreDirectAgents(String ftcClassId, int currentNumber){
+		FtcClass ftcClass = FtcClass.find("byFtcId", ftcClassId).first();
+		List<Agent> directAgents = new ArrayList<Agent>();
+		//Get the indirect agents object
+		for (String directAgentId : range(ftcClass.directAgents, currentNumber, currentNumber + PAGINATION)) {
+			Agent directAgent = Agent.find("byDrugBankId", directAgentId).first();
+			directAgents.add(directAgent);
+		}
+		
+		renderJSON(directAgents);
+	}
+	
+	public static void moreSuperclasses(String ftcClassId, int currentNumber){
+		FtcClass ftcClass = FtcClass.find("byFtcId", ftcClassId).first();
+		List<FtcClass> superClasses = new ArrayList<FtcClass>();
+		//Get the super classes objects
+		for (String superClassId : range(ftcClass.superClasses, currentNumber, currentNumber + PAGINATION)) {
+			FtcClass superClass = FtcClass.find("byFtcId", superClassId).first();
+			superClasses.add(superClass);
+		}
+		
+		renderJSON(superClasses);
+	}
+
+	public static void moreSubclasses(String ftcClassId, int currentNumber){
+		FtcClass ftcClass = FtcClass.find("byFtcId", ftcClassId).first();
+		List<FtcClass> subClasses = new ArrayList<FtcClass>();
+		//Get the subclasses objects
+		for (String subClassId : range(ftcClass.subClasses, currentNumber, currentNumber + PAGINATION)) {
+			FtcClass subClass = FtcClass.find("byFtcId", subClassId).first();
+			subClasses.add(subClass);
+		}
+		
+		renderJSON(subClasses);
 	}
 
 	public static void map(String classId) {
@@ -232,5 +268,17 @@ public class Application extends Controller {
 	public static void owlQuery(String query, String formWidth){
 		query(query);
 	}
+	
+	public static void tree() {
+		render();
+	}
+	
+	public static void subClasses(String id) throws ClassExpressionException{
+		System.out.println("id: " + id);
+		//TODO the logic
+		List<String> subClasses = brain.getSubClasses(id, true);
+		renderJSON(subClasses);
+	}
+
 
 }

@@ -61,13 +61,13 @@ public class DatabaseFiller {
 		Logger.info("Getting the therapeutic agents...");
 
 		//FTC_C1 - only the one I've created are interesting :-P
-//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
+		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
 
 		//Anti-blood coaguilation - x-small
 		//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
 
 		//Anti molecular function --> bigger (2500 classes)
-				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
+//				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
 
 		//Get the drugbank classes - useful later
 		Logger.info("Getting drugbank compounds...");

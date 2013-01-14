@@ -1,45 +1,56 @@
 $(document).ready(function() {
-		
-	$('#showMoreIndirectAgents').click(function(){
-		
-		//TODO has to be specifc to the method - store the value in a value field or something
-		//Or give a better id
-		var ftcClassId = $('#classId').html();
-		var currentNumber = $('#currentNumber').html();
-		
-	    $.ajax({
-	        url: "/moreIndirectAgents/" + ftcClassId + "/" + currentNumber,
-	        type: "GET",
-	        // callback handler that will be called on success
-	        success: function(indirectAgents, textStatus, jqXHR){
-	            // log a message to the console
-	            console.log(indirectAgents);
-	            currentNumber = parseInt(currentNumber) + indirectAgents.length;
-	            $('#currentNumber').html(currentNumber);
-	            if(currentNumber >= parseInt($('#totalNumber').html())){
-	            	$('#showMoreIndirectAgents').fadeOut('slow');
-	            }
-	            
-	            $.each(indirectAgents, function(){
-	            	var indirectAgentElement = '<a href="/agent/" + this.drugBankId>' +
-	                		'<li class="transition inferred">' + this.drugBankId + '-' + this.label + '</li></a>';
-	            
-	            	$('#indirectAgents > ul').append(indirectAgentElement);
-	            });
 
-	            
-	            
-	        },
-	        // callback handler that will be called on error
-	        error: function(jqXHR, textStatus, errorThrown){
-	            // log the error to the console
-	            console.log(
-	                "The following error occured: "+
-	                textStatus, errorThrown
-	            );
-	        }
-	    });
-		
-		
+	$('.showMore').click(function(){
+		var method = $(this).attr('id');
+		var ftcClassId = $('#classId').html();
+		var currentNumber = $('#currentNumber' + method).html();
+
+		$.ajax({
+			url: "/" + method + "/" + ftcClassId + "/" + currentNumber,
+			type: "GET",
+			// callback handler that will be called on success
+			success: function(newElements, textStatus, jqXHR){
+				currentNumber = parseInt(currentNumber) + newElements.length;
+				$('#currentNumber' + method).html(currentNumber);
+				if(currentNumber >= parseInt($('#totalNumber' + method).html())){
+					$('#' + method).fadeOut('slow');
+				}
+
+				$.each(newElements, function(){
+					var elementType;
+					var classes;
+					if(method == 'moreIndirectAgents'){
+						elementType = "agent/";
+						classes = "inferred";
+					}else if(method == 'moreDirectAgents'){
+						elementType = "agent/";
+						classes = "direct";
+					}else if(method == 'moreSuperclasses'){
+						elementType = "";
+						classes = "direct";
+					}else if(method == 'moreSubclasses'){
+						elementType = "";
+						classes = "direct";
+					}
+
+					var newElement = '<a href="/' + elementType + '"' + this.drugBankId + '>' +
+					'<li class="transition ' + classes + '">' + this.drugBankId + '-' + this.label + '</li></a>';
+					$('.' + method + 'Wrap > ul').append(newElement);
+				});
+
+
+
+			},
+			// callback handler that will be called on error
+			error: function(jqXHR, textStatus, errorThrown){
+				//TODO handle the error
+				console.log(
+						"The following error occured: "+
+						textStatus, errorThrown
+				);
+			}
+		});
+
+
 	});
 });

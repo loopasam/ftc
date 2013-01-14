@@ -1,3 +1,19 @@
+/* Test tree based viewer */
+.cat {
+	background-color: orange;
+	border: solid black 2px;
+	margin-left: 2%;
+	margin-top: 1%;
+	margin-bottom: 1%;
+	margin-right: 2%;
+}
+
+#thing {
+	margin-left: 0px;
+}
+/* End test */
+
+
 body {
 	margin: 0px;
 }
@@ -6,45 +22,45 @@ h1 {
 	text-align: center;
 }
 
-/* Semantic Query*/
-.parse_error{
+/* Semantic Query */
+.parse_error {
 	background-color: orange;
 	color: black;
 }
 
-#input-owl-query{
+#input-owl-query {
 	width: 300px;
-    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-    font-size: 130%;
-    line-height: 140%;
-    white-space: pre;
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -o-pre-wrap;
-    background: #F4F4F4;
-    padding: 0.2em 0.2em;
-    border: 1px solid #838383;
-    color: #54545A;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono",
+		monospace;
+	font-size: 130%;
+	line-height: 140%;
+	white-space: pre;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	background: #F4F4F4;
+	padding: 0.2em 0.2em;
+	border: 1px solid #838383;
+	color: #54545A;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
 }
 
-#submit_button{
+#submit_button {
 	width: 150px;
 	height: 30px;
 	margin-top: 1em;
 	font-size: 100%;
 }
 
-#loader{
+#loader {
 	display: none;
 	margin-left: auto;
 	margin-right: auto;
 	width: 100px;
 	height: 100px;
 }
-
 
 /* Results Semantic Query*/
 .protein {
@@ -88,39 +104,35 @@ h1 {
 	text-align: center;
 }
 
-
 /* HTML tags */
-
 code {
 	font-weight: normal;
-    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-    font-size: 90%;
-    line-height: 140%;
-    white-space: pre;
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -o-pre-wrap;
-    background: #F4F4F4;
-    padding: 0.2em 0.2em;
-    border: 1px solid #838383;
-    color: #54545A;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono",
+		monospace;
+	font-size: 90%;
+	line-height: 140%;
+	white-space: pre;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	background: #F4F4F4;
+	padding: 0.2em 0.2em;
+	border: 1px solid #838383;
+	color: #54545A;
 }
 
 /* Class visualisation */
-
-.showMore{
+.showMore {
 	background-color: orange;
 	text-align: center;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 }
 
-.showMore:hover{
+.showMore:hover {
 	background-color: red;
 	cursor: pointer;
 }
-
-
 
 #class-title {
 	color: #72d93f;
@@ -173,10 +185,10 @@ code {
 }
 
 .transition {
-	-webkit-transition: all 0.1s ease-out; 
-	-moz-transition: all 0.1s ease-out; 
-	-o-transition: all 0.1s ease-out; 
-	transition: all 0.1s ease-out; 
+	-webkit-transition: all 0.1s ease-out;
+	-moz-transition: all 0.1s ease-out;
+	-o-transition: all 0.1s ease-out;
+	transition: all 0.1s ease-out;
 }
 
 #menu li:hover {
@@ -206,7 +218,7 @@ code {
 }
 
 .block-information ul {
-	text-align: center;	
+	text-align: center;
 }
 
 .block-information li {
@@ -235,7 +247,7 @@ code {
 	padding-bottom: 15px;
 }
 
-#drugbank-data a:hover{
+#drugbank-data a:hover {
 	text-decoration: underline;
 }
 
@@ -243,11 +255,11 @@ code {
 	padding-right: 5px;
 }
 
-.category-db{
+.category-db {
 	padding-right: 5px;
 }
 
-.agents{
+.agents {
 	background-color: #DDEAFE;
 }
 
@@ -275,7 +287,7 @@ code {
 	font-weight: bold;
 }
 
-.direct{
+.direct {
 	border: 2px solid #838383;
 }
 
@@ -301,7 +313,7 @@ code {
 	background-image: url('/public/images/compass.png');
 }
 
-#title-map{
+#title-map {
 	position: absolute;
 	top: 10px;
 	left: 10px;

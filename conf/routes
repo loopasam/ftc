@@ -24,6 +24,9 @@ GET     /{classId}                                       Application.classVisu
 
 # AJAX more results routes
 GET     /moreIndirectAgents/{ftcClassId}/{currentNumber}                 Application.moreIndirectAgents
+GET     /moreDirectAgents/{ftcClassId}/{currentNumber}                 Application.moreDirectAgents
+GET     /moreSuperclasses/{ftcClassId}/{currentNumber}                 Application.moreSuperclasses
+GET     /moreSubclasses/{ftcClassId}/{currentNumber}                 Application.moreSubclasses
 
 GET     /map/{classId}                                       Application.map
 GET     /agent/{drugbankId}                                       Application.agent
@@ -31,6 +34,10 @@ GET     /agent/{drugbankId}                                       Application.ag
 # Semantic query
 GET     /query/                                       Application.initQuery
 GET     /query/{query}                                       Application.query
+
+# Test Tree DOM explorer
+GET     /tree/                                       Application.tree
+GET     /subClasses/{id}                                       Application.subClasses
 
 
 # Ignore favicon requests

@@ -14,9 +14,8 @@ public class Bootstrap extends Job {
 
 	public void doJob() throws BrainException {
 		Logger.info("Setting the brain object...");
-//		Application.brain = new Brain("http://www.ebi.ac.uk/ftc/", "http://www.ebi.ac.uk/ftc/ftc-kb-full.owl", 1);
-//		Application.brain.learn("data/ftc-kb-full.owl");
+		Application.brain = new Brain("http://www.ebi.ac.uk/ftc/", "http://www.ebi.ac.uk/ftc/ftc-kb-full.owl", 1);
+		Application.brain.learn("data/ftc-kb-full.owl");
 		Logger.info("brain object loaded!");
 	}
-
 }
