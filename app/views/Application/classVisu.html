@@ -47,12 +47,12 @@
     <h2>
     <span class="togglable">[-] </span>
     <span class="togglable" style="display: none">[+] </span>
-    Super class${superClasses.size().pluralize('es')}<span class="numbers"> (<span id="currentNumbermoreSuperclasses">${superClasses.size()}</span> 
+    &uarr; Super class${superClasses.size().pluralize('es')}<span class="numbers"> (<span id="currentNumbermoreSuperclasses">${superClasses.size()}</span> 
     of <span id="totalNumbermoreSuperclasses">${ftcClass.superClasses.size()})</span></h2>
       <ul>
         #{list items:superClasses, as:'superClass' }
         <a href="@{Application.classVisu(superClass.ftcId)}">
-        	<li class="transition direct #{if superClass.indirectAgents.size() > 0 || superClass.directAgents.size() > 0}has-drug#{/if}">
+        	<li class="transition direct #{if superClass.hasDrug}has-drug#{/if}">
         	${superClass.ftcId} - ${superClass.label}</li>
         </a>
         #{/list}
@@ -64,13 +64,13 @@
     <h2>
     <span class="togglable">[-] </span>
     <span class="togglable" style="display: none">[+] </span>
-    Subclass${subClasses.size().pluralize('es')}<span class="numbers"> (<span id="currentNumbermoreSubclasses">${subClasses.size()}</span> 
+    &darr; Subclass${subClasses.size().pluralize('es')}<span class="numbers"> (<span id="currentNumbermoreSubclasses">${subClasses.size()}</span> 
     of <span id="totalNumbermoreSubclasses">${ftcClass.subClasses.size()})</span></h2>
       <ul>
         #{list items:subClasses, as:'subClass' }
         
         <a href="@{Application.classVisu(subClass.ftcId)}">
-        	<li class="transition direct #{if subClass.indirectAgents.size() > 0 || subClass.directAgents.size() > 0}has-drug#{/if}">
+        	<li class="transition direct #{if subClass.hasDrug}has-drug#{/if}">
         	${subClass.ftcId} - ${subClass.label}</li>
         </a>
        

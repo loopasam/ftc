@@ -18,6 +18,7 @@ import org.hibernate.annotations.Type;
 
 import build.DatabaseFiller;
 
+import play.Logger;
 import play.db.jpa.Blob;
 import play.db.jpa.Model;
 
@@ -30,6 +31,7 @@ public class FtcClass extends Model {
 
 	public int widthSvg;
 	public int heightSvg;
+	public boolean hasDrug;
 
 	@Lob
 	public String comment;
@@ -60,6 +62,12 @@ public class FtcClass extends Model {
 		this.comment = comment;
 		this.directAgents = directAgents;
 		this.indirectAgents = indirectAgents;
+		
+		if(this.indirectAgents.size() > 0 || this.directAgents.size() > 0){
+			this.hasDrug = true;
+		}else{
+			this.hasDrug = false;
+		}
 	}
 
 	//Hack to remove the viewBox in order to profit from the zoom/pan library

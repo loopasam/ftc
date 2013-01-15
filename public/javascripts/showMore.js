@@ -17,24 +17,29 @@ $(document).ready(function() {
 				}
 
 				$.each(newElements, function(){
-					var elementType;
-					var classes;
+					var newElement;
 					if(method == 'moreIndirectAgents'){
-						elementType = "agent/";
-						classes = "inferred";
+						newElement = '<a href="/agent/' + this.drugBankId + '">' +
+						'<li class="transition inferred">' + this.drugBankId + '-' + this.label + '</li></a>';
 					}else if(method == 'moreDirectAgents'){
-						elementType = "agent/";
-						classes = "direct";
+						newElement = '<a href="/agent/' + this.drugBankId + '">' +
+						'<li class="transition direct">' + this.drugBankId + '-' + this.label + '</li></a>';
 					}else if(method == 'moreSuperclasses'){
-						elementType = "";
-						classes = "direct";
+						var hasDrug = "";
+						if(this.hasDrug == true){
+							hasDrug = "has-drug";
+						}
+						newElement = '<a href="/' + this.ftcId + '">' +
+						'<li class="transition direct ' + hasDrug + '">' + this.ftcId + '-' + this.label + '</li></a>';
 					}else if(method == 'moreSubclasses'){
-						elementType = "";
-						classes = "direct";
+						var hasDrug = "";
+						if(this.hasDrug == true){
+							hasDrug = "has-drug";
+						}
+						newElement = '<a href="/' + this.ftcId + '">' +
+						'<li class="transition direct ' + hasDrug + '">' + this.ftcId + '-' + this.label + '</li></a>';
 					}
 
-					var newElement = '<a href="/' + elementType + '"' + this.drugBankId + '>' +
-					'<li class="transition ' + classes + '">' + this.drugBankId + '-' + this.label + '</li></a>';
 					$('.' + method + 'Wrap > ul').append(newElement);
 				});
 
