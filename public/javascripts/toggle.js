@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	$('.togglable').click(function() {
 		$(this).parent().find('.togglable').toggle();
-		$(this).parent().parent().find('ul').toggle('fast', function() {});
+		console.log(this);
+		$(this).parent().parent().find('#members').toggle('fast', function() {});
 	});
 });

@@ -1,6 +1,10 @@
 $(document).ready(function() {
 
 	$('.showMore').click(function(){
+		var loader = $(this).find('img');
+		var showMore = $(this).find('.textShowMore');
+		loader.show();
+		showMore.hide();
 		var method = $(this).attr('id');
 		var ftcClassId = $('#classId').html();
 		var currentNumber = $('#currentNumber' + method).html();
@@ -19,28 +23,31 @@ $(document).ready(function() {
 				$.each(newElements, function(){
 					var newElement;
 					if(method == 'moreIndirectAgents'){
-						newElement = '<a href="/agent/' + this.drugBankId + '">' +
+						newElement = '<a style="display:none" href="/agent/' + this.drugBankId + '">' +
 						'<li class="transition inferred">' + this.drugBankId + '-' + this.label + '</li></a>';
 					}else if(method == 'moreDirectAgents'){
-						newElement = '<a href="/agent/' + this.drugBankId + '">' +
+						newElement = '<a style="display:none" href="/agent/' + this.drugBankId + '">' +
 						'<li class="transition direct">' + this.drugBankId + '-' + this.label + '</li></a>';
 					}else if(method == 'moreSuperclasses'){
 						var hasDrug = "";
 						if(this.hasDrug == true){
 							hasDrug = "has-drug";
 						}
-						newElement = '<a href="/' + this.ftcId + '">' +
+						newElement = '<a style="display:none" href="/' + this.ftcId + '">' +
 						'<li class="transition direct ' + hasDrug + '">' + this.ftcId + '-' + this.label + '</li></a>';
 					}else if(method == 'moreSubclasses'){
 						var hasDrug = "";
 						if(this.hasDrug == true){
 							hasDrug = "has-drug";
 						}
-						newElement = '<a href="/' + this.ftcId + '">' +
+						newElement = '<a style="display:none" href="/' + this.ftcId + '">' +
 						'<li class="transition direct ' + hasDrug + '">' + this.ftcId + '-' + this.label + '</li></a>';
 					}
 
-					$('.' + method + 'Wrap > ul').append(newElement);
+					//$('.' + method + 'Wrap > div > ul').append(newElement);
+					$(newElement).appendTo('.' + method + 'Wrap > div > ul').fadeIn('slow');
+					loader.hide();
+					showMore.show();
 				});
 
 

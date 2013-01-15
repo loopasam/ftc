@@ -109,7 +109,6 @@ public class Application extends Controller {
 			Agent indirectAgent = Agent.find("byDrugBankId", indirectAgentId).first();
 			indirectAgents.add(indirectAgent);
 		}
-		
 		renderJSON(indirectAgents);
 	}
 	
@@ -121,7 +120,6 @@ public class Application extends Controller {
 			Agent directAgent = Agent.find("byDrugBankId", directAgentId).first();
 			directAgents.add(directAgent);
 		}
-		
 		renderJSON(directAgents);
 	}
 	
