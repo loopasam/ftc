@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>The FTC is coming soon - FTC Blog</title>
+  <meta name="author" content="Samuel Croset">
+
+  
+  <meta name="description" content="blabalbalablabalba Example of class (Query.java) download 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+package queries; import uk.ac.ebi. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://loopasam.github.com/ftc/blog/2013/01/15/the-ftc-is-coming-soon/">
+  <link href="/ftc/favicon.png" rel="icon">
+  <link href="/ftc/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/ftc/javascripts/modernizr-2.0.js"></script>
+  <script src="/ftc/javascripts/ender.js"></script>
+  <script src="/ftc/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="FTC Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/ftc/">FTC Blog</a></h1>
+  
+    <h2>News related to the Functional Therapeutic Chemical Classification System</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:loopasam.github.com/ftc" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/ftc/">Blog</a></li>
+  <li><a href="/ftc/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">The FTC Is Coming Soon</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-15T23:47:00+00:00" pubdate data-updated="true">Jan 15<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>blabalbalablabalba</p>
+
+<figure class='code'><figcaption><span>Example of class (Query.java)</span> <a href='/ftc/downloads/code/Query.java'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">queries</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">uk.ac.ebi.brain.core.Brain</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">uk.ac.ebi.brain.error.BrainException</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Query</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">BrainException</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">Brain</span> <span class="n">brain</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Brain</span><span class="o">(</span><span class="s">&quot;http://localhost/&quot;</span><span class="o">,</span> <span class="s">&quot;http://localhost/integrated.owl&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Learning NCBI...&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">brain</span><span class="o">.</span><span class="na">learn</span><span class="o">(</span><span class="s">&quot;data/NCBI-taxonomy-mammals.owl&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Learning GO...&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">brain</span><span class="o">.</span><span class="na">learn</span><span class="o">(</span><span class="s">&quot;data/gene_ontology.owl&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Learning uniprot...&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">brain</span><span class="o">.</span><span class="na">learn</span><span class="o">(</span><span class="s">&quot;data/uniprot.owl&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Saving integrated...&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">brain</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="s">&quot;data/integrated.owl&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="n">brain</span><span class="o">.</span><span class="na">sleep</span><span class="o">();</span>
+</span><span class='line'>      
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Samuel Croset</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-15T23:47:00+00:00" pubdate data-updated="true">Jan 15<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/ftc/blog/categories/ftc/'>FTC</a>, <a class='category' href='/ftc/blog/categories/test/'>test</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://loopasam.github.com/ftc/blog/2013/01/15/the-ftc-is-coming-soon/" data-via="samuel_croset" data-counturl="http://loopasam.github.com/ftc/blog/2013/01/15/the-ftc-is-coming-soon/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/ftc/blog/2013/01/16/second-post/" title="Next Post: second post">second post &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("samuel_croset", 4, false);
+    });
+  </script>
+  <script src="/ftc/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/samuel_croset" class="twitter-follow-button" data-show-count="false">Follow @samuel_croset</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Samuel Croset -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

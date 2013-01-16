@@ -1,0 +1,23 @@
+<div class="highlight"><pre><span class="kn">package</span> <span class="n">queries</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">uk.ac.ebi.brain.core.Brain</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">uk.ac.ebi.brain.error.BrainException</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Query</span> <span class="o">{</span>
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">BrainException</span> <span class="o">{</span>
+		<span class="n">Brain</span> <span class="n">brain</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Brain</span><span class="o">(</span><span class="s">&quot;http://localhost/&quot;</span><span class="o">,</span> <span class="s">&quot;http://localhost/integrated.owl&quot;</span><span class="o">);</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Learning NCBI...&quot;</span><span class="o">);</span>
+		<span class="n">brain</span><span class="o">.</span><span class="na">learn</span><span class="o">(</span><span class="s">&quot;data/NCBI-taxonomy-mammals.owl&quot;</span><span class="o">);</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Learning GO...&quot;</span><span class="o">);</span>
+		<span class="n">brain</span><span class="o">.</span><span class="na">learn</span><span class="o">(</span><span class="s">&quot;data/gene_ontology.owl&quot;</span><span class="o">);</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Learning uniprot...&quot;</span><span class="o">);</span>
+		<span class="n">brain</span><span class="o">.</span><span class="na">learn</span><span class="o">(</span><span class="s">&quot;data/uniprot.owl&quot;</span><span class="o">);</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Saving integrated...&quot;</span><span class="o">);</span>
+		<span class="n">brain</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="s">&quot;data/integrated.owl&quot;</span><span class="o">);</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">brain</span><span class="o">.</span><span class="na">getSubClasses</span><span class="o">(</span><span class="s">&quot;involved_in some (regulates some GO_0007596) and expressed_in some NCBI_9606&quot;</span><span class="o">,</span> <span class="kc">false</span><span class="o">));</span>
+		<span class="n">brain</span><span class="o">.</span><span class="na">sleep</span><span class="o">();</span>
+		
+	<span class="o">}</span>
+<span class="o">}</span>
+</pre></div>

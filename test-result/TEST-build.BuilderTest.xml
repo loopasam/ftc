@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-
-<testsuite failures="0" time="74.534" errors="0" skipped="0" tests="1" name="build.BuilderTest">
-  <testcase classname="build.BuilderTest" name="exportToOwlFull" time="74.534">
-      </testcase>
-</testsuite>
