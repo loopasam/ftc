@@ -4,7 +4,7 @@
   <title><![CDATA[FTC Blog]]></title>
   <link href="http://loopasam.github.com/ftc/atom.xml" rel="self"/>
   <link href="http://loopasam.github.com/ftc/"/>
-  <updated>2013-01-16T00:31:33+00:00</updated>
+  <updated>2013-01-16T00:34:16+00:00</updated>
   <id>http://loopasam.github.com/ftc/</id>
   <author>
     <name><![CDATA[Samuel Croset]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[third post]]></title>
+    <link href="http://loopasam.github.com/ftc/blog/2013/01/16/third-post/"/>
+    <updated>2013-01-16T00:30:00+00:00</updated>
+    <id>http://loopasam.github.com/ftc/blog/2013/01/16/third-post</id>
+    <content type="html"><![CDATA[<p>pouet pouet</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[second post]]></title>
@@ -33,23 +42,6 @@
 </span><span class='line'>        ('biological process'
 </span><span class='line'>         that 'regulates' some 'blood coagulation'))))</span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Third Post]]></title>
-    <link href="http://loopasam.github.com/ftc/blog/2013/01/16/third-post/"/>
-    <updated>2013-01-16T00:00:00+00:00</updated>
-    <id>http://loopasam.github.com/ftc/blog/2013/01/16/third-post</id>
-    <content type="html"><![CDATA[<hr />
-
-<p>layout: post
-title: &#8220;third post&#8221;
-date: 2013-01-16 00:30
-comments: true
-categories:</p>
-
-<p>pouet pouet</p>
 ]]></content>
   </entry>
   
