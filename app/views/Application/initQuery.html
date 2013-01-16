@@ -14,8 +14,8 @@ $(document).ready(function() {
 //Do a generic tag for that
 <form action="@{Application.owlQuery()}" method="POST">
    		<span>Thing that is </span>
-   		<input id="input-owl-query" type="text" name="query" value="${flash.query}"/ size="70"> 
-    	<input id="submit_button" type="submit" value="Search" />
+   		<input class="input-query" id="input-owl-query" type="text" name="query" value="${flash.query}"/ size="70"> 
+    	<input class="submit_button" type="submit" value="Search" />
 </form>
 
 <div id="loader" style="display: none;">

@@ -1,30 +1,59 @@
 #{extends 'main.html' /}
 #{set title:'Search results' /}
 
-#{if flash.error}
-    <p style="color:#c00">
-        ${flash.error}
-    </p>
-#{/if}
+#{script 'toggle.js' /}
 
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".input-query").focus();
+});
+</script>
 
-<form action="@{Application.postSearch()}" method="POST">
-    <input type="text" name="query" value="${query}"/> 
-    <input type="submit" value="Search" />
+<form class="form-input-query" action="@{Application.postSearch()}" method="POST">
+	<h1>Search classes</h1>
+    <input class="input-query" type="text" name="query" value="${query}"/> 
+    <input class="submit_button" type="submit" value="Search" />
 </form>
 
-<ul>
-	#{list items:agents, as:'agent' }
-	   <a href="@{Application.agent(agent.drugBankId)}">
-	       <li class="transition direct">${agent.drugBankId} - ${agent.label}</li>
-        </a>
-	#{/list}
-</ul>
+#{if noResults && query != null}
+    <div class="no-results">
+    <h2>No results!</h2>
+    <p>Try queries such as <code>'Anti-blood coagulation agent'</code> or <code>DB000</code></p>
+    </div>    
+#{/if}
 
-<ul>
-    #{list items:ftcClasses, as:'ftcClass' }
-       <a href="@{Application.classVisu(ftcClass.ftcId)}">
-           <li class="transition direct">${ftcClass.ftcId} - ${ftcClass.label}</li>
+#{if agents.size() > 0}
+<nav class="agents block-information">
+    <h2>
+    <span class="togglable">[-] </span>
+    <span class="togglable" style="display: none">[+] </span>
+    Agents<span class="numbers"> (${agents.size()} displayed)</span></h2>
+    <div id="members">
+      <ul>
+        #{list items:agents, as:'agent' }
+        <a href="@{Application.agent(agent.drugBankId)}">
+        	<li class="transition direct">${agent.drugBankId} - ${agent.label}</li>
         </a>
-    #{/list}
-</ul>
+        #{/list}
+      </ul>
+      </div>
+</nav>
+#{/if}
+
+#{if ftcClasses.size() > 0}
+<nav class="class-info block-information">
+    <h2>
+    <span class="togglable">[-] </span>
+    <span class="togglable" style="display: none">[+] </span>
+    Classes<span class="numbers"> (${ftcClasses.size()} displayed)</span></h2>
+    <div id="members">
+      <ul>
+        #{list items:ftcClasses, as:'ftcClass' }
+        <a href="@{Application.classVisu(ftcClass.ftcId)}">
+        	<li class="transition direct #{if ftcClass.hasDrug}has-drug#{/if}">${ftcClass.ftcId} - ${ftcClass.label}</li>
+        </a>
+        #{/list}
+      </ul>
+      </div>
+</nav>
+#{/if}

@@ -111,7 +111,7 @@ public class Application extends Controller {
 		}
 		renderJSON(indirectAgents);
 	}
-	
+
 	public static void moreDirectAgents(String ftcClassId, int currentNumber){
 		FtcClass ftcClass = FtcClass.find("byFtcId", ftcClassId).first();
 		List<Agent> directAgents = new ArrayList<Agent>();
@@ -122,7 +122,7 @@ public class Application extends Controller {
 		}
 		renderJSON(directAgents);
 	}
-	
+
 	public static void moreSuperclasses(String ftcClassId, int currentNumber){
 		FtcClass ftcClass = FtcClass.find("byFtcId", ftcClassId).first();
 		List<FtcClass> superClasses = new ArrayList<FtcClass>();
@@ -131,7 +131,7 @@ public class Application extends Controller {
 			FtcClass superClass = FtcClass.find("byFtcId", superClassId).first();
 			superClasses.add(superClass);
 		}
-		
+
 		renderJSON(superClasses);
 	}
 
@@ -143,7 +143,7 @@ public class Application extends Controller {
 			FtcClass subClass = FtcClass.find("byFtcId", subClassId).first();
 			subClasses.add(subClass);
 		}
-		
+
 		renderJSON(subClasses);
 	}
 
@@ -168,52 +168,33 @@ public class Application extends Controller {
 
 	public static void postSearch(@Required String query) {
 		if(validation.hasErrors()){
-			//TODO put in the flash
 			redirect("/search/");
 		}
-		//		search(query);
+		search(query);
 	}
 
-	//TODO finir le CSS and HTML
-	//	public static void search(String query) {
-	//		List<Agent> agents = null;
-	//		List<Agent> ftcClasses = null;
-	//
-	//		if(isValidQuery(query)){
-	//
-	//			agents = Search.search("drugBankId:" + query, Agent.class).fetch();
-	//			if(agents.size() == 0){
-	//				agents = Search.search("label:" + query + "~", Agent.class).fetch();
-	//				if(agents.size() == 0){
-	//					agents = Search.search("label:" + query + "*~", Agent.class).fetch();
-	//				}
-	//			}
-	//
-	//			ftcClasses = Search.search("ftcId:" + query, FtcClass.class).fetch();
-	//			if(ftcClasses.size() == 0){
-	//				String appendFTC = "FTC_" + query;
-	//				ftcClasses = Search.search("ftcId:" + appendFTC, FtcClass.class).fetch();
-	//				if(ftcClasses.size() == 0){
-	//					ftcClasses = Search.search("label:\"" + query + "\"~", FtcClass.class).fetch();
-	//				}
-	//			}
-	//		}
-	//		render(query, agents, ftcClasses);
-	//	}
+	public static void search(String query) {
+		List<Agent> agents = new ArrayList<Agent>();
+		List<FtcClass> ftcClasses = new ArrayList<FtcClass>();
 
+		List<Agent> agentsFromId = Agent.find("byDrugBankIdIlike", "%" + query + "%").fetch(PAGINATION);
+		List<Agent> agentsFromLabel = Agent.find("byLabelIlike", "%" + query + "%").fetch(PAGINATION);
+		agents.addAll(agentsFromLabel);
+		agents.addAll(agentsFromId);
 
-	//TODO doc
-	//	private static boolean isValidQuery(String query) {
-	//		if(query == null){
-	//			return false;
-	//		}
-	//		try {
-	//			new QueryParser(Search.getLuceneVersion(), "_docID", Search.getAnalyser()).parse(query);
-	//			return true;
-	//		} catch (ParseException e) {
-	//			return false;
-	//		}
-	//	}
+		List<FtcClass> ftcClassesFromId = FtcClass.find("byFtcIdIlike", "%" + query + "%").fetch(PAGINATION);
+		List<FtcClass> ftcClassesFromLabel = FtcClass.find("byLabelIlike", "%" + query + "%").fetch(PAGINATION);
+		ftcClasses.addAll(ftcClassesFromId);
+		ftcClasses.addAll(ftcClassesFromLabel);
+
+		boolean noResults = false;
+		if(agents.size() == 0 && ftcClasses.size() == 0){
+			noResults = true;
+		}
+
+		render(query, agents, ftcClasses, noResults);
+	}
+
 
 	//Starting page for semantic query
 	public static void initQuery(){
@@ -266,11 +247,11 @@ public class Application extends Controller {
 	public static void owlQuery(String query, String formWidth){
 		query(query);
 	}
-	
+
 	public static void tree() {
 		render();
 	}
-	
+
 	public static void subClasses(String id) throws ClassExpressionException{
 		System.out.println("id: " + id);
 		//TODO the logic
