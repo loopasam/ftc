@@ -3,11 +3,15 @@
 
 #{script 'toggle.js' /}
 #{script 'showMore.js' /}
+#{script 'jquery.poshytip.min.js' /}
+#{script 'help.js' /}
 
 <h1 id="class-title"><span id="classId">${ftcClass.ftcId}</span> - ${ftcClass.label}</h1>
 
 <div class="block-information" id="definition">
-    <h2>Definition</h2>
+    <h2>Definition
+    <span title="The human-readable<br>definition of the category" class="help-text">(?)</span>
+    </h2>
     <p>${ftcClass.comment.raw()}</p>
 </div>
 
@@ -17,7 +21,11 @@
     <span class="togglable">[-] </span>
     <span class="togglable" style="display: none">[+] </span>
     Direct Agents<span class="numbers"> (<span id="currentNumbermoreDirectAgents">${directAgents.size()}</span> 
-    of <span id="totalNumbermoreDirectAgents">${ftcClass.directAgents.size()})</span></h2>
+    of <span id="totalNumbermoreDirectAgents">${ftcClass.directAgents.size()})</span>
+    <span title="<strong>The therapeutic agents that might act as ${ftcClass.label} (computer generated hypothesis).</strong>
+    These compounds are direct children of the category ${ftcClass.label}, 
+    they are therefore marked as <i>direct</i>." class="help-text">(?)</span>
+    </h2>
     <div id="members">
       <ul>
         #{list items:directAgents, as:'directAgent' }
@@ -42,7 +50,11 @@
     <span class="togglable">[-] </span>
     <span class="togglable" style="display: none">[+] </span>
     Indirect Agents<span class="numbers"> (<span id="currentNumbermoreIndirectAgents">${indirectAgents.size()}</span> 
-    of <span id="totalNumbermoreIndirectAgents">${ftcClass.indirectAgents.size()})</span></h2>
+    of <span id="totalNumbermoreIndirectAgents">${ftcClass.indirectAgents.size()})</span>
+    <span title="<strong>The therapeutic agents that might act as ${ftcClass.label} (computer generated hypothesis).</strong>
+    These compounds are not direct children of the category ${ftcClass.label}, 
+    they are therefore marked as <i>indirect</i> (dashed border)." class="help-text">(?)</span>
+    </h2>
     <div id="members">
       <ul>
         #{list items:indirectAgents, as:'indirectAgent' }
@@ -67,7 +79,11 @@
     <span class="togglable" style="display: none">[+] </span>
     &uarr; Super class${superClasses.size().pluralize('es')}
     <span class="numbers"> (<span id="currentNumbermoreSuperclasses">${superClasses.size()}</span> 
-    of <span id="totalNumbermoreSuperclasses">${ftcClass.superClasses.size()})</span></h2>
+    of <span id="totalNumbermoreSuperclasses">${ftcClass.superClasses.size()})</span>
+    <span title="<strong>The direct parents (super classes) to the current category.</strong> The super classes
+    define increasingly more generic concepts. Text in bold indicates that the super class contains some
+    therapeutic agents." class="help-text">(?)</span>
+    </h2>
     <div id="members">
       <ul>
         #{list items:superClasses, as:'superClass' }
@@ -92,7 +108,11 @@
     <span class="togglable">[-] </span>
     <span class="togglable" style="display: none">[+] </span>
     &darr; Subclass${subClasses.size().pluralize('es')}<span class="numbers"> (<span id="currentNumbermoreSubclasses">${subClasses.size()}</span> 
-    of <span id="totalNumbermoreSubclasses">${ftcClass.subClasses.size()})</span></h2>
+    of <span id="totalNumbermoreSubclasses">${ftcClass.subClasses.size()})</span>
+    <span title="<strong>The direct children (subclasses) to the current category.</strong> The subclasses
+    define increasingly more specific concepts. Text in bold indicates that the subclass contains some
+    therapeutic agents." class="help-text">(?)</span>
+    </h2>
     <div id="members">
       <ul>
         #{list items:subClasses, as:'subClass' }
@@ -115,7 +135,10 @@
 
 
 <nav class="block-information">
-<h2>Taxonomic Tree</h2>
+<h2>Taxonomic Tree (<a style="text-decoration: underline;" href="@{Application.map(ftcClass.ftcId)}">explore map</a>)
+  <span title="Tree representation of the super classes of the current category. You can zoom and pan the tree by clicking the
+  <i>explore map</i> link" class="help-text">(?)</span>
+</h2>
 <div id="svg-wraper" style="width: ${ratioSvg}">
 	${ftcClass.svgGraph.raw()}
 </div>

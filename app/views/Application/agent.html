@@ -1,5 +1,8 @@
-#{extends 'main.html' /} #{set title:agent.drugBankId + ' - ' +
-agent.label /}
+#{extends 'main.html' /}
+#{set title:agent.drugBankId + ' - ' + agent.label /}
+#{script 'jquery.poshytip.min.js' /}
+#{script 'help.js' /}
+
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -20,10 +23,13 @@ $(document).ready(function() {
 
 <nav class="block-information class-info action">
     <h2>
-        <span class="togglable">[-] </span> <span class="togglable"
-            style="display: none">[+] </span> Super
-        class${directFtcClasses.size().pluralize('es')}<span
-            class="numbers"> (${directFtcClasses.size()})</span>
+    <span class="togglable">[-] </span>
+    <span class="togglable"
+            style="display: none">[+] </span> Super class${directFtcClasses.size().pluralize('es')}
+    <span class="numbers"> (${directFtcClasses.size()})</span>
+            
+  <span title="Categories into which the therapeutic agent ${agent.label} has been classified.
+  The compound might be used for these indications (computer generated hypothesis)" class="help-text">(?)</span>
     </h2>
 
     #{if agent.directFtcClasses.size() == 0}
@@ -46,7 +52,10 @@ $(document).ready(function() {
 </nav>
 
 <div class="block-information" id="drugbank-data">
-    <h2>Functional properties (via DrugBank)</h2>
+    <h2>Functional properties (via DrugBank)
+  	<span title="Supplementary information about the compound. The data is coming straight from DrugBank and not 
+  	modified" class="help-text">(?)</span>
+    </h2>
     <p>
         <strong>DrugBank entry: </strong> <a
             href="http://www.drugbank.ca/drugs/${agent.drugBankId}">${agent.drugBankId}

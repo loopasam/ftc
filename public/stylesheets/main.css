@@ -126,6 +126,35 @@ code {
 	color: #54545A;
 }
 
+/* Help text */
+.help-text {
+	float: right;
+	color: #838383;
+	font-weight: bold;
+}
+
+.help-text:hover {
+	cursor: help;
+}
+
+.tip {
+	z-index:1000;
+	text-align:left;
+	border:5px solid #72d93f;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	padding:6px 8px;
+	min-width:50px;
+	max-width:300px;
+	color:#fff;
+	background-color: #838383;
+}
+.tip .tip-inner {
+	font:12px/16px arial,helvetica,sans-serif;
+}
+
+
 /* Class visualisation */
 .showMore {
 	background-color: #d4d4d4;

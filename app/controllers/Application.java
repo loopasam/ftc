@@ -155,14 +155,15 @@ public class Application extends Controller {
 	public static void agent(String drugbankId){
 
 		Agent agent = Agent.find("byDrugBankId", drugbankId).first();
-
 		List<FtcClass> directFtcClasses = new ArrayList<FtcClass>();
 		//Get the direct FtcClass object
 		for (String directFtcClassId : agent.directFtcClasses) {
 			FtcClass directFtcClass = FtcClass.find("byFtcId", directFtcClassId).first();
-			directFtcClasses.add(directFtcClass);
+			if(directFtcClass != null){
+				directFtcClasses.add(directFtcClass);
+			}
 		}
-
+		
 		render(agent, directFtcClasses);
 	}
 
