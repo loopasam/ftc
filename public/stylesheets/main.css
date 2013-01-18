@@ -154,6 +154,19 @@ code {
 	font:12px/16px arial,helvetica,sans-serif;
 }
 
+/* Home page */
+#introduction {
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: orange;
+}
+
+.box {
+	text-align: center;
+	width: 30%;
+	float: left;
+}
+
 
 /* Class visualisation */
 .showMore {
