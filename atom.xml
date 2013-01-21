@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[FTC Blog]]></title>
+  <link href="http://loopasam.github.com/ftc/atom.xml" rel="self"/>
+  <link href="http://loopasam.github.com/ftc/"/>
+  <updated>2013-01-21T23:00:52+00:00</updated>
+  <id>http://loopasam.github.com/ftc/</id>
+  <author>
+    <name><![CDATA[Samuel Croset]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Beta version coming soon]]></title>
+    <link href="http://loopasam.github.com/ftc/blog/2013/01/21/beta-version-coming-soon/"/>
+    <updated>2013-01-21T22:57:00+00:00</updated>
+    <id>http://loopasam.github.com/ftc/blog/2013/01/21/beta-version-coming-soon</id>
+    <content type="html"><![CDATA[<p>I&#8217;m please to announced that the web application related to the FTC in
+going to be released soon. Stay tuned to receive the test URL.</p>
+]]></content>
+  </entry>
+  
+</feed>
