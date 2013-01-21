@@ -4,77 +4,56 @@
 
 *{Get the JS to toggle + or - boxes}*
 #{script 'toggle.js' /}
+#{script 'showMore.js' /}
+#{script 'jquery.poshytip.min.js' /}
+#{script 'help.js' /}
 
-*{If errors, show them as well as the form}*
-#{if flash.error}
-	#{query_input /}
-	<div id="errors" style="color: red;">
-		${flash.error.raw()}
-	</div>
+
+<h3 id="owl-query">Query: <code id="classId">${query}</code></h3>
+
+#{if owlClassResults.size() < 1}
+    <div class="no-results">
+    <h2>There is no subclasses to this expression</h2>
+    <p>Try queries such as <code>'perturbs' some ('involved-in' some 'blood coagulation')</code>. You can also have a look at the
+    documentation to get started.</p>
+    </div>    
 #{/if}
-
-#{if result != null}
-<h3 id="owl-query">Query: <code>${result.query}</code></h3>
-<nav class="block-information">
+#{else}
+<nav class="block-information moreResultsWrap">
     <h2><span class="togglable">[-] </span>
     <span class="togglable" style="display: none">[+] </span>
-    Equivalent class${result.equivalentClasses.size().pluralize('es')}<span class="numbers"> (${result.equivalentClasses.size()})</span></h2>
-    
-    #{if result.equivalentClasses.size() == 0}
-    	<p>No equivalent classes.</p>
-    #{/if}
-    #{else}
+    Subclass${owlClassResults.size().pluralize('es')}<span class="numbers"> (<span id="currentNumbermoreResults">${owlClassResults.size()}</span> 
+    of <span id="totalNumbermoreResults">${totalNumber})</span>
+	<span title="<strong>Subclasses to the queried expression.</strong>
+ 	List of the classes that are included in the definition formulated as query." class="help-text">(?)</span>    </h2>
+    <div id="members">
         <ul>
-		#{list items:result.equivalentClasses, as:'key' }
-			#{if result.typeMap.get(key).equals("ftc")}
-				#{ftcClass key:key, value:result.labelMap.get(key) /}
+		#{list items:owlClassResults, as:'subClass' }
+			#{if subClass.type.equals("ftc")}
+				#{ftcClass key:subClass.owlId, value:subClass.label /}
 			#{/if}
 			
-			#{if result.typeMap.get(key).equals("protein")}
-				#{protein key:key, value:result.labelMap.get(key) /}
+			#{if subClass.type.equals("protein")}
+				#{protein key:subClass.owlId, value:subClass.label /}
 			#{/if}
 			
-			#{if result.typeMap.get(key).equals("drugbank")}
-				#{drugbank key:key, value:result.labelMap.get(key) /}
+			#{if subClass.type.equals("drugbank")}
+				#{drugbank key:subClass.owlId, value:subClass.label /}
 			#{/if}
 			
-			#{if result.typeMap.get(key).equals("go")}
-				#{go key:key, value:result.labelMap.get(key) /}
-			#{/if}
+			#{if subClass.type.equals("go")}
+				#{go key:subClass.owlId, value:subClass.label /}
+			#{/if}						
 		#{/list}
       </ul>
-     #{/else}
-</nav>
+      
+      #{if owlClassResults.size < totalNumber}
+      <div class="showMore" id="moreResults">
+      <img style="display: none;" src="@{'/public/images/ajax-loader.gif'}">
+      <span class="textShowMore">Show more</span></div>
+		
+      #{/if}
+      </div>
 
-<nav class="block-information">
-    <h2><span class="togglable">[-] </span>
-    <span class="togglable" style="display: none">[+] </span>
-    Subclass${result.subClasses.size().pluralize('es')}<span class="numbers"> (${result.subClasses.size()})</span></h2>
-    
-    #{if result.subClasses.size() == 0}
-    	<p>No subclasses.</p>
-    #{/if}
-    #{else}
-        <ul>
-		#{list items:result.subClasses, as:'key' }
-			#{if result.typeMap.get(key).equals("ftc")}
-				#{ftcClass key:key, value:result.labelMap.get(key) /}
-			#{/if}
-			
-			#{if result.typeMap.get(key).equals("protein")}
-				#{protein key:key, value:result.labelMap.get(key) /}
-			#{/if}
-			
-			#{if result.typeMap.get(key).equals("drugbank")}
-				#{drugbank key:key, value:result.labelMap.get(key) /}
-			#{/if}
-			
-			#{if result.typeMap.get(key).equals("go")}
-				#{go key:key, value:result.labelMap.get(key) /}
-			#{/if}
-		#{/list}
-      </ul>
-     #{/else}
 </nav>
-
-#{/if}
+#{/else}

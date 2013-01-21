@@ -12,6 +12,9 @@ import uk.ac.ebi.brain.error.BadPrefixException;
 import uk.ac.ebi.brain.error.BrainException;
 import uk.ac.ebi.brain.error.ClassExpressionException;
 import uk.ac.ebi.brain.error.NewOntologyException;
+import uk.ac.ebi.brain.error.NonExistingClassException;
+import uk.ac.ebi.brain.error.NonExistingEntityException;
+import utils.OWLClassResult;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -34,6 +37,10 @@ public class Application extends Controller {
 	final public static int PAGINATION = 20; 
 
 	public static void index() {
+		render();
+	}
+	
+	public static void data() {
 		render();
 	}
 
@@ -63,9 +70,11 @@ public class Application extends Controller {
 
 		List<FtcClass> superClasses = new ArrayList<FtcClass>();
 		//Get the super classes object
-		for (String superClassId : range(ftcClass.superClasses, 0, PAGINATION)) {
-			FtcClass superClass = FtcClass.find("byFtcId", superClassId).first();
-			superClasses.add(superClass);
+		if(!ftcClass.ftcId.equals("FTC_C1")){
+			for (String superClassId : range(ftcClass.superClasses, 0, PAGINATION)) {
+				FtcClass superClass = FtcClass.find("byFtcId", superClassId).first();
+				superClasses.add(superClass);
+			}
 		}
 
 		List<Agent> indirectAgents = new ArrayList<Agent>();
@@ -163,7 +172,7 @@ public class Application extends Controller {
 				directFtcClasses.add(directFtcClass);
 			}
 		}
-		
+
 		render(agent, directFtcClasses);
 	}
 
@@ -203,7 +212,7 @@ public class Application extends Controller {
 	}
 
 	//Performs the query
-	public static void query(String query){
+	public static void query(String query) throws NonExistingEntityException{
 
 		try {
 			//Checks whether the query is parsable
@@ -213,51 +222,87 @@ public class Application extends Controller {
 			params.flash();
 			String errorMessage = e.getMessage()
 					.replaceAll("org.semanticweb.owlapi.expression.ParserException: ", "")
+					.replaceAll("not\n", "")
+					.replaceAll("inverse\n", "")
+					.replaceAll("Data property name\n", "")
 					.replaceAll("\n", "<br />")
 					.replaceAll("^Encountered ", "Encountered <span class='parse_error'>")
 					.replaceAll(" at line ", "</span> at line ");
+
 			flash.error(errorMessage);
 
-			render();
+			initQuery();
 		}
 
 		//The query is parsable
 
-		//TODO check if forbidden query because too expensive (Thing at least)
-
 		//Check if the query is already cached in the database
 		OwlResult result = OwlResult.find("byQuery", query).first();
 
-		if(result != null){
-			Logger.info("cached inside DB");
-			render(result);
+		if(result == null){
+			//The query is not cached and is then going to be executed
+			Promise<OwlResult> promise = new OwlQueryJob(query).now();
+			Logger.info("Awaits for the results...");
+			result = await(promise);
 		}
 
-		//The query is not cached and is then going to be executed
-		Promise<OwlResult> promise = new OwlQueryJob(query).now();
-		Logger.info("Awaits for the results...");
-		//TODO just retrieving the id from the job and do a query over the db with a limited number of records (range)
-		//TODO atm, just not authorize the queries with too many classes as result
-		result = await(promise);
+		if(result.tooManyResults == true){
+			Logger.info("Too many results...");
+			params.flash();
+			flash.error("There are way too many results (> 1500)");
+			renderTemplate("Application/initQuery.html");
+		}
+
+
+		ArrayList<OWLClassResult> owlClassResults = new ArrayList<OWLClassResult>();
+		for (String classResultId : range(result.subClasses, 0, PAGINATION)) {
+			OWLClassResult classResult = new OWLClassResult();
+			classResult.owlId = classResultId;
+			classResult.label = brain.getLabel(classResultId);
+			classResult.type = getTypeForResult(classResultId);
+			owlClassResults.add(classResult);
+		}
+
+		int totalNumber = result.subClasses.size();
 		Logger.info("Ready to render");
-		render(result);
+		render(query, owlClassResults, totalNumber);
 	}
+
+	private static String getTypeForResult(String classResultId) throws NonExistingClassException {
+		String iri = Application.brain.getOWLClass(classResultId).getIRI().toString();
+		String type;
+		if(iri.contains("http://purl.uniprot.org/uniprot/")){
+			type = "protein";
+		}else if(iri.contains("http://www.drugbank.ca/drugs/")){
+			type = "drugbank";
+		}else if(iri.contains("http://purl.obolibrary.org/obo/")){
+			type = "go";
+		}else{
+			type = "ftc";
+		}
+		return type;
+	}
+
+	public static void moreResults(String query, int currentNumber) throws NonExistingEntityException{
+		OwlResult result = OwlResult.find("byQuery", query).first();
+		ArrayList<OWLClassResult> owlClassResults = new ArrayList<OWLClassResult>();
+
+		for (String classResultId : range(result.subClasses, currentNumber, currentNumber + PAGINATION)) {
+			OWLClassResult classResult = new OWLClassResult();
+			classResult.owlId = classResultId;
+			classResult.label = brain.getLabel(classResultId);
+			classResult.type = getTypeForResult(classResultId);
+			owlClassResults.add(classResult);
+		}
+
+		renderJSON(owlClassResults);
+	}
+
 
 	//Redirection of the query in order for it to be displayed in the
 	//address bar
-	public static void owlQuery(String query, String formWidth){
+	public static void owlQuery(String query) throws NonExistingEntityException{
 		query(query);
-	}
-
-	public static void tree() {
-		render();
-	}
-
-	public static void subClasses(String id) throws ClassExpressionException{
-		System.out.println("id: " + id);
-		//TODO the logic
-		List<String> subClasses = brain.getSubClasses(id, true);
-		renderJSON(subClasses);
 	}
 
 

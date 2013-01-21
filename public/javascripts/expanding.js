@@ -1,7 +1,7 @@
 (function($){
 	
 $.fn.autoGrowInput = function(o) {
-
+	
     o = $.extend({
         maxWidth: 1000,
         minWidth: 0,
@@ -9,7 +9,7 @@ $.fn.autoGrowInput = function(o) {
     }, o);
 
     this.filter('input:text').each(function(){
-
+    	
         var minWidth = o.minWidth || $(this).width(),
             val = '',
             input = $(this),

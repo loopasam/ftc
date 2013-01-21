@@ -1,33 +1,44 @@
 #{extends 'main.html' /}
-#{set title:'Search results' /}
+#{set title:'Semantic Query' /}
+#{script 'jquery.poshytip.min.js' /}
+#{script 'help.js' /}
+#{script 'expanding.js' /}
+
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#submit_button').click(function() {
-		console.log("clkicked");
+	$(".input-query").focus();
+	$('.submit_button').click(function() {
 		$('#errors').hide();
 		$('#loader').show();
 	});
+	
+	$('input#input-owl-query').autoGrowInput({
+    	comfortZone: 20,
+    	minWidth: 300,
+    	maxWidth: 1000
+	});
+	
 });
 </script>
 
-//Do a generic tag for that
 <form action="@{Application.owlQuery()}" method="POST">
-   		<span>Thing that is </span>
-   		<input class="input-query" id="input-owl-query" type="text" name="query" value="${flash.query}"/ size="70"> 
-    	<input class="submit_button" type="submit" value="Search" />
+	<h1>Query the knowledge base
+ 	<span style="float: none;" title="<strong>Semantic query over the knowledge base.</strong>
+ 	This feature requires an understanding on how to formulate queries. The best place to
+ 	get started with semantic queries is the documentation." class="help-text">(?)</span>
+	</h1>
+   		<input class="input-query" id="input-owl-query" type="text" name="query" value="${flash.query}"/ size="100"> 
+    	<input class="submit_button" type="submit" value="Query" />
+    	
 </form>
-
 <div id="loader" style="display: none;">
 	<img src="@{'/public/images/loader.gif'}">
 </div>
 
+
 #{if flash.error}
-	<div id="errors" style="color: red;">
+	<div id="errors">
 		${flash.error.raw()}
 	</div>
 #{/if}
-
-<ul>
-<li>'drug' that ('perturbs' some ('protein' that ('involved-in' some 'blood coagulation')))</li>
-</ul>

@@ -19,7 +19,7 @@ $(document).ready(function() {
 				if(currentNumber >= parseInt($('#totalNumber' + method).html())){
 					$('#' + method).fadeOut('slow');
 				}
-
+				console.log(newElements);
 				$.each(newElements, function(){
 					var newElement;
 					if(method == 'moreIndirectAgents'){
@@ -42,6 +42,20 @@ $(document).ready(function() {
 						}
 						newElement = '<a style="display:none" href="/' + this.ftcId + '">' +
 						'<li class="transition direct ' + hasDrug + '">' + this.ftcId + '-' + this.label + '</li></a>';
+					}else if(method == 'moreResults'){
+						var base;
+						if(this.type == "protein"){
+							base = "http://purl.uniprot.org/uniprot/";
+						}else if(this.type == "go"){
+							base = "http://purl.obolibrary.org/obo/";
+						}else if(this.type == "drugbank"){
+							base = "/agent/";
+						}else if(this.type == "ftc"){
+							base = "/";
+						}
+						
+						newElement = '<a style="display:none" href="' + base + this.owlId + '">' +
+						'<li class="transition direct ' + this.type + '">' + this.owlId + '-' + this.label + '</li></a>';
 					}
 
 					//$('.' + method + 'Wrap > div > ul').append(newElement);

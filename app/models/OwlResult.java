@@ -20,29 +20,16 @@ public class OwlResult extends Model {
 
 	@Lob
 	public String query;
+	
+	public boolean tooManyResults;
 
 	@ElementCollection
 	public List<String> subClasses;
 	
-	@ElementCollection
-	public List<String> equivalentClasses;
-	
-	@MapKeyColumn
-	@Lob
-	public HashMap<String, String> labelMap;
-	
-	@MapKeyColumn
-	@Lob
-	public HashMap<String, String> typeMap;
 
-
-	public OwlResult(String query, List<String> subClasses, List<String> equivalentClasses, 
-			HashMap<String, String> labelMap, HashMap<String, String> typeMap) {
+	public OwlResult(String query, boolean tooManyResults) {
 		this.query = query;
-		this.subClasses = subClasses;
-		this.equivalentClasses = equivalentClasses;
-		this.labelMap = labelMap;
-		this.typeMap = typeMap;
+		this.tooManyResults = tooManyResults;
 	}
 
 }

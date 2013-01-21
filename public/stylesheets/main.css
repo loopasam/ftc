@@ -1,5 +1,6 @@
 body {
 	margin: 0px;
+	font-family: Helvetica, arial, freesans, clean, sans-serif;
 }
 
 h1 {
@@ -8,8 +9,8 @@ h1 {
 
 /* Semantic Query */
 .parse_error {
-	background-color: orange;
-	color: black;
+	background-color: #ff0000;
+	color: #fff;
 }
 
 .input-query {
@@ -97,6 +98,14 @@ h1 {
 	text-align: center;
 }
 
+#errors {
+	text-align: center;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono",
+		monospace;
+	color: #ff0000;
+	margin-top: 2em;
+}
+
 /* Syntactic Search */
 .no-results {
 	text-align: center;
@@ -107,7 +116,7 @@ h1 {
 }
 
 .no-results > h2 {
-	color: red;
+	color: #ff0000;
 }
 
 /* HTML tags */
@@ -157,7 +166,6 @@ code {
 /* Home page */
 #introduction {
   margin-left: 5%;
-  margin-right: 5%;
   background-color: orange;
 }
 
@@ -165,8 +173,29 @@ code {
 	text-align: center;
 	width: 30%;
 	float: left;
+	margin: 1%;
+	background-color: #DDEAFE;
+	color: #4a4a4a;
+	border: 1px solid #5395f8;
 }
 
+.separator-hr{
+	margin-left: 15px;
+	margin-right: 15px;
+	display: block;
+	height: 1px;
+    border-top: 1px solid #5395f8;
+    padding: 0; 
+}
+
+.title-presentation{
+	text-shadow: 2px 2px 2px #d6d6d6;
+}
+
+.feature-presentation {
+	padding-left: 15px;
+	padding-right: 15px;
+}
 
 /* Class visualisation */
 .showMore {
@@ -193,7 +222,7 @@ code {
 	color: #5395f8;
 }
 
-#classId {
+.classTitle {
 	background-color: #72d93f;
 	color: white;
 }
@@ -221,6 +250,11 @@ code {
 	color: #838383;
 	font-weight: bold;
 	font-size: xx-large;
+}
+
+#header a {
+	color: #838383;
+	text-decoration: none;
 }
 
 #menu ul {

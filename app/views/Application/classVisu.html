@@ -6,7 +6,7 @@
 #{script 'jquery.poshytip.min.js' /}
 #{script 'help.js' /}
 
-<h1 id="class-title"><span id="classId">${ftcClass.ftcId}</span> - ${ftcClass.label}</h1>
+<h1 id="class-title"><span id="classId" class="classTitle">${ftcClass.ftcId}</span> - ${ftcClass.label}</h1>
 
 <div class="block-information" id="definition">
     <h2>Definition
@@ -133,7 +133,7 @@
 </nav>
 #{/if}
 
-
+#{if !ftcClass.ftcId.equals("FTC_C1")}
 <nav class="block-information">
 <h2>Taxonomic Tree (<a style="text-decoration: underline;" href="@{Application.map(ftcClass.ftcId)}">explore map</a>)
   <span title="Tree representation of the super classes of the current category. You can zoom and pan the tree by clicking the
@@ -143,3 +143,4 @@
 	${ftcClass.svgGraph.raw()}
 </div>
 </nav>
+#{/if}
