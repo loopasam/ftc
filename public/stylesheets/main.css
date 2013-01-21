@@ -15,8 +15,7 @@ h1 {
 
 .input-query {
 	width: 300px;
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono",
-		monospace;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono" monospace;
 	font-size: 130%;
 	line-height: 140%;
 	white-space: pre;
@@ -190,11 +189,18 @@ code {
 
 .title-presentation{
 	text-shadow: 2px 2px 2px #d6d6d6;
+	color: #5395f8;
 }
 
 .feature-presentation {
 	padding-left: 15px;
 	padding-right: 15px;
+}
+
+.logo-presentation {
+	width: 20px;
+	height: 20px;
+	margin-right: 10px;
 }
 
 /* Class visualisation */
@@ -282,8 +288,7 @@ code {
 
 #menu a {
 	text-decoration: none;
-	color: white;
-	font-size: large;
+	color: #fff;
 	font-weight: bold;
 }
 

@@ -62,7 +62,8 @@ public class DatabaseFiller {
 
 		//FTC_C1 - only the one I've created are interesting :-P
 		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
-
+		ftcAndDrugBankClasses.add("FTC_C1");
+		
 		//Anti-blood coaguilation - x-small
 //				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
 
