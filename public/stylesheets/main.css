@@ -188,9 +188,9 @@ code {
 
 .box {
 	text-align: center;
-	width: 30%;
+	width: 28%;
 	float: left;
-	margin: 1%;
+	margin: 2%;
 }
 
 .title-presentation{
@@ -225,6 +225,25 @@ code {
 	width: 25px;
 	height: 25px;
 	margin-right: 10px;
+}
+
+/* 404 */
+.not-found-message {
+	color: #4a4a4a;
+	text-align: center;
+}
+
+.not-found{
+	margin-top: 5%;
+	color: #4a4a4a;
+}
+
+.zurgrul {
+	position: absolute;
+	bottom: 0px;
+	width: 100px;
+	height: 100px;
+	left: 150px;
 }
 
 /* Class visualisation */
