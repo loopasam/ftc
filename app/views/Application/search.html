@@ -15,8 +15,8 @@ $(document).ready(function() {
 
 <form class="form-input-query" action="@{Application.postSearch()}" method="POST">
 	<h1>Search classes
- 	<span style="float: none;" title="Classical search type for agents and categories 
- 	based on the name and ID of the classes. Useful as starting point in order to find some classes of
+ 	<span style="float: none;" title="<strong>Classical search type for agents and categories 
+ 	based on the label and ID of the classes</strong>. Useful as starting point in order to find some classes of
  	interest from a keyword. Example of input: <i>coagulation</i> or <i>apoptosis</i>. Only the first 20
  	results are displayed in order to improve performances." class="help-text">(?)</span>
 	</h1>
@@ -37,7 +37,7 @@ $(document).ready(function() {
     <span class="togglable">[-] </span>
     <span class="togglable" style="display: none">[+] </span>
     Agents<span class="numbers"> (${agents.size()} displayed)</span>
-    <span title="" class="help-text">(?)</span>
+    <span title="Therapeutic agents with a label or ID matching the query" class="help-text">(?)</span>
     </h2>
     <div id="members">
       <ul>
@@ -56,7 +56,9 @@ $(document).ready(function() {
     <h2>
     <span class="togglable">[-] </span>
     <span class="togglable" style="display: none">[+] </span>
-    Classes<span class="numbers"> (${ftcClasses.size()} displayed)</span></h2>
+    Classes<span class="numbers"> (${ftcClasses.size()} displayed)</span>
+    <span title="Categories with a label or ID matching the query" class="help-text">(?)</span>
+    </h2>
     <div id="members">
       <ul>
         #{list items:ftcClasses, as:'ftcClass' }

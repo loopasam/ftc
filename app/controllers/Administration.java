@@ -6,7 +6,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import jobs.CleanJob;
 import jobs.ConvertionJob;
+import jobs.EraseJob;
 import jobs.FullBuildJob;
 
 import play.Logger;
@@ -24,28 +26,43 @@ public class Administration extends Controller {
 		render();
 	}
 
-	public static void update() {
-		flash.success("Update launched - Follow progresses on the log file or console");
-		index();
-	}
-
 	public static void build() {
-		flash.success("Full build launched - Follow progresses on the log file or console");
-		new FullBuildJob().now();
+		if(Cache.get("jobRunning") != null){
+			flash.error("A job is already running!");
+		}else{
+			flash.success("Full build into OWL launched - Follow progresses on the log file or console");
+			new FullBuildJob().now();
+		}
 		index();
 	}
 
 	public static void createDBFromKB() {
-
 		if(Cache.get("jobRunning") != null){
-			flash.success("A job is already running!");
+			flash.error("A job is already running!");
 		}else{
-			flash.success("Convertion into DB started - Follow progresses on the log file or console");
+			flash.success("Convertion into database started - Follow progresses on the log file or console");
 			new ConvertionJob().now();
 		}
 		index();
 	}
 
+	public static void deleteDabatase() {
+		if(Cache.get("jobRunning") != null){
+			flash.error("A job is already running!");
+		}else{
+			flash.success("Database is getting erased - Follow progresses on the log file or console");
+			new EraseJob().now();
+		}
+		index();
+	}
 
-
+	public static void cleanTmpResources() {
+		if(Cache.get("jobRunning") != null){
+			flash.error("A job is already running!");
+		}else{
+			flash.success("Temporary folder is getting erased - Follow progresses on the log file or console");
+			new CleanJob().now();
+		}
+		index();
+	}
 }

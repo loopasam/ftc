@@ -1,9 +1,13 @@
 package build;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
+import org.apache.commons.io.FileUtils;
 import org.apache.ivy.plugins.parser.xml.XmlModuleDescriptorParser.Parser;
 
 import play.Logger;
@@ -11,9 +15,12 @@ import play.test.Fixtures;
 import uk.ac.ebi.brain.error.BrainException;
 
 public class Builder {
-
-	//TODO do a clean method that removes the tmp folder content
-	//TODO method to drop the DB
+	
+	public void createTmpStructure() {
+		Logger.info("Creating the temporary directory structure...");
+		new File("data/tmp/graphs").mkdirs();
+		new File("data/archives").mkdirs();
+	}
 
 	public DrugBank serializeDrugBank() throws FileNotFoundException, IOException {
 		Logger.info("Parsing DrugBank...");
@@ -51,7 +58,19 @@ public class Builder {
 	public void createAndPopulateDatabase() throws BrainException, IOException, ClassNotFoundException {
 		DatabaseFiller filler = new DatabaseFiller("data/ftc-kb-full.owl");
 		filler.start();
-//		filler.test();
+	}
+	
+	public void clean() throws IOException {
+		FileUtils.deleteDirectory(new File("data/tmp"));
+	}
+
+	public void archive() throws IOException {
+		Logger.info("Copying the knowledge base into the archives/ directory...");
+		File source = new File("data/ftc-kb-full.owl");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date dt = new Date();
+		File destination = new File("data/archives/ftc-kb-full-" + sdf.format(dt) + ".owl");
+		FileUtils.copyFile(source, destination);
 	}
 
 }

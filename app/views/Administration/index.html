@@ -1,15 +1,36 @@
 #{extends 'main.html' /} #{set title:'Administration' /}
-
-<h1><a href="@{Administration.index()}">Administration</a></h1>
-<p><a href="@{Security.logout()}">Logout</a></p>
-<p><a href="@{Application.index()}">Home</a></p>
+<div id="administration-section">
+<h2>Administration</h2>
+<p>
+<a href="@{Security.logout()}">Logout</a>: Logout from adminitration section.
+</p>
 
 #{if flash.success}
-    <p style="color:orange">
+    <p style="color:green">
         ${flash.success}
     </p>
 #{/if}
 
-<p><a href="@{Administration.update()}">Update current database (not functioning atm)</a></p>
-<p><a href="@{Administration.build()}">Override and make knowledge-base from scratch</a></p>
-<p><a href="@{Administration.createDBFromKB()}">Convert KB into database</a></p>
+#{if flash.error}
+    <p style="color:red">
+        ${flash.error}
+    </p>
+#{/if}
+<p>(1) <a href="@{Administration.build()}">Knowledge base build</a>: Download the resources,
+integrate them and creates the knowledge base (data/ftc-kb-full.owl). Overrides content! Doesn't
+stop the application from working. Saves a copy of the knowledge base in the archive folder, if needed.
+Should be done every 3 months or so in order
+to include the latest annotations. At the moment there is no mecanism to know the
+differences between a previous and new version. The FTC is just re-built from scratch.</p>
+
+<p>(2) <a href="@{Administration.deleteDabatase()}">Delete the database:</a>
+Delete the content of the database used previously.</p>
+
+
+<p>(3) <a href="@{Administration.createDBFromKB()}">Create database from the knowledge base:</a>
+The database is the backbone of the application for cache and performances. The current
+mySQL database used to store the data and has to be erased first in order to avoid conflits
+and redundant information.</p>
+
+<p>(4) <a href="@{Administration.cleanTmpResources()}">Clean the temporary resources:</a>
+These resources are the files downloaded and generated during the build phase.</p>

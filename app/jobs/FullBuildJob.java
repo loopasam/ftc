@@ -13,6 +13,8 @@ public class FullBuildJob extends Job {
 	public void doJob() throws FileNotFoundException, BrainException, IOException, ClassNotFoundException {
 		Logger.info("Create the builder...");
 		Builder builder = new Builder();
+		Logger.info("Prepare the folder structure...");
+		builder.createTmpStructure();
 		Logger.info("Serialize DrugBank...");
 		builder.serializeDrugBank();
 		Logger.info("Adds the GO annotations...");
@@ -21,9 +23,8 @@ public class FullBuildJob extends Job {
 		builder.serializeGo();
 		Logger.info("Convert into OWL...");
 		builder.exportFullStructureToOwl();
-		//TODO clean the folder
+		Logger.info("Archives the knowledge base...");
+		builder.archive();
 		Logger.info("Job done!");
 	}
-
-
 }

@@ -174,6 +174,7 @@ public class DatabaseFiller {
 			agent.save();
 		}
 
+		//TODO not sure whether to leave it there or not.
 		brain.sleep();
 
 		stopwatch.stop();
