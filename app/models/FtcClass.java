@@ -10,11 +10,19 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
 
 import org.hibernate.annotations.Type;
+
+import com.google.gson.annotations.Expose;
 
 import build.DatabaseFiller;
 
@@ -25,8 +33,10 @@ import play.db.jpa.Model;
 @Entity
 public class FtcClass extends Model {
 
+	@Expose
 	public String label;
 
+	@Expose
 	public String ftcId;
 
 	public int widthSvg;
@@ -39,42 +49,83 @@ public class FtcClass extends Model {
 	@Lob
 	public String svgGraph;
 
-	@ElementCollection
-	public List<String> superClasses;
-
-	@ElementCollection
-	public List<String> subClasses;
-
-	@ElementCollection
-	public List<String> directAgents;
-
-
-	@ElementCollection
-	public List<String> indirectAgents;
-
-	public FtcClass(String ftcId, String label, String comment, List<String> subClasses, 
-			List<String> superClasses, List<String> directAgents, List<String> indirectAgents) {
-
+	public FtcClass(String ftcId, String label, String comment) {
+		this.subClasses = new ArrayList<FtcClass>();
+		this.superClasses = new ArrayList<FtcClass>();
+		this.directAgents = new ArrayList<Agent>();
+		this.indirectAgents = new ArrayList<Agent>();
 		this.ftcId = ftcId;
 		this.label = label;
-		this.subClasses = subClasses;
-		this.superClasses = superClasses;
 		this.comment = comment;
-		this.directAgents = directAgents;
-		this.indirectAgents = indirectAgents;
-		
-		if(this.indirectAgents.size() > 0 || this.directAgents.size() > 0){
-			this.hasDrug = true;
-		}else{
-			this.hasDrug = false;
-		}
 	}
+
+	@JoinTable(name = "FtcClass_DirectAgents")
+	@ManyToMany(cascade=CascadeType.PERSIST)
+	public List<Agent> directAgents;
+
+	@JoinTable(name = "FtcClass_IndirectAgents")
+	@ManyToMany(cascade=CascadeType.PERSIST)
+	public List<Agent> indirectAgents;
+	
+	@JoinTable(name = "FtcClass_SuperClasses")
+	@ManyToMany(cascade=CascadeType.PERSIST)
+	public List<FtcClass> superClasses;
+
+	@JoinTable(name = "FtcClass_SubClasses")
+	@ManyToMany(cascade=CascadeType.PERSIST)
+	public List<FtcClass> subClasses;
+
 
 	//Hack to remove the viewBox in order to profit from the zoom/pan library
 	public String svgMap() {
 		String svgMap = this.svgGraph.replaceAll("viewBox=\".*\" xmlns=\"http://www.w3.org/2000/svg\"",
 				"xmlns=\"http://www.w3.org/2000/svg\"");
 		return svgMap;
+	}
+
+	public void addSubClasses(List<String> ftcSubClasses) {
+		for (String subClassId : ftcSubClasses) {
+			FtcClass ftcSubClass = FtcClass.find("byFtcId", subClassId).first();
+//			if(ftcSubClass != null){
+				this.subClasses.add(ftcSubClass);
+//				this.save();
+//			}
+		}
+		this.save();
+
+	}
+
+	public void addSuperClasses(List<String> ftcSuperClasses) {
+		for (String superClassId : ftcSuperClasses) {
+			FtcClass ftcSuperClass = FtcClass.find("byFtcId", superClassId).first();
+//			if(ftcSuperClass != null){
+				this.superClasses.add(ftcSuperClass);
+//				this.save();
+//			}
+		}
+		this.save();
+	}
+
+	public void addDirectAgents(List<String> directAgentIds) {
+		for (String directAgentId : directAgentIds) {
+			Agent indirectAgent = Agent.find("byDrugBankId", directAgentId).first();
+//			if(indirectAgent != null){
+				this.directAgents.add(indirectAgent);
+//				this.save();
+//			}
+		}
+		this.save();
+	}
+
+	public void addIndirectAgents(List<String> indirectAgents) {
+		for (String indirectAgentId : indirectAgents) {
+			Agent indirectAgent = Agent.find("byDrugBankId", indirectAgentId).first();
+//			if(indirectAgent != null){
+				this.indirectAgents.add(indirectAgent);
+//				this.save();
+//			}
+		}
+		this.save();
 	}
 
 }

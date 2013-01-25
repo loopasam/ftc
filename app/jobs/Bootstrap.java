@@ -1,5 +1,7 @@
 package jobs;
 
+import com.google.gson.GsonBuilder;
+
 import controllers.Application;
 import play.Logger;
 import play.jobs.Job;
@@ -16,6 +18,7 @@ public class Bootstrap extends Job {
 		Logger.info("Setting the brain object...");
 		Application.brain = new Brain("http://www.ebi.ac.uk/ftc/", "http://www.ebi.ac.uk/ftc/ftc-kb-full.owl", 1);
 		Application.brain.learn("data/ftc-kb-full.owl");
+		Application.gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 		Logger.info("brain object loaded!");
 	}
 }

@@ -22,6 +22,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import jobs.FullBuildJob;
 import jobs.OwlQueryJob;
 
@@ -34,7 +37,8 @@ public class Application extends Controller {
 
 	//Static brain object there to hold the ontology in memory
 	public static Brain brain;
-	final public static int PAGINATION = 20; 
+	public static Gson gson;
+	final public static int PAGINATION = 20;
 
 	public static void index() {
 		render();
@@ -61,37 +65,31 @@ public class Application extends Controller {
 		}
 		String ratioSvg = ratio + "%";
 
-		List<FtcClass> subClasses = new ArrayList<FtcClass>();
-		//Get the subclasses object
-		for (String subClassId : range(ftcClass.subClasses, 0, PAGINATION)) {
-			FtcClass subClass = FtcClass.find("byFtcId", subClassId).first();
-			subClasses.add(subClass);
-		}
-
-		List<FtcClass> superClasses = new ArrayList<FtcClass>();
-		//Get the super classes object
-		if(!ftcClass.ftcId.equals("FTC_C1")){
-			for (String superClassId : range(ftcClass.superClasses, 0, PAGINATION)) {
-				FtcClass superClass = FtcClass.find("byFtcId", superClassId).first();
-				superClasses.add(superClass);
-			}
-		}
-
+		//Get a chunck of the direct agents
 		List<Agent> indirectAgents = new ArrayList<Agent>();
-		//Get the indirect agents object
-		for (String indirectAgentId : range(ftcClass.indirectAgents, 0, PAGINATION)) {
-			Agent indirectAgent = Agent.find("byDrugBankId", indirectAgentId).first();
+		for (Agent indirectAgent : range(ftcClass.indirectAgents, 0, PAGINATION)) {
 			indirectAgents.add(indirectAgent);
 		}
-
+		
+		//Get a chunck of the direct agents
 		List<Agent> directAgents = new ArrayList<Agent>();
-		//Get the direct agents object
-		for (String directAgentId : range(ftcClass.directAgents, 0, PAGINATION)) {
-			Agent directAgent = Agent.find("byDrugBankId", directAgentId).first();
+		for (Agent directAgent : range(ftcClass.directAgents, 0, PAGINATION)) {
 			directAgents.add(directAgent);
 		}
+		
+		//Get a chunck of the superClasses
+		List<FtcClass> superClasses = new ArrayList<FtcClass>();
+		for (FtcClass superClass : range(ftcClass.superClasses, 0, PAGINATION)) {
+			superClasses.add(superClass);
+		}
 
-		render(ftcClass, ratioSvg, subClasses, superClasses, indirectAgents, directAgents);
+		//Get a chunck of the subClasses
+		List<FtcClass> subClasses = new ArrayList<FtcClass>();
+		for (FtcClass subClass : range(ftcClass.subClasses, 0, PAGINATION)) {
+			subClasses.add(subClass);
+		}
+		
+		render(ftcClass, ratioSvg, subClasses, superClasses, directAgents, indirectAgents);
 	}
 
 
@@ -114,46 +112,44 @@ public class Application extends Controller {
 		FtcClass ftcClass = FtcClass.find("byFtcId", ftcClassId).first();
 		List<Agent> indirectAgents = new ArrayList<Agent>();
 		//Get the indirect agents object
-		for (String indirectAgentId : range(ftcClass.indirectAgents, currentNumber, currentNumber + PAGINATION)) {
-			Agent indirectAgent = Agent.find("byDrugBankId", indirectAgentId).first();
+		for (Agent indirectAgent : range(ftcClass.indirectAgents, currentNumber, currentNumber + PAGINATION)) {
 			indirectAgents.add(indirectAgent);
 		}
-		renderJSON(indirectAgents);
+		String json = gson.toJson(indirectAgents);
+		renderJSON(json);
 	}
 
 	public static void moreDirectAgents(String ftcClassId, int currentNumber){
 		FtcClass ftcClass = FtcClass.find("byFtcId", ftcClassId).first();
 		List<Agent> directAgents = new ArrayList<Agent>();
 		//Get the indirect agents object
-		for (String directAgentId : range(ftcClass.directAgents, currentNumber, currentNumber + PAGINATION)) {
-			Agent directAgent = Agent.find("byDrugBankId", directAgentId).first();
+		for (Agent directAgent : range(ftcClass.directAgents, currentNumber, currentNumber + PAGINATION)) {
 			directAgents.add(directAgent);
 		}
-		renderJSON(directAgents);
+		String json = gson.toJson(directAgents);
+		renderJSON(json);
 	}
 
 	public static void moreSuperclasses(String ftcClassId, int currentNumber){
 		FtcClass ftcClass = FtcClass.find("byFtcId", ftcClassId).first();
 		List<FtcClass> superClasses = new ArrayList<FtcClass>();
 		//Get the super classes objects
-		for (String superClassId : range(ftcClass.superClasses, currentNumber, currentNumber + PAGINATION)) {
-			FtcClass superClass = FtcClass.find("byFtcId", superClassId).first();
+		for (FtcClass superClass : range(ftcClass.superClasses, currentNumber, currentNumber + PAGINATION)) {
 			superClasses.add(superClass);
 		}
-
-		renderJSON(superClasses);
+		String json = gson.toJson(superClasses);
+		renderJSON(json);
 	}
 
 	public static void moreSubclasses(String ftcClassId, int currentNumber){
 		FtcClass ftcClass = FtcClass.find("byFtcId", ftcClassId).first();
 		List<FtcClass> subClasses = new ArrayList<FtcClass>();
 		//Get the subclasses objects
-		for (String subClassId : range(ftcClass.subClasses, currentNumber, currentNumber + PAGINATION)) {
-			FtcClass subClass = FtcClass.find("byFtcId", subClassId).first();
+		for (FtcClass subClass : range(ftcClass.subClasses, currentNumber, currentNumber + PAGINATION)) {
 			subClasses.add(subClass);
 		}
-
-		renderJSON(subClasses);
+		String json = gson.toJson(subClasses);
+		renderJSON(json);
 	}
 
 	public static void map(String classId) {
@@ -162,18 +158,8 @@ public class Application extends Controller {
 	}
 
 	public static void agent(String drugbankId){
-
 		Agent agent = Agent.find("byDrugBankId", drugbankId).first();
-		List<FtcClass> directFtcClasses = new ArrayList<FtcClass>();
-		//Get the direct FtcClass object
-		for (String directFtcClassId : agent.directFtcClasses) {
-			FtcClass directFtcClass = FtcClass.find("byFtcId", directFtcClassId).first();
-			if(directFtcClass != null){
-				directFtcClasses.add(directFtcClass);
-			}
-		}
-
-		render(agent, directFtcClasses);
+		render(agent);
 	}
 
 	public static void postSearch(@Required String query) {

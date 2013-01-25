@@ -25,8 +25,8 @@ $(document).ready(function() {
     <h2>
     <span class="togglable">[-] </span>
     <span class="togglable"
-            style="display: none">[+] </span> Super class${directFtcClasses.size().pluralize('es')}
-    <span class="numbers"> (${directFtcClasses.size()})</span>
+            style="display: none">[+] </span> Super class${agent.directFtcClasses.size().pluralize('es')}
+    <span class="numbers"> (${agent.directFtcClasses.size()})</span>
             
   <span title="Categories into which the therapeutic agent ${agent.label} has been classified.
   The compound might be used for these indications (computer generated hypothesis)" class="help-text">(?)</span>
@@ -38,7 +38,7 @@ $(document).ready(function() {
     
     #{else}
     <ul>
-        #{list items:directFtcClasses, as:'superClass' }
+        #{list items:agent.directFtcClasses, as:'superClass' }
         
         #{if superClass != null}
         <a href="@{Application.classVisu(superClass.ftcId)}">

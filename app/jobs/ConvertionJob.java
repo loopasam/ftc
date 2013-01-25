@@ -19,8 +19,6 @@ public class ConvertionJob extends Job implements Serializable {
 		Logger.info("Create the builder...");
 		Builder builder = new Builder();
 		builder.createAndPopulateDatabase();
-		Logger.info("Cleans temporary folder...");
-		builder.clean();
 		Logger.info("Job done!");
 		Cache.set("jobRunning", null);
 	}
