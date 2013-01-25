@@ -240,6 +240,7 @@ public class Application extends Controller {
 		}
 
 
+		//TODO revise that bit - see what could be improved.
 		ArrayList<OWLClassResult> owlClassResults = new ArrayList<OWLClassResult>();
 		for (String classResultId : range(result.subClasses, 0, PAGINATION)) {
 			OWLClassResult classResult = new OWLClassResult();

@@ -61,14 +61,14 @@ public class DatabaseFiller {
 		Logger.info("Getting the therapeutic agents...");
 
 		//FTC_C1 - only the one I've created are interesting :-P
-		//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
-		//		ftcAndDrugBankClasses.add("FTC_C1");
+				List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_C1", false);
+				ftcAndDrugBankClasses.add("FTC_C1");
 
 		//Anti-blood coaguilation - x-small
 		//						List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
 
 		//Anti molecular function --> bigger (2500 classes)
-		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
+//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
 
 		//Get the drugbank classes - useful later
 		Logger.info("Getting drugbank compounds...");
@@ -115,7 +115,7 @@ public class DatabaseFiller {
 		}
 		
 		//Save the agents
-		int counterAgents = 0;
+		int counterAgents = 1;
 		int totalAgent = drugBankClasses.size();
 		for (String drugBankClassId : drugBankClasses) {
 
@@ -123,7 +123,7 @@ public class DatabaseFiller {
 			counterAgents++;
 
 			//Flushes every n entry
-			if (counterAgents%50==0) {
+			if (counterAgents%10==0) {
 				flush(Agent.class);
 			}
 
@@ -137,6 +137,7 @@ public class DatabaseFiller {
 			agent.categories = drug.getCategories();
 			agent.label = brain.getLabel(drugBankClassId);
 			List<String> superClassIds = brain.getSuperClasses(drugBankClassId, true);
+			Logger.info("Direct superclasses: " + superClassIds.size());
 			agent.addFtcClasses(superClassIds);
 			agent.save();
 		}
@@ -185,14 +186,11 @@ public class DatabaseFiller {
 			//Store that in database
 			ftcClass.addIndirectAgents(indirectAgents);
 
-			//TODO add info about has drug
-
 			if (counter%50==0) {
 				flush(FtcClass.class);
 			}
 
 		};
-
 
 		//TODO not sure whether to leave it there or not.
 		brain.sleep();

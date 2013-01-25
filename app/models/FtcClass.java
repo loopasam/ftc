@@ -66,7 +66,7 @@ public class FtcClass extends Model {
 	@JoinTable(name = "FtcClass_IndirectAgents")
 	@ManyToMany(cascade=CascadeType.PERSIST)
 	public List<Agent> indirectAgents;
-	
+
 	@JoinTable(name = "FtcClass_SuperClasses")
 	@ManyToMany(cascade=CascadeType.PERSIST)
 	public List<FtcClass> superClasses;
@@ -86,10 +86,7 @@ public class FtcClass extends Model {
 	public void addSubClasses(List<String> ftcSubClasses) {
 		for (String subClassId : ftcSubClasses) {
 			FtcClass ftcSubClass = FtcClass.find("byFtcId", subClassId).first();
-//			if(ftcSubClass != null){
-				this.subClasses.add(ftcSubClass);
-//				this.save();
-//			}
+			this.subClasses.add(ftcSubClass);
 		}
 		this.save();
 
@@ -98,10 +95,7 @@ public class FtcClass extends Model {
 	public void addSuperClasses(List<String> ftcSuperClasses) {
 		for (String superClassId : ftcSuperClasses) {
 			FtcClass ftcSuperClass = FtcClass.find("byFtcId", superClassId).first();
-//			if(ftcSuperClass != null){
-				this.superClasses.add(ftcSuperClass);
-//				this.save();
-//			}
+			this.superClasses.add(ftcSuperClass);
 		}
 		this.save();
 	}
@@ -109,10 +103,10 @@ public class FtcClass extends Model {
 	public void addDirectAgents(List<String> directAgentIds) {
 		for (String directAgentId : directAgentIds) {
 			Agent indirectAgent = Agent.find("byDrugBankId", directAgentId).first();
-//			if(indirectAgent != null){
-				this.directAgents.add(indirectAgent);
-//				this.save();
-//			}
+			this.directAgents.add(indirectAgent);
+			if(this.hasDrug == false){
+				this.hasDrug = true;
+			}
 		}
 		this.save();
 	}
@@ -120,10 +114,10 @@ public class FtcClass extends Model {
 	public void addIndirectAgents(List<String> indirectAgents) {
 		for (String indirectAgentId : indirectAgents) {
 			Agent indirectAgent = Agent.find("byDrugBankId", indirectAgentId).first();
-//			if(indirectAgent != null){
-				this.indirectAgents.add(indirectAgent);
-//				this.save();
-//			}
+			this.indirectAgents.add(indirectAgent);
+			if(this.hasDrug == false){
+				this.hasDrug = true;
+			}
 		}
 		this.save();
 	}

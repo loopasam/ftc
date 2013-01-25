@@ -40,7 +40,7 @@ public class Agent extends Model {
 
 	@ElementCollection
 	public List<String> atcCodes;
-	
+
 	@JoinTable(name = "FtcClass_DirectFtcClasses")
 	@ManyToMany(cascade=CascadeType.PERSIST)
 	public List<FtcClass> directFtcClasses;
@@ -53,10 +53,7 @@ public class Agent extends Model {
 	public void addFtcClasses(List<String> superClassIds) {
 		for (String superClassId : superClassIds) {
 			FtcClass ftcSuperClass = FtcClass.find("byFtcId", superClassId).first();
-//			if(ftcSuperClass != null){
-				this.directFtcClasses.add(ftcSuperClass);
-//				this.save();
-//			}
+			this.directFtcClasses.add(ftcSuperClass);
 		}
 		this.save();
 	}
