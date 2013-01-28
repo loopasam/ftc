@@ -15,7 +15,7 @@ import play.test.Fixtures;
 import uk.ac.ebi.brain.error.BrainException;
 
 public class Builder {
-	
+
 	public void createTmpStructure() {
 		Logger.info("Creating the temporary directory structure...");
 		new File("data/tmp/graphs").mkdirs();
@@ -27,6 +27,18 @@ public class Builder {
 		DrugBankParser drugBankParser = new DrugBankParser("data/tmp/drugbank.ser");
 		drugBankParser.start();
 		return drugBankParser.save();
+	}
+
+	public void serializeAtc() throws FileNotFoundException, IOException, ClassNotFoundException {
+		Logger.info("Parsing the ATC...");
+		ATCParser atcParser = new ATCParser("data/ASCII_Index_med_DDD.asc", "data/tmp/atc.ser");
+		Logger.info("Parsing...");
+		atcParser.start();
+		Logger.info("Adding DB info...");
+		atcParser.addDrugBankInfo("data/tmp/drugbank.ser");
+		atcParser.save();
+		Logger.info("Converting The ATC in OWL and saving...");
+		atcParser.convertInOwl("data/tmp/atc.owl");
 	}
 
 	public void addGoAnnotations() throws FileNotFoundException, IOException, ClassNotFoundException {
@@ -59,7 +71,7 @@ public class Builder {
 		DatabaseFiller filler = new DatabaseFiller("data/ftc-kb-full.owl");
 		filler.start();
 	}
-	
+
 	public void clean() throws IOException {
 		FileUtils.deleteDirectory(new File("data/tmp"));
 	}
@@ -72,5 +84,13 @@ public class Builder {
 		File destination = new File("data/archives/ftc-kb-full-" + sdf.format(dt) + ".owl");
 		FileUtils.copyFile(source, destination);
 	}
+
+	public void evaluate() {
+		Logger.info("Starting the evaluation...");
+		Evaluation evaluation = new Evaluation();
+		evaluation.start();
+		Logger.info("Evaluation done!");
+	}
+
 
 }

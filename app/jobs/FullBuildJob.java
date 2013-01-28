@@ -17,6 +17,8 @@ public class FullBuildJob extends Job {
 		builder.createTmpStructure();
 		Logger.info("Serialize DrugBank...");
 		builder.serializeDrugBank();
+		Logger.info("Serialize the ATC...");
+		builder.serializeAtc();
 		Logger.info("Adds the GO annotations...");
 		builder.addGoAnnotations();
 		Logger.info("Serialize the GO...");

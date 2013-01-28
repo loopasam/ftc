@@ -10,6 +10,7 @@ GET     /admin                                       Administration.index
 GET     /update                                       Administration.update
 GET     /build                                       Administration.build
 GET     /makedb                                       Administration.createDBFromKB
+GET     /evaluation                                       Administration.evaluation
 
 
 # Home page

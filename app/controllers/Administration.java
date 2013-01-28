@@ -9,6 +9,7 @@ import java.util.List;
 import jobs.CleanJob;
 import jobs.ConvertionJob;
 import jobs.EraseJob;
+import jobs.EvaluationJob;
 import jobs.FullBuildJob;
 
 import play.Logger;
@@ -65,4 +66,15 @@ public class Administration extends Controller {
 		}
 		index();
 	}
+	
+	public static void evaluation() {
+		if(Cache.get("jobRunning") != null){
+			flash.error("A job is already running!");
+		}else{
+			flash.success("Evaluation report being build - Follow progresses on the log file or console");
+			new EvaluationJob().now();
+		}
+		index();
+	}
+
 }
