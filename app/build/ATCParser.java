@@ -4,15 +4,20 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import play.Logger;
 import uk.ac.ebi.brain.core.Brain;
+import uk.ac.ebi.brain.error.BrainException;
+import uk.ac.ebi.brain.error.ExistingClassException;
+import uk.ac.ebi.brain.error.StorageException;
 
 public class ATCParser extends Parser {
 
@@ -119,79 +124,44 @@ public class ATCParser extends Parser {
 		return this.getAtc();
 	}
 
-	public void convertInOwl(String path) {
-		DrugBank drugbank = new DrugBank("data/drugbank/drugbank.ser");
+	public void convertInOwl(String path) throws BrainException, FileNotFoundException, IOException, ClassNotFoundException {
 		Brain brain = new Brain("http://www.ebi.ac.uk/Rebholz-srv/atc/", 
 				"http://www.ebi.ac.uk/Rebholz-srv/atc/public/ontologies/atc.owl", 1);
-		
+
+		brain.addClass("DrugBankCompound");
+
 		for (ATCTerm term : this.getAtc().getTerms()) {
 
-			//Add the term as OWL class
-			brain.addClass(term.getCode());
-			brain.label(term.getCode(), term.getLabel());
+			try {
+				//Add the term as OWL class
+				brain.addClass(term.getCode());
+				brain.label(term.getCode(), term.getLabel());
+			}catch(ExistingClassException e) {
+				Logger.info(e.getMessage());
+			}
 
 			if(term.getAllDrugBankReferences().size() > 0){
 
 				for (String dbid : term.getAllDrugBankReferences()) {
 
-					OWLClass atcdrug = factory.getOWLClass(":" + dbid, atcprefixManager);
-					
 					if(!brain.knowsClass(dbid)){
 						brain.addClass(dbid);
-						
 					}
-					
-					OWLAxiom atcdrugaxiom = factory.getOWLSubClassOfAxiom(owlTerm, atcdrug);
-					//Mapping the natural way, after review comments, could be reversed.
-					//OWLAxiom atcdrugaxiom = factory.getOWLSubClassOfAxiom(atcdrug, owlTerm);
-					AddAxiom addactdrugAxiom = new AddAxiom(ontology, atcdrugaxiom);
-					manager.applyChange(addactdrugAxiom);
 
-					OWLClass drugBankCompound = factory.getOWLClass(":DrugBankCompound", atcprefixManager);
-					OWLAxiom compoundAxiom = factory.getOWLSubClassOfAxiom(atcdrug, drugBankCompound);
-					AddAxiom addcompoundAxiom = new AddAxiom(ontology, compoundAxiom);
-					manager.applyChange(addcompoundAxiom);
-
-
-					OWLAnnotationProperty seeAlsoproperty = factory.getOWLAnnotationProperty(OWLRDFVocabulary.RDFS_SEE_ALSO.getIRI());
-					OWLLiteral atcdrugseealso = factory.getOWLLiteral(drugbankprefixManager.getDefaultPrefix() + dbid);
-					OWLAnnotation atcdrugseealsoAnnot = factory.getOWLAnnotation(seeAlsoproperty, atcdrugseealso);
-					OWLAxiom drugseealsoAxiom = factory.getOWLAnnotationAssertionAxiom(atcdrug.getIRI(), atcdrugseealsoAnnot);
-					manager.applyChange(new AddAxiom(ontology, drugseealsoAxiom));
-
-					OWLLiteral atcdruglabel = factory.getOWLLiteral(drugbank.getDrug(dbid).getName());
-					OWLAnnotation atcdruglabelAnnot = factory.getOWLAnnotation(labelproperty, atcdruglabel);
-					OWLAxiom drugLabelAxiom = factory.getOWLAnnotationAssertionAxiom(atcdrug.getIRI(), atcdruglabelAnnot);
-					manager.applyChange(new AddAxiom(ontology, drugLabelAxiom));
-
+					brain.subClassOf(term.getCode(), dbid);
+					brain.subClassOf(dbid, "DrugBankCompound");
 				}
-
-			}
-
-			if(term.getParentCode() != null){
-				OWLClass owlTermParent = factory.getOWLClass(":" + term.getParentCode(), atcprefixManager);
-				OWLAxiom parentAxiom = factory.getOWLSubClassOfAxiom(owlTerm, owlTermParent);
-				AddAxiom addparentAxiom = new AddAxiom(ontology, parentAxiom);
-				manager.applyChange(addparentAxiom);
-			}else{
-				OWLClass owlTermParent = factory.getOWLClass(":Thing", atcprefixManager);
-				OWLAxiom parentAxiom = factory.getOWLSubClassOfAxiom(owlTerm, owlTermParent);
-				AddAxiom addparentAxiom = new AddAxiom(ontology, parentAxiom);
-				manager.applyChange(addparentAxiom);
 			}
 		}
 
+		for (ATCTerm term : this.getAtc().getTerms()) {
+			if(term.getParentCode() != null){
+				brain.subClassOf(term.getCode(), term.getParentCode());
+			}
+		}
 
-		OWLClass drugBankCompound = factory.getOWLClass(":DrugBankCompound", atcprefixManager);
-		OWLClass owlThing = factory.getOWLClass(":Thing", atcprefixManager);
-		OWLAxiom thingAxiom = factory.getOWLSubClassOfAxiom(drugBankCompound, owlThing);
-		AddAxiom addThingAxiom = new AddAxiom(ontology, thingAxiom);
-		manager.applyChange(addThingAxiom);
-
-		manager.saveOntology(ontology);
-
+		brain.save(path);
 	}
-
 
 	public void addDrugBankInfo(String path) throws FileNotFoundException, IOException, ClassNotFoundException {
 		DrugBank drugBank = new DrugBank(path);

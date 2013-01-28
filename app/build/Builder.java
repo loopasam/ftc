@@ -29,7 +29,7 @@ public class Builder {
 		return drugBankParser.save();
 	}
 
-	public void serializeAtc() throws FileNotFoundException, IOException, ClassNotFoundException {
+	public void serializeAtc() throws FileNotFoundException, IOException, ClassNotFoundException, BrainException {
 		Logger.info("Parsing the ATC...");
 		ATCParser atcParser = new ATCParser("data/ASCII_Index_med_DDD.asc", "data/tmp/atc.ser");
 		Logger.info("Parsing...");
