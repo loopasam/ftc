@@ -90,6 +90,7 @@ public class DatabaseFiller {
 		//TODO remove that +  lib
 		Stopwatch stopwatch = new Stopwatch().start();
 		//Foreach FTC class, get the subclasses, id, etc... and generates the SVG graph
+				
 		for (String ftcClass : ftcClasses) {
 
 			Logger.info("Putting the bean in database " + counter + "/" + total);
@@ -113,7 +114,7 @@ public class DatabaseFiller {
 			//Saves the object in the database
 			ftcClassObject.save();
 		}
-		
+				
 		//Save the agents
 		int counterAgents = 1;
 		int totalAgent = drugBankClasses.size();
@@ -133,8 +134,8 @@ public class DatabaseFiller {
 			agent.indication = drug.getIndication();
 			agent.mechanism = drug.getMechanism();
 			agent.pharmacology = drug.getPharmacology();
-			agent.atcCodes = drug.getAtcCodes();
-			agent.categories = drug.getCategories();
+//			agent.atcCodes = drug.getAtcCodes();
+//			agent.categories = drug.getCategories();
 			agent.label = brain.getLabel(drugBankClassId);
 			List<String> superClassIds = brain.getSuperClasses(drugBankClassId, true);
 			Logger.info("Direct superclasses: " + superClassIds.size());
@@ -186,10 +187,13 @@ public class DatabaseFiller {
 			//Store that in database
 			ftcClass.addIndirectAgents(indirectAgents);
 
-			if (counter%50==0) {
+			
+			//TODO xp
+			ftcClass.save();
+			
+			if (counter%20==0) {
 				flush(FtcClass.class);
 			}
-
 		};
 
 		//TODO not sure whether to leave it there or not.

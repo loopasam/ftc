@@ -158,6 +158,7 @@ public class Application extends Controller {
 	}
 
 	public static void agent(String drugbankId){
+		//TODO 404
 		Agent agent = Agent.find("byDrugBankId", drugbankId).first();
 		render(agent);
 	}
