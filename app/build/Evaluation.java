@@ -47,8 +47,7 @@ public class Evaluation {
 				EvaluationMapping mapping = new EvaluationMapping();
 				mapping.definition = line;
 				mapping.atcClasses = Arrays.asList(matcher.group(1).split("or"));
-				mapping.ftcClasses = Arrays.asList(matcher.group(2).split("or"));
-				mapping.label = getLabel(mapping.ftcClasses);
+				mapping.ftcClass = matcher.group(2);
 				mappings.add(mapping);
 			}else{
 				Logger.warn("Error while parsing the mapping file: " + line);
@@ -67,8 +66,8 @@ public class Evaluation {
 			Logger.info("Saving evalution mapping: " + counter + "/" + total);
 			counter++;
 			mapping.atcDrugs = getAtcDrugs(mapping.atcClasses);
-			mapping.ftcDrugs = getFtcDrugs(mapping.ftcClasses);
-			
+			mapping.ftcDrugs = getFtcDrugs(mapping.ftcClass);
+
 			mapping.truePositives = getTruePositives(mapping);
 			mapping.falseNegatives = getFalseNegatives(mapping);
 			mapping.falsePositives = getFalsePositives(mapping);
@@ -76,14 +75,6 @@ public class Evaluation {
 		}
 	}
 
-
-	private String getLabel(List<String> ftcClasses) throws NonExistingEntityException {
-		String label = "";
-		for (String ftcClass : ftcClasses) {
-			label += ftc.getLabel(ftcClass);
-		}
-		return label;
-	}
 
 	private List<String> getFalsePositives(EvaluationMapping mapping) {
 		List<String> fp = new ArrayList<String>();
@@ -115,13 +106,8 @@ public class Evaluation {
 		return tp;
 	}
 
-	private List<String> getFtcDrugs(List<String> ftcClasses) throws BrainException {
-		List<String> ftcDrugs = new ArrayList<String>();
-		for (String ftcClass : ftcClasses) {
-			List<String> drugs = ftc.getSubClasses(ftcClass + " and FTC_C2", false);
-			ftcDrugs.addAll(drugs);
-		}
-		return ftcDrugs;
+	private List<String> getFtcDrugs(String ftcClass) throws BrainException {
+		return ftc.getSubClasses(ftcClass + " and FTC_C2", false);
 	}
 
 	//Hack to get the drugbank compounds - kind of dirty

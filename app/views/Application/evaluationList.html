@@ -1,0 +1,17 @@
+#{extends 'main.html' /}
+#{set title:'Evaluation' /}
+
+<h1>Evaluation List</h1>
+
+<div>FP: ${fp}</div>
+<div>FN: ${fn}</div>
+<div>TP: ${tp}</div>
+<div>Recall: ${recall}</div>
+<div>Precision: ${precision}</div>
+
+<hr>
+<ul>
+#{list items:mappings, as:'mapping' }
+	<li><a href="@{Application.evaluation(mapping.ftcClass)}">${mapping.ftcClass}</a></li>
+#{/list}
+</ul>

@@ -43,7 +43,7 @@ public class Application extends Controller {
 	public static void index() {
 		render();
 	}
-	
+
 	public static void data() {
 		render();
 	}
@@ -70,13 +70,13 @@ public class Application extends Controller {
 		for (Agent indirectAgent : range(ftcClass.indirectAgents, 0, PAGINATION)) {
 			indirectAgents.add(indirectAgent);
 		}
-		
+
 		//Get a chunck of the direct agents
 		List<Agent> directAgents = new ArrayList<Agent>();
 		for (Agent directAgent : range(ftcClass.directAgents, 0, PAGINATION)) {
 			directAgents.add(directAgent);
 		}
-		
+
 		//Get a chunck of the superClasses
 		List<FtcClass> superClasses = new ArrayList<FtcClass>();
 		for (FtcClass superClass : range(ftcClass.superClasses, 0, PAGINATION)) {
@@ -88,7 +88,7 @@ public class Application extends Controller {
 		for (FtcClass subClass : range(ftcClass.subClasses, 0, PAGINATION)) {
 			subClasses.add(subClass);
 		}
-		
+
 		render(ftcClass, ratioSvg, subClasses, superClasses, directAgents, indirectAgents);
 	}
 
@@ -292,21 +292,26 @@ public class Application extends Controller {
 	public static void owlQuery(String query) throws NonExistingEntityException{
 		query(query);
 	}
-	
-	public static void evaluation(){
+
+	public static void evaluations() {
 		List<EvaluationMapping> mappings = EvaluationMapping.findAll();
-		
-		int fp = 0;
-		int fn = 0;
-		int tp = 0;
+		float fp = 0;
+		float fn = 0;
+		float tp = 0;
 		for (EvaluationMapping mapping : mappings) {
 			fp += mapping.falsePositives.size();
 			fn += mapping.falseNegatives.size();
 			tp += mapping.truePositives.size();
 		}
 		
-		render(mappings, fp, fn, tp);
+		float recall = tp/(tp + fn);
+		float precision = tp/(tp + fp);
+		renderTemplate("Application/evaluationList.html", mappings, fp, fn, tp, recall, precision);
 	}
 
+	public static void evaluation(String classId){
+		EvaluationMapping mapping = EvaluationMapping.find("byFtcClass", classId).first();
+		render(mapping);
+	}
 
 }

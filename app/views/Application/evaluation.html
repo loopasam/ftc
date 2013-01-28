@@ -1,19 +1,26 @@
 #{extends 'main.html' /}
 #{set title:'Evaluation' /}
 
-<h1>Evaluation</h1>
-
-<div>FP: ${fp}</div>
-<div>FN: ${fn}</div>
-<div>TP: ${tp}</div>
-
-<hr>
-
-#{list items:mappings, as:'mapping' }
-	<h2>${mapping.label}</h2>
-	<h3>${mapping.definition}</h3>
-	<div>TP: ${mapping.truePositives}</div>
-	<div>FP: ${mapping.falsePositives}</div>
-	<div>FN: ${mapping.falseNegatives}</div>
-	<hr>
+<h1>Evaluation ${mapping.ftcClass}</h1>
+<h2>Definition</h2>
+<p>${mapping.definition}</p>
+<h2>True Positives (${mapping.truePositives.size()})</h2>
+<ul>
+#{list items:mapping.truePositives, as:'truePositive' }
+	<li style="display: inline-block;"><a href="@{Application.agent(truePositive)}">${truePositive}</a></li>
 #{/list}
+</ul>
+
+<h2>False Positives (${mapping.falsePositives.size()})</h2>
+<ul>
+#{list items:mapping.falsePositives, as:'falsePositive' }
+	<li style="display: inline-block;"><a href="@{Application.agent(falsePositive)}">${falsePositive}</a></li>
+#{/list}
+</ul>
+
+<h2>False Negatives (${mapping.falseNegatives.size()})</h2>
+<ul>
+#{list items:mapping.falseNegatives, as:'falseNegative' }
+	<li style="display: inline-block;"><a href="@{Application.agent(falseNegative)}">${falseNegative}</a></li>
+#{/list}
+</ul>

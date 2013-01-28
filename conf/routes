@@ -37,7 +37,8 @@ GET     /map/{classId}                                       Application.map
 GET     /agent/{drugbankId}                                       Application.agent
 
 #Evaluation
-GET     /evaluation/                                       Application.evaluation
+GET     /evaluation/                                       Application.evaluations
+GET     /evaluation/{classId}                                       Application.evaluation
 
 # Semantic query
 GET     /query/                                       Application.initQuery

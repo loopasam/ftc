@@ -13,12 +13,10 @@ public class EvaluationMapping extends Model {
 	
 	//The actual mapping
 	public String definition;
-	
-	//The FTC label
-	public String label;
-	
+		
 	//Compounds that are present in the FTC but not in the ATC
 	//for the current mapping.
+	//TODO proper mapping to model (no String - but Agent)
 	@ElementCollection
 	public List<String> falsePositives;
 	
@@ -36,9 +34,8 @@ public class EvaluationMapping extends Model {
 	@ElementCollection
 	public List<String> atcClasses;
 
-	//FTC classes in the mapping definition
-	@ElementCollection
-	public List<String> ftcClasses;
+	//FTC class in the mapping definition
+	public String ftcClass;
 	
 	//DrugBank agents found under the mapped ATC classes.
 	@ElementCollection
@@ -50,7 +47,6 @@ public class EvaluationMapping extends Model {
 
 	public EvaluationMapping() {
 		this.atcClasses = new ArrayList<String>();
-		this.ftcClasses = new ArrayList<String>();
 		this.ftcDrugs = new ArrayList<String>();
 		this.atcDrugs = new ArrayList<String>();
 		this.falseNegatives = new ArrayList<String>();
