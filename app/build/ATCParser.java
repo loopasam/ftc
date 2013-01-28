@@ -132,13 +132,9 @@ public class ATCParser extends Parser {
 
 		for (ATCTerm term : this.getAtc().getTerms()) {
 
-			try {
-				//Add the term as OWL class
-				brain.addClass(term.getCode());
-				brain.label(term.getCode(), term.getLabel());
-			}catch(ExistingClassException e) {
-				Logger.info(e.getMessage());
-			}
+			//Add the term as OWL class
+			brain.addClass(term.getCode());
+			brain.label(term.getCode(), term.getLabel());
 
 			if(term.getAllDrugBankReferences().size() > 0){
 

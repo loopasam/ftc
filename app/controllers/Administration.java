@@ -67,7 +67,7 @@ public class Administration extends Controller {
 		index();
 	}
 	
-	public static void evaluation() {
+	public static void doEvaluation() {
 		if(Cache.get("jobRunning") != null){
 			flash.error("A job is already running!");
 		}else{

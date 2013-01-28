@@ -1,0 +1,19 @@
+#{extends 'main.html' /}
+#{set title:'Evaluation' /}
+
+<h1>Evaluation</h1>
+
+<div>FP: ${fp}</div>
+<div>FN: ${fn}</div>
+<div>TP: ${tp}</div>
+
+<hr>
+
+#{list items:mappings, as:'mapping' }
+	<h2>${mapping.label}</h2>
+	<h3>${mapping.definition}</h3>
+	<div>TP: ${mapping.truePositives}</div>
+	<div>FP: ${mapping.falsePositives}</div>
+	<div>FN: ${mapping.falseNegatives}</div>
+	<hr>
+#{/list}

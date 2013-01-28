@@ -10,7 +10,7 @@ import uk.ac.ebi.brain.error.BrainException;
 
 public class EvaluationJob extends Job {
 	
-	public void doJob() {
+	public void doJob() throws BrainException, IOException {
 		Cache.set("jobRunning", true);
 		Logger.info("Create the builder...");
 		Builder builder = new Builder();

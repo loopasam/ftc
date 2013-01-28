@@ -10,7 +10,7 @@ GET     /admin                                       Administration.index
 GET     /update                                       Administration.update
 GET     /build                                       Administration.build
 GET     /makedb                                       Administration.createDBFromKB
-GET     /evaluation                                       Administration.evaluation
+GET     /doevaluation                                       Administration.doEvaluation
 
 
 # Home page
@@ -32,9 +32,12 @@ GET     /moreSuperclasses/{ftcClassId}/{currentNumber}                 Applicati
 GET     /moreSubclasses/{ftcClassId}/{currentNumber}                 Application.moreSubclasses
 GET     /moreResults/{query}/{currentNumber}                 Application.moreResults
 
-
+# Standard views
 GET     /map/{classId}                                       Application.map
 GET     /agent/{drugbankId}                                       Application.agent
+
+#Evaluation
+GET     /evaluation/                                       Application.evaluation
 
 # Semantic query
 GET     /query/                                       Application.initQuery

@@ -85,9 +85,9 @@ public class Builder {
 		FileUtils.copyFile(source, destination);
 	}
 
-	public void evaluate() {
+	public void evaluate() throws BrainException, IOException {
 		Logger.info("Starting the evaluation...");
-		Evaluation evaluation = new Evaluation();
+		Evaluation evaluation = new Evaluation("data/mapping-atc-ftc.txt");
 		evaluation.start();
 		Logger.info("Evaluation done!");
 	}

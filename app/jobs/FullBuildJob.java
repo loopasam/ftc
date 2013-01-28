@@ -15,18 +15,18 @@ public class FullBuildJob extends Job {
 		Builder builder = new Builder();
 		Logger.info("Prepare the folder structure...");
 		builder.createTmpStructure();
-//		Logger.info("Serialize DrugBank...");
-//		builder.serializeDrugBank();
+		Logger.info("Serialize DrugBank...");
+		builder.serializeDrugBank();
 		Logger.info("Serialize the ATC...");
 		builder.serializeAtc();
-//		Logger.info("Adds the GO annotations...");
-//		builder.addGoAnnotations();
-//		Logger.info("Serialize the GO...");
-//		builder.serializeGo();
-//		Logger.info("Convert into OWL...");
-//		builder.exportFullStructureToOwl();
-//		Logger.info("Archives the knowledge base...");
-//		builder.archive();
+		Logger.info("Adds the GO annotations...");
+		builder.addGoAnnotations();
+		Logger.info("Serialize the GO...");
+		builder.serializeGo();
+		Logger.info("Convert into OWL...");
+		builder.exportFullStructureToOwl();
+		Logger.info("Archives the knowledge base...");
+		builder.archive();
 		Logger.info("Job done!");
 	}
 }

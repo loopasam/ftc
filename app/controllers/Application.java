@@ -292,6 +292,21 @@ public class Application extends Controller {
 	public static void owlQuery(String query) throws NonExistingEntityException{
 		query(query);
 	}
+	
+	public static void evaluation(){
+		List<EvaluationMapping> mappings = EvaluationMapping.findAll();
+		
+		int fp = 0;
+		int fn = 0;
+		int tp = 0;
+		for (EvaluationMapping mapping : mappings) {
+			fp += mapping.falsePositives.size();
+			fn += mapping.falseNegatives.size();
+			tp += mapping.truePositives.size();
+		}
+		
+		render(mappings, fp, fn, tp);
+	}
 
 
 }
