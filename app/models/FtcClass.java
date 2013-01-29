@@ -88,8 +88,6 @@ public class FtcClass extends Model {
 			FtcClass ftcSubClass = FtcClass.find("byFtcId", subClassId).first();
 			this.subClasses.add(ftcSubClass);
 		}
-//		this.save();
-
 	}
 
 	public void addSuperClasses(List<String> ftcSuperClasses) {
@@ -97,7 +95,6 @@ public class FtcClass extends Model {
 			FtcClass ftcSuperClass = FtcClass.find("byFtcId", superClassId).first();
 			this.superClasses.add(ftcSuperClass);
 		}
-//		this.save();
 	}
 
 	public void addDirectAgents(List<String> directAgentIds) {
@@ -108,7 +105,6 @@ public class FtcClass extends Model {
 				this.hasDrug = true;
 			}
 		}
-//		this.save();
 	}
 
 	public void addIndirectAgents(List<String> indirectAgents) {
@@ -119,7 +115,6 @@ public class FtcClass extends Model {
 				this.hasDrug = true;
 			}
 		}
-//		this.save();
 	}
 
 }

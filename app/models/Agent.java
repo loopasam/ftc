@@ -35,11 +35,11 @@ public class Agent extends Model {
 	@Lob
 	public String mechanism;
 
-//	@ElementCollection
-//	public List<String> categories;
+	@ElementCollection
+	public List<String> categories;
 
-//	@ElementCollection
-//	public List<String> atcCodes;
+	@ElementCollection
+	public List<String> atcCodes;
 
 	@JoinTable(name = "FtcClass_DirectFtcClasses")
 	@ManyToMany(cascade=CascadeType.PERSIST)
@@ -55,7 +55,6 @@ public class Agent extends Model {
 			FtcClass ftcSuperClass = FtcClass.find("byFtcId", superClassId).first();
 			this.directFtcClasses.add(ftcSuperClass);
 		}
-//		this.save();
 	}
 
 }

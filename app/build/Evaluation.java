@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import models.Agent;
 import models.EvaluationMapping;
 
 import controllers.Application;
@@ -67,52 +68,57 @@ public class Evaluation {
 			counter++;
 			mapping.atcDrugs = getAtcDrugs(mapping.atcClasses);
 			mapping.ftcDrugs = getFtcDrugs(mapping.ftcClass);
-
-			mapping.truePositives = getTruePositives(mapping);
-			mapping.falseNegatives = getFalseNegatives(mapping);
-			mapping.falsePositives = getFalsePositives(mapping);
+//			mapping.setTruePostives();
+//			mapping.falseNegatives = getFalseNegatives(mapping);
+//			mapping.falsePositives = getFalsePositives(mapping);
 			mapping.save();
 		}
 	}
 
 
-	private List<String> getFalsePositives(EvaluationMapping mapping) {
-		List<String> fp = new ArrayList<String>();
-		for (String ftcDrug : mapping.ftcDrugs) {
-			if(!mapping.atcDrugs.contains(ftcDrug)){
-				fp.add(ftcDrug);
-			}
-		}
-		return fp;
-	}
+//	private List<String> getFalsePositives(EvaluationMapping mapping) {
+//		List<String> fp = new ArrayList<String>();
+//		for (String ftcDrug : mapping.ftcDrugs) {
+//			if(!mapping.atcDrugs.contains(ftcDrug)){
+//				fp.add(ftcDrug);
+//			}
+//		}
+//		return fp;
+//	}
 
-	private List<String> getFalseNegatives(EvaluationMapping mapping) {
-		List<String> fn = new ArrayList<String>();
-		for (String atcDrug : mapping.atcDrugs) {
-			if(!mapping.ftcDrugs.contains(atcDrug)){
-				fn.add(atcDrug);
-			}
-		}
-		return fn;
-	}
+//	private List<String> getFalseNegatives(EvaluationMapping mapping) {
+//		List<String> fn = new ArrayList<String>();
+//		for (String atcDrug : mapping.atcDrugs) {
+//			if(!mapping.ftcDrugs.contains(atcDrug)){
+//				fn.add(atcDrug);
+//			}
+//		}
+//		return fn;
+//	}
 
-	private List<String> getTruePositives(EvaluationMapping mapping) {
-		List<String> tp = new ArrayList<String>();
-		for (String atcDrug : mapping.atcDrugs) {
-			if(mapping.ftcDrugs.contains(atcDrug)){
-				tp.add(atcDrug);
-			}
-		}
-		return tp;
-	}
+//	private List<String> getTruePositives(EvaluationMapping mapping) {
+//		List<String> tp = new ArrayList<String>();
+//		for (String atcDrug : mapping.atcDrugs) {
+//			if(mapping.ftcDrugs.contains(atcDrug)){
+//				tp.add(atcDrug);
+//			}
+//		}
+//		return tp;
+//	}
 
-	private List<String> getFtcDrugs(String ftcClass) throws BrainException {
-		return ftc.getSubClasses(ftcClass + " and FTC_C2", false);
+	private List<Agent> getFtcDrugs(String ftcClass) throws BrainException {
+		List<Agent> ftcDrugs = new ArrayList<Agent>();
+		List<String> subClasses = ftc.getSubClasses(ftcClass + " and FTC_C2", false);
+		for (String subClass : subClasses) {
+			Agent agent = Agent.find("byDrugBankId", subClass).first();
+			ftcDrugs.add(agent);
+		}
+		return ftcDrugs;
 	}
 
 	//Hack to get the drugbank compounds - kind of dirty
-	private List<String> getAtcDrugs(List<String> atcClasses) throws BrainException {
-		List<String> atcDrugs = new ArrayList<String>();
+	private List<Agent> getAtcDrugs(List<String> atcClasses) throws BrainException {
+		List<Agent> atcDrugs = new ArrayList<Agent>();
 		//Iterates over the list of ATC classes
 		for (String atcClass : atcClasses) {
 			//Get all the subclasses
@@ -122,7 +128,8 @@ public class Evaluation {
 				List<String> atcSuperClasses = atc.getSuperClasses(atcSubclass, true);
 				for (String atcSuperClass : atcSuperClasses) {
 					if(atcSuperClass.startsWith("DB") && !atcDrugs.contains(atcSuperClass)){
-						atcDrugs.add(atcSuperClass);
+						Agent agent = Agent.find("byDrugBankId", atcSuperClass).first();
+						atcDrugs.add(agent);
 					}
 				}
 			}

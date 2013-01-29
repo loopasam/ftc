@@ -1,26 +1,73 @@
 #{extends 'main.html' /}
 #{set title:'Evaluation' /}
+#{script 'toggle.js' /}
+#{script 'jquery.poshytip.min.js' /}
+#{script 'help.js' /}
 
 <h1>Evaluation ${mapping.ftcClass}</h1>
-<h2>Definition</h2>
-<p>${mapping.definition}</p>
-<h2>True Positives (${mapping.truePositives.size()})</h2>
-<ul>
-#{list items:mapping.truePositives, as:'truePositive' }
-	<li style="display: inline-block;"><a href="@{Application.agent(truePositive)}">${truePositive}</a></li>
-#{/list}
-</ul>
+<div class="block-information" id="definition">
+    <h2>Definition
+    <span title="The human-readable<br>definition of the category" class="help-text">(?)</span>
+    </h2>
+    <p>${mapping.definition}</p>
+</div>
 
-<h2>False Positives (${mapping.falsePositives.size()})</h2>
-<ul>
-#{list items:mapping.falsePositives, as:'falsePositive' }
-	<li style="display: inline-block;"><a href="@{Application.agent(falsePositive)}">${falsePositive}</a></li>
-#{/list}
-</ul>
+#{if mapping.truePositives.size() > 0}
+<nav class="agents block-information">
+    <h2>
+    <span class="togglable">[-] </span>
+    <span class="togglable" style="display: none">[+] </span>
+    True Positives<span class="numbers"> (<span>${mapping.truePositives.size()})</span> 
+    <span title="text explanation" class="help-text">(?)</span>
+    </h2>
+    <div id="members">
+      <ul>
+        #{list items:mapping.truePositives, as:'truePositive' }
+        <a href="@{Application.agent(truePositive)}">
+        	<li class="transition direct">${truePositive}</li>
+        </a>
+        #{/list}
+      </ul>
+      </div>
+</nav>
+#{/if}
 
-<h2>False Negatives (${mapping.falseNegatives.size()})</h2>
-<ul>
-#{list items:mapping.falseNegatives, as:'falseNegative' }
-	<li style="display: inline-block;"><a href="@{Application.agent(falseNegative)}">${falseNegative}</a></li>
-#{/list}
-</ul>
+#{if mapping.falsePositives.size() > 0}
+<nav class="agents block-information">
+    <h2>
+    <span class="togglable">[-] </span>
+    <span class="togglable" style="display: none">[+] </span>
+    False Positives<span class="numbers"> (<span>${mapping.falsePositives.size()})</span> 
+    <span title="text explanation" class="help-text">(?)</span>
+    </h2>
+    <div id="members">
+      <ul>
+        #{list items:mapping.falsePositives, as:'falsePositive' }
+        <a href="@{Application.agent(falsePositive)}">
+        	<li class="transition direct">${falsePositive}</li>
+        </a>
+        #{/list}
+      </ul>
+      </div>
+</nav>
+#{/if}
+
+#{if mapping.falseNegatives.size() > 0}
+<nav class="agents block-information">
+    <h2>
+    <span class="togglable">[-] </span>
+    <span class="togglable" style="display: none">[+] </span>
+    False Negatives<span class="numbers"> (<span>${mapping.falseNegatives.size()})</span> 
+    <span title="text explanation" class="help-text">(?)</span>
+    </h2>
+    <div id="members">
+      <ul>
+        #{list items:mapping.falseNegatives, as:'falseNegative' }
+        <a href="@{Application.agent(falseNegative)}">
+        	<li class="transition direct">${falseNegative}</li>
+        </a>
+        #{/list}
+      </ul>
+      </div>
+</nav>
+#{/if}
