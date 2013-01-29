@@ -1,17 +1,31 @@
 #{extends 'main.html' /}
 #{set title:'Evaluation' /}
+#{script 'jquery.poshytip.min.js' /}
+#{script 'help.js' /}
 
-<h1>Evaluation List</h1>
 
-<div>FP: ${fp}</div>
-<div>FN: ${fn}</div>
-<div>TP: ${tp}</div>
+<h1>Evaluations against the Anatomical Therapeutic Chemical Classification System (ATC)</h1>
+
+<div>Total False Positives: ${fp}</div>
+<div>Total False Negatives: ${fn}</div>
+<div>Total True Positives: ${tp}</div>
 <div>Recall: ${recall}</div>
 <div>Precision: ${precision}</div>
 
 <hr>
-<ul>
-#{list items:mappings, as:'mapping' }
-	<li><a href="@{Application.evaluation(mapping.ftcClass)}">${mapping.ftcClass}</a></li>
-#{/list}
-</ul>
+
+<nav class="class-info block-information">
+    <h2>
+    Evaluation points<span class="numbers"> (<span>${mappings.size()})</span> 
+    <span title="text explanation" class="help-text">(?)</span>
+    </h2>
+    <div id="members">
+      <ul>
+        #{list items:mappings, as:'mapping' }
+        <a href="@{Application.evaluation(mapping.ftcClass)}">
+        	<li class="transition direct">${mapping.definition}</li>
+        </a>
+        #{/list}
+      </ul>
+      </div>
+</nav>

@@ -68,43 +68,12 @@ public class Evaluation {
 			counter++;
 			mapping.atcDrugs = getAtcDrugs(mapping.atcClasses);
 			mapping.ftcDrugs = getFtcDrugs(mapping.ftcClass);
-//			mapping.setTruePostives();
-//			mapping.falseNegatives = getFalseNegatives(mapping);
-//			mapping.falsePositives = getFalsePositives(mapping);
+			mapping.setTruePostives();
+			mapping.setFalseNegatives();
+			mapping.setFalsePositives();
 			mapping.save();
 		}
 	}
-
-
-//	private List<String> getFalsePositives(EvaluationMapping mapping) {
-//		List<String> fp = new ArrayList<String>();
-//		for (String ftcDrug : mapping.ftcDrugs) {
-//			if(!mapping.atcDrugs.contains(ftcDrug)){
-//				fp.add(ftcDrug);
-//			}
-//		}
-//		return fp;
-//	}
-
-//	private List<String> getFalseNegatives(EvaluationMapping mapping) {
-//		List<String> fn = new ArrayList<String>();
-//		for (String atcDrug : mapping.atcDrugs) {
-//			if(!mapping.ftcDrugs.contains(atcDrug)){
-//				fn.add(atcDrug);
-//			}
-//		}
-//		return fn;
-//	}
-
-//	private List<String> getTruePositives(EvaluationMapping mapping) {
-//		List<String> tp = new ArrayList<String>();
-//		for (String atcDrug : mapping.atcDrugs) {
-//			if(mapping.ftcDrugs.contains(atcDrug)){
-//				tp.add(atcDrug);
-//			}
-//		}
-//		return tp;
-//	}
 
 	private List<Agent> getFtcDrugs(String ftcClass) throws BrainException {
 		List<Agent> ftcDrugs = new ArrayList<Agent>();
@@ -136,7 +105,4 @@ public class Evaluation {
 		}
 		return atcDrugs;
 	}
-
-
-
 }

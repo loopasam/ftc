@@ -6,7 +6,7 @@
 
 <h1>Evaluation ${mapping.ftcClass}</h1>
 <div class="block-information" id="definition">
-    <h2>Definition
+    <h2>Equivalence
     <span title="The human-readable<br>definition of the category" class="help-text">(?)</span>
     </h2>
     <p>${mapping.definition}</p>
@@ -23,8 +23,8 @@
     <div id="members">
       <ul>
         #{list items:mapping.truePositives, as:'truePositive' }
-        <a href="@{Application.agent(truePositive)}">
-        	<li class="transition direct">${truePositive}</li>
+        <a href="@{Application.agent(truePositive.drugBankId)}">
+        	<li class="transition direct">${truePositive.drugBankId} - ${truePositive.label}</li>
         </a>
         #{/list}
       </ul>
@@ -43,8 +43,8 @@
     <div id="members">
       <ul>
         #{list items:mapping.falsePositives, as:'falsePositive' }
-        <a href="@{Application.agent(falsePositive)}">
-        	<li class="transition direct">${falsePositive}</li>
+        <a href="@{Application.agent(falsePositive.drugBankId)}">
+        	<li class="transition direct">${falsePositive.drugBankId} - ${falsePositive.label}</li>
         </a>
         #{/list}
       </ul>
@@ -63,8 +63,8 @@
     <div id="members">
       <ul>
         #{list items:mapping.falseNegatives, as:'falseNegative' }
-        <a href="@{Application.agent(falseNegative)}">
-        	<li class="transition direct">${falseNegative}</li>
+        <a href="@{Application.agent(falseNegative.drugBankId)}">
+        	<li class="transition direct">${falseNegative.drugBankId} - ${falseNegative.label}</li>
         </a>
         #{/list}
       </ul>

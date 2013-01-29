@@ -133,8 +133,8 @@ public class DatabaseFiller {
 			agent.indication = drug.getIndication();
 			agent.mechanism = drug.getMechanism();
 			agent.pharmacology = drug.getPharmacology();
-//			agent.atcCodes = drug.getAtcCodes();
-//			agent.categories = drug.getCategories();
+			agent.atcCodes = drug.getAtcCodes();
+			agent.categories = drug.getCategories();
 			agent.label = brain.getLabel(drugBankClassId);
 			List<String> superClassIds = brain.getSuperClasses(drugBankClassId, true);
 			Logger.info("Direct superclasses: " + superClassIds.size());
