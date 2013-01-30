@@ -7,7 +7,8 @@
 <h1 class="feature-title">Evaluation Point: ${mapping.ftcClass}</h1>
 <div class="block-information" id="definition">
     <h2>Equivalence
-    <span title="The human-readable<br>definition of the category" class="help-text">(?)</span>
+    <span title="Logical equivalence between a FTC class and one or more ATC classes. The equivalence is sometimes
+    not perfect, but somehow representative for the evaluation. Equivalences are manually created and are modifiable." class="help-text">(?)</span>
     </h2>
     <p>${mapping.htmlDefinition.raw()}</p>
 </div>
@@ -18,7 +19,8 @@
     <span class="togglable">[-] </span>
     <span class="togglable" style="display: none">[+] </span>
     True Positives<span class="numbers"> (<span>${mapping.truePositives.size()})</span> 
-    <span title="text explanation" class="help-text">(?)</span>
+    <span title="List of the compounds that are present in the FTC class ${mapping.ftcClass} as well
+    as in the ATC class${mapping.atcClasses.pluralize('es')} ${mapping.atcClasses.join(" or ")}." class="help-text">(?)</span>
     </h2>
     <div id="members">
       <ul>
@@ -38,7 +40,10 @@
     <span class="togglable">[-] </span>
     <span class="togglable" style="display: none">[+] </span>
     False Positives<span class="numbers"> (<span>${mapping.falsePositives.size()})</span> 
-    <span title="text explanation" class="help-text">(?)</span>
+    <span title="List of the compounds that are present in the FTC class ${mapping.ftcClass} but not 
+    in the ATC
+    class${mapping.atcClasses.pluralize('es')} ${mapping.atcClasses.join(" or ")}.
+    Some of these compounds can be considered as drug repurposing opportunities." class="help-text">(?)</span>
     </h2>
     <div id="members">
       <ul>
@@ -58,7 +63,9 @@
     <span class="togglable">[-] </span>
     <span class="togglable" style="display: none">[+] </span>
     False Negatives<span class="numbers"> (<span>${mapping.falseNegatives.size()})</span> 
-    <span title="text explanation" class="help-text">(?)</span>
+    <span title="List of the compounds that are present in the ATC
+    class${mapping.atcClasses.pluralize('es')} ${mapping.atcClasses.join(" or ")} but
+    not in the FTC class ${mapping.ftcClass}." class="help-text">(?)</span>
     </h2>
     <div id="members">
       <ul>

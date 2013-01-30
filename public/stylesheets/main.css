@@ -197,6 +197,10 @@ code {
 	font:12px/16px arial,helvetica,sans-serif;
 }
 
+.tip a {
+	color: #72d93f;
+}
+
 /* Home page */
 #introduction {
 	overflow: overlay;
