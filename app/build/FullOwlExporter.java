@@ -184,9 +184,7 @@ public class FullOwlExporter extends OwlExporter {
 							"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + 
 							positivelyRegulatedparentTerm.getName() + "</a>.");					
 					this.getBrain().subClassOf(antiClassId, "FTC_C1");
-					//TODO: a mettre le probleme en dessous en test une fois que la FTC est classififed
-					//TODO better written justification for patterns on wiki
-
+					
 					//The expression uses the class name (ex: 'negative regulation of blood coagulation') and
 					//not the corresponding class expression ('negatively-regulates some blood-coagulation')
 					//as only subclasses are considered in class expressions. By using the full class name

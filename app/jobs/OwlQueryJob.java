@@ -32,11 +32,7 @@ public class OwlQueryJob extends Job<OwlResult> {
 	}
 
 	public OwlResult doJobWithResult() throws BrainException {
-		Logger.info("Starting asynchronous query...");
-		Logger.info("Does the query... " + this.query);
 		List<String> subClasses = Application.brain.getSubClassesFromLabel(this.query, false);
-
-		Logger.info("Creating result object... ");
 
 		OwlResult result = null;
 
@@ -46,9 +42,7 @@ public class OwlQueryJob extends Job<OwlResult> {
 		}else{
 			result = new OwlResult(this.query, true);
 		}
-		Logger.info("Storing results in DB...");		
 		result.save();
-		Logger.info("Query done, returns the results");
 		return result;
 	}
 

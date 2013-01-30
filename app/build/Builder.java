@@ -82,7 +82,9 @@ public class Builder {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date dt = new Date();
 		File destination = new File("data/archives/ftc-kb-full-" + sdf.format(dt) + ".owl");
+		File publicFile = new File("public/data/ftc-kb-full.owl");
 		FileUtils.copyFile(source, destination);
+		FileUtils.copyFile(source, publicFile);
 	}
 
 	public void evaluate() throws BrainException, IOException {

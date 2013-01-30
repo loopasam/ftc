@@ -36,6 +36,7 @@ public class DatabaseFiller {
 
 	private String pathToKb;
 	public final static String LOCATION_GRAPHS = "data/tmp/graphs/";
+	//TODO PROD replace with the service URL
 	public final static String URL_SVG = "http://localhost:9000/";
 
 	public DatabaseFiller(String pathToOwlFile) {
@@ -86,7 +87,7 @@ public class DatabaseFiller {
 		int total = ftcClasses.size();
 		int counter = 1;
 
-		//TODO remove that +  lib
+		//Timing of the build
 		Stopwatch stopwatch = new Stopwatch().start();
 		//Foreach FTC class, get the subclasses, id, etc... and generates the SVG graph
 				
@@ -193,7 +194,6 @@ public class DatabaseFiller {
 			}
 		};
 
-		//TODO not sure whether to leave it there or not.
 		brain.sleep();
 
 		stopwatch.stop();
@@ -228,7 +228,6 @@ public class DatabaseFiller {
 		addSuperClasses(ftcClass.ftcId, gv, brain, alreadyVisited, undesirableClasses);
 		//Once all the relations are known, adds URLs to nodes.
 		for (String node : alreadyVisited.getAllNodesOnce()) {
-			//TODO: put the good URL
 			gv.addln(node + " [URL=<"+ URL_SVG + node +">];");
 			String formattedLabel = getFormattedLabel(brain.getLabel(node));
 

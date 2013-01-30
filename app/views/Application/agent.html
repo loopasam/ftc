@@ -21,6 +21,7 @@ $(document).ready(function() {
         src="http://structures.wishartlab.com/molecules/${agent.drugBankId}/thumb.png" />
 </div>
 
+#{if agent.directFtcClasses.size() > 0}
 <nav class="block-information class-info action">
     <h2>
     <span class="togglable">[-] </span>
@@ -50,6 +51,7 @@ $(document).ready(function() {
     </ul>
     #{/else}
 </nav>
+#{/if}
 
 <div class="block-information" id="drugbank-data">
     <h2>Functional properties (via DrugBank)

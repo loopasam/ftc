@@ -7,7 +7,7 @@ h1 {
 	text-align: center;
 }
 
-.metrics {
+.metrics, .get-options {
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
@@ -15,6 +15,10 @@ h1 {
 	background-color: #F4F4F4;
 	padding: 5px;
 	margin-bottom: 1%;
+}
+
+.get-options a {
+	color: #4a4a4a;
 }
 
 .feature-title {

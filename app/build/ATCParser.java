@@ -176,15 +176,4 @@ public class ATCParser extends Parser {
 			}
 		}
 	}
-
-
-	/**
-	 * @param string
-	 * @return 
-	 */
-	//TODO to be removed if still commented out
-	//	public ATCTerm getCategory(String category) {
-	//		return this.getAtc().getTerm(category);
-	//	}
-
 }

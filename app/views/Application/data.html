@@ -1,4 +1,14 @@
 #{extends 'main.html' /}
 #{set title:'Data' /}
+#{script 'jquery.poshytip.min.js' /}
+#{script 'help.js' /}
 
-<h1>Get the data</h1>
+
+<h1 class="feature-title">Get the data
+<span style="float: none;" title="text explanation" class="help-text">(?)</span>
+</h1>
+
+<div class="get-options">
+<h3>Full ontology: <a href="@{'/public/data/ftc-kb-full.owl'}">ftc-kb-full.owl</a></h3>
+<h3>Web services, XML, flat file, JSON, RDF, etc: <a href="http://samuelcroset.com/contact">Contact me</a></h3>
+</div>

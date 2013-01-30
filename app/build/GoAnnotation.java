@@ -12,7 +12,9 @@ import java.io.Serializable;
 public class GoAnnotation implements Serializable {
 
 	private static final long serialVersionUID = 2168156249044371972L;
-	//More details on the features: http://www.geneontology.org/GO.format.gaf-2_0.shtml#db_reference - adapted for the tsv files dumped by wservices
+	//More details on the features:
+	//http://www.geneontology.org/GO.format.gaf-2_0.shtml#db_reference
+	//adapted for the tsv files dumped by web services
 	//origin of the gene product (here should be only 'UniProtKB') - column 1
 	private String database;
 	//taxon of the annotated entity - column 5
@@ -24,7 +26,6 @@ public class GoAnnotation implements Serializable {
 	//ref for the annotation
 	private String reference;
 	//Evidence code for the annotation
-	//TODO static mapping between codes and label
 	private String evidence;
 	//if electronic annotation, diaplays the provider
 	private String evidenceProvider;

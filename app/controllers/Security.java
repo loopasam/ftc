@@ -17,7 +17,6 @@ import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.Http;
 
-//TODO: put the right URL (instead of dev)
 public class Security extends Controller {
 
 	@Before(unless={"login", "auth", "logout"})
@@ -63,7 +62,7 @@ public class Security extends Controller {
 	}
 
 
-
+	//TODO PROD: Set the correct callback URL on: https://code.google.com/apis/console/?pli=1#project:1009954177381:access
 	public static void auth(String code) {
 
 		//Depending on what the user entered, could be an error

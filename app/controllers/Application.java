@@ -158,8 +158,10 @@ public class Application extends Controller {
 	}
 
 	public static void agent(String drugbankId){
-		//TODO 404
 		Agent agent = Agent.find("byDrugBankId", drugbankId).first();
+		if(agent == null){
+			error(404, "There is not agent called '" + drugbankId + "' in the FTC.");
+		}
 		render(agent);
 	}
 
@@ -241,7 +243,6 @@ public class Application extends Controller {
 		}
 
 
-		//TODO revise that bit - see what could be improved.
 		ArrayList<OWLClassResult> owlClassResults = new ArrayList<OWLClassResult>();
 		for (String classResultId : range(result.subClasses, 0, PAGINATION)) {
 			OWLClassResult classResult = new OWLClassResult();
