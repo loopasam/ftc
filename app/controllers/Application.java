@@ -294,6 +294,9 @@ public class Application extends Controller {
 	}
 
 	public static void evaluations() {
+		
+		Metrics metrics = (Metrics) Metrics.findAll().get(0);
+		
 		List<EvaluationMapping> mappings = EvaluationMapping.findAll();
 		float fp = 0;
 		float fn = 0;
@@ -306,7 +309,7 @@ public class Application extends Controller {
 		
 		float recall = tp/(tp + fn);
 		float precision = tp/(tp + fp);
-		renderTemplate("Application/evaluationList.html", mappings, fp, fn, tp, recall, precision);
+		renderTemplate("Application/evaluationList.html", mappings, fp, fn, tp, recall, precision, metrics);
 	}
 
 	public static void evaluation(String classId){

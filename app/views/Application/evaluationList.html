@@ -4,15 +4,47 @@
 #{script 'help.js' /}
 
 
-<h1>Evaluations against the Anatomical Therapeutic Chemical Classification System (ATC)</h1>
+<h1 class="feature-title">Evaluations against the Anatomical Therapeutic Chemical Classification System (ATC)
+<span style="float: none;" title="text explanation" class="help-text">(?)</span>
+</h1>
 
-<div>Total False Positives: ${fp}</div>
-<div>Total False Negatives: ${fn}</div>
-<div>Total True Positives: ${tp}</div>
-<div>Recall: ${recall}</div>
-<div>Precision: ${precision}</div>
+<div class="metrics">
+<h3>Date: <span class="value-metrics">${metrics.date.format('yyyy MMMM dd @ hh:mm:ss')}</span>
+<span style="float: none;" title="text explanation" class="help-text">(?)</span>
+</h3>
 
-<hr>
+<h3>Total number of therapeutic agents: <span class="value-metrics">${Math.round(metrics.numberOfDrugBankCompounds)}</span>
+<span style="float: none;" title="text explanation" class="help-text">(?)</span>
+</h3>
+
+<h3>Total number of FTC categories: <span class="value-metrics">${Math.round(metrics.numberOfFtcClasses)}</span>
+<span style="float: none;" title="text explanation" class="help-text">(?)</span>
+</h3>
+
+<h3>Total number of axioms in the FTC: <span class="value-metrics">${Math.round(metrics.numberOfAxioms)}</span>
+<span style="float: none;" title="text explanation" class="help-text">(?)</span>
+</h3>
+
+<h3>Total number of false positives: <span class="value-metrics">${Math.round(fp)}</span>
+<span style="float: none;" title="text explanation" class="help-text">(?)</span>
+</h3>
+
+<h3>Total number of true positives: <span class="value-metrics">${Math.round(tp)}</span>
+<span style="float: none;" title="text explanation" class="help-text">(?)</span>
+</h3>
+
+<h3>Total number of false negatives: <span class="value-metrics">${Math.round(fn)}</span>
+<span style="float: none;" title="text explanation" class="help-text">(?)</span>
+</h3>
+
+<h3>Recall: <span class="value-metrics">${Math.round(recall*100)}%</span>
+<span style="float: none;" title="text explanation" class="help-text">(?)</span>
+</h3>
+
+<h3>Precision: <span class="value-metrics">${Math.round(precision*100)}%</span>
+<span style="float: none;" title="text explanation" class="help-text">(?)</span>
+</h3>
+</div>
 
 <nav class="class-info block-information">
     <h2>

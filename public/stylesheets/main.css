@@ -7,8 +7,23 @@ h1 {
 	text-align: center;
 }
 
-form h1 {
+.metrics {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	background-color: #F4F4F4;
+	padding: 5px;
+	margin-bottom: 1%;
+}
+
+.feature-title {
 	color: #4a4a4a;
+}
+
+.value-metrics {
+	color: #4a4a4a;
+	margin-right: 5px;
 }
 
 /* Semantic Query */

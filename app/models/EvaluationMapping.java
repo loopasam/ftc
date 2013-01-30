@@ -1,20 +1,28 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 
+import play.Logger;
 import play.db.jpa.Model;
 
 @Entity
 public class EvaluationMapping extends Model {
 
 	//The actual mapping
+	@Lob
+	public String htmlDefinition;
+	
 	public String definition;
 
 	//Compounds that are present in the FTC but not in the ATC
@@ -39,6 +47,7 @@ public class EvaluationMapping extends Model {
 	@ElementCollection
 	public List<String> atcClasses;
 
+
 	//FTC class in the mapping definition
 	public String ftcClass;
 
@@ -52,7 +61,6 @@ public class EvaluationMapping extends Model {
 	@ManyToMany(cascade=CascadeType.PERSIST)
 	public List<Agent> ftcDrugs;
 
-	//TODO check there is stuff in double
 	public EvaluationMapping() {
 		this.atcClasses = new ArrayList<String>();
 		this.ftcDrugs = new ArrayList<Agent>();
@@ -84,6 +92,25 @@ public class EvaluationMapping extends Model {
 				falsePositives.add(ftcDrug);
 			}
 		}
+	}
+
+	public void setDefinitionHtml() {
+		
+		StringBuffer output = new StringBuffer();
+		output.append("(");
+		boolean isFirst = true;
+		
+		for (String atcClass : this.atcClasses) {
+			if(!isFirst){
+				output.append("&nbsp;or&nbsp;");
+			}else{
+				isFirst = false;
+			}
+			output.append("<a href='http://www.whocc.no/atc_ddd_index/?code=" + atcClass + "'>" + atcClass + "</a>");
+		}
+		
+		output.append(") = (<a href='/" + this.ftcClass + "'>" + this.ftcClass + "</a>" + ")");
+		this.htmlDefinition = output.toString();
 	}
 
 

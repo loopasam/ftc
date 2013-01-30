@@ -4,12 +4,12 @@
 #{script 'jquery.poshytip.min.js' /}
 #{script 'help.js' /}
 
-<h1>Evaluation ${mapping.ftcClass}</h1>
+<h1 class="feature-title">Evaluation Point: ${mapping.ftcClass}</h1>
 <div class="block-information" id="definition">
     <h2>Equivalence
     <span title="The human-readable<br>definition of the category" class="help-text">(?)</span>
     </h2>
-    <p>${mapping.definition}</p>
+    <p>${mapping.htmlDefinition.raw()}</p>
 </div>
 
 #{if mapping.truePositives.size() > 0}

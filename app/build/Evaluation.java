@@ -7,12 +7,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import models.Agent;
 import models.EvaluationMapping;
+import models.FtcClass;
+import models.Metrics;
 
 import controllers.Application;
 import play.Logger;
@@ -46,9 +51,10 @@ public class Evaluation {
 			Matcher matcher = pattern.matcher(line);
 			if (matcher.find()){
 				EvaluationMapping mapping = new EvaluationMapping();
-				mapping.definition = line;
-				mapping.atcClasses = Arrays.asList(matcher.group(1).split("or"));
+				mapping.atcClasses = Arrays.asList(matcher.group(1).split(" or "));
 				mapping.ftcClass = matcher.group(2);
+				mapping.definition = line;
+				mapping.setDefinitionHtml();
 				mappings.add(mapping);
 			}else{
 				Logger.warn("Error while parsing the mapping file: " + line);
@@ -59,6 +65,13 @@ public class Evaluation {
 	}
 
 	public void start() throws BrainException {
+		
+		Metrics metrics = new Metrics();
+		metrics.date = new Date();
+		metrics.numberOfAxioms = ftc.getOntology().getAxiomCount();
+		metrics.numberOfDrugBankCompounds = Agent.count();
+		metrics.numberOfFtcClasses = FtcClass.count();
+		metrics.save();
 
 		int counter = 1;
 		int total = mappings.size();
@@ -74,7 +87,7 @@ public class Evaluation {
 			mapping.save();
 		}
 	}
-
+	
 	private List<Agent> getFtcDrugs(String ftcClass) throws BrainException {
 		List<Agent> ftcDrugs = new ArrayList<Agent>();
 		List<String> subClasses = ftc.getSubClasses(ftcClass + " and FTC_C2", false);
@@ -88,6 +101,8 @@ public class Evaluation {
 	//Hack to get the drugbank compounds - kind of dirty
 	private List<Agent> getAtcDrugs(List<String> atcClasses) throws BrainException {
 		List<Agent> atcDrugs = new ArrayList<Agent>();
+		Set<String> knownCompounds = new HashSet<String>();
+		
 		//Iterates over the list of ATC classes
 		for (String atcClass : atcClasses) {
 			//Get all the subclasses
@@ -96,8 +111,9 @@ public class Evaluation {
 			for (String atcSubclass : atcSubclasses) {
 				List<String> atcSuperClasses = atc.getSuperClasses(atcSubclass, true);
 				for (String atcSuperClass : atcSuperClasses) {
-					if(atcSuperClass.startsWith("DB") && !atcDrugs.contains(atcSuperClass)){
+					if(atcSuperClass.startsWith("DB") && !knownCompounds.contains(atcSuperClass)){
 						Agent agent = Agent.find("byDrugBankId", atcSuperClass).first();
+						knownCompounds.add(atcSuperClass);
 						atcDrugs.add(agent);
 					}
 				}
