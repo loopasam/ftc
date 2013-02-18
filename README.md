@@ -1,3 +1,3 @@
-Functional Therapeutic Chemical Classification System build
+Article related to the FTC
 
-Code in dev
+In progress

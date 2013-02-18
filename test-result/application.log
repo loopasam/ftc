@@ -1,9 +1,0 @@
-25 Jan 2013 00:33:25,222 INFO  ~ Starting /home/samuel/git/ftc
-25 Jan 2013 00:33:26,075 WARN  ~ You're running Play! in DEV mode
-25 Jan 2013 00:33:26,171 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
-25 Jan 2013 00:33:39,894 INFO  ~ Connected to jdbc:mysql://localhost/test
-25 Jan 2013 00:33:43,401 INFO  ~ Application 'ftc' is now started !
-25 Jan 2013 00:33:43,464 INFO  ~ Setting the brain object...
-25 Jan 2013 00:33:43,464 INFO  ~ brain object loaded!
-25 Jan 2013 00:35:14,216 INFO  ~ Setting the brain object...
-25 Jan 2013 00:35:14,216 INFO  ~ brain object loaded!
