@@ -53,7 +53,7 @@ public class Security extends Controller {
 		String urlGoogleOAuth = "https://accounts.google.com/o/oauth2/auth?" +
 				"scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+" +
 				"&state=%2Fprofile&redirect_uri=http%3A%2F%2F" +
-				"localhost:9000%2Fauth" +
+				"localhost:9000%2Fchembl%2Fftc%2Fauth" +
 				"&response_type=code" +
 				"&client_id=1009954177381.apps.googleusercontent.com" +
 				"&approval_prompt=auto";
@@ -73,7 +73,7 @@ public class Security extends Controller {
 		//call for access token
 		HttpResponse res = WS.url("https://accounts.google.com/o/oauth2/token").
 				setParameter("code", code).setParameter("client_id", "1009954177381.apps.googleusercontent.com").
-				setParameter("client_secret", "ClzAiwp6nuTvRqbQpkMq4GS7").setParameter("redirect_uri", "http://localhost:9000/auth").
+				setParameter("client_secret", "ClzAiwp6nuTvRqbQpkMq4GS7").setParameter("redirect_uri", "http://localhost:9000/chembl/ftc/auth").
 				setParameter("grant_type", "authorization_code").post();
 
 		JsonObject json = res.getJson().getAsJsonObject();

@@ -37,7 +37,7 @@ public class DatabaseFiller {
 	private String pathToKb;
 	public final static String LOCATION_GRAPHS = "data/tmp/graphs/";
 	//TODO PROD replace with the service URL
-	public final static String URL_SVG = "http://localhost:9000/";
+	public final static String URL_SVG = "https://www.ebi.ac.uk/chembl/ftc/";
 
 	public DatabaseFiller(String pathToOwlFile) {
 		this.setPathToKb(pathToOwlFile);
@@ -65,10 +65,10 @@ public class DatabaseFiller {
 //				ftcAndDrugBankClasses.add("FTC_C1");
 
 		//Anti-blood coaguilation - x-small
-		//						List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+								List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
 
 		//Anti molecular function --> bigger (2500 classes)
-		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
+//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
 
 		//Get the drugbank classes - useful later
 		Logger.info("Getting drugbank compounds...");
@@ -148,7 +148,7 @@ public class DatabaseFiller {
 		for (String ftcClassId : ftcClasses) {
 			FtcClass ftcClass = FtcClass.find("byFtcId", ftcClassId).first();
 
-			Logger.info("Storing class with information " + ftcClass.ftcId  + "(" + ftcClass.label + ")" + " in database - " + counter+ "/" + total);
+			Logger.info("Storing class relations " + ftcClass.ftcId  + " in database - " + counter+ "/" + total);
 			counter++;
 
 			//Adds the subClasses relationships
@@ -248,7 +248,7 @@ public class DatabaseFiller {
 		//Block to hack the SVG content and replace it in an Web friendly way
 		String svgContent = play.vfs.VirtualFile.fromRelativePath(pathSvgFile).contentAsString();
 		String withoutXlinkSvgContent = svgContent.replaceAll("xlink:href", "target='_top' xlink:href")
-				.replaceAll("<svg.*\n", "<svg");
+				.replaceAll("<svg.*\n", "<svg").replaceAll("<title>G</title>", "<title>" + ftcClass.ftcId + "</title>");
 
 		//Get the width and height of the SVG. Used later to render the SVG correctly on the browser
 		Pattern pattern = Pattern.compile("viewBox=\"\\d+\\.\\d\\d \\d+\\.\\d\\d (\\d+)\\.\\d\\d (\\d+)\\.\\d\\d\"");

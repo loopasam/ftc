@@ -26,7 +26,7 @@ public abstract class OwlExporter {
 
 	private String pathOut;
 	private Brain brain;
-	public static String PREFIX = "http://www.ebi.ac.uk/ftc/";
+	public static String PREFIX = "http://www.ebi.ac.uk/chembl/ftc/";
 	private String ontologyName;
 	private HashMap<String, String> goRelationsMapper;
 	private HashMap<String, String> drugBankRelationsMapper;
@@ -94,6 +94,7 @@ public abstract class OwlExporter {
 		brain.label("Protein", "'protein'");
 		brain.comment("Protein", "//TODO: A protein as defined by Uniprot");
 
+		//TODO put the schema.org vocab here
 		brain.addClass("http://purl.obolibrary.org/obo/CHEBI_50906");
 		brain.label("CHEBI_50906", "'role'");
 		brain.comment("CHEBI_50906", "//TODO: A role as defined by chebi");
@@ -149,6 +150,10 @@ public abstract class OwlExporter {
 		brain.chain("RO_0002211 o BFO_0000050", "RO_0002211");
 
 		//FTC RBox logic
+		//TODO add more logic (here and on wiki):
+		//involved-in o part-of --> involved-in
+		//involved-in o regulates --> involved-in
+		//has-function o part-of --> involved-in
 		brain.addObjectProperty("FTC_R1");
 		brain.label("FTC_R1", "'involved-in'");
 		brain.domain("FTC_R1", "Protein");
@@ -168,6 +173,7 @@ public abstract class OwlExporter {
 		//targets to which the drug binds, such as an enzyme or receptor.
 		brain.addObjectProperty("FTC_R3");
 		brain.label("FTC_R3", "'perturbs'");
+		//TODO put the schema.org instead
 		brain.domain("FTC_R3", "CHEBI_23888");
 		brain.range("FTC_R3", "Protein");
 		brain.comment("FTC_R3", "Specific biochemical interaction through which a drug " +

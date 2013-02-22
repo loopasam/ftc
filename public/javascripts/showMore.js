@@ -10,7 +10,7 @@ $(document).ready(function() {
 		var currentNumber = $('#currentNumber' + method).html();
 
 		$.ajax({
-			url: "/" + method + "/" + ftcClassId + "/" + currentNumber,
+			url: "/chembl/ftc/" + method + "/" + ftcClassId + "/" + currentNumber,
 			type: "GET",
 			// callback handler that will be called on success
 			success: function(newElements, textStatus, jqXHR){

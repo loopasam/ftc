@@ -39,7 +39,7 @@ h1 {
 .input-query {
 	width: 300px;
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono" monospace;
-	font-size: 130%;
+	font-size: 150%;
 	line-height: 140%;
 	white-space: pre;
 	white-space: pre-wrap;
@@ -207,13 +207,50 @@ code {
  	margin-left: auto;
  	margin-right: auto;
 	padding-top: 1%;
+	margin-top: 1%;
 }
 
 .box {
 	text-align: center;
 	width: 28%;
 	float: left;
-	margin: 2%;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: 24px;
+}
+
+.footer-intro {
+	position: fixed;
+	width: 100%;
+	text-align: center;
+	bottom: 0;
+	margin: 0px;
+	background: #838383;
+	display: table-cell;
+}
+
+.footer-intro ul {
+	border-top: 4px solid #72d93f;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.footer-intro li {
+	vertical-align: middle;
+	display: inline-block;
+	margin-right: 1%;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	font-size: 14px;
+}
+
+.footer-intro a {
+	text-decoration: none;
+	color: #fff;	
+}
+
+.footer-intro a:hover {
+	text-decoration: underline;
 }
 
 .title-presentation{
@@ -227,9 +264,11 @@ code {
 	background: -ms-linear-gradient(top,  #54c71c 0%,#72d93f 100%);
 	background: linear-gradient(to bottom,  #54c71c 0%,#72d93f 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#54c71c', endColorstr='#72d93f',GradientType=0 );
-	
-	padding-top: 1em;
-	padding-bottom: 1em;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
 }
 
 .feature-presentation {
@@ -365,6 +404,9 @@ li a {
 }
 
 .block-information {
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
 	margin-top: 0px;
 	margin-bottom: 2%;
 	width: 90%;
@@ -388,6 +430,9 @@ li a {
 	display: inline-block;
 	margin-right: 1%;
 	margin-bottom: 1%;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
 }
 
 .class-info li:hover {

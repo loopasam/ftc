@@ -1,0 +1,136 @@
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+
+Ontology: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl>
+
+
+ObjectProperty: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#regulates>
+
+    SubPropertyChain: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#part-of> o <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#regulates>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#perturbs>
+
+    
+ObjectProperty: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#involved-in>
+
+    
+ObjectProperty: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#has-function>
+
+    
+ObjectProperty: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#negatively-perturbs>
+
+    SubPropertyOf: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#perturbs>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#part-of>
+
+    Characteristics: 
+        Transitive
+    
+    
+ObjectProperty: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#positively_regulates>
+
+    SubPropertyOf: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#regulates>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#positively-perturbs>
+
+    SubPropertyOf: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#perturbs>
+    
+    
+ObjectProperty: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#negatively_regulates>
+
+    SubPropertyOf: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#regulates>
+    
+    
+Class: owl:Thing
+
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#regulation_of_blood_coagulation>
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#platelet_activation>
+
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#blood_coagulation>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#coagulation>
+    
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#blood_coagulation_agent>
+
+    EquivalentTo: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#drug>
+         and (<http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#perturbs> some 
+            (<http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#protein>
+             and (<http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#involved-in> some <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#regulation_of_blood_coagulation>)))
+    
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#negative_regulation_of_blood_coagulation>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#regulation_of_blood_coagulation>
+    
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#prot_A>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#protein>,
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#involved-in> some <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#positive_regulation_of_blood_coagulation>
+    
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#positive_regulation_of_blood_coagulation>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#regulation_of_blood_coagulation>
+    
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#anti-blood_coagulation_agent>
+
+    EquivalentTo: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#drug>
+         and (<http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#negatively-perturbs> some 
+            (<http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#protein>
+             and (<http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#involved-in> some <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#positive_regulation_of_blood_coagulation>)))
+    
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#drug_A>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#negatively-perturbs> some <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#prot_A>,
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#drug>
+    
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#drug_B>
+
+    SubClassOf: 
+        <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#drug>
+    
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#protein>
+
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#coagulation>
+
+    SubClassOf: 
+        owl:Thing
+    
+    
+Class: <http://www.semanticweb.org/ontologies/2013/1/Ontology1361458075985.owl#drug>
+
+    
