@@ -23,18 +23,21 @@ Should be done every 3 months or so in order
 to include the latest annotations. At the moment there is no mecanism to know the
 differences between a previous and new version. The FTC is just re-built from scratch.</p>
 
-<p>(2) <a href="@{Administration.deleteDabatase()}">Delete the database:</a>
+<p>(2) <a href="@{Administration.exportQueries()}">Export the OWL queries that have been done:</a>
+A file is created under archives.</p>
+
+<p>(3) <a href="@{Administration.deleteDabatase()}">Delete the database:</a>
 Delete the content of the database used previously.</p>
 
 
-<p>(3) <a href="@{Administration.createDBFromKB()}">Create database from the knowledge base:</a>
+<p>(4) <a href="@{Administration.createDBFromKB()}">Create database from the knowledge base:</a>
 The database is the backbone of the application for cache and performances. The current
 mySQL database used to store the data and has to be erased first in order to avoid conflits
 and redundant information.</p>
 
-<p>(4) <a href="@{Administration.doEvaluation()}">Create the evaluation report:</a>
+<p>(5) <a href="@{Administration.doEvaluation()}">Create the evaluation report:</a>
 Analyze the differences with the ATC from the mapping file and store the results in the 
 database.</p>
 
-<p>(5) <a href="@{Administration.cleanTmpResources()}">Clean the temporary resources:</a>
+<p>(6) <a href="@{Administration.cleanTmpResources()}">Clean the temporary resources:</a>
 These resources are the files downloaded and generated during the build phase.</p>

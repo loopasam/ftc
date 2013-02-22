@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<testsuite failures="0" time="3.274" errors="0" skipped="0" tests="4" name="build.DrugBankContentTest">
-  <testcase classname="build.DrugBankContentTest" name="checkDrugDrugBank" time="1.292">
+<testsuite failures="0" time="2.614" errors="0" skipped="0" tests="4" name="build.DrugBankContentTest">
+  <testcase classname="build.DrugBankContentTest" name="checkDrugDrugBank" time="0.655">
       </testcase>
-  <testcase classname="build.DrugBankContentTest" name="checkPartnerDrugBank" time="0.705">
+  <testcase classname="build.DrugBankContentTest" name="checkPartnerDrugBank" time="0.696">
       </testcase>
-  <testcase classname="build.DrugBankContentTest" name="checkUnknownRelationDrugBank" time="0.631">
+  <testcase classname="build.DrugBankContentTest" name="checkUnknownRelationDrugBank" time="0.632">
       </testcase>
-  <testcase classname="build.DrugBankContentTest" name="checkSpeciesDrugBank" time="0.646">
+  <testcase classname="build.DrugBankContentTest" name="checkSpeciesDrugBank" time="0.631">
       </testcase>
 </testsuite>

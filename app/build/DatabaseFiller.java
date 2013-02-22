@@ -65,7 +65,7 @@ public class DatabaseFiller {
 //				ftcAndDrugBankClasses.add("FTC_C1");
 
 		//Anti-blood coaguilation - x-small
-								List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
 
 		//Anti molecular function --> bigger (2500 classes)
 //		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);

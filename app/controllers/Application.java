@@ -233,6 +233,9 @@ public class Application extends Controller {
 			Promise<OwlResult> promise = new OwlQueryJob(query).now();
 			Logger.info("Awaits for the results...");
 			result = await(promise);
+		}else{
+			result.numberOfTimes++;
+			result.save();
 		}
 
 		if(result.tooManyResults == true){
@@ -241,7 +244,6 @@ public class Application extends Controller {
 			flash.error("There are way too many results (> 1500)");
 			renderTemplate("Application/initQuery.html");
 		}
-
 
 		ArrayList<OWLClassResult> owlClassResults = new ArrayList<OWLClassResult>();
 		for (String classResultId : range(result.subClasses, 0, PAGINATION)) {
@@ -255,6 +257,11 @@ public class Application extends Controller {
 		int totalNumber = result.subClasses.size();
 		Logger.info("Ready to render");
 		render(query, owlClassResults, totalNumber);
+	}
+
+	public static void queries() {
+		List<OwlResult> queries= OwlResult.find("order by numberOfTimes desc").fetch(50);
+		render(queries);
 	}
 
 	private static String getTypeForResult(String classResultId) throws NonExistingClassException {
@@ -295,9 +302,9 @@ public class Application extends Controller {
 	}
 
 	public static void evaluations() {
-		
+
 		Metrics metrics = (Metrics) Metrics.findAll().get(0);
-		
+
 		List<EvaluationMapping> mappings = EvaluationMapping.findAll();
 		float fp = 0;
 		float fn = 0;
@@ -307,7 +314,7 @@ public class Application extends Controller {
 			fn += mapping.falseNegatives.size();
 			tp += mapping.truePositives.size();
 		}
-		
+
 		float recall = tp/(tp + fn);
 		float precision = tp/(tp + fp);
 		renderTemplate("Application/evaluationList.html", mappings, fp, fn, tp, recall, precision, metrics);

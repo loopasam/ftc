@@ -21,6 +21,8 @@ public class OwlResult extends Model {
 	@Lob
 	public String query;
 	
+	public int numberOfTimes;
+	
 	public boolean tooManyResults;
 
 	@ElementCollection
@@ -30,6 +32,7 @@ public class OwlResult extends Model {
 	public OwlResult(String query, boolean tooManyResults) {
 		this.query = query;
 		this.tooManyResults = tooManyResults;
+		this.numberOfTimes = 1;
 	}
 
 }

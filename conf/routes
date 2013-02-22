@@ -43,6 +43,8 @@ GET     /evaluation/{classId}                                       Application.
 # Semantic query
 GET     /query/                                       Application.initQuery
 GET     /query/{query}                                       Application.query
+GET     /queries/                                       Application.queries
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

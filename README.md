@@ -25,7 +25,7 @@ KIND, either express or implied. See the License for the
 specific language governing permissions and limitations 
 under the License.
 
-## Content licensing
+## Classification licensing
 
 Creative Commons 3.0 BY - http://creativecommons.org/licenses/by/3.0/
 

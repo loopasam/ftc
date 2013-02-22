@@ -1,0 +1,15 @@
+#{extends 'main.html' /}
+#{set title:'TOP 50 queries' /}
+#{script 'jquery.poshytip.min.js' /}
+#{script 'help.js' /}
+
+
+<h1 class="feature-title">TOP 50 popular semantic queries
+<span style="float: none;" title="Explanations..." class="help-text">(?)</span>
+</h1>
+
+<div class="metrics">
+#{list items:queries, as:'query' }
+<h3>${query.query} : <span class="value-metrics">${query.numberOfTimes} times</span>
+</h3>
+#{/list}

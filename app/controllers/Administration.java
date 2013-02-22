@@ -66,13 +66,24 @@ public class Administration extends Controller {
 		}
 		index();
 	}
-	
+
 	public static void doEvaluation() {
 		if(Cache.get("jobRunning") != null){
 			flash.error("A job is already running!");
 		}else{
 			flash.success("Evaluation report being build - Follow progresses on the log file or console");
 			new EvaluationJob().now();
+		}
+		index();
+	}
+
+
+	public static void exportQueries() {
+		if(Cache.get("jobRunning") != null){
+			flash.error("A job is already running!");
+		}else{
+			flash.success("Export running - Follow progresses on the log file or console");
+			new ExportQueriesJob().now();
 		}
 		index();
 	}
