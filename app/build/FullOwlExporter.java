@@ -187,8 +187,8 @@ public class FullOwlExporter extends OwlExporter {
 					
 					//The expression uses the class name (ex: 'negative regulation of blood coagulation') and
 					//not the corresponding class expression ('negatively-regulates some blood-coagulation')
-					//as only subclasses are considered in class expressions. By using the full class name
-					//('negative regulation of blood coagulation') we get the subclasses and not the descendant classes
+					//as only direct subclasses are considered in class expressions. By using the full class name
+					//('negative regulation of blood coagulation') we get the descendant classes and not the subclasses
 					//Some classes got better classified this way, (ex: pro-fibrinolysis becomes a subclass
 					//of anti-blood coagulation when using the full class name.)
 					String antiExpression = "CHEBI_23888 and FTC_R4 some (Protein and FTC_R1 some (GO_0008150 and " +
