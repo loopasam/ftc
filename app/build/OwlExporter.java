@@ -175,6 +175,7 @@ public abstract class OwlExporter {
 		brain.label("FTC_R3", "'perturbs'");
 		//TODO put the schema.org instead
 		//TODO domain should be a drugbank compound
+		//TODO or create a new type called 'agent' describing the role 
 		brain.domain("FTC_R3", "CHEBI_23888");
 		brain.range("FTC_R3", "Protein");
 		brain.comment("FTC_R3", "Specific biochemical interaction through which a drug " +
