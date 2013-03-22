@@ -110,14 +110,59 @@ are available at:
 
 \section*{Introduction}
 
-pouet \cite{Krotzsch2012} pouet
-
-The introduction should put the focus of the manuscript into a broader context. 
+The introduction \cite{Krotzsch2012} should put the focus of the manuscript into a broader context. 
 As you compose the introduction, think of readers who are not experts in this field. 
 Include a brief review of the key literature. If there are relevant controversies or disagreements in 
 the field, they should be mentioned so that a non-expert reader can delve into these issues further. 
 The introduction should conclude with a brief statement of the overall aim of the experiments and a comment 
 about whether that aim was achieved.
+
+Functional Therapeutic Chemical Classification System (FTC) is a taxonomy (ontology) representing the mode of action of approved
+drugs in the human body.
+It can be pictured as a toolbox classifying the therapeutic agents based on their functionality in the human body.
+FTC categories are automatically built based on Gene Ontology terms.
+FTC categories are also equivalent to arbitrary definitions such as drug that perturbs some (protein that involved-in some (regulation of 
+biological process)).
+A knowledge base created by integrating the content of DrugBank and some GO annotations assists to automatically
+assign compounds into FTC categories based on the satisfaction of the definition.
+The FTC is evaluated against the Anatomical Therapeutic Chemical Classification System by assigning equivalences between classes.
+The knowledge base can be queried in order to retrieve implicit information about the involvement of approved drugs into biological
+processes.
+Drug repurposing hypotheses can be formulated out of the evaluation.
+The FTC can serve as starting point for analysis or projects requiring a structured vocabulary representing the mode of action.
+The source code of the FTC as well as the data are publicly available for free to anyone.
+
+The indication of a drug depends on the effects induced by the molecule when administrated in a biological system.
+For instance, a molecule such as the Ximelagatran is indicated as anticoagulant because
+it directly inhibits the catalytic activity of the thrombin, 
+enzyme itself involved in the blood coagulation.
+In order to speak of this therapeutic effect (anticoagulant), people sometimes refer to 
+the **mode of action** of an active compound. 
+Wikipedia gives us the following definition for it:
+> A mode of action describes a functional or anatomical change, at the 
+> cellular level, resulting from the exposure of a living organism to a substance. 
+
+Characterising the mode of action of drugs is interesting for the following reasons:
+It is a central link between the molecular structure of a drug and its indication towards a disease. Drugs with similar
+mode of actions could be used to treat similar conditions.
+It abstracts away from the chemical structure and allows to reason over the effects of the compound in the body. The mode of action
+of a drug is a feature against which compounds can be classified.
+It can captures polypharmacology. Most of the drugs are not magic bullets
+and produce various side effects. A drug can have several mode of actions, representing the different processes the drug is perturbing directly
+or indirectly.
+A representation of the mode of action helps to better understand and analyse the behaviour of an agent in the human body.
+
+Although the **mode of action** is an old and useful notion in the drug discovery 
+community (see number of results for thisPubMed search, no resources were
+previously fully dedicated to it. The aim of the FTC is to fill this gap.
+
+The FTC can be seen as a toolbox designed to fix dysfunctioning biological systems.
+It features over 20'000 compartments (categories) inside which approved 
+drugs are automatically classified, based on facts from various databases.
+FTC categories represent the mode of action of compounds in the human system. 
+The resource can be used for various tasks where a structured vocabulary is needed, such as compound annotation, drug repurposing analysis and 
+anything else you can think of!
+
 
 % Results and Discussion can be combined.
 \section*{Results}
