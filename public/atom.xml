@@ -4,7 +4,7 @@
   <title><![CDATA[FTC Blog]]></title>
   <link href="http://loopasam.github.com/ftc/atom.xml" rel="self"/>
   <link href="http://loopasam.github.com/ftc/"/>
-  <updated>2013-03-22T17:34:40+00:00</updated>
+  <updated>2013-03-22T17:38:39+00:00</updated>
   <id>http://loopasam.github.com/ftc/</id>
   <author>
     <name><![CDATA[Samuel Croset]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[test]]></title>
+    <link href="http://loopasam.github.com/ftc/blog/2013/03/22/test/"/>
+    <updated>2013-03-22T17:38:00+00:00</updated>
+    <id>http://loopasam.github.com/ftc/blog/2013/03/22/test</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Beta version coming soon]]></title>
