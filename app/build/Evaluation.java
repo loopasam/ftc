@@ -66,12 +66,15 @@ public class Evaluation {
 
 	public void start() throws BrainException {
 		
+		Logger.info("Populating metrics...");
 		Metrics metrics = new Metrics();
 		metrics.date = new Date();
 		metrics.numberOfAxioms = ftc.getOntology().getAxiomCount();
+		metrics.numberOfProteins = ftc.getSubClasses("Protein", false).size();		
 		metrics.numberOfDrugBankCompounds = Agent.count();
 		metrics.numberOfFtcClasses = FtcClass.count();
 		metrics.save();
+		Logger.info("Metrics done!");
 
 		int counter = 1;
 		int total = mappings.size();

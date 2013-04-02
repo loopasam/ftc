@@ -109,7 +109,7 @@ public class EvaluationMapping extends Model {
 			output.append("<a href='http://www.whocc.no/atc_ddd_index/?code=" + atcClass + "'>" + atcClass + "</a>");
 		}
 		
-		output.append(") = (<a href='/" + this.ftcClass + "'>" + this.ftcClass + "</a>" + ")");
+		output.append(") = (<a href='/chembl/ftc/" + this.ftcClass + "'>" + this.ftcClass + "</a>" + ")");
 		this.htmlDefinition = output.toString();
 	}
 

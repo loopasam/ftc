@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 
@@ -16,6 +17,8 @@ public class Metrics extends Model {
 	public long numberOfFtcClasses;
 	
 	public int numberOfAxioms;
+
+	public int numberOfProteins;
 	
 
 }

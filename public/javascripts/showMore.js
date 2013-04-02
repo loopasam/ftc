@@ -24,10 +24,10 @@ $(document).ready(function() {
 					var newElement;
 					if(method == 'moreIndirectAgents'){
 						newElement = '<a style="display:none" href="/agent/' + this.drugBankId + '">' +
-						'<li class="transition inferred">' + this.drugBankId + '-' + this.label + '</li></a>';
+						'<li class="transition inferred" itemprop="drug" itemscope itemtype="http://schema.org/Drug">' + this.drugBankId + '-<span itemprop="name">' + this.label + '</span></li></a>';
 					}else if(method == 'moreDirectAgents'){
 						newElement = '<a style="display:none" href="/agent/' + this.drugBankId + '">' +
-						'<li class="transition direct">' + this.drugBankId + '-' + this.label + '</li></a>';
+						'<li class="transition direct" itemprop="drug" itemscope itemtype="http://schema.org/Drug">' + this.drugBankId + '-<span itemprop="name">' + this.label + '</span></li></a>';
 					}else if(method == 'moreSuperclasses'){
 						var hasDrug = "";
 						if(this.hasDrug == true){

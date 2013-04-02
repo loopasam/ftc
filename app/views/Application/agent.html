@@ -3,7 +3,6 @@
 #{script 'jquery.poshytip.min.js' /}
 #{script 'help.js' /}
 
-
 <script type="text/javascript">
 $(document).ready(function() {
 	$('.togglable').click(function() {
@@ -49,27 +48,29 @@ $(document).ready(function() {
 </nav>
 #{/if}
 
-<div class="block-information" id="drugbank-data">
+<div class="block-information" id="drugbank-data" itemscope itemtype="http://schema.org/Drug">
     <h2>Functional properties (via DrugBank)
   	<span title="Supplementary information about the compound. The data is coming straight from DrugBank and not 
   	modified" class="help-text">(?)</span>
     </h2>
     <p>
         <strong>DrugBank entry: </strong> <a
-            href="http://www.drugbank.ca/drugs/${agent.drugBankId}">${agent.drugBankId}
-            - ${agent.label}</a>
+            href="http://www.drugbank.ca/drugs/${agent.drugBankId}">${agent.drugBankId} - <span itemprop="name">${agent.label}</span></a>
     </p>
     <p>
-        <strong>Description: </strong>${agent.description}
+        <strong>Description: </strong><span itemprop="description">${agent.description}</span>
     </p>
     <p>
-        <strong>Indication: </strong>${agent.indication}
+        <strong>Indication: </strong>
+        	<span itemprop="indication" itemscope itemtype="http://schema.org/TreatmentIndication">
+        		<span itemprop="name">${agent.indication}</span>
+        	</span>
     </p>
     <p>
-        <strong>Mechanism: </strong>${agent.mechanism}
+        <strong>Mechanism: </strong><span itemprop="mechanismOfAction">${agent.mechanism}</span>
     </p>
     <p>
-        <strong>Pharmacology: </strong>${agent.pharmacology}
+        <strong>Pharmacology: </strong><span itemprop="clincalPharmacology">${agent.pharmacology}</span>
     </p>
     <p>
         <strong>ATC: </strong>
@@ -80,7 +81,9 @@ $(document).ready(function() {
     <p>
         <strong>DrugBank categories: </strong>
         #{list items:agent.categories, as:'category' }
-        <span class="category-db">${category}</span>
+        <span class="category-db" itemprop="drugClass" itemscope itemtype="http://schema.org/DrugClass">
+        	<span itemprop="name">${category}</span>
+        </span>
         #{/list}
     </p>
 </div>

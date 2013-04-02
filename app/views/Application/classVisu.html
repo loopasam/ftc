@@ -6,13 +6,15 @@
 #{script 'jquery.poshytip.min.js' /}
 #{script 'help.js' /}
 
-<h1 id="class-title"><span id="classId" class="classTitle">${ftcClass.ftcId}</span> - ${ftcClass.label}</h1>
+<h1 id="class-title" itemscope itemtype="http://schema.org/DrugClass">
+	<span id="classId" class="classTitle">${ftcClass.ftcId}</span> - <span itemprop="name">${ftcClass.label}</span>
+</h1>
 
 <div class="block-information" id="definition">
     <h2>Definition
     <span title="The human-readable<br>definition of the category" class="help-text">(?)</span>
     </h2>
-    <p>${ftcClass.comment.raw()}</p>
+    <p itemprop="description">${ftcClass.comment.raw()}</p>
 </div>
 
 #{if directAgents.size() > 0}
@@ -30,7 +32,8 @@
       <ul>
         #{list items:directAgents, as:'directAgent' }
         <a href="@{Application.agent(directAgent.drugBankId)}">
-        	<li class="transition direct">${directAgent.drugBankId} - ${directAgent.label}</li>
+        	<li class="transition direct" itemprop="drug" itemscope itemtype="http://schema.org/Drug">
+        	${directAgent.drugBankId} - <span itemprop="name">${directAgent.label}</span></li>
         </a>
         #{/list}
       </ul>
@@ -59,7 +62,9 @@
       <ul>
         #{list items:indirectAgents, as:'indirectAgent' }
         <a href="@{Application.agent(indirectAgent.drugBankId)}">
-        	<li class="transition inferred">${indirectAgent.drugBankId} - ${indirectAgent.label}</li>
+        	<li class="transition inferred" itemprop="drug" itemscope itemtype="http://schema.org/Drug">
+        		${indirectAgent.drugBankId} - <span itemprop="name">${indirectAgent.label}</span>
+        	</li>
         </a>
         #{/list}
       </ul>
