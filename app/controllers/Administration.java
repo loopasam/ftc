@@ -10,6 +10,7 @@ import jobs.CleanJob;
 import jobs.ConvertionJob;
 import jobs.EraseJob;
 import jobs.EvaluationJob;
+import jobs.ExportQueriesJob;
 import jobs.FullBuildJob;
 
 import play.Logger;

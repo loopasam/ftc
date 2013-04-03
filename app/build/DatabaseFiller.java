@@ -70,7 +70,7 @@ public class DatabaseFiller {
 		//Anti molecular function --> bigger (2500 classes)
 //		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
 
-		//Get the drugbank classes - useful later
+		//Get the drugbank classes - useful later to populate the database
 		Logger.info("Getting drugbank compounds...");
 		List<String> drugBankClasses = brain.getSubClasses("FTC_C2", false);
 		List<String> ftcClasses = new ArrayList<String>();

@@ -20,6 +20,16 @@ Look at the documentation to understand the methodology behind the evaluation.</
 peptides/proteins acting on human-targets." class="help-text">(?)</span>
 </h3>
 
+<h3>Total number of therapeutic agents appearing in both the FTC and ATC: <span class="value-metrics">${Math.round(metrics.numberOfCompoundsInBothClassifications)}</span>
+<span style="float: none;" title="Number of unique DrugBank compounds common to the FTC and ATC classification. These compounds
+are the ones that are evaluated." class="help-text">(?)</span>
+</h3>
+
+<h3>Total number of therapeutic agents appearing in the evaluation: <span class="value-metrics">${Math.round(metrics.numberOfUniquelyEvaluatedCompounds)}</span>
+<span style="float: none;" title="Number of unique DrugBank compounds appearing in the evaluation. These compounds
+are present both in the ATC and in the FTC." class="help-text">(?)</span>
+</h3>
+
 <h3>Total number of protein targets: <span class="value-metrics">${Math.round(metrics.numberOfProteins)}</span>
 <span style="float: none;" title="Number of Uniprot protein used. These proteins are expressed in the human and have at least a GO
 annotation." class="help-text">(?)</span>
@@ -51,14 +61,14 @@ ATC classes. Represents the compounds missed by the FTC, but present in the ATC.
 
 <h3>Recall: <span class="value-metrics">${Math.round(recall*100)}%</span>
 <span style="float: none;" 
-title="<a href='http://en.wikipedia.org/wiki/Recall_(information_retrieval)#Definition_.28classification_context.29'>Recall</a> = tp / (tp + fp).
+title="<a href='http://en.wikipedia.org/wiki/Recall_(information_retrieval)#Definition_.28classification_context.29'>Recall</a> = tp / (tp + fn).
 Recall is the probability that a (randomly selected) drug from the ATC has been assigned to the 
 correct corresponding class in the FTC." class="help-text">(?)</span>
 </h3>
 
 <h3>Precision: <span class="value-metrics">${Math.round(precision*100)}%</span>
 <span style="float: none;" 
-title="<a href='http://en.wikipedia.org/wiki/Recall_(information_retrieval)#Definition_.28classification_context.29'>Precision</a> = tp / (tp + fn).
+title="<a href='http://en.wikipedia.org/wiki/Recall_(information_retrieval)#Definition_.28classification_context.29'>Precision</a> = tp / (tp + fp).
 Precision is the probability that a (randomly selected) drug from the FTC is present in the equivalent ATC classes." class="help-text">(?)</span>
 </h3>
 </div>

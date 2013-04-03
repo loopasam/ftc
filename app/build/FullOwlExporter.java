@@ -40,7 +40,7 @@ public class FullOwlExporter extends OwlExporter {
 
 		Logger.info("Done with the FTC classes");
 
-		//Adds the axioms related to the mecanism of action
+		//Adds the axioms related to the mechanism of action
 		addDrugAndProteinAxioms(go);
 	}
 

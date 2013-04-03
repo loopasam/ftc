@@ -284,6 +284,7 @@ code {
 }
 
 .logo-presentation {
+	vertical-align: middle;
 	width: 25px;
 	height: 25px;
 	margin-right: 10px;

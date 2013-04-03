@@ -48,10 +48,15 @@ public class Application extends Controller {
 		render();
 	}
 
-	public static void classVisu(String classId){
+	public static void classVisu(String classId) throws NonExistingEntityException{
 
 		FtcClass ftcClass = FtcClass.find("byFtcId", classId).first();
 		if(ftcClass == null){
+			if(brain.knowsObjectProperty(classId)){
+				String label = brain.getLabel(classId);
+				String comment = brain.getComment(classId);
+				render("Application/property.html", classId, label, comment);
+			}
 			error(404, "Named class '" + classId + "' does not exist");
 		}
 

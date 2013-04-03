@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+#{set title:classId + ' - ' + label /}
+
+#{script 'jquery.poshytip.min.js' /}
+#{script 'help.js' /}
+
+<h1 id="class-title">
+	<span id="classId" class="classTitle">${classId}</span> - <span itemprop="name">${label}</span>
+</h1>
+
+<div class="block-information" id="definition">
+    <h2>Definition
+    <span title="The human-readable<br>definition of the category" class="help-text">(?)</span>
+    </h2>
+    <p itemprop="description">${comment}</p>
+</div>
