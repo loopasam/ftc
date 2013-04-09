@@ -23,7 +23,7 @@ public class Analysis {
 	}
 
 	public static void main(String[] args) throws Exception {
-		Analysis analysis = new Analysis();
+		Analysis analysis = new Analysis();		
 		System.out.println("computing and exporting distributions...");
 		analysis.exportDistributionMoa("/home/samuel/git/ftc/data/analysis/direct-distribution-moas.csv", true);
 		analysis.exportDistributionMoa("/home/samuel/git/ftc/data/analysis/undirect-distribution-moas.csv", false);
