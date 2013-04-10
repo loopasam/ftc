@@ -1,19 +1,35 @@
 package analysis;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import network.Attribute;
+import network.Edge;
+import network.IntegerAttributeFactory;
+import network.Network;
+import network.Node;
+import network.Relation;
+import network.StringAttributeFactory;
 
 import uk.ac.ebi.brain.core.Brain;
 import uk.ac.ebi.brain.error.BrainException;
 
 public class Jaccard {
 
-	public static void main(String[] args) throws BrainException {
+	public static void main(String[] args) throws BrainException, IOException {
 		Brain brain = new Brain();
 		brain.learn("/home/samuel/git/ftc/data/ftc-kb-full.owl");
-		
+		//brain.learn("/home/samuel/Desktop/test.owl");
+		Network network = new Network();
+		IntegerAttributeFactory simFactory = network.getNewIntegerAttributeFactory("similarity");
+		StringAttributeFactory nameFactory = network.getNewStringAttributeFactory("name");
+		network.setIdentifierNodes("name");
+		network.setIdentifierEdges("similarity");
+
 		//Get the drugbank compounds
 		List<String> all = brain.getSubClasses("FTC_C2", false);
+		//List<String> all = brain.getSubClasses("Thing", false);
 
 		for (int i = 0; i < all.size(); i++) {
 			for (int j = i + 1; j < all.size(); j++) {
@@ -37,7 +53,24 @@ public class Jaccard {
 				}
 				double union = intersection + sizeSet2 + sizeSet1;
 
-				double index = intersection/union;
+				double index = intersection/union*100;
+
+				Node node1 = new Node();
+				Attribute node1Label = nameFactory.getNewAttribute(class1);
+				node1.addAttribute(node1Label);
+
+				Node node2 = new Node();
+				Attribute node2Label = nameFactory.getNewAttribute(class2);
+				node2.addAttribute(node2Label);
+
+				Edge edge = new Edge();
+				Attribute edgeASim = simFactory.getNewAttribute((int) index);
+				edge.addAttribute(edgeASim);
+
+				Relation relation = new Relation(node1, edge, node2);
+				network.addRelation(relation);
+				network.saveAll("data/analysis/cytoscape", "demo");
+
 				System.out.println(class1 + "," + class2 + "," + index);
 				//System.out.println("U: " + union + " - I:" + intersection + " - Index: " + index);
 				//System.out.println(superClasses1 + " - " + superClasses2);
