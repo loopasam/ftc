@@ -19,6 +19,7 @@ public class Jaccard {
 
 	public static void main(String[] args) throws BrainException, IOException {
 		Brain brain = new Brain();
+		System.out.println("learn...");
 		brain.learn("/home/samuel/git/ftc/data/ftc-kb-full.owl");
 		//brain.learn("/home/samuel/Desktop/test.owl");
 		Network network = new Network();
@@ -29,10 +30,19 @@ public class Jaccard {
 
 		//Get the drugbank compounds
 		List<String> all = brain.getSubClasses("FTC_C2", false);
+		int iterations = 100;
+		
 		//List<String> all = brain.getSubClasses("Thing", false);
-
-		for (int i = 0; i < all.size(); i++) {
-			for (int j = i + 1; j < all.size(); j++) {
+		for (int i = 0; i < iterations; i++) {
+			if(i != 0){
+				System.out.print(",");
+			}
+			System.out.print(all.get(i));
+		}
+		System.out.print("\n");
+		
+		for (int i = 0; i < iterations; i++) {
+			for (int j = 0; j < iterations; j++) {
 				String class1 = all.get(i);
 				String class2 = all.get(j);
 
@@ -71,11 +81,15 @@ public class Jaccard {
 				network.addRelation(relation);
 				network.saveAll("data/analysis/cytoscape", "demo");
 
-				System.out.println(class1 + "," + class2 + "," + index);
+				//System.out.println(class1 + "," + class2 + "," + index);
 				//System.out.println("U: " + union + " - I:" + intersection + " - Index: " + index);
 				//System.out.println(superClasses1 + " - " + superClasses2);
+				if(j != 0){
+					System.out.print(",");
+				}
+				System.out.print(index);
 			}
-
+			System.out.print("\n");
 		}
 
 		brain.sleep();
