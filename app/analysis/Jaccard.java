@@ -24,6 +24,8 @@ public class Jaccard {
 		System.out.println("learn...");
 		brain.learn("/home/samuel/git/ftc/data/ftc-kb-full.owl");
 		//brain.learn("/home/samuel/Desktop/test.owl");
+		//brain.learn("/home/samuel/Downloads/ns.owl");
+		
 		Network network = new Network();
 		IntegerAttributeFactory simFactory = network.getNewIntegerAttributeFactory("similarity");
 		StringAttributeFactory nameFactory = network.getNewStringAttributeFactory("name");
@@ -31,12 +33,17 @@ public class Jaccard {
 		network.setIdentifierEdges("similarity");
 
 		//Get the drugbank compounds
-		List<String> all = brain.getSubClasses("FTC_C2", false);
-		int iterations = 100;
-		File file = new File("data/analysis/moa_similarities.csv");
-		PrintWriter writer = new PrintWriter(file);
+		//List<String> all = brain.getSubClasses("FTC_C2", false);
+		List<String> all = brain.getSubClasses("Thing", false);
+
+		int iterations = 50;
+		//int iterations = all.size();
 		
-		//List<String> all = brain.getSubClasses("Thing", false);
+		File file = new File("data/analysis/moa_similarities.csv");
+		//File file = new File("/home/samuel/Desktop/test.csv");
+		
+		PrintWriter writer = new PrintWriter(file);
+
 		for (int i = 0; i < iterations; i++) {
 			if(i != 0){
 				writer.append(",");
@@ -44,7 +51,7 @@ public class Jaccard {
 			writer.append(all.get(i));
 		}
 		writer.append("\n");
-		
+
 		for (int i = 0; i < iterations; i++) {
 			System.out.println(i + "/" + iterations);
 			for (int j = 0; j < iterations; j++) {
