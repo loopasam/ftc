@@ -1,6 +1,8 @@
 package analysis;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,17 +33,20 @@ public class Jaccard {
 		//Get the drugbank compounds
 		List<String> all = brain.getSubClasses("FTC_C2", false);
 		int iterations = 100;
+		File file = new File("data/analysis/moa_similarities.csv");
+		PrintWriter writer = new PrintWriter(file);
 		
 		//List<String> all = brain.getSubClasses("Thing", false);
 		for (int i = 0; i < iterations; i++) {
 			if(i != 0){
-				System.out.print(",");
+				writer.append(",");
 			}
-			System.out.print(all.get(i));
+			writer.append(all.get(i));
 		}
-		System.out.print("\n");
+		writer.append("\n");
 		
 		for (int i = 0; i < iterations; i++) {
+			System.out.println(i + "/" + iterations);
 			for (int j = 0; j < iterations; j++) {
 				String class1 = all.get(i);
 				String class2 = all.get(j);
@@ -85,14 +90,15 @@ public class Jaccard {
 				//System.out.println("U: " + union + " - I:" + intersection + " - Index: " + index);
 				//System.out.println(superClasses1 + " - " + superClasses2);
 				if(j != 0){
-					System.out.print(",");
+					writer.append(",");
 				}
-				System.out.print(index);
+				writer.append(Double.toString(index));
 			}
-			System.out.print("\n");
+			writer.append("\n");
 		}
 
 		brain.sleep();
+		writer.close();
 	}
 
 }
