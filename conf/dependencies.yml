@@ -5,6 +5,7 @@ require:
     - provided -> xml-burger 1.0
     - provided -> guava 14.0-rc1
     - provided -> sif-manager 1.2
+    - provided -> cdk 1.4
 
 repositories: 
     - provided: 

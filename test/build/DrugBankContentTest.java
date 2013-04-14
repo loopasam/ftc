@@ -36,6 +36,7 @@ public class DrugBankContentTest extends UnitTest {
 		assertEquals("yes", drug.getTargetRelations().get(0).getKnowAction());
 		assertEquals("inhibitor", drug.getTargetRelations().get(0).getActions().get(0));
 		assertEquals("Sildenafil", drug1.getName());
+		assertEquals("CCCC1=NN(C)C2=C1NC(=NC2=O)C1=C(OCC)C=CC(=C1)S(=O)(=O)N1CCN(C)CC1", drug1.getSmiles());
 		assertEquals(1, drug1.getGroups().size());
 		assertEquals("approved", drug1.getGroups().get(0));
 		assertEquals(3, drug1.getTargetRelations().size());

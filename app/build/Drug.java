@@ -18,6 +18,7 @@ public class Drug implements Serializable{
 	private static final long serialVersionUID = 1837611788051168494L;
 	private String id;
 	private String name;
+	private String smiles;
 	private String description;
 	private ArrayList<String> groups;
 	private ArrayList<TargetRelation> targetRelations;
@@ -124,6 +125,14 @@ public class Drug implements Serializable{
 
 	public void setCategories(ArrayList<String> categories) {
 		this.categories = categories;
+	}
+
+	public String getSmiles() {
+		return smiles;
+	}
+
+	public void setSmiles(String smiles) {
+		this.smiles = smiles;
 	}
 
 }

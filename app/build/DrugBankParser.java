@@ -141,6 +141,27 @@ public class DrugBankParser extends Parser {
 								drug.setAtcCodes(atcCodes);
 							}
 
+							if(burger.tag("calculated-properties")){
+								while(burger.inTag("calculated-properties")){
+									if(burger.tag("property")){
+										boolean isSmile = false;
+										while(burger.inTag("property")){
+											if(burger.tag("kind")){
+												String kind = burger.getTagText();
+												if(kind.equals("SMILES")){
+													isSmile = true;	
+												}													
+											}
+											if(burger.tag("value") && isSmile){
+												isSmile = false;
+												drug.setSmiles(burger.getTagText());
+											}
+										}
+									}
+								}
+							}
+
+
 							if(burger.tag("drug-interactions")){while(burger.inTag("drug-interactions")){}}
 
 							if(burger.tag("targets")){
