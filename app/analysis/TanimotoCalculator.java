@@ -20,6 +20,7 @@ import uk.ac.ebi.brain.core.Brain;
 import build.Drug;
 import build.DrugBank;
 
+//TODO delete class
 public class TanimotoCalculator {
 
 	public static void main(String[] args) throws Exception {

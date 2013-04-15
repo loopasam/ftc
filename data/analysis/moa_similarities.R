@@ -49,4 +49,3 @@ hc.cols <- hclust(dist(t(values)))
 
 # Custom defintion of palettes
 palette <- colorRampPalette(c('#f0f3ff','#0033BB'))(256)
-cats <- colorRampPalette(c('#f1fff2','#00ff12'))(50)

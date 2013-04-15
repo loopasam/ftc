@@ -48,17 +48,22 @@ public class Analysis {
 	}
 
 	//TODO doc to explain what it is exactly
-	private void exportSimsStructVsMoA(String string) throws Exception {
+	private void exportSimsStructVsMoA(String path) throws Exception {
 		SmilesParser smilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
 		//TODO sort that in a neat way
 		DrugBank db = new DrugBank("data/tmp/drugbank.ser");
+
+		Brain atc = new Brain();
+		System.out.println("Learning ATC...");
+		atc.learn("data/atc.owl");
+		System.out.println("Learning done!");
 
 		//DrugBanks compounds in the FTC
 		List<String> drugs = brain.getSubClasses("FTC_C2", false);
 		List<String> drugBankIds = new ArrayList<String>();
 
-		int iterations = 150;
-		//int iterations = drugs.size();
+		//int iterations = 500;
+		int iterations = drugs.size();
 
 		//Gets only the compounds wit a SMILES attached to them
 		//Get only the drugs that have a MoA (super classes > 4)
@@ -76,8 +81,14 @@ public class Analysis {
 
 		//Iterates over all selected compounds and look at
 		//structural and MoA sims between them.
-		for (String id1 : drugBankIds) {
-			for (String id2 : drugBankIds) {
+
+		List<SimilarityComparison> sims = new ArrayList<SimilarityComparison>();
+
+		for (int i = 0; i < drugBankIds.size(); i++) {
+			String id1 = drugBankIds.get(i);
+			System.out.println(i + "/" + drugBankIds.size());
+			for (int j = i + 1; j < drugBankIds.size(); j++) {
+				String id2 = drugBankIds.get(j);
 				String smiles1 = db.getDrug(id1).getSmiles();
 				String smiles2 = db.getDrug(id2).getSmiles();
 				IMolecule mol1 = smilesParser.parseSmiles(smiles1);
@@ -87,10 +98,16 @@ public class Analysis {
 				BitSet bitset2 = fingerprinter.getFingerprint(mol2);
 				float tanimoto = Tanimoto.calculate(bitset1, bitset2);
 				float jaccard = brain.getJaccardSimilarityIndex(id1, id2);
-				System.out.println(tanimoto + " - "  + jaccard);
+				SimilarityComparison sim = new SimilarityComparison();
+				sim.moaSimilarity = jaccard;
+				sim.structureSimilarity = tanimoto;
+//				if(jaccard > 0.5 || tanimoto > 0.5){
+					sims.add(sim);
+//				}
 			}
 		}
-
+		CSVWriter writer = new CSVWriter(path);
+		writer.write(sims);
 	}
 
 	//TODO explanations - duh

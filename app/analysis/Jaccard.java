@@ -20,6 +20,7 @@ import uk.ac.ebi.brain.core.Brain;
 import uk.ac.ebi.brain.error.BrainException;
 import uk.ac.ebi.brain.error.ClassExpressionException;
 
+//TODO delete class
 public class Jaccard {
 
 	public static void main(String[] args) throws IOException, BrainException {
