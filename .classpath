@@ -5,8 +5,8 @@
 	
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/home/samuel/workspace/lib/play-1.2.5/framework/play-1.2.5.jar" sourcepath="/home/samuel/workspace/lib/play-1.2.5/framework/src" />
-	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/Brain-1.4.1-SNAPSHOT-jar-with-dependencies.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/sif-manager-1.2.jar"/>
+	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/Brain-1.4.2-SNAPSHOT-jar-with-dependencies.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/cdk-1.4.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/xml-burger-1.0.jar"/>
 	<classpathentry kind="lib" path="/home/samuel/git/ftc/lib/guava-14.0-rc1.jar"/>

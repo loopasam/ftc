@@ -33,8 +33,8 @@ public class Jaccard {
 		//Get the drugbank compounds
 		List<String> all = brain.getSubClasses("FTC_C2", false);
 
-		int iterations = 300;
-		//int iterations = all.size();
+		//int iterations = 300;
+		int iterations = all.size();
 
 		File file = new File("data/analysis/moa_similarities.csv");
 		int noMoa = 0;

@@ -1,7 +1,7 @@
 # Application dependencies
 require:
     - play
-    - provided -> Brain 1.4.1-SNAPSHOT-jar-with-dependencies
+    - provided -> Brain 1.4.2-SNAPSHOT-jar-with-dependencies
     - provided -> xml-burger 1.0
     - provided -> guava 14.0-rc1
     - provided -> sif-manager 1.2
