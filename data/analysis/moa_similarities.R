@@ -29,12 +29,22 @@ for(i in 1:length(categories))
 values <- as.matrix(values)
 #populates row names based off column names
 rownames(values) <- colnames(values)
+# Custom defintion of palettes
+palette <- colorRampPalette(c('#f0f3ff','#0033BB'))(256)
+
 #Plot the heatmap - http://hosho.ees.hokudai.ac.jp/~kubo/Rdoc/library/gplots/html/heatmap.2.html
-heatmap.2(values, scale='none', col=palette, tracecol=FALSE, density.info="none", ColSideColors=categories.colors, RowSideColors=categories.colors, labRow=FALSE, labCol=FALSE)
+#heatmap.2(values, scale='none', col=palette, tracecol=FALSE, density.info="none", ColSideColors=categories.colors, RowSideColors=categories.colors, labRow=FALSE, labCol=FALSE)
 
 # distfunction parameter change
-# heatmap.2(values, scale='none', col=palette, tracecol=FALSE, density.info="none", ColSideColors=categories.colors, RowSideColors=categories.colors, labRow=FALSE, labCol=FALSE, distfun = function(x) dist(x,method = 'canberra'))
-
+heatmap.2(values, scale='none',
+          col=palette, tracecol=FALSE,
+          density.info="none",
+          ColSideColors=categories.colors,
+          RowSideColors=categories.colors,
+          labRow=FALSE,
+          labCol=FALSE,
+          main='euclidean',
+          distfun = function(x) dist(x,method = 'euclidean'))
 
 # Legend hack - to finish in Inkscape
 # plot(c(0,0), col="white");legend("bottomleft",legend=levels(categories), fill=level.colors,title="ATC Categories")
@@ -46,6 +56,3 @@ heatmap.2(values, scale='none', col=palette, tracecol=FALSE, density.info="none"
 hc.rows <- hclust(dist(values))
 hc.cols <- hclust(dist(t(values)))
 # heatmap_2(values[cutree(hc.rows,k=3)==1,cutree(hc.cols,k=3)==1], scale='none', col=palette, legend=2)
-
-# Custom defintion of palettes
-palette <- colorRampPalette(c('#f0f3ff','#0033BB'))(256)

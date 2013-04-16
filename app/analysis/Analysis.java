@@ -42,9 +42,35 @@ public class Analysis {
 		//		analysis.exportDistributionMoa("data/analysis/undirect-distribution-moas.csv", false);
 		//analysis.exportMoaSimilarities("data/analysis/moa_similarities.csv");
 
-		analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim.csv");
+		//		analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim.csv");
 
+		analysis.exportSimAtcVsMoa("data/analysis/atc_moa_sim.csv");
 		analysis.done();
+	}
+
+	private void exportSimAtcVsMoa(String string) throws Exception {
+		Brain atc = new Brain();
+		System.out.println("Learning ATC...");
+		atc.learn("data/atc.owl");
+		System.out.println("Learning done!");
+
+		List<String> drugIds = new ArrayList<String>();
+
+		List<String> dbCompounds = brain.getSubClasses("FTC_C2", false);
+
+		for (String dbCompound : dbCompounds) {
+			if(atc.knowsClass(dbCompound)){
+				drugIds.add(dbCompound);
+			}
+		}
+
+		for (String id1 : dbCompounds) {
+			for (String id2 : dbCompounds) {
+				float indexFtc = brain.getJaccardSimilarityIndex(id1, id2);
+				float indexAtc = 
+			}
+		}
+
 	}
 
 	//TODO doc to explain what it is exactly
@@ -101,9 +127,7 @@ public class Analysis {
 				SimilarityComparison sim = new SimilarityComparison();
 				sim.moaSimilarity = jaccard;
 				sim.structureSimilarity = tanimoto;
-//				if(jaccard > 0.5 || tanimoto > 0.5){
-					sims.add(sim);
-//				}
+				sims.add(sim);
 			}
 		}
 		CSVWriter writer = new CSVWriter(path);
