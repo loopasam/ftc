@@ -3,9 +3,9 @@ package analysis;
 public class SimilarityComparison {
 	
 	@CSV
-	public float structureSimilarity;
+	public float firstSim;
 	
 	@CSV
-	public float moaSimilarity;
+	public float secondSim;
 
 }

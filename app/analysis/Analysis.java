@@ -48,7 +48,8 @@ public class Analysis {
 		analysis.done();
 	}
 
-	private void exportSimAtcVsMoa(String string) throws Exception {
+	//TODO explanations how it's done
+	private void exportSimAtcVsMoa(String path) throws Exception {
 		Brain atc = new Brain();
 		System.out.println("Learning ATC...");
 		atc.learn("data/atc.owl");
@@ -64,13 +65,28 @@ public class Analysis {
 			}
 		}
 
-		for (String id1 : dbCompounds) {
-			for (String id2 : dbCompounds) {
+		List<SimilarityComparison> sims = new ArrayList<SimilarityComparison>();
+		//int iterations = drugIds.size();
+		int iterations = 500;
+
+		for (int i = 0; i < iterations; i++) {
+			String id1 = drugIds.get(i);
+			System.out.println(i + "/" + iterations);
+			for (int j = i + 1; j < iterations; j++) {
+				String id2 = drugIds.get(j);
 				float indexFtc = brain.getJaccardSimilarityIndex(id1, id2);
-				float indexAtc = 
+				float indexAtc = atc.getJaccardSimilarityIndex(atc.getSubClasses(id1, true), 
+						atc.getSubClasses(id2, true));
+				SimilarityComparison sim = new SimilarityComparison();
+				sim.firstSim = indexAtc;
+				sim.secondSim = indexFtc;
+				sims.add(sim);
 			}
 		}
 
+		atc.sleep();
+		CSVWriter writer = new CSVWriter(path);
+		writer.write(sims);
 	}
 
 	//TODO doc to explain what it is exactly
@@ -125,8 +141,8 @@ public class Analysis {
 				float tanimoto = Tanimoto.calculate(bitset1, bitset2);
 				float jaccard = brain.getJaccardSimilarityIndex(id1, id2);
 				SimilarityComparison sim = new SimilarityComparison();
-				sim.moaSimilarity = jaccard;
-				sim.structureSimilarity = tanimoto;
+				sim.firstSim = jaccard;
+				sim.secondSim = tanimoto;
 				sims.add(sim);
 			}
 		}

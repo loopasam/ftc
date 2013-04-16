@@ -43,8 +43,8 @@ heatmap.2(values, scale='none',
           RowSideColors=categories.colors,
           labRow=FALSE,
           labCol=FALSE,
-          main='euclidean',
-          distfun = function(x) dist(x,method = 'euclidean'))
+          main='minkowski',
+          distfun = function(x) dist(x,method = 'minkowski'))
 
 # Legend hack - to finish in Inkscape
 # plot(c(0,0), col="white");legend("bottomleft",legend=levels(categories), fill=level.colors,title="ATC Categories")
