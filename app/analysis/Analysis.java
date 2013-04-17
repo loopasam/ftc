@@ -114,7 +114,7 @@ public class Analysis {
 		PrintWriter writer = new PrintWriter(new File(path));
 		writer.print("<!DOCTYPE html><html><head>" +
 				"<title>Sims</title><link rel='stylesheet' href='file:///home/samuel/git/ftc/data/analysis/main.css'>" +
-				"</head><body>");
+				"</head><body><table>");
 		for (SimilarityComparison sim : sims) {
 			List<String> atcSubClasses1;
 			String category1;
@@ -134,17 +134,17 @@ public class Analysis {
 				category2 = "NoCategory";
 			}
 
-			writer.print("<div>" +
-					"<img src='http://structures.wishartlab.com/molecules/" + sim.id1 + "/image.png'>" +
-					"<span>" + sim.id1 + "</span> | " +
-					"<span style='background-color:" + color(category1) + "'>" + category1 + "</span>" +
-					" | <span style='background-color:" + color(category2) + "'>" + category2 + "</span>" +
-					" | <span>" + sim.id2 + "</span>" +
-					"<img src='http://structures.wishartlab.com/molecules/" + sim.id2 + "/image.png'>" +
-					"</div>");
+			writer.print("<tr>" +
+					"<td><img src='http://structures.wishartlab.com/molecules/" + sim.id1 + "/image.png'></td>" +
+					"<td><a href='https://www.ebi.ac.uk/chembl/ftc/agent/" + sim.id1 + "'>" + sim.id1 + "</td> " +
+					"<td style='background-color:" + color(category1) + "'>" + category1 + "</td>" +
+					"<td style='background-color:" + color(category2) + "'>" + category2 + "</td>" +
+					"<td><a href='https://www.ebi.ac.uk/chembl/ftc/agent/" + sim.id2 + "'>" + sim.id2 + "</td>" +
+					"<td><img src='http://structures.wishartlab.com/molecules/" + sim.id2 + "/image.png'></td>" +
+					"</tr>");
 
 		}
-		writer.print("</body></html>");
+		writer.print("</table></body></html>");
 		writer.close();
 		atc.sleep();
 	}
@@ -161,8 +161,8 @@ public class Analysis {
 		mapping.put("L", "#00FF85");
 		mapping.put("M", "#00FFE0");
 		mapping.put("Multiple", "#000000");
-		mapping.put("N", "#0066FFFF");
-		mapping.put("NoCategory", "white");
+		mapping.put("N", "#0066FF");
+		mapping.put("NoCategory", "#FFFFFF");
 		mapping.put("P", "#5200FF");
 		mapping.put("R", "#AD00FF");
 		mapping.put("S", "#FF00F5");
