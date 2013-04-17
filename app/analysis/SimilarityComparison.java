@@ -7,5 +7,9 @@ public class SimilarityComparison {
 	
 	@CSV
 	public float secondSim;
+	
+	public String id1;
+	
+	public String id2;
 
 }

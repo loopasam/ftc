@@ -47,7 +47,7 @@ heatmap.2(values, scale='none',
           distfun = function(x) dist(x,method = 'minkowski'))
 
 # Legend hack - to finish in Inkscape
-# plot(c(0,0), col="white");legend("bottomleft",legend=levels(categories), fill=level.colors,title="ATC Categories")
+ plot(c(0,0), col="white");legend("bottomleft",legend=levels(categories), fill=level.colors,title="ATC Categories")
 # Normal legend
 # legend(100, 50 ,legend=levels(categories), fill=level.colors,title="ATC Categories")
 

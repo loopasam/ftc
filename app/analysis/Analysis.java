@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.HashMap;
 import java.util.List;
 
 import org.openscience.cdk.fingerprint.HybridizationFingerprinter;
@@ -44,8 +45,129 @@ public class Analysis {
 
 		//		analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim.csv");
 
-		analysis.exportSimAtcVsMoa("data/analysis/atc_moa_sim.csv");
+		//analysis.exportSimAtcVsMoa("data/analysis/atc_moa_sim.csv");
+
+		analysis.exportSimStrucMoaAsHtml(0.0f, 0.4f, 0.965f, 0.9690f, "data/analysis/struct_moa_sim.html");
+
 		analysis.done();
+	}
+
+	private void exportSimStrucMoaAsHtml(float lowSimStruc, float upSimStruc, float lowSimMoa, float upSimMoa, String path) throws Exception {
+
+		SmilesParser smilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
+		//TODO sort that in a neat way
+		DrugBank db = new DrugBank("data/tmp/drugbank.ser");
+
+		Brain atc = new Brain();
+		System.out.println("Learning ATC...");
+		atc.learn("data/atc.owl");
+		System.out.println("Learning done!");
+
+		//DrugBanks compounds in the FTC
+		List<String> drugs = brain.getSubClasses("FTC_C2", false);
+		List<String> drugBankIds = new ArrayList<String>();
+
+		//int iterations = 200;
+		int iterations = drugs.size();
+
+		//Gets only the compounds wit a SMILES attached to them
+		//Get only the drugs that have a MoA (super classes > 4)
+		for (int i = 0; i < iterations; i++) {
+			String drugId = drugs.get(i);
+			Drug drug = db.getDrug(drugId);
+			if(drug.getSmiles() != null){
+				if(brain.getSuperClasses(drugId, false).size() > 4){
+					drugBankIds.add(drugId);
+				}
+			}
+		}
+
+		System.out.println("number of compounds considered: " + drugBankIds.size());
+
+		List<SimilarityComparison> sims = new ArrayList<SimilarityComparison>();
+
+		for (int i = 0; i < drugBankIds.size(); i++) {
+			String id1 = drugBankIds.get(i);
+			System.out.println(i + "/" + drugBankIds.size());
+			for (int j = i + 1; j < drugBankIds.size(); j++) {
+				String id2 = drugBankIds.get(j);
+				String smiles1 = db.getDrug(id1).getSmiles();
+				String smiles2 = db.getDrug(id2).getSmiles();
+				IMolecule mol1 = smilesParser.parseSmiles(smiles1);
+				IMolecule mol2 = smilesParser.parseSmiles(smiles2);
+				HybridizationFingerprinter fingerprinter = new HybridizationFingerprinter();
+				BitSet bitset1 = fingerprinter.getFingerprint(mol1);
+				BitSet bitset2 = fingerprinter.getFingerprint(mol2);
+				float tanimoto = Tanimoto.calculate(bitset1, bitset2);
+				float jaccard = brain.getJaccardSimilarityIndex(id1, id2);
+				if(tanimoto > lowSimStruc && tanimoto < upSimStruc && jaccard < upSimMoa && jaccard > lowSimMoa){
+					SimilarityComparison sim = new SimilarityComparison();
+					sim.firstSim = jaccard;
+					sim.secondSim = tanimoto;
+					sim.id1 = id1;
+					sim.id2 = id2;
+					sims.add(sim);
+				}
+			}
+		}
+
+		PrintWriter writer = new PrintWriter(new File(path));
+		writer.print("<!DOCTYPE html><html><head>" +
+				"<title>Sims</title><link rel='stylesheet' href='file:///home/samuel/git/ftc/data/analysis/main.css'>" +
+				"</head><body>");
+		for (SimilarityComparison sim : sims) {
+			List<String> atcSubClasses1;
+			String category1;
+			try {
+				atcSubClasses1 = atc.getSubClasses(sim.id1, false);
+				category1 = getCategory(atcSubClasses1);
+			} catch (ClassExpressionException exception) {
+				category1 = "NoCategory";
+			}
+
+			List<String> atcSubClasses2;
+			String category2;
+			try {
+				atcSubClasses2 = atc.getSubClasses(sim.id2, false);
+				category2 = getCategory(atcSubClasses2);
+			} catch (ClassExpressionException exception) {
+				category2 = "NoCategory";
+			}
+
+			writer.print("<div>" +
+					"<img src='http://structures.wishartlab.com/molecules/" + sim.id1 + "/image.png'>" +
+					"<span>" + sim.id1 + "</span> | " +
+					"<span style='background-color:" + color(category1) + "'>" + category1 + "</span>" +
+					" | <span style='background-color:" + color(category2) + "'>" + category2 + "</span>" +
+					" | <span>" + sim.id2 + "</span>" +
+					"<img src='http://structures.wishartlab.com/molecules/" + sim.id2 + "/image.png'>" +
+					"</div>");
+
+		}
+		writer.print("</body></html>");
+		writer.close();
+		atc.sleep();
+	}
+
+	private String color(String category) {
+		HashMap<String, String> mapping = new HashMap<String, String>();
+		mapping.put("A", "#FF0000");
+		mapping.put("B", "#FF5C00");
+		mapping.put("C", "#FFB800");
+		mapping.put("D", "#EBFF00");
+		mapping.put("G", "#8FFF00");
+		mapping.put("H", "#33FF00");
+		mapping.put("J", "#00FF29");
+		mapping.put("L", "#00FF85");
+		mapping.put("M", "#00FFE0");
+		mapping.put("Multiple", "#000000");
+		mapping.put("N", "#0066FFFF");
+		mapping.put("NoCategory", "white");
+		mapping.put("P", "#5200FF");
+		mapping.put("R", "#AD00FF");
+		mapping.put("S", "#FF00F5");
+		mapping.put("V", "#FF0099");				
+		return mapping.get(category);
 	}
 
 	//TODO explanations how it's done
@@ -150,7 +272,7 @@ public class Analysis {
 		writer.write(sims);
 	}
 
-	//TODO explanations - duh
+	//TODO explanations
 	private void exportMoaSimilarities(String path) throws BrainException, FileNotFoundException {
 		Brain atc = new Brain();
 		System.out.println("Learning ATC...");
