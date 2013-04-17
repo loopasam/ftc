@@ -43,11 +43,11 @@ public class Analysis {
 		//		analysis.exportDistributionMoa("data/analysis/undirect-distribution-moas.csv", false);
 		//analysis.exportMoaSimilarities("data/analysis/moa_similarities.csv");
 
-		//		analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim.csv");
+		analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim.csv");
 
 		//analysis.exportSimAtcVsMoa("data/analysis/atc_moa_sim.csv");
 
-		analysis.exportSimStrucMoaAsHtml(0.0f, 0.4f, 0.965f, 0.9690f, "data/analysis/struct_moa_sim.html");
+		//analysis.exportSimStrucMoaAsHtml(0.0f, 0.4f, 0.965f, 0.9690f, "data/analysis/struct_moa_sim.html");
 
 		analysis.done();
 	}
@@ -189,7 +189,7 @@ public class Analysis {
 
 		List<SimilarityComparison> sims = new ArrayList<SimilarityComparison>();
 		//int iterations = drugIds.size();
-		int iterations = 500;
+		int iterations = 10;
 
 		for (int i = 0; i < iterations; i++) {
 			String id1 = drugIds.get(i);
@@ -226,7 +226,7 @@ public class Analysis {
 		List<String> drugs = brain.getSubClasses("FTC_C2", false);
 		List<String> drugBankIds = new ArrayList<String>();
 
-		//int iterations = 500;
+		//int iterations = 300;
 		int iterations = drugs.size();
 
 		//Gets only the compounds wit a SMILES attached to them
@@ -265,11 +265,24 @@ public class Analysis {
 				SimilarityComparison sim = new SimilarityComparison();
 				sim.firstSim = jaccard;
 				sim.secondSim = tanimoto;
+				try {
+					sim.id2 = getCategory(atc.getSubClasses(id2, true));
+				} catch (ClassExpressionException exception) {
+					sim.id2 = "NoCategory";
+				}		
+				
+				try {
+					sim.id1 = getCategory(atc.getSubClasses(id1, true));
+				} catch (ClassExpressionException exception) {
+					sim.id1 = "NoCategory";
+				}				
+
 				sims.add(sim);
 			}
 		}
 		CSVWriter writer = new CSVWriter(path);
 		writer.write(sims);
+		atc.sleep();
 	}
 
 	//TODO explanations
