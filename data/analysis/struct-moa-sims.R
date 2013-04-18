@@ -3,7 +3,7 @@ palette <- colorRampPalette(c('#f0f3ff','#0033BB'))
 smoothScatter(values, 
               colramp=palette,
               main='sim(structure) vs sim(MoA)')
-abline(h=0.8, v=0.8)
+abline(h=0.5, v=0.5)
 
 moa <- values$firstSim
 struc <- values$secondSim
@@ -15,10 +15,11 @@ new_moa <- {}
 new_struc <- {}
 new_cat1 <- {}
 new_cat2 <- {}
-cutoff_moa_sup = 0.8
-cutoff_moa_inf = 0.7
-cutoff_struc_sup = 0.4
+cutoff_struc_sup = 0.5
 cutoff_struc_inf = 0.0
+cutoff_moa_sup = 1.0
+cutoff_moa_inf = 0.6
+
 
 for(i in 1:size) {
   if(moa[i] >= cutoff_moa_inf && moa[i] <= cutoff_moa_sup && struc[i] >= cutoff_struc_inf && cutoff_struc_sup >= struc[i]) {

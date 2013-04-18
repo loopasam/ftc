@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.BitSet;
 import java.util.HashMap;
 import java.util.List;
@@ -43,11 +44,12 @@ public class Analysis {
 		//		analysis.exportDistributionMoa("data/analysis/undirect-distribution-moas.csv", false);
 		//analysis.exportMoaSimilarities("data/analysis/moa_similarities.csv");
 
-		analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim.csv");
+		//analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim.csv");
+		//analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim_anti_histaminic.csv");
 
 		//analysis.exportSimAtcVsMoa("data/analysis/atc_moa_sim.csv");
 
-		//analysis.exportSimStrucMoaAsHtml(0.0f, 0.4f, 0.965f, 0.9690f, "data/analysis/struct_moa_sim.html");
+		//analysis.exportSimStrucMoaAsHtml(0.1f, 0.18f, 0.15f, 0.2f, "data/analysis/struct_moa_sim_histaminic.html");
 
 		analysis.done();
 	}
@@ -65,6 +67,10 @@ public class Analysis {
 
 		//DrugBanks compounds in the FTC
 		List<String> drugs = brain.getSubClasses("FTC_C2", false);
+		//TODO comment-out to deal with all drugs
+		drugs = getAntiHistaminics();
+
+
 		List<String> drugBankIds = new ArrayList<String>();
 
 		//int iterations = 200;
@@ -226,22 +232,31 @@ public class Analysis {
 		List<String> drugs = brain.getSubClasses("FTC_C2", false);
 		List<String> drugBankIds = new ArrayList<String>();
 
+		//To be commented out in order to not use the anti-histaminic
+		drugs = getAntiHistaminics();
+		System.out.println("Number of anti-hiostaminics: " + drugs.size());
+
 		//int iterations = 300;
 		int iterations = drugs.size();
 
-		//Gets only the compounds wit a SMILES attached to them
+		//Gets only the compounds with a SMILES attached to them
 		//Get only the drugs that have a MoA (super classes > 4)
+		int notConsidered = 0;
 		for (int i = 0; i < iterations; i++) {
 			String drugId = drugs.get(i);
 			Drug drug = db.getDrug(drugId);
 			if(drug.getSmiles() != null){
 				if(brain.getSuperClasses(drugId, false).size() > 4){
 					drugBankIds.add(drugId);
+				}else{
+					notConsidered++;
 				}
+			}else{
+				notConsidered++;
 			}
 		}
 
-		System.out.println("number of compounds considered: " + drugBankIds.size());
+		System.out.println("number of compounds considered: " + drugBankIds.size() + " - Not considered: " + notConsidered);
 
 		//Iterates over all selected compounds and look at
 		//structural and MoA sims between them.
@@ -265,12 +280,13 @@ public class Analysis {
 				SimilarityComparison sim = new SimilarityComparison();
 				sim.firstSim = jaccard;
 				sim.secondSim = tanimoto;
+
 				try {
 					sim.id2 = getCategory(atc.getSubClasses(id2, true));
 				} catch (ClassExpressionException exception) {
 					sim.id2 = "NoCategory";
 				}		
-				
+
 				try {
 					sim.id1 = getCategory(atc.getSubClasses(id1, true));
 				} catch (ClassExpressionException exception) {
@@ -283,6 +299,16 @@ public class Analysis {
 		CSVWriter writer = new CSVWriter(path);
 		writer.write(sims);
 		atc.sleep();
+	}
+
+	private List<String> getAntiHistaminics() {
+		List<String> compounds = Arrays.asList("DB00667", "DB01075", "DB00366", "DB00792", "DB01114", "DB01069",
+				"DB01237", "DB00557", "DB00835", "DB00737", "DB00777", "DB00434", "DB00405", "DB06691", "DB00719",
+				"DB00283", "DB00354", "DB01176", "DB01146", "DB00902", "DB01246", "DB00427", "DB08799", "DB00455",
+				"DB01620", "DB00341", "DB00972", "DB00950", "DB00768", "DB01084", "DB00920", "DB00967", "DB00748",
+				"DB00751", "DB01075", "DB06766", "DB00985", "DB01106", "DB04890", "DB00334", "DB00797", "DB00726",
+				"DB01173", "DB01267", "DB00245");
+		return compounds;
 	}
 
 	//TODO explanations
