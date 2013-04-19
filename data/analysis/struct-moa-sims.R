@@ -1,6 +1,6 @@
 values <- read.csv("/home/samuel/git/ftc/data/analysis/struct_moa_sim.csv", head=TRUE, sep=",")
 palette <- colorRampPalette(c('#f0f3ff','#0033BB'))
-smoothScatter(values, 
+smoothScatter(struc, moa, 
               colramp=palette,
               main='sim(structure) vs sim(MoA)')
 abline(h=0.5, v=0.5)
@@ -15,10 +15,10 @@ new_moa <- {}
 new_struc <- {}
 new_cat1 <- {}
 new_cat2 <- {}
-cutoff_struc_sup = 0.5
+cutoff_struc_sup = 1.0
 cutoff_struc_inf = 0.0
 cutoff_moa_sup = 1.0
-cutoff_moa_inf = 0.6
+cutoff_moa_inf = 0.0
 
 
 for(i in 1:size) {
