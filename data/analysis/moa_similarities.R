@@ -6,6 +6,8 @@ values <- read.csv("/home/samuel/git/ftc/data/analysis/moa_similarities.csv", he
 col_categories <- length(colnames(values))
 # Retrives the last column, aka the ATC categories
 categories <- values[,col_categories]
+categories <- factor(categories)
+
 #Removes the column with the ATC categories
 values<-values[,-c(col_categories)]
 #Converts a factor (vector with levels) in a vector with colours based on the levels.
@@ -27,30 +29,62 @@ for(i in 1:length(categories))
   categories.colors[i] <- level.colors[ categories[i]==levels(categories) ]
 #Read as matrix for heatmap
 values <- as.matrix(values)
+class(values) <- "numeric"
+
 #populates row names based off column names
 rownames(values) <- colnames(values)
 # Custom defintion of palettes
-palette <- colorRampPalette(c('#f0f3ff','#0033BB'))(256)
+palette <- colorRampPalette(c('#FFFFFF','#000000'))(256)
 
 #Plot the heatmap - http://hosho.ees.hokudai.ac.jp/~kubo/Rdoc/library/gplots/html/heatmap.2.html
-#heatmap.2(values, scale='none', col=palette, tracecol=FALSE, density.info="none", ColSideColors=categories.colors, RowSideColors=categories.colors, labRow=FALSE, labCol=FALSE)
 
 # distfunction parameter change
-heatmap.2(values, scale='none',
-          col=palette, tracecol=FALSE,
+heatmap.2(values, 
+          scale='none',
+          col=palette, 
+          tracecol=FALSE,
           density.info="none",
           ColSideColors=categories.colors,
           RowSideColors=categories.colors,
           labRow=FALSE,
           labCol=FALSE,
-          main='minkowski',
-          distfun = function(x) dist(x,method = 'minkowski'))
+          dendrogram = "col",
+          #Rowv=NA,
+          #Colv=NA,
+          distfun = function(x) dist(x,method = 'manhattan'),
+          main='Mode of actions pairwise similarities.\nDrugs are clustered by mode of action similarities.')
 
 # Legend hack - to finish in Inkscape
  plot(c(0,0), col="white");legend("bottomleft",legend=levels(categories), fill=level.colors,title="ATC Categories")
 # Normal legend
 # legend(100, 50 ,legend=levels(categories), fill=level.colors,title="ATC Categories")
 
+
+# Plotting orderted by ATC colors
+# Do that
+values <- read.csv("/home/samuel/git/ftc/data/analysis/moa_similarities.csv", head=TRUE, sep=",")
+bu <- values
+col_categories <- length(colnames(values))
+names <- values[,c(col_categories)]
+values <- values[order(values[,col_categories]),]
+sorted_names <- values[,c(col_categories)]
+values <- values[,-c(col_categories)]
+values <- rbind(values, as.character(names))
+values <- values[,order(values[col_categories,])]
+values <- values[-c(col_categories),]
+values <- cbind(values, as.character(sorted_names))
+# Then back to the top of the script
+
+
+heatmap(values, 
+        ColSideColors=categories.colors, 
+        RowSideColors=categories.colors, 
+        col=palette, 
+        Rowv=NA,
+        #labRow=FALSE,
+        #labCol=FALSE,
+        Colv=NA,
+        main='Mode of actions pairwise similarities sorted by ATC categories.')
 
 # Not used yet, useful to zoom on clusters
 hc.rows <- hclust(dist(values))

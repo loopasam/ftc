@@ -42,7 +42,7 @@ public class Analysis {
 		Analysis analysis = new Analysis();
 		//		analysis.exportDistributionMoa("data/analysis/direct-distribution-moas.csv", true);
 		//		analysis.exportDistributionMoa("data/analysis/undirect-distribution-moas.csv", false);
-		//analysis.exportMoaSimilarities("data/analysis/moa_similarities.csv");
+		analysis.exportMoaSimilarities("data/analysis/moa_similarities.csv");
 
 		//analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim.csv");
 		//analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim_anti_histaminic.csv");
