@@ -42,9 +42,9 @@ public class Analysis {
 		Analysis analysis = new Analysis();
 		//		analysis.exportDistributionMoa("data/analysis/direct-distribution-moas.csv", true);
 		//		analysis.exportDistributionMoa("data/analysis/undirect-distribution-moas.csv", false);
-		analysis.exportMoaSimilarities("data/analysis/moa_similarities.csv");
+		//analysis.exportMoaSimilarities("data/analysis/moa_similarities.csv");
 
-		//analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim.csv");
+		analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim_2lvl.csv");
 		//analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim_anti_histaminic.csv");
 
 		//analysis.exportSimAtcVsMoa("data/analysis/atc_moa_sim.csv");
@@ -233,8 +233,8 @@ public class Analysis {
 		List<String> drugBankIds = new ArrayList<String>();
 
 		//To be commented out in order to not use the anti-histaminic
-		drugs = getAntiHistaminics();
-		System.out.println("Number of anti-hiostaminics: " + drugs.size());
+		//drugs = getAntiHistaminics();
+		//System.out.println("Number of anti-hiostaminics: " + drugs.size());
 
 		//int iterations = 300;
 		int iterations = drugs.size();
@@ -385,7 +385,7 @@ public class Analysis {
 			return "Multiple";
 		}
 		String category = atcSubClasses.get(0);
-		return category.substring(0, 1);
+		return category.substring(0, 4);
 	}
 
 	private void done() {

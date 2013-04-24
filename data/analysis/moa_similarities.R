@@ -34,7 +34,8 @@ class(values) <- "numeric"
 #populates row names based off column names
 rownames(values) <- colnames(values)
 # Custom defintion of palettes
-palette <- colorRampPalette(c('#FFFFFF','#000000'))(256)
+# palette <- colorRampPalette(c('#FFFFFF','#000000'))(256)
+palette <- colorRampPalette(c('#ed00ff','#00ff25'))(256)
 
 #Plot the heatmap - http://hosho.ees.hokudai.ac.jp/~kubo/Rdoc/library/gplots/html/heatmap.2.html
 
@@ -43,15 +44,16 @@ heatmap.2(values,
           scale='none',
           col=palette, 
           tracecol=FALSE,
-          density.info="none",
+          density.info="density",
+          denscol="blue",
           ColSideColors=categories.colors,
           RowSideColors=categories.colors,
           labRow=FALSE,
           labCol=FALSE,
-          dendrogram = "col",
-          #Rowv=NA,
-          #Colv=NA,
-          distfun = function(x) dist(x,method = 'manhattan'),
+          dendrogram = "none",
+          Rowv=NA,
+          Colv=NA,
+          #distfun = function(x) dist(x,method = 'manhattan'),
           main='Mode of actions pairwise similarities.\nDrugs are clustered by mode of action similarities.')
 
 # Legend hack - to finish in Inkscape
