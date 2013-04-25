@@ -1,3 +1,6 @@
+# Distribution of MoA for the DrugBank compounds
+# only the direct categories are considered
+
 data_direct <- read.csv(file="/home/samuel/git/ftc/data/analysis/direct-distribution-moas.csv", 
                         head=TRUE, 
                         sep=",", 

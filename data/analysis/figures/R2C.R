@@ -1,3 +1,9 @@
+# Compounds are clustered based on their MoA similarities.
+# The color corresponds to the ATC category (one level).
+# The point here is to show that drugs are clustering by ATC categories.
+# There are some more general clusters, which still have to be extracted and analysed.
+# The dendogram kind of represent the structure of the FTC out of the box.
+
 require(gplots)
 
 #Loads the data

@@ -44,17 +44,236 @@ public class Analysis {
 		//		analysis.exportDistributionMoa("data/analysis/undirect-distribution-moas.csv", false);
 		//analysis.exportMoaSimilarities("data/analysis/moa_similarities.csv");
 
-		analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim_2lvl.csv");
+		//analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim_2lvl.csv");
+
+		//analysis.exportFramedDiffCatsSimStructVsMoa("data/analysis/diff_cats_3lvl.csv", 4);
+		
+		//analysis.exportFramedSameCatsSimStructVsMoa("data/analysis/same_cats_4lvl.csv", 5);
+
 		//analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim_anti_histaminic.csv");
 
 		//analysis.exportSimAtcVsMoa("data/analysis/atc_moa_sim.csv");
 
-		//analysis.exportSimStrucMoaAsHtml(0.1f, 0.18f, 0.15f, 0.2f, "data/analysis/struct_moa_sim_histaminic.html");
+		analysis.exportSimStrucMoaAsHtml(0.09f, 0.15f, 0.88f, 0.92f, "data/analysis/struct_moa_sim_top.html", 1);
 
 		analysis.done();
 	}
 
-	private void exportSimStrucMoaAsHtml(float lowSimStruc, float upSimStruc, float lowSimMoa, float upSimMoa, String path) throws Exception {
+
+	private void exportFramedSameCatsSimStructVsMoa(String path, int level) throws Exception {
+		SmilesParser smilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
+
+		DrugBank db = new DrugBank("data/tmp/drugbank.ser");
+
+		Brain atc = new Brain();
+		System.out.println("Learning ATC...");
+		atc.learn("data/atc.owl");
+		System.out.println("Learning done!");
+
+		//DrugBanks compounds in the FTC
+		List<String> drugs = brain.getSubClasses("FTC_C2", false);
+		List<String> drugBankIds = new ArrayList<String>();
+
+		//int iterations = 100;
+		int iterations = drugs.size();
+
+		//Gets only the compounds with a SMILES attached to them
+		//Get only the drugs that have a MoA (super classes > 4)
+		int notConsidered = 0;
+		for (int i = 0; i < iterations; i++) {
+			String drugId = drugs.get(i);
+			Drug drug = db.getDrug(drugId);
+			if(drug.getSmiles() != null){
+				if(brain.getSuperClasses(drugId, false).size() > 4){
+					drugBankIds.add(drugId);
+				}else{
+					notConsidered++;
+				}
+			}else{
+				notConsidered++;
+			}
+		}
+
+		System.out.println("number of compounds considered: " + drugBankIds.size() + " - Not considered: " + notConsidered);
+
+		List<SimilarityComparison> sims = new ArrayList<SimilarityComparison>();
+
+		for (int i = 0; i < drugBankIds.size(); i++) {
+			String id1 = drugBankIds.get(i);
+			System.out.println(i + "/" + drugBankIds.size());
+			for (int j = i + 1; j < drugBankIds.size(); j++) {
+				String id2 = drugBankIds.get(j);
+
+				//Actual sorting
+				boolean same = false;
+				try {
+					same = sameCategories(atc.getSubClasses(id1, true), atc.getSubClasses(id2, true), level);
+				} catch (ClassExpressionException exception){
+					same = false;
+				}
+
+
+				if(same){
+					String smiles1 = db.getDrug(id1).getSmiles();
+					String smiles2 = db.getDrug(id2).getSmiles();
+					IMolecule mol1 = smilesParser.parseSmiles(smiles1);
+					IMolecule mol2 = smilesParser.parseSmiles(smiles2);
+					HybridizationFingerprinter fingerprinter = new HybridizationFingerprinter();
+					BitSet bitset1 = fingerprinter.getFingerprint(mol1);
+					BitSet bitset2 = fingerprinter.getFingerprint(mol2);
+					float tanimoto = Tanimoto.calculate(bitset1, bitset2);
+					float jaccard = brain.getJaccardSimilarityIndex(id1, id2);
+					SimilarityComparison sim = new SimilarityComparison();
+					sim.firstSim = jaccard;
+					sim.secondSim = tanimoto;
+
+					try {
+						sim.id2 = getCategory(atc.getSubClasses(id2, true), level);
+					} catch (ClassExpressionException exception) {
+						sim.id2 = "NoCategory";
+					}		
+
+					try {
+						sim.id1 = getCategory(atc.getSubClasses(id1, true), level);
+					} catch (ClassExpressionException exception) {
+						sim.id1 = "NoCategory";
+					}				
+
+					sims.add(sim);
+				}
+			}
+		}
+		CSVWriter writer = new CSVWriter(path);
+		writer.write(sims);
+		atc.sleep();
+	}
+
+	private boolean sameCategories(List<String> subClasses1, List<String> subClasses2, int level) {
+		for (String subClass1 : subClasses1) {
+			String code1 = subClass1.substring(0, level);
+			for (String subClass2 : subClasses2) {
+				String code2 = subClass2.substring(0, level);
+				if(code1.equals(code2)){
+					//Means they have at least a category in common based on the level
+					return true;
+				}
+			}
+		}
+
+		//If no categories are in common, then it's true
+		return false;
+	}
+
+	// Export of the CSV presenting the data matching these criteria:
+	// sim(struct(A), struct(B)) vs sim(moa(A), moa(B))
+	// Only the dots where drugs have different categories are kept
+	// The idea is to see were these repurposing hypothesis are landing on the graph
+	private void exportFramedDiffCatsSimStructVsMoa(String path, int level) throws Exception {
+		SmilesParser smilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
+
+		DrugBank db = new DrugBank("data/tmp/drugbank.ser");
+
+		Brain atc = new Brain();
+		System.out.println("Learning ATC...");
+		atc.learn("data/atc.owl");
+		System.out.println("Learning done!");
+
+		//DrugBanks compounds in the FTC
+		List<String> drugs = brain.getSubClasses("FTC_C2", false);
+		List<String> drugBankIds = new ArrayList<String>();
+
+		//int iterations = 100;
+		int iterations = drugs.size();
+
+		//Gets only the compounds with a SMILES attached to them
+		//Get only the drugs that have a MoA (super classes > 4)
+		int notConsidered = 0;
+		for (int i = 0; i < iterations; i++) {
+			String drugId = drugs.get(i);
+			Drug drug = db.getDrug(drugId);
+			if(drug.getSmiles() != null){
+				if(brain.getSuperClasses(drugId, false).size() > 4){
+					drugBankIds.add(drugId);
+				}else{
+					notConsidered++;
+				}
+			}else{
+				notConsidered++;
+			}
+		}
+
+		System.out.println("number of compounds considered: " + drugBankIds.size() + " - Not considered: " + notConsidered);
+
+		List<SimilarityComparison> sims = new ArrayList<SimilarityComparison>();
+
+		for (int i = 0; i < drugBankIds.size(); i++) {
+			String id1 = drugBankIds.get(i);
+			System.out.println(i + "/" + drugBankIds.size());
+			for (int j = i + 1; j < drugBankIds.size(); j++) {
+				String id2 = drugBankIds.get(j);
+
+				//Actual sorting
+				boolean diff = false;
+				try {
+					diff = differentCategories(atc.getSubClasses(id1, true), atc.getSubClasses(id2, true), level);
+				} catch (ClassExpressionException exception){
+					diff = false;
+				}
+
+
+				if(diff){
+					String smiles1 = db.getDrug(id1).getSmiles();
+					String smiles2 = db.getDrug(id2).getSmiles();
+					IMolecule mol1 = smilesParser.parseSmiles(smiles1);
+					IMolecule mol2 = smilesParser.parseSmiles(smiles2);
+					HybridizationFingerprinter fingerprinter = new HybridizationFingerprinter();
+					BitSet bitset1 = fingerprinter.getFingerprint(mol1);
+					BitSet bitset2 = fingerprinter.getFingerprint(mol2);
+					float tanimoto = Tanimoto.calculate(bitset1, bitset2);
+					float jaccard = brain.getJaccardSimilarityIndex(id1, id2);
+					SimilarityComparison sim = new SimilarityComparison();
+					sim.firstSim = jaccard;
+					sim.secondSim = tanimoto;
+
+					try {
+						sim.id2 = getCategory(atc.getSubClasses(id2, true), level);
+					} catch (ClassExpressionException exception) {
+						sim.id2 = "NoCategory";
+					}		
+
+					try {
+						sim.id1 = getCategory(atc.getSubClasses(id1, true), level);
+					} catch (ClassExpressionException exception) {
+						sim.id1 = "NoCategory";
+					}				
+
+					sims.add(sim);
+				}
+			}
+		}
+		CSVWriter writer = new CSVWriter(path);
+		writer.write(sims);
+		atc.sleep();
+	}
+
+	//Returns whether two drugs are sharing the same category
+	private boolean differentCategories(List<String> subClasses1, List<String> subClasses2, int level) {
+		for (String subClass1 : subClasses1) {
+			String code1 = subClass1.substring(0, level);
+			for (String subClass2 : subClasses2) {
+				String code2 = subClass2.substring(0, level);
+				if(code1.equals(code2)){
+					//Means they have at least a category in common based on the level
+					return false;
+				}
+			}
+		}
+
+		//If no categories are in common, then it's true
+		return true;
+	}
+
+	private void exportSimStrucMoaAsHtml(float lowSimStruc, float upSimStruc, float lowSimMoa, float upSimMoa, String path, int level) throws Exception {
 
 		SmilesParser smilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
 		//TODO sort that in a neat way
@@ -68,7 +287,7 @@ public class Analysis {
 		//DrugBanks compounds in the FTC
 		List<String> drugs = brain.getSubClasses("FTC_C2", false);
 		//TODO comment-out to deal with all drugs
-		drugs = getAntiHistaminics();
+		//drugs = getAntiHistaminics();
 
 
 		List<String> drugBankIds = new ArrayList<String>();
@@ -126,7 +345,7 @@ public class Analysis {
 			String category1;
 			try {
 				atcSubClasses1 = atc.getSubClasses(sim.id1, false);
-				category1 = getCategory(atcSubClasses1);
+				category1 = getCategory(atcSubClasses1, level);
 			} catch (ClassExpressionException exception) {
 				category1 = "NoCategory";
 			}
@@ -135,7 +354,7 @@ public class Analysis {
 			String category2;
 			try {
 				atcSubClasses2 = atc.getSubClasses(sim.id2, false);
-				category2 = getCategory(atcSubClasses2);
+				category2 = getCategory(atcSubClasses2, level);
 			} catch (ClassExpressionException exception) {
 				category2 = "NoCategory";
 			}
@@ -176,49 +395,8 @@ public class Analysis {
 		return mapping.get(category);
 	}
 
-	//TODO explanations how it's done
-	private void exportSimAtcVsMoa(String path) throws Exception {
-		Brain atc = new Brain();
-		System.out.println("Learning ATC...");
-		atc.learn("data/atc.owl");
-		System.out.println("Learning done!");
-
-		List<String> drugIds = new ArrayList<String>();
-
-		List<String> dbCompounds = brain.getSubClasses("FTC_C2", false);
-
-		for (String dbCompound : dbCompounds) {
-			if(atc.knowsClass(dbCompound)){
-				drugIds.add(dbCompound);
-			}
-		}
-
-		List<SimilarityComparison> sims = new ArrayList<SimilarityComparison>();
-		//int iterations = drugIds.size();
-		int iterations = 10;
-
-		for (int i = 0; i < iterations; i++) {
-			String id1 = drugIds.get(i);
-			System.out.println(i + "/" + iterations);
-			for (int j = i + 1; j < iterations; j++) {
-				String id2 = drugIds.get(j);
-				float indexFtc = brain.getJaccardSimilarityIndex(id1, id2);
-				float indexAtc = atc.getJaccardSimilarityIndex(atc.getSubClasses(id1, true), 
-						atc.getSubClasses(id2, true));
-				SimilarityComparison sim = new SimilarityComparison();
-				sim.firstSim = indexAtc;
-				sim.secondSim = indexFtc;
-				sims.add(sim);
-			}
-		}
-
-		atc.sleep();
-		CSVWriter writer = new CSVWriter(path);
-		writer.write(sims);
-	}
-
 	//TODO doc to explain what it is exactly
-	private void exportSimsStructVsMoA(String path) throws Exception {
+	private void exportSimsStructVsMoA(String path, int level) throws Exception {
 		SmilesParser smilesParser = new SmilesParser(SilentChemObjectBuilder.getInstance());
 		//TODO sort that in a neat way
 		DrugBank db = new DrugBank("data/tmp/drugbank.ser");
@@ -282,13 +460,13 @@ public class Analysis {
 				sim.secondSim = tanimoto;
 
 				try {
-					sim.id2 = getCategory(atc.getSubClasses(id2, true));
+					sim.id2 = getCategory(atc.getSubClasses(id2, true), level);
 				} catch (ClassExpressionException exception) {
 					sim.id2 = "NoCategory";
 				}		
 
 				try {
-					sim.id1 = getCategory(atc.getSubClasses(id1, true));
+					sim.id1 = getCategory(atc.getSubClasses(id1, true), level);
 				} catch (ClassExpressionException exception) {
 					sim.id1 = "NoCategory";
 				}				
@@ -312,7 +490,7 @@ public class Analysis {
 	}
 
 	//TODO explanations
-	private void exportMoaSimilarities(String path) throws BrainException, FileNotFoundException {
+	private void exportMoaSimilarities(String path, int level) throws BrainException, FileNotFoundException {
 		Brain atc = new Brain();
 		System.out.println("Learning ATC...");
 		atc.learn("/home/samuel/git/ftc/data/atc.owl");
@@ -360,7 +538,7 @@ public class Analysis {
 				try {
 					atcSubClasses1 = atc.getSubClasses(class1, false);
 					//Get the ATC category
-					category1 = getCategory(atcSubClasses1);
+					category1 = getCategory(atcSubClasses1, level);
 				} catch (ClassExpressionException exception) {
 					category1 = "NoCategory";
 				}
@@ -379,13 +557,13 @@ public class Analysis {
 		writer.close();
 	}
 
-	//Retrives the top level ATC category of a drug
-	private String getCategory(List<String> atcSubClasses) {
+	//Retrieves the top level ATC category of a drug
+	private String getCategory(List<String> atcSubClasses, int level) {
 		if(atcSubClasses.size() > 1){
 			return "Multiple";
 		}
 		String category = atcSubClasses.get(0);
-		return category.substring(0, 4);
+		return category.substring(0, level);
 	}
 
 	private void done() {

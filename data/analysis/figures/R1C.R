@@ -1,3 +1,8 @@
+# Plot of direct and indirect MoAs. The point here is that 
+# when direct and indirect MoA are considered, the range of MoA
+# spans much more
+# The higher the number of MoA, the more specific a drug is
+
 data_direct <- read.csv(file="/home/samuel/git/ftc/data/analysis/direct-distribution-moas.csv", 
                         head=TRUE, 
                         sep=",", 

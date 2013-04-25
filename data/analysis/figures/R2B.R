@@ -1,3 +1,8 @@
+# Heat map of DrugBank compounds compared based on their MoA similarities.
+# Compounds are organised by disease categories (one level resolution).
+# This plot shows that there is indeed clusters: Compounds in the same therapeutical category (ATC)
+# tends to have similar MoA.
+
 library(gplots)
 
 # Plotting orderted by ATC colors

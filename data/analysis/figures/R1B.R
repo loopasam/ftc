@@ -1,3 +1,6 @@
+# Distribution of MoA for the DrugBank compounds
+# the indirect MoA are considered too
+
 data_indirect <- read.csv(file="/home/samuel/git/ftc/data/analysis/indirect-distribution-moas.csv", 
                           head=TRUE, 
                           sep=",", 

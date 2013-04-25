@@ -1,3 +1,7 @@
+# Heat map of DrugBank compounds compared based on their MoA similarities
+# This plot is a control: Compounds are randomly distributed and it is not possible
+# to see any pattern.
+
 require(gplots)
 
 #Loads the data

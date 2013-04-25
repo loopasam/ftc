@@ -1,4 +1,12 @@
-values <- read.csv("/home/samuel/git/ftc/data/analysis/struct_moa_sim.csv", head=TRUE, sep=",")
+# Script to zoom in a particular part of the Moa vs structure plot
+# The ATC categories of the compunds are appearing.
+# So basically: Compounds with different categories and highly similar MoA are hypothesis too.
+# Looking also at compunds that have similar structure yet different MoA
+
+values <- read.csv("/home/samuel/git/ftc/data/analysis/struct_moa_sim.csv", 
+                   head=TRUE, 
+                   sep=","
+)
 
 moa <- values$firstSim
 struc <- values$secondSim
@@ -10,11 +18,10 @@ new_moa <- {}
 new_struc <- {}
 new_cat1 <- {}
 new_cat2 <- {}
-cutoff_struc_sup = 0.2
-cutoff_struc_inf = 0.0
-cutoff_moa_sup = 0.05
-cutoff_moa_inf = 0.0
-
+cutoff_struc_sup = 0.15
+cutoff_struc_inf = 0.09
+cutoff_moa_sup = 0.92
+cutoff_moa_inf = 0.88
 
 for(i in 1:size) {
   if(moa[i] >= cutoff_moa_inf && moa[i] <= cutoff_moa_sup && struc[i] >= cutoff_struc_inf && cutoff_struc_sup >= struc[i]) {
@@ -41,7 +48,7 @@ colors.cat2 <- rep(0,length(new_cat2))
 
 for(i in 1:length(new_cat1)) {
   colors.cat1[i] <- level.colors[ new_cat1[i]==levels(values$id1) ]
-  colors.cat2[i] <- level.colors[ new_cat2[i]==levels(values$id1) ]
+  colors.cat2[i] <- level.colors[ new_cat2[i]==levels(values$id2) ]
 }
 
 library(TeachingDemos)
