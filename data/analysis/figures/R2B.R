@@ -21,7 +21,7 @@ values <- values[,-c(col_categories)]
 values <- rbind(values, as.character(names))
 # order the matrix based on categories. Step important in order for the matrix to be well done
 values <- values[,order(values[col_categories,])]
-# removes the laqst column
+# removes the last column
 values <- values[-c(col_categories),]
 # Add the sorted names for rest of the script (dirty)
 values <- cbind(values, as.character(sorted_names))
