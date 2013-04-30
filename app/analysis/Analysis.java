@@ -42,7 +42,8 @@ public class Analysis {
 		Analysis analysis = new Analysis();
 		//		analysis.exportDistributionMoa("data/analysis/direct-distribution-moas.csv", true);
 		//		analysis.exportDistributionMoa("data/analysis/undirect-distribution-moas.csv", false);
-		//analysis.exportMoaSimilarities("data/analysis/moa_similarities.csv");
+		
+		analysis.exportMoaSimilarities("data/analysis/moa_similarities_2lvl.csv", 3);
 
 		//analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim_2lvl.csv");
 
@@ -56,7 +57,7 @@ public class Analysis {
 
 		//analysis.exportSimStrucMoaAsHtml(0.09f, 0.15f, 0.88f, 0.92f, "data/analysis/struct_moa_sim_top.html", 1);
 
-		analysis.exportValuesForCategorie("V", "data/analysis/pval_V_same.csv", "data/analysis/pval_V_diff.csv");
+		//analysis.exportValuesForCategorie("V", "data/analysis/pval_V_same.csv", "data/analysis/pval_V_diff.csv");
 
 		analysis.done();
 	}

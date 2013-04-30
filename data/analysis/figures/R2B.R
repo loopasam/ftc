@@ -4,10 +4,8 @@
 # tends to have similar MoA.
 
 library(gplots)
-
 # Plotting orderted by ATC colors
 values <- read.csv("/home/samuel/git/ftc/data/analysis/moa_similarities.csv", head=TRUE, sep=",")
-bu <- values
 col_categories <- length(colnames(values))
 # Get the names of categories from the last column
 names <- values[,c(col_categories)]
@@ -74,4 +72,5 @@ heatmap.2(values,
           ylab="DrugBank compounds",
           Rowv=NA,
           Colv=NA,
-          main='Mode of actions pairwise similarities.\nDrugs are ordered by ATC categories.')
+          main='Mode of actions pairwise similarities.\nDrugs are ordered by ATC categories.'
+)
