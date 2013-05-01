@@ -42,14 +42,16 @@ public class Analysis {
 		Analysis analysis = new Analysis();
 		//		analysis.exportDistributionMoa("data/analysis/direct-distribution-moas.csv", true);
 		//		analysis.exportDistributionMoa("data/analysis/undirect-distribution-moas.csv", false);
-		
-		analysis.exportMoaSimilarities("data/analysis/moa_similarities_2lvl.csv", 3);
+
+		//analysis.exportMoaSimilarities("data/analysis/moa_similarities_2lvl.csv", 3);
 
 		//analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim_2lvl.csv");
 
 		//analysis.exportFramedDiffCatsSimStructVsMoa("data/analysis/diff_cats_3lvl.csv", 4);
 
 		//analysis.exportFramedSameCatsSimStructVsMoa("data/analysis/same_cats_4lvl.csv", 5);
+
+		analysis.exportFramedDiffCatsSimStructVsMoa("data/analysis/diff_cats_1lvl.csv", 1);
 
 		//analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim_anti_histaminic.csv");
 
@@ -164,10 +166,10 @@ public class Analysis {
 			writer.append(sameCat.toString() + "\n");
 		}
 		writer.close();
-		
+
 		File file2 = new File(path2);
 		PrintWriter writer2 = new PrintWriter(file2);
-		
+
 		isFirst = true;
 		for (Float diffCat : diffCategories) {
 			if(!isFirst){
@@ -177,7 +179,7 @@ public class Analysis {
 			}
 			writer2.append(diffCat.toString() + "\n");
 		}
-		
+
 		writer2.close();
 		atc.sleep();
 	}
@@ -326,7 +328,7 @@ public class Analysis {
 
 		System.out.println("number of compounds considered: " + drugBankIds.size() + " - Not considered: " + notConsidered);
 
-		List<SimilarityComparison> sims = new ArrayList<SimilarityComparison>();
+		List<AtcSimilarityComparison> sims = new ArrayList<AtcSimilarityComparison>();
 
 		for (int i = 0; i < drugBankIds.size(); i++) {
 			String id1 = drugBankIds.get(i);
@@ -353,20 +355,22 @@ public class Analysis {
 					BitSet bitset2 = fingerprinter.getFingerprint(mol2);
 					float tanimoto = Tanimoto.calculate(bitset1, bitset2);
 					float jaccard = brain.getJaccardSimilarityIndex(id1, id2);
-					SimilarityComparison sim = new SimilarityComparison();
+					AtcSimilarityComparison sim = new AtcSimilarityComparison();
 					sim.firstSim = jaccard;
 					sim.secondSim = tanimoto;
+					sim.id1 = id1;
+					sim.id2 = id2;
 
 					try {
-						sim.id2 = getCategory(atc.getSubClasses(id2, true), level);
+						sim.atc2 = getCategory(atc.getSubClasses(id2, true), level);
 					} catch (ClassExpressionException exception) {
-						sim.id2 = "NoCategory";
+						sim.atc2 = "NoCategory";
 					}		
 
 					try {
-						sim.id1 = getCategory(atc.getSubClasses(id1, true), level);
+						sim.atc1 = getCategory(atc.getSubClasses(id1, true), level);
 					} catch (ClassExpressionException exception) {
-						sim.id1 = "NoCategory";
+						sim.atc1 = "NoCategory";
 					}				
 
 					sims.add(sim);

@@ -2,7 +2,7 @@
 # Only compounds that are present in different categories (based on a treshold) are
 # represented.
 
-values <- read.csv("/home/samuel/git/ftc/data/analysis/same_cats_4lvl.csv", 
+values <- read.csv("/home/samuel/git/ftc/data/analysis/diff_cats_1lvl.csv", 
                    head=TRUE, 
                    sep=","
 )
