@@ -1,0 +1,66 @@
+Annotation Viagra:
+http://www.ncbi.nlm.nih.gov/pubmed/15224127
+http://www.ncbi.nlm.nih.gov/pubmed/16291034
+
+Pro-bone mineralisation:
+https://www.ebi.ac.uk/chembl/ftc/FTC_P0030282
+
+http://www.guardian.co.uk/business/2012/nov/27/new-uses-old-drugs-business
+Evista – an Eli Lilly birth control drug that was repositioned as an osteoporosis treatment and can also prevent breast cancer
+https://www.ebi.ac.uk/chembl/ftc/agent/DB00481
+
+The FTC supports the breast cancer prevention hypothesis.
+
+https://www.ebi.ac.uk/chembl/ftc/query/%27perturbs%27%20some%20%28%27involved-in%27%20some%20%27bone%20resorption%27%29
+Example with bone resoprtion and MOA selection
+
+A new grammar for drug discovery
+it's better to consider diseases at the system level.
+
+http://www.uniprot.org/uniprot/P32245
+--> positive regulation of bone resorption --> not a target yet --> look at similar target with proteins acting there
+
+Focus on one use case phenotypically screenable if possible
+
+Osteoporosis related question: Can we predict a drug to treat osteoporosis?
+How can we find a suitable MOA for osteoporosis? Look for bone in search: There are multiple categories capable of doing it:
+https://www.ebi.ac.uk/chembl/ftc/FTC_P0046849
+https://www.ebi.ac.uk/chembl/ftc/FTC_P0035630
+https://www.ebi.ac.uk/chembl/ftc/FTC_P0045453
+https://www.ebi.ac.uk/chembl/ftc/FTC_P0008147
+
+--> Look at the drugs for specific MOA, there are a total of 3:
+Pro-bone mineralization agent: Leflunomide --> 
+
+https://www.ebi.ac.uk/chembl/ftc/FTC_P0030282
+Cool case - The drug (Leflunomide) is currently used for for the management of the signs and symptoms of active rheumatoid arthritis (RA) to improve physical function and to slow the progression of structural damage associated with the disease. Has also been used for the prevention of acute and chronic rejection in recipients of solid organ trasnplants and is designated by the FDA as an orphan drug for this use.
+Current place in the ATC (http://www.whocc.no/atc_ddd_index/?code=L04AA13)
+
+Pro-structural constituent of bone agent: DB00170 - 'Menadione' DB01022 - 'Phytonadione'
+
+Menadione: A synthetic naphthoquinone without the isoprenoid side chain and biological activity, but can be converted to active vitamin K2, menaquinone, after alkylation in vivo. [PubChem] Indication: The primary known function of vitamin K is to assist in the normal clotting of blood, but it may also play a role in normal bone calcification.
+
+Phytonadione is often called vitamin K1. It is a fat-soluble vitamin that is stable to air and moisture but decomposes in sunlight. It is found naturally in a wide variety of green plants. Phylloquinone is also an antidote for coumatetralyl. Vitamin K is needed for the posttranslational modification of certain proteins, mostly required for blood coagulation. Indication: For the treatment of haemorrhagic conditions in infants, antidote for coumarin anticoagulants in hypoprothrombinaemia
+
+These cases are starting points to tune and optimise the compounds or to try them in essays. Look how it could be tested in practice? Animal model?
+
+Look at anti-bone agents, try to show that a side effect of a drug could be explained because it belongs to this category.
+
+Example of drug that prevents bone resorption:
+
+https://www.ebi.ac.uk/chembl/ftc/agent/DB05260
+Gallium nitrate --> Mechanism: Gallium nitrate is believed to exert a hypocalcemic effect by inhibiting calcium resorption from bone. Gallium nitrate localizes preferentially where bone resorption and remodeling is occurring, and inhibits osteoclast activity.
+The FTC confirms this
+
+https://www.ebi.ac.uk/chembl/ftc/agent/DB00070
+Hyaluronidase --> Doesn't seem related at all to that, prediction? Indication: For increase of absorption and distribution of other injected drugs and for rehydration.
+
+https://www.ebi.ac.uk/chembl/ftc/FTC_A0045453 --> Amphetamine --> paper proving the indication -->
+http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2488246/
+
+Lenalidomide should decrease bone resorption
+Finally, lenalidomide downregulates bone resorption.
+http://www.hindawi.com/journals/ah/2012/842945/
+http://www.nature.com/leu/journal/v22/n10/fig_tab/leu2008174ft.html
+
+
