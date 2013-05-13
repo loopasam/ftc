@@ -51,7 +51,7 @@ public class Analysis {
 
 		//analysis.exportFramedSameCatsSimStructVsMoa("data/analysis/same_cats_4lvl.csv", 5);
 
-		analysis.exportFramedDiffCatsSimStructVsMoa("data/analysis/diff_cats_1lvl.csv", 1);
+		//analysis.exportFramedDiffCatsSimStructVsMoa("data/analysis/diff_cats_1lvl.csv", 1);
 
 		//analysis.exportSimsStructVsMoA("data/analysis/struct_moa_sim_anti_histaminic.csv");
 
@@ -61,9 +61,32 @@ public class Analysis {
 
 		//analysis.exportValuesForCategorie("V", "data/analysis/pval_V_same.csv", "data/analysis/pval_V_diff.csv");
 
+		analysis.numberOfClassesWithDrug();
+
 		analysis.done();
 	}
 
+
+	private void numberOfClassesWithDrug() throws Exception {
+		List<String> all = brain.getSubClasses("FTC_C1", false);
+		int numberOfClasses = 0;
+		for (String ftcClass : all) {
+			if(ftcClass.startsWith("FTC_")){
+				List<String> subClasses = brain.getSubClasses(ftcClass, false);
+				boolean hasDrug = false;
+				for (String subClass : subClasses) {
+					if(subClass.startsWith("DB")){
+						if(!hasDrug){
+							numberOfClasses++;
+							hasDrug = true;
+							System.out.println(ftcClass);
+						}
+					}
+				}
+			}
+		}
+		System.out.println("Number of class with drugs inside: " + numberOfClasses);
+	}
 
 	private void exportValuesForCategorie(String category, String path, String path2) throws Exception {
 		Brain atc = new Brain();
