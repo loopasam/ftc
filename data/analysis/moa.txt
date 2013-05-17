@@ -75,3 +75,19 @@ Microtubule-destabilizing agents induce focal adhesion structure disorganization
 Altogether, these results propound that antimicrotubule agents induce anoikis through the loss of focal adhesion structure integrity.
 
 https://www.ebi.ac.uk/chembl/ftc/FTC_A0002042
+
+Alzheimer use-case:
+https://www.ebi.ac.uk/chembl/ftc/FTC_A0001540
+
+https://www.ebi.ac.uk/chembl/ftc/agent/DB00973 can be useful for alzeimer --> shown by -->
+http://www.ijp-online.com/article.asp?issn=0253-7613;year=2009;volume=41;issue=6;spage=262;epage=267;aulast=Dalla
+look at google scholar for more indications
+
+https://www.ebi.ac.uk/chembl/ftc/agent/DB01094 can be useful too -->
+http://link.springer.com/article/10.1007/BF02968255#page-1
+http://link.springer.com/article/10.1007/s12272-001-2130-1#page-1
+
+look at his category too: https://www.ebi.ac.uk/chembl/ftc/FTC_A0001540
+Show that there is the known ones (acetylcholine, etc...) + maybe new?
+
+
