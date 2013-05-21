@@ -9,7 +9,7 @@ values <- read.csv("/home/samuel/git/ftc/data/analysis/diff_cats_1lvl.csv",
 
 moa <- values$firstSim
 struc <- values$secondSim
-color <- '#0003bf'
+color <- '#0000ff'
 
 plot(struc, 
      moa,
