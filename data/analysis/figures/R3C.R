@@ -2,14 +2,14 @@
 # Only compounds that are present in different categories (based on a treshold) are
 # represented.
 
-values <- read.csv("/home/samuel/git/ftc/data/analysis/diff_cats_1lvl.csv", 
+values <- read.csv("/home/samuel/git/ftc/data/analysis/diff_cats_2lvl.csv", 
                    head=TRUE, 
                    sep=","
 )
 
 moa <- values$firstSim
 struc <- values$secondSim
-color <- '#0000ff'
+color <- '#ffab00'
 
 plot(struc, 
      moa,

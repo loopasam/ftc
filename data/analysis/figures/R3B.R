@@ -24,10 +24,10 @@ new_atc1 <- {}
 new_atc2 <- {}
 new_id1 <- {}
 new_id2 <- {}
-cutoff_struc_sup = 0.5
-cutoff_struc_inf = 0.3
-cutoff_moa_sup = 0.7
-cutoff_moa_inf = 0.6
+cutoff_struc_sup = 0.11
+cutoff_struc_inf = 0.07
+cutoff_moa_sup = 0.9
+cutoff_moa_inf = 0.82
 
 for(i in 1:size) {
   if(moa[i] >= cutoff_moa_inf && moa[i] <= cutoff_moa_sup && struc[i] >= cutoff_struc_inf && cutoff_struc_sup >= struc[i]) {

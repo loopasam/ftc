@@ -89,5 +89,3 @@ http://link.springer.com/article/10.1007/s12272-001-2130-1#page-1
 
 look at his category too: https://www.ebi.ac.uk/chembl/ftc/FTC_A0001540
 Show that there is the known ones (acetylcholine, etc...) + maybe new?
-
-
