@@ -19,28 +19,28 @@ $(document).ready(function() {
 				if(currentNumber >= parseInt($('#totalNumber' + method).html())){
 					$('#' + method).fadeOut('slow');
 				}
-				console.log(newElements);
+				//console.log(newElements);
 				$.each(newElements, function(){
 					var newElement;
 					if(method == 'moreIndirectAgents'){
-						newElement = '<a style="display:none" href="/agent/' + this.drugBankId + '">' +
+						newElement = '<a style="display:none" href="/chembl/ftc/agent/' + this.drugBankId + '">' +
 						'<li class="transition inferred" itemprop="drug" itemscope itemtype="http://schema.org/Drug">' + this.drugBankId + '-<span itemprop="name">' + this.label + '</span></li></a>';
 					}else if(method == 'moreDirectAgents'){
-						newElement = '<a style="display:none" href="/agent/' + this.drugBankId + '">' +
+						newElement = '<a style="display:none" href="/chembl/ftc/agent/' + this.drugBankId + '">' +
 						'<li class="transition direct" itemprop="drug" itemscope itemtype="http://schema.org/Drug">' + this.drugBankId + '-<span itemprop="name">' + this.label + '</span></li></a>';
 					}else if(method == 'moreSuperclasses'){
 						var hasDrug = "";
 						if(this.hasDrug == true){
 							hasDrug = "has-drug";
 						}
-						newElement = '<a style="display:none" href="/' + this.ftcId + '">' +
+						newElement = '<a style="display:none" href="/chembl/ftc/' + this.ftcId + '">' +
 						'<li class="transition direct ' + hasDrug + '">' + this.ftcId + '-' + this.label + '</li></a>';
 					}else if(method == 'moreSubclasses'){
 						var hasDrug = "";
 						if(this.hasDrug == true){
 							hasDrug = "has-drug";
 						}
-						newElement = '<a style="display:none" href="/' + this.ftcId + '">' +
+						newElement = '<a style="display:none" href="/chembl/ftc/' + this.ftcId + '">' +
 						'<li class="transition direct ' + hasDrug + '">' + this.ftcId + '-' + this.label + '</li></a>';
 					}else if(method == 'moreResults'){
 						var base;
@@ -49,9 +49,9 @@ $(document).ready(function() {
 						}else if(this.type == "go"){
 							base = "http://purl.obolibrary.org/obo/";
 						}else if(this.type == "drugbank"){
-							base = "/agent/";
+							base = "/chembl/ftc/agent/";
 						}else if(this.type == "ftc"){
-							base = "/";
+							base = "/chembl/ftc/";
 						}
 						
 						newElement = '<a style="display:none" href="' + base + this.owlId + '">' +

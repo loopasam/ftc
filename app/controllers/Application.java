@@ -39,6 +39,8 @@ public class Application extends Controller {
 	public static Brain brain;
 	public static Gson gson;
 	final public static int PAGINATION = 20;
+	final public static int PAGINATION_SEARCH = 30;
+
 
 	public static void index() {
 		render();
@@ -181,13 +183,13 @@ public class Application extends Controller {
 		List<Agent> agents = new ArrayList<Agent>();
 		List<FtcClass> ftcClasses = new ArrayList<FtcClass>();
 
-		List<Agent> agentsFromId = Agent.find("byDrugBankIdIlike", "%" + query + "%").fetch(PAGINATION);
-		List<Agent> agentsFromLabel = Agent.find("byLabelIlike", "%" + query + "%").fetch(PAGINATION);
+		List<Agent> agentsFromId = Agent.find("byDrugBankIdIlike", "%" + query + "%").fetch(PAGINATION_SEARCH);
+		List<Agent> agentsFromLabel = Agent.find("byLabelIlike", "%" + query + "%").fetch(PAGINATION_SEARCH);
 		agents.addAll(agentsFromLabel);
 		agents.addAll(agentsFromId);
 
-		List<FtcClass> ftcClassesFromId = FtcClass.find("byFtcIdIlike", "%" + query + "%").fetch(PAGINATION);
-		List<FtcClass> ftcClassesFromLabel = FtcClass.find("byLabelIlike", "%" + query + "%").fetch(PAGINATION);
+		List<FtcClass> ftcClassesFromId = FtcClass.find("byFtcIdIlike", "%" + query + "%").fetch(PAGINATION_SEARCH);
+		List<FtcClass> ftcClassesFromLabel = FtcClass.find("byLabelIlike", "%" + query + "%").fetch(PAGINATION_SEARCH);
 		ftcClasses.addAll(ftcClassesFromId);
 		ftcClasses.addAll(ftcClassesFromLabel);
 
