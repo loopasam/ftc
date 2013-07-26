@@ -27,11 +27,15 @@ $(document).ready(function() {
 	<h1 class="feature-title">Query the knowledge base
  	<span style="float: none;" title="<strong>Semantic query over the knowledge base.</strong>
  	This feature requires an understanding on how to formulate queries. The best place to
- 	get started with semantic queries is the documentation." class="help-text">(?)</span>
+ 	get started with semantic queries is the <a href='https://github.com/loopasam/ftc/wiki/Semantic%20Queries'>documentation</a>." class="help-text">(?)</span>
 	</h1>
    		<input class="input-query" id="input-owl-query" type="text" name="query" value="${flash.query}"/ size="100"> 
     	<input class="submit_button" type="submit" value="Query" />
-    	
+<p id="query-examples" class="feature-presentation">
+<strong>Examples of queries:</strong> <code>'drug' that 'positively-perturbs' some 'Pyridoxal kinase'</code> or
+ <code>'biological process' and 'part-of' some 'blood coagulation'</code>. For more information, please refer
+to the <a href="#">documentation</a>.
+</p>
 </form>
 <div id="loader" style="display: none;">
 	<img src="@{'/public/images/loader.gif'}">

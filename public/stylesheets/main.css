@@ -77,6 +77,15 @@ h1 {
 	margin-bottom: 1em;
 }
 
+#query-examples {
+	width: 50%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
 /* Results Semantic Query*/
 .protein {
 	background-color: #FFEBD6;

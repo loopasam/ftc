@@ -22,6 +22,11 @@ $(document).ready(function() {
 	</h1>
     <input class="input-query" type="text" name="query" value="${query}"/> 
     <input class="submit_button" type="submit" value="Search" />
+    <p id="query-examples" class="feature-presentation">
+<strong>Examples of searches:</strong> <code>blood</code>, 
+ <code>coagulation</code> or <code>FTC_A0007596</code>.
+</p>
+    
 </form>
 
 #{if noResults && query != null}
