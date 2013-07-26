@@ -435,7 +435,7 @@ public class Analysis {
 
 		//DrugBanks compounds in the FTC
 		List<String> drugs = brain.getSubClasses("FTC_C2", false);
-		//TODO comment-out to deal with all drugs
+		//comment-out to deal with all drugs
 		//drugs = getAntiHistaminics();
 
 

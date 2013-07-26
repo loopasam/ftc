@@ -84,35 +84,35 @@ public abstract class OwlExporter {
 
 		brain.addClass("http://purl.obolibrary.org/obo/GO_0003674");
 		brain.label("GO_0003674", "'molecular function'");
-		brain.comment("GO_0003674", "//TODO: A molecular function as defined by GO");
+		brain.comment("GO_0003674", "A molecular function as defined by GO");
 
 		brain.addClass("http://purl.obolibrary.org/obo/GO_0008150");
 		brain.label("GO_0008150", "'biological process'");
-		brain.comment("GO_0008150", "//TODO: A biological process as defined by GO");
+		brain.comment("GO_0008150", "A biological process as defined by GO");
 
 		brain.addClass("http://purl.uniprot.org/core/Protein");
 		brain.label("Protein", "'protein'");
-		brain.comment("Protein", "//TODO: A protein as defined by Uniprot");
+		brain.comment("Protein", "A protein as defined by Uniprot");
 
 		//TODO put the schema.org vocab here
 		brain.addClass("http://purl.obolibrary.org/obo/CHEBI_50906");
 		brain.label("CHEBI_50906", "'role'");
-		brain.comment("CHEBI_50906", "//TODO: A role as defined by chebi");
+		brain.comment("CHEBI_50906", "A role as defined by chebi");
 
 		//The compounds from DrugBank will be considered for their role
 		//as drug
-		brain.addClass("http://purl.obolibrary.org/obo/CHEBI_23888");
-		brain.label("CHEBI_23888", "'drug'");
-		brain.subClassOf("CHEBI_23888", "CHEBI_50906");
-		brain.comment("CHEBI_23888", "//TODO: A drug as defined by chebi. The compounds " +
-				"from DrugBank will be considered for their role as drug.");
+		brain.addClass("http://schema.org/Drug");
+		brain.label("Drug", "'drug'");
+		brain.subClassOf("Drug", "CHEBI_50906");
+		brain.comment("Drug", ": A drug as defined by schema.org. The compounds " +
+				"from DrugBank are considered for their role as drug.");
 
 		//FTC specification
 
 		//Role of something capable of producing a therapeutic effect
 		brain.addClass("FTC_C1");
 		brain.label("FTC_C1", "'therapeutic agent'");
-		brain.subClassOf("FTC_C1", "CHEBI_23888");
+		brain.subClassOf("FTC_C1", "Drug");
 		brain.comment("FTC_C1", "Role of a drug capable of producing a therapeutic effect.");
 		
 		//Class used to identified chemicals from DrugBank
@@ -126,24 +126,24 @@ public abstract class OwlExporter {
 		brain.addObjectProperty("http://purl.obolibrary.org/obo/BFO_0000050");
 		brain.label("BFO_0000050", "'part-of'");
 		brain.transitive("BFO_0000050");
-		brain.comment("BFO_0000050", "//TODO: As defined by RO.");
+		brain.comment("BFO_0000050", "As defined by RO.");
 
 		brain.addObjectProperty("http://purl.obolibrary.org/obo/RO_0002211");
 		brain.label("RO_0002211", "'regulates'");
-		brain.comment("RO_0002211", "//TODO: As defined by RO.");
+		brain.comment("RO_0002211", "As defined by RO.");
 
 		brain.addObjectProperty("http://purl.obolibrary.org/obo/RO_0002213");
 		brain.label("RO_0002213", "'positively-regulates'");
-		brain.comment("RO_0002213", "//TODO: As defined by RO.");
+		brain.comment("RO_0002213", "As defined by RO.");
 
 		brain.addObjectProperty("http://purl.obolibrary.org/obo/RO_0002212");
 		brain.label("RO_0002212", "'negatively-regulates'");
-		brain.comment("RO_0002212", "//TODO: As defined by RO.");
+		brain.comment("RO_0002212", "As defined by RO.");
 
 		brain.addObjectProperty("http://purl.obolibrary.org/obo/BFO_0000051");
 		brain.label("BFO_0000051", "'has-part'");
 		brain.transitive("BFO_0000051");
-		brain.comment("BFO_0000051", "//TODO: As defined by RO.");
+		brain.comment("BFO_0000051", "As defined by RO.");
 
 		brain.subPropertyOf("RO_0002212", "RO_0002211");
 		brain.subPropertyOf("RO_0002213", "RO_0002211");
@@ -151,6 +151,7 @@ public abstract class OwlExporter {
 
 		//FTC RBox logic
 		//TODO add more logic (here and on wiki):
+		//feature present in a future release  
 		//involved-in o part-of --> involved-in
 		//involved-in o regulates --> involved-in
 		//has-function o part-of --> involved-in
@@ -173,10 +174,7 @@ public abstract class OwlExporter {
 		//targets to which the drug binds, such as an enzyme or receptor.
 		brain.addObjectProperty("FTC_R3");
 		brain.label("FTC_R3", "'perturbs'");
-		//TODO put the schema.org instead
-		//TODO domain should be a drugbank compound
-		//TODO or create a new type called 'agent' describing the role 
-		brain.domain("FTC_R3", "CHEBI_23888");
+		brain.domain("FTC_R3", "Drug");
 		brain.range("FTC_R3", "Protein");
 		brain.comment("FTC_R3", "Specific biochemical interaction through which a drug " +
 				"substance will affect the activity of a protein. The property " +
