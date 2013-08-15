@@ -342,7 +342,7 @@
 \newcommand\refname{References}
 \newcommand\bibname{References}
 \newcommand\indexname{Index}
-\newcommand\figurename{Fig.}
+\newcommand\figurename{Supp. Fig.}
 \newcommand\tablename{Table}
 
 % Clearemptydoublepage should really clear the running heads too

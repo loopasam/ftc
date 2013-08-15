@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  15 AUG 2013 11:44
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  15 AUG 2013 12:55
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -222,528 +222,139 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 \MPnumerator=\count110
 \everyMPtoPDFconversion=\toks31
 )
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 19.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 11.
  (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 19.
-LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <9> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 19.
-LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <9> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 19.
-LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <19> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 19.
-LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <19> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 19.
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <8> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 19.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 19.
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <16> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 19.
-LaTeX Font Info:    Calculating math sizes for size <13> on input line 19.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13> not available
-(Font)              size <12> substituted on input line 19.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 19.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <13> not available
-(Font)              size <12> substituted on input line 19.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <6.5> not available
-(Font)              size <6> substituted on input line 19.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <13> not available
-(Font)              size <12> substituted on input line 19.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 19.
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 19.
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 19.
-
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-LaTeX Font Info:    Calculating math sizes for size <9.09996> on input line 19.
-
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.54997> not available
-(Font)              size <5> substituted on input line 19.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.54997> not available
-(Font)              size <5> substituted on input line 19.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.54997> not available
-(Font)              size <5> substituted on input line 19.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 19.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <7.5> not available
-(Font)              size <7> substituted on input line 19.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <7.5> not available
-(Font)              size <7> substituted on input line 19.
-
-
-Underfull \hbox (badness 10000) detected at line 19
-[]
- []
-
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 24.
-
-Underfull \hbox (badness 1565) in paragraph at lines 24--31
-\OT1/phv/m/n/8 present here a novel method based on knowledge integration
- []
-
-Missing character: There is no ‚ in font phvr7t!
-Missing character: There is no Ä in font phvr7t!
-Missing character: There is no ô in font phvr7t!
-
-Underfull \hbox (badness 3029) in paragraph at lines 32--37
-[]\OT1/phv/b/n/8 Results: \OT1/phv/m/n/8 Based on an integration of public data
-, we have
- []
-
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 11.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 47.
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-
-Underfull \hbox (badness 3019) in paragraph at lines 49--87
-\OT1/ptm/m/n/9 to new indications (i.e., new diseases) (cite wikipedia and
- []
-
-
-Underfull \hbox (badness 2698) in paragraph at lines 49--87
-\OT1/ptm/m/n/9 better source). When administered in a living organism, a
- []
-
-
-Underfull \hbox (badness 1596) in paragraph at lines 49--87
-\OT1/ptm/m/n/9 compound can indeed play various roles and affect different
- []
-
-
-Underfull \hbox (badness 7099) in paragraph at lines 49--87
-\OT1/ptm/m/n/9 biological processes. Accurately identifying these different
- []
-
-
-Underfull \hbox (badness 4899) in paragraph at lines 49--87
-\OT1/ptm/m/n/9 (http://www.ncbi.nlm.nih.gov/pubmed/23340113). For instance,
- []
-
-
-Underfull \hbox (badness 1019) in paragraph at lines 49--87
-\OT1/ptm/m/n/9 existing drugs and forward similar compounds as repurposing
- []
-
-
-Underfull \hbox (badness 1142) in paragraph at lines 49--87
-\OT1/ptm/m/n/9 hypotheses. A feature of particular interest to describe drugs
- []
-
-
-Underfull \hbox (badness 1062) in paragraph at lines 49--87
-\OT1/ptm/m/n/9 defining MoAs. Indeed, MoAs are terms or categories, it is
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 87.
-
-(/usr/share/texmf-texlive/tex/latex/psnfss/omsphv.fd
-File: omsphv.fd 
-)
-LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 87.
- [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-
-]
-Underfull \hbox (badness 1708) in paragraph at lines 94--100
-[]\OT1/ptm/m/n/9 The knowledge base behind the FTC is built by integrating
- []
-
-
-Underfull \hbox (badness 1189) in paragraph at lines 94--100
-\OT1/ptm/m/n/9 of the OWL constructs and axioms defined in the FTC (see
- []
-
-<fig1.png, id=16, 506.3718pt x 146.4672pt>
-File: fig1.png Graphic file (type png)
- <use fig1.png>
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 105.
-
-<fig2.png, id=18, 244.7544pt x 284.0211pt>
-File: fig2.png Graphic file (type png)
- <use fig2.png>
-Underfull \hbox (badness 6220) in paragraph at lines 119--119
-[][]\OT1/ptm/b/n/8 Fig. 2. \OT1/ptm/m/n/8 Parent categories to the FTC class Pr
-o-fibrinolysis agent
- []
-
-
-Underfull \hbox (badness 2073) in paragraph at lines 119--119
-\OT1/ptm/m/n/8 (FTC[]P0042730). The classification is a direct acyclic graph wh
-ere
- []
-
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 126.
-
-(/usr/share/texmf-texlive/tex/latex/psnfss/omlptm.fd
-File: omlptm.fd 
-)
-LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <9> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 126.
-
-Underfull \hbox (badness 5533) in paragraph at lines 122--131
-[][]\OT1/ptm/m/n/9 In total there are 1280 approved DrugBank compounds
- []
-
-
-Underfull \hbox (badness 1014) in paragraph at lines 122--131
-\OT1/ptm/m/n/9 (chemical and biotherapeutics) perturbing 1264 human protein
- []
-
-
-Underfull \hbox (badness 2521) in paragraph at lines 122--131
-\OT1/ptm/m/n/9 4289 of these categories are related to biological processes
- []
-
-
-Underfull \hbox (badness 7907) in paragraph at lines 122--131
-\OT1/ptm/m/n/9 and 19'064 to the molecular functions. A summary of
- []
-
-
-Underfull \hbox (badness 5189) in paragraph at lines 122--131
-\OT1/ptm/m/n/9 the metrics behind the latest build is available online at
- []
-
-
-Underfull \hbox (badness 5817) in paragraph at lines 122--131
-\OT1/ptm/m/n/9 https://www.ebi.ac.uk/chembl/ftc/evaluation/. Out of all FTC
- []
-
-
-Underfull \hbox (badness 1484) in paragraph at lines 122--131
-\OT1/ptm/m/n/9 classes, 1432 categories (\OML/cmm/m/it/9 >\OT1/ptm/m/n/9 6%) di
-rectly contain at least one
- []
-
-
-Underfull \hbox (badness 2343) in paragraph at lines 122--131
-\OT1/ptm/m/n/9 approved drug. This number increases up to 2532 (\OML/cmm/m/it/9
- >\OT1/ptm/m/n/9 11%)
- []
-
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
-
-Underfull \hbox (badness 2744) in paragraph at lines 133--154
-\OT1/ptm/m/n/9 accordingly. The full methodology behind the evaluation is
- []
-
-
-Underfull \hbox (badness 1092) in paragraph at lines 133--154
-\OT1/ptm/m/n/9 the FTC category Anti-hydrogen:potassium-exchanging ATPase
- []
-
-
-Underfull \hbox (badness 2057) in paragraph at lines 133--154
-\OT1/ptm/m/n/9 https://www.ebi.ac.uk/chembl/ftc/evaluation/FTC[]A0008900. Out
- []
-
-LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <8> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 154.
-LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <8> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 154.
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][][] 
- []
-
-
-Overfull \vbox (1.0pt too high) has occurred while \output is active []
-
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][] 
- []
-
-[2 <./fig2.png>]
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
- <fig3.png, id=25, 506.3718pt x 453.3738pt>
-File: fig3.png Graphic file (type png)
- <use fig3.png>
-<fig4.png, id=26, 506.3718pt x 405.4347pt>
-File: fig4.png Graphic file (type png)
- <use fig4.png>
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
-
-Underfull \hbox (badness 1521) in paragraph at lines 199--216
-\OT1/ptm/m/n/9 when compounds from the same ATC group are considered.
- []
-
-
-Underfull \hbox (badness 1297) in paragraph at lines 199--216
-\OT1/ptm/m/n/9 clustering - manhattan distance) in order to reveal functional
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][][] 
- []
-
-
-Overfull \vbox (1.0pt too high) has occurred while \output is active []
-
- [3 <./fig1.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Missing character: There is no ‚ in font ptmb7t!
-Missing character: There is no Ä in font ptmb7t!
-Missing character: There is no ô in font ptmb7t!
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 11.
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
 
-Underfull \hbox (badness 6396) in paragraph at lines 218--226
-\OT1/ptm/m/n/9 hypotheses can be derived from the FTC. The approach
- []
-
-
-Underfull \hbox (badness 1742) in paragraph at lines 218--226
-\OT1/ptm/m/n/9 presented here makes use of the FTC categories as analogs
- []
-
-
-Underfull \hbox (badness 7273) in paragraph at lines 218--226
-\OT1/ptm/m/n/9 to compartments of a toolbox helping to find drugs to
- []
-
-
-Underfull \hbox (badness 7667) in paragraph at lines 218--226
-\OT1/ptm/m/n/9 treat Alzheimers disease. Five FTC categories containing
- []
-
-
-Underfull \hbox (badness 1960) in paragraph at lines 218--226
-\OT1/ptm/m/n/9 drugs are directly related to the biological processes of the
- []
-
-
-Underfull \hbox (badness 5802) in paragraph at lines 218--226
-\OT1/ptm/m/n/9 neurodegenerative condition: Anti-amyloid precursor protein
- []
-
-
-Underfull \hbox (badness 1888) in paragraph at lines 218--226
-\OT1/ptm/m/n/9 biosynthetic process agent (FTC[]A0042983), Anti-tau protein
- []
-
-
-Overfull \hbox (27.15121pt too wide) in paragraph at lines 218--226
-\OT1/ptm/m/n/9 agent (FTC[]A0048156), Anti-beta amyloid binding agent (FTC[]A00
-01540)
- []
-
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][][] 
- []
-
-
-Overfull \vbox (1.0pt too high) has occurred while \output is active []
-
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][] 
- []
-
-[4 <./fig3.png
-
-pdfTeX warning: /usr/bin/pdflatex (file ./fig3.png): large interlaced PNG might
- cause out of memory (use non-interlaced PNG to fix this)
->] <fig5.png, id=35, 244.7544pt x 189.3474pt>
-File: fig5.png Graphic file (type png)
- <use fig5.png>
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-
-Underfull \hbox (badness 2277) in paragraph at lines 234--256
-\OT1/ptm/m/n/9 and dipivefrin; little information is available regarding their
- []
-
-
-Overfull \hbox (1.9147pt too wide) in paragraph at lines 234--256
-\OT1/ptm/m/n/9 http://www.nature.com/npp/journal/v35/n4/full/npp2009197a.html).
-
- []
-
-
-Underfull \hbox (badness 1546) in paragraph at lines 234--256
-\OT1/ptm/m/n/9 cholesterol metabolism in the brain appears to be related to
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][][] 
- []
-
-
-Overfull \vbox (1.0pt too high) has occurred while \output is active []
-
- [5 <./fig4.png
-
-pdfTeX warning: /usr/bin/pdflatex (file ./fig4.png): large interlaced PNG might
- cause out of memory (use non-interlaced PNG to fix this)
->]
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-
-Underfull \hbox (badness 1067) in paragraph at lines 266--292
-\OT1/ptm/m/n/9 help to generate a larger number of hypotheses, the primary
- []
-
-
-Underfull \hbox (badness 1533) in paragraph at lines 266--292
-\OT1/ptm/m/n/9 results. No document was found to support the involvement
- []
-
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][][] 
- []
-
-
-Overfull \vbox (1.0pt too high) has occurred while \output is active []
-
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][] 
- []
-
-[6 <./fig5.png>]
-Underfull \hbox (badness 5008) in paragraph at lines 323--327
+Underfull \hbox (badness 5008) in paragraph at lines 19--30
 []\OT1/ptm/m/n/9 The code behind the creation of the resource is entirely
  []
 
 
-Underfull \hbox (badness 8019) in paragraph at lines 323--327
-\OT1/ptm/m/n/9 open and available at https://github.com/loopasam/ftc. The
+Underfull \hbox (badness 4779) in paragraph at lines 19--30
+\OT1/ptm/m/n/9 application built on the top of the FTC can be find at
  []
 
 
-Underfull \hbox (badness 2856) in paragraph at lines 323--327
-\OT1/ptm/m/n/9 web application built on the top of the FTC can be find
+Underfull \hbox (badness 3803) in paragraph at lines 19--30
+\OT1/ptm/m/n/9 be familiar with description logics and the Web Ontology
  []
 
 
-Underfull \hbox (badness 1237) in paragraph at lines 323--327
-\OT1/ptm/m/n/9 at https://www.ebi.ac.uk/chembl/ftc and the documentation can
+Underfull \hbox (badness 1371) in paragraph at lines 19--30
+\OT1/ptm/m/n/9 Language (OWL) to fully understand the construction of the
  []
 
 
-Underfull \hbox (badness 3219) in paragraph at lines 323--327
-\OT1/ptm/m/n/9 be accessed at https://github.com/loopasam/ftc/wiki. The full
+Underfull \hbox (badness 1199) in paragraph at lines 19--30
+\OT1/ptm/m/n/9 allows fast parallel reasoning, thanks to ELKs design. More
  []
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 345.
-Extra height:28.98694pt when 406.55641pt
-Extra height:28.98694pt when 407.55641pt
-Extra height:28.98694pt when 408.55641pt
-Extra height:28.98694pt when 409.55641pt
-Extra height:0.0pt when 410.55641pt
-(2)Left:410.55641pt Right:402.11284pt Output:410.55641pt
-- LAST -
-Extra skip:0.0pt
-Left:410.55641pt
-Right:402.11284pt
-Output:410.55641pt
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <6.5> not available
+(Font)              size <6> substituted on input line 35.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <6.5> not available
+(Font)              size <6> substituted on input line 35.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <6.5> not available
+(Font)              size <6> substituted on input line 35.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 35.
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 35.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 1490) in paragraph at lines 57--66
+\OT1/ptm/m/n/9 classify the knowledge base accordingly; drugs will then be
+ []
+
+
+Underfull \hbox (badness 1062) in paragraph at lines 57--66
+\OT1/ptm/m/n/9 after the reasoning step. Equivalent definitions are written as
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 57--66
+\OT1/ptm/m/n/9 OWL class expressions using the entities of the knowledge
+ []
+
+
+Underfull \hbox (badness 2512) in paragraph at lines 57--66
+\OT1/ptm/m/n/9 base. The core classes and properties are presented in the
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 57--66
+\OT1/ptm/m/n/9 supplementary material, this section assumes that the reader
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.74 FTC class Anti-blood coagulation agent (FTC_
+                                                 A0007596).
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.75 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Underfull \hbox (badness 1418) in paragraph at lines 68--75
+[]\OT1/ptm/m/n/9 Some of the FTC categories are created from the biological
+ []
+
+
+LaTeX Warning: File `figS1.png' not found on input line 77.
+
+
+! Package pdftex.def Error: File `figS1.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 \centerline{\includegraphics{figS1.png}}
+                                             
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 77.
+(/usr/share/texmf-texlive/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 90.
+LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <8> not available
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 90.
+LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <8> not available
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 90.
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][][] 
@@ -752,36 +363,471 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
- [7]
-(./document.aux)
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+]
+Overfull \hbox (13.63239pt too wide) in paragraph at lines 99--115
+[]\OT1/ptm/m/n/9 The DrugBank database is a unique bioinformatics and cheminfor
+matics
+ []
+
+
+Underfull \hbox (badness 1436) in paragraph at lines 99--115
+\OT1/ptm/m/n/9 target present in Uniprot (cite). The protein targets all have
+ []
+
+
+Underfull \hbox (badness 1199) in paragraph at lines 117--126
+\OT1/ptm/m/n/9 targets to molecular functions and biological processes. Each
+ []
+
+
+Underfull \hbox (badness 1874) in paragraph at lines 117--126
+\OT1/ptm/m/n/9 protein annotated with a function creates an axiom such as
+ []
+
+
+Underfull \hbox (badness 1442) in paragraph at lines 117--126
+\OT1/ptm/m/n/9 blood coagulation. Each protein can be involved in multiple
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 127--137
+[]\OT1/ptm/m/n/9 Supplementary Material The knowledge base is fully built at
+ []
+
+
+Underfull \hbox (badness 2035) in paragraph at lines 159--163
+[][]\OT1/ptm/m/n/9 Figure 6: Example of evaluation point. Classes from the
+ []
+
+
+Underfull \hbox (badness 1629) in paragraph at lines 159--163
+\OT1/ptm/m/n/9 present in each side of the equivalences are compared, and
+ []
+
+
+Underfull \hbox (badness 1092) in paragraph at lines 170--175
+[]\OT1/ptm/m/n/9 These drugs are present in the ATC class(es) but not in the
+ []
+
+
+Overfull \hbox (261.0pt too wide) has occurred while \output is active
+[][][] 
+ []
+
+
+Overfull \vbox (1.0pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (261.0pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[2]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 233.
+
+Underfull \hbox (badness 1142) in paragraph at lines 258--265
+\OT1/ptm/m/n/9 effect on an organism. Comment: In the context of the
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (261.0pt too wide) has occurred while \output is active
+[][][] 
+ []
+
+
+Overfull \vbox (1.0pt too high) has occurred while \output is active []
+
+ [3]
+! Missing $ inserted.
+<inserted text> 
+                $
+l.268 ...er: https://www.ebi.ac.uk/chembl/ftc/FTC_
+                                                  C1
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.271 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (42.83272pt too wide) in paragraph at lines 267--271
+[][]\OT1/ptm/m/n/9 therapeutic agent Identifier: https://www.ebi.ac.uk/chembl/f
+tc/FTC$[]\OT1/cmr/m/n/9 1\OML/cmm/m/it/9 Label \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (95.79327pt too wide) in paragraph at lines 267--271
+\OML/cmm/m/it/9 therapeuticagentDefinition \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 Rol
+eofadrugcapableofproducingatherapeuticeffect:$ 
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.273 ...er: https://www.ebi.ac.uk/chembl/ftc/FTC_
+                                                  C2
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.276 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (58.84413pt too wide) in paragraph at lines 272--276
+[][]\OT1/ptm/m/n/9 DrugBank compound Identifier: https://www.ebi.ac.uk/chembl/f
+tc/FTC$[]\OT1/cmr/m/n/9 2\OML/cmm/m/it/9 Label \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (20.61864pt too wide) in paragraph at lines 272--276
+\OML/cmm/m/it/9 DrugBankcompoundDefinition \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 Dru
+gcomingfromDrugBank:$ 
+ []
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.281 ...fier: http://purl.obolibrary.org/obo/BFO_
+                                                  0000050
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! You can't use `macro parameter character #' in math mode.
+l.284 ...ontology.org/GO.ontology.relations.shtml#
+                                                  partof
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.289 ...logy.org/GO.ontology-ext.relations.shtml#
+                                                  haspart
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.294 ...ontology.org/GO.ontology.relations.shtml#
+                                                  regulates
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.299 ...ontology.org/GO.ontology.relations.shtml#
+                                                  regulates
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! You can't use `macro parameter character #' in math mode.
+l.304 ...ontology.org/GO.ontology.relations.shtml#
+                                                  regulates
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.337 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Underfull \hbox (badness 6876) in paragraph at lines 278--337
+\OT1/ptm/m/n/9 (RBox). Below is a list of the OWL object properties
+ []
+
+
+Underfull \hbox (badness 4036) in paragraph at lines 278--337
+\OT1/ptm/m/n/9 present inside the FTC knowledge base. part-of Identifier:
+ []
+
+
+Overfull \hbox (54.94405pt too wide) in paragraph at lines 278--337
+\OT1/ptm/m/n/9 http://purl.obolibrary.org/obo/BFO$[]\OT1/cmr/m/n/9 000050\OML/c
+mm/m/it/9 Characteristic \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 TransitiveLabel \OT1/
+cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (112.21883pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 part \OMS/cmsy/m/n/9 ^^@ \OML/cmm/m/it/9 ofDefinition \OT1/cmr/
+m/n/9 : \OML/cmm/m/it/9 AsdefinedandusedintheGeneOntology:Moreinformationathttp
+ \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (31.62662pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 ==www:geneontology:org=GO:ontology:relations:shtmlpartofhas \OM
+S/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (78.3761pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 partIdentifier \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 http \OT1/cmr/m
+/n/9 : \OML/cmm/m/it/9 ==purl:obolibrary:org=obo=BFO[]\OT1/cmr/m/n/9 000051\OML
+/cmm/m/it/9 Characteristic \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (191.57584pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 TransitiveLabel \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 has \OMS/cmsy/
+m/n/9 ^^@ \OML/cmm/m/it/9 partDefinition \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 Asdef
+inedandusedintheGeneOntology:Moreinformationathttp \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (121.54056pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 ==www:geneontology:org=GO:ontology \OMS/cmsy/m/n/9 ^^@ \OML/cmm
+/m/it/9 ext:relations:shtmlhaspartregulatesIdentifier \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (12.07811pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 http \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 ==purl:obolibrary:org=obo
+=RO[]\OT1/cmr/m/n/9 002211\OML/cmm/m/it/9 Chainedproperty \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (12.4443pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 regulatesopart \OMS/cmsy/m/n/9 ^^@ \OML/cmm/m/it/9 of\OMS/cmsy/
+m/n/9 ^^@ \OML/cmm/m/it/9 > regulatesLabel \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 reg
+ulatesDefinition \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (23.92833pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 AsdefinedandusedintheGeneOntology:Moreinformationathttp \OT1/cm
+r/m/n/9 :
+ []
+
+
+Overfull \hbox (71.29738pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 ==www:geneontology:org=GO:ontology:relations:shtmlregulatesnega
+tively \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (97.07394pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 regulatesIdentifier \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 http \OT1/
+cmr/m/n/9 : \OML/cmm/m/it/9 ==purl:obolibrary:org=obo=RO[]\OT1/cmr/m/n/9 002212
+\OML/cmm/m/it/9 SubPropertyOf \OT1/cmr/m/n/9 :
+ []
+
+
+Underfull \hbox (badness 2990) in paragraph at lines 278--337
+\OML/cmm/m/it/9 regulatesLabel \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 negatively \OMS
+/cmsy/m/n/9 ^^@ \OML/cmm/m/it/9 regulatesDefinition \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (23.92833pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 AsdefinedandusedintheGeneOntology:Moreinformationathttp \OT1/cm
+r/m/n/9 :
+ []
+
+
+Overfull \hbox (68.37863pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 ==www:geneontology:org=GO:ontology:relations:shtmlregulatesposi
+tively \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (97.07394pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 regulatesIdentifier \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 http \OT1/
+cmr/m/n/9 : \OML/cmm/m/it/9 ==purl:obolibrary:org=obo=RO[]\OT1/cmr/m/n/9 002213
+\OML/cmm/m/it/9 SubPropertyOf \OT1/cmr/m/n/9 :
+ []
+
+
+Underfull \hbox (badness 3942) in paragraph at lines 278--337
+\OML/cmm/m/it/9 regulatesLabel \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 positively \OMS
+/cmsy/m/n/9 ^^@ \OML/cmm/m/it/9 regulatesDefinition \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (23.92833pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 AsdefinedandusedintheGeneOntology:Moreinformationathttp \OT1/cm
+r/m/n/9 :
+ []
+
+
+Overfull \hbox (63.23082pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 ==www:geneontology:org=GO:ontology:relations:shtmlregulatesinvo
+lved \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (27.73235pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 inIdentifier \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 https \OT1/cmr/m/
+n/9 : \OML/cmm/m/it/9 ==www:ebi:ac:uk=chembl=ftc=FTC[]\OT1/cmr/m/n/9 1\OML/cmm/
+m/it/9 Label \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (34.33145pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 involved \OMS/cmsy/m/n/9 ^^@ \OML/cmm/m/it/9 inDomain \OT1/cmr/
+m/n/9 : \OML/cmm/m/it/9 proteinRange \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 biologica
+lprocessDefinition \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (4.59525pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 Entailstheparticipationofaproteininabiologicalprocesshas \OMS/c
+msy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (55.92628pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 functionIdentifier \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 https \OT1/
+cmr/m/n/9 : \OML/cmm/m/it/9 ==www:ebi:ac:uk=chembl=ftc=FTC[]\OT1/cmr/m/n/9 2\OM
+L/cmm/m/it/9 Label \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (51.36906pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 has \OMS/cmsy/m/n/9 ^^@ \OML/cmm/m/it/9 functionDomain \OT1/cmr
+/m/n/9 : \OML/cmm/m/it/9 proteinRange \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 molecula
+rfunctionDefinition \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (52.74124pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 Describesthemolecularfunctionaproteincanrealize:perturbsIdentif
+ier \OT1/cmr/m/n/9 :
+ []
+
+
+Underfull \hbox (badness 7151) in paragraph at lines 278--337
+\OML/cmm/m/it/9 https \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 ==www:ebi:ac:uk=chembl=f
+tc=FTC[]\OT1/cmr/m/n/9 3\OML/cmm/m/it/9 Label \OT1/cmr/m/n/9 :
+ []
+
+
+Underfull \hbox (badness 1490) in paragraph at lines 278--337
+\OML/cmm/m/it/9 perturbsDomain \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 drugRange \OT1/
+cmr/m/n/9 : \OML/cmm/m/it/9 proteinDefinition \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (693.77196pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 Specificbiochemicalinteractionthroughwhichadrugsubstancewillaff
+ecttheactivityofaprotein\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 mechanismofaction\OT1/c
+mr/m/n/9 )\OML/cmm/m/it/9 :Thepropertyreferstothespecificmoleculartargetstowhic
+hthedrugbinds; suchasanenzymeorreceptor:negatively \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (53.72813pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 perturbsIdentifier \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 https \OT1/
+cmr/m/n/9 : \OML/cmm/m/it/9 ==www:ebi:ac:uk=chembl=ftc=FTC[]\OT1/cmr/m/n/9 4\OM
+L/cmm/m/it/9 Label \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (1.47916pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 negatively \OMS/cmsy/m/n/9 ^^@ \OML/cmm/m/it/9 perturbsSubPrope
+rtyOf \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 perturbsDefinition \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (608.21216pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 Specificbiochemicalinteractionthroughwhichadrugsubstancewilldec
+reasetheactivityofaprotein:Thepropertyreferstothespecificmoleculartargetstowhic
+hthedrugbinds; suchasanenzymeorreceptor:positively \OMS/cmsy/m/n/9 ^^@
+ []
+
+
+Overfull \hbox (53.72813pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 perturbsIdentifier \OT1/cmr/m/n/9 : \OML/cmm/m/it/9 https \OT1/
+cmr/m/n/9 : \OML/cmm/m/it/9 ==www:ebi:ac:uk=chembl=ftc=FTC[]\OT1/cmr/m/n/9 5\OM
+L/cmm/m/it/9 Label \OT1/cmr/m/n/9 :
+ []
+
+
+Overfull \hbox (560.66461pt too wide) in paragraph at lines 278--337
+\OML/cmm/m/it/9 Specificbiochemicalinteractionthroughwhichadrugsubstancewillinc
+reasetheactivityofaprotein:Thepropertyreferstothespecificmoleculartargetstowhic
+hthedrugbinds; suchasanenzymeorreceptor:$ 
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 350.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.98694pt when 376.75119pt
+Extra height:0.0pt when 377.75119pt
+(2)Left:377.75119pt Right:375.50238pt Output:377.75119pt
+- LAST -
+Extra skip:0.0pt
+Left:377.75119pt
+Right:375.50238pt
+Output:377.75119pt
+
+Overfull \hbox (261.0pt too wide) has occurred while \output is active
+[][][] 
+ []
+
+
+Overfull \vbox (1.0pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (261.0pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[4] (./document.aux)
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 1.0pt have occurred.
+(Font)              up to 0.5pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 2727 strings out of 493848
- 31767 string characters out of 1152822
- 100342 words of memory out of 3000000
- 5938 multiletter control sequences out of 15000+50000
- 48960 words of font info for 101 fonts, out of 3000000 for 9000
+ 2622 strings out of 493848
+ 30357 string characters out of 1152822
+ 105538 words of memory out of 3000000
+ 5853 multiletter control sequences out of 15000+50000
+ 26406 words of font info for 54 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
- 36i,13n,26p,781b,298s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,8n,26p,464b,259s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/typ
-e1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
-fonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy
-6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/
-share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-
-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-texlive/fonts/typ
-e1/urw/helvetic/uhvbo8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/
-uhvr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvro8a.pfb></usr
-/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive
-/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/tim
-es/utmri8a.pfb>
-Output written on document.pdf (7 pages, 3817211 bytes).
+ve/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-texlive/fonts/typ
+e1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/type1/public/am
+sfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr
+9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/
+share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-texliv
+e/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw
+/helvetic/uhvbo8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pf
+b></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-
+texlive/fonts/type1/urw/times/utmri8a.pfb>
+Output written on document.pdf (4 pages, 141505 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
+ 60 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
