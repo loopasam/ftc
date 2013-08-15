@@ -1,1 +1,1 @@
-## Article in preparation for submission to Bioinformatics
+Article in preparation for submission to Bioinformatics

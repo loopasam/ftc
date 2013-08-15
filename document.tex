@@ -96,16 +96,28 @@ The GO terms serve as template to create the FTC categories describing the MoAs;
 known links between drugs and their protein targets. Uniprot maps targets to their respective GO annotations. 
 Drugs are further assigned into mode of action categories based of the OWL constructs and axioms defined in the 
 FTC (see Availability and Implementation). A reasoner, a program capable of understanding such axioms, performed this task. 
-The process to build the FTC is summarised in Figure 0. It takes around 5 seconds on a modern 
+The process to build the FTC is summarised in Figure 0.
+
+\begin{figure*}[!tpb]%figure1
+\centerline{\includegraphics{fig1.png}}
+\caption{Parent categories to the FTC class Pro-fibrinolysis agent (FTC\_P0042730). The classification is a direct 
+acyclic graph where categories are describing increasingly specific concepts. Arrows entails subclass relationships 
+between the terms (is a relation).}\label{fig:01}
+\end{figure*}
+
+It takes around 5 seconds on a modern 
 laptop (4 cores processor with 4 Gb of memory) to classify the knowledge base using the ELK reasoner (cite). 
 Other OWL reasoners have been tried (e.g, Hermit (cite), Pellet (cite), etc...) but none of them were suitable for this purpose; 
 the classification time was always superior to a few minutes (data not shown). The FTC has a taxonomic structure as illustrated 
 on Figure 1, which arises when the reasoner classifies the knowledge base. Categories can have multiple parents and multiple children. 
 The reader can browse and access the content of the FTC online at {{https://www.ebi.ac.uk/chembl/ftc}}.
 
-Figure 1: Parent categories to the FTC class Pro-fibrinolysis agent (FTC\_P0042730). The classification is a direct 
+\begin{figure}[!tpb]%figure2
+\centerline{\includegraphics{fig2.png}}
+\caption{Parent categories to the FTC class Pro-fibrinolysis agent (FTC\_P0042730). The classification is a direct 
 acyclic graph where categories are describing increasingly specific concepts. Arrows entails subclass relationships 
-between the terms (is a relation).
+between the terms (is a relation).}\label{fig:02}
+\end{figure}
 
 In total there are 1280 approved DrugBank compounds (chemical and biotherapeutics) perturbing 1264 human protein targets. 
 The FTC introduces 23'353 new categories describing the mode and mechanism of action of therapeutic compounds. 4289 of these 
@@ -143,7 +155,8 @@ equivalent ATC categories.
 \subsection{Exploration}
 The FTC was designed to assist drug repurposing analyses by explicitly representing the poly-pharmacology of 
 approved drugs. In this section we exemplify how the resource can be used to perform different types of analysis.
-Polypharmacology spectrum
+
+\subsubsection{Polypharmacology spectrum}
 With more information on a drug’s molecular targets and their physiological roles, the more opportunities 
 exist to re-orient a drug into doing something new. The therapeutic agents described in the FTC can have several MoAs, 
 representing the intrinsic polypharmacology of the approved compounds. Figure 2 illustrates the poly-pharmacology 
@@ -153,10 +166,14 @@ some FTC categories are particularly abstract (e.g, Anti-biological process agen
 categories to which the drug belongs with an explicit and clear meaning. These discrete MoAs are a good starting 
 point to understand what a compound can do when administered in a human system. The human readable definitions 
 associated to each FTC category furthermore help the user to choose the adequate MoA for the desired outcome.
- 
-Figure 2: Distribution of the direct and indirect number of MoAs per drug. Means are indicated with a solid line. 
-When considering indirect categories, the distribution range is wider.
-Drugs with similar mode of actions have similar indications
+
+\begin{figure*}[!tpb]%figure3
+\centerline{\includegraphics{fig3.png}}
+\caption{Distribution of the direct and indirect number of MoAs per drug. 
+Means are indicated with a solid line. When considering indirect categories, the distribution range is wider.}\label{fig:03}
+\end{figure*}
+
+\subsubsection{Drugs with similar mode of actions have similar indications}
 The list of MoAs attributed to a drug can be exploited as a descriptor for the therapeutic agent. 
 The tree structure of the FTC can be used to derive some similarity metrics over the MoAs. The underlying 
 heuristic is to assume that the closer two entities are in a taxonomy or ontology, the more similar they are. 
@@ -168,21 +185,24 @@ intuitively expected to be the central concept leading to the indication of the 
 similar MoAs would be indicated towards similar therapeutic areas. The heat map presented in Figure 3 shows a pairwise 
 comparison of all the drugs of the FTC based on their relative MoA similarity. The compounds are further grouped by 
 therapeutic indications as defined by the ATC.
- 
-Figure 3: Pairwise comparison of mode of action similarities. Only the first level of 
+
+\begin{figure*}[!tpb]%figure4
+\centerline{\includegraphics{fig4.png}}
+\caption{Pairwise comparison of mode of action similarities. Only the first level of 
 the ATC is considered. The reader can refer to Supplementary Figure 1A for a two ATC level granularity. 
 The similarity descriptor ranges from 0 (not similar - white) to 1 (identical - black). Drugs are grouped according 
 to their first ATC level (colours on the side). For instance, the compound reteplase (DB00015) has the ATC code B01AD07, 
 which appears as “B” (dark orange) on the plot. The average similarity of drugs present in the same therapeutic category 
-is significantly higher on average when separately compared to all other indications.
- 
+is significantly higher on average when separately compared to all other indications.}\label{fig:04}
+\end{figure*}
+
 The heat map displayed in Figure 3 reveals some square patches around the central diagonal. 
 The overall similarity appears higher when compounds from the same ATC group are considered. 
 A significance analysis (cf details covered in sections “Semantic similarity” 
 and “Mode of action similarity against indication” from Availability and Implementation) 
 revealed that the average MoA similarity of compounds belonging to the same ATC category is 
 significantly higher than when compounds belonging to different categories are compared. Indeed, for 
-each category, the p-value was inferior to 0.05 based on 20’000 random permutations over the similarity values. 
+each category, the p-value was inferior to 0.05 based on 20'000 random permutations over the similarity values. 
 This result supports the idea that drugs with similar MoAs have similar indications. Note that the mean of the 
 similarity values was considered for the statistical analysis; some outliers are also present in the map, which 
 can be interpreted as repurposing hypotheses. These outliers have indeed similar MoAs, yet they belong to totally 
@@ -194,25 +214,22 @@ functional clusters of drugs. Finally, Figure S1C shows the distribution when co
 their identifiers; no patterns are identifiable in this case. Taken together, these results emphasize that the MoAs as 
 defined in the FTC are indeed on average associated with the therapeutic indication of a drug.
  
-Supplementary Figure S1: Pairwise comparison of mode of action similarities. The compounds are grouped 
-by ATC code (2 levels - legend not shown) on panel A. A hierarchical 
-clustering step (based on manhattan distance) was applied on panel B. The 
-dendrogram reflects the original structure of the FTC. Panel C shows the compounds 
-sorted by DrugBank identifiers only (≈ random). The colours displayed on panel B and C 
-correspond to one level ATC categories and are indexed in the legend panel.
-Drug repurposing hypotheses for Alzheimer’s disease
+\subsection{Drug repurposing hypotheses for Alzheimer’s disease}
 In this section we provide examples how actual drug repurposing hypotheses can be derived from the FTC. 
 The approach presented here makes use of the FTC categories as analogs to compartments of a toolbox helping to 
 find drugs to treat Alzheimer’s disease. Five FTC categories containing drugs are directly related to the biological 
 processes of the neurodegenerative condition: Anti-amyloid precursor protein biosynthetic process agent (FTC\_A0042983), 
-Anti-tau-protein kinase activity agent (FTC\_A0050321), Anti-tau protein binding agent (FTC\_A0048156), Anti-beta-amyloid 
-binding agent (FTC\_A0001540) and Pro-beta-amyloid binding agent (FTC\_P0001540). We have then considered the drugs present 
+Anti-tau protein kinase activity agent (FTC\_A0050321), Anti-tau protein binding agent (FTC\_A0048156), Anti-beta amyloid 
+binding agent (FTC\_A0001540) and Pro-beta amyloid binding agent (FTC\_P0001540). We have then considered the drugs present 
 inside each of these classes as potential candidates. Figure 4 shows these drugs, which have been further manually grouped 
 based on the overall similarity of their actions (letters on Figure 4).
- 
-Figure 4: FTC categories (letters A, F, H, I and J) describing some of the modes and mechanisms of 
+
+\begin{figure}[!tpb]%figure5
+\centerline{\includegraphics{fig5.png}}
+\caption{FTC categories (letters A, F, H, I and J) describing some of the modes and mechanisms of 
 action that could impact Alzheimer’s disease. Drugs classified in these FTC categories are listed and further 
-manually grouped based on their mode of action similarities (subgroups B, C, D, E and G).
+manually grouped based on their mode of action similarities (subgroups B, C, D, E and G).}\label{fig:05}
+\end{figure}
  
 The subgroups B, C and D are inhibitors of the cholinergic system and some of them, such as galantamine (DB00674), are already 
 investigated to treat Alzheimer’s disease and other related dementias (pubchem). This class of agent is in line with the 
@@ -292,27 +309,7 @@ note that the ATC/FTC equivalences are open and editable online, any modificatio
 incorporated in the next release of the resource. It is also possible to evaluate the FTC against a different 
 taxonomy, like the Medical Subject Headings for example, which can be subject to future work.
 
-\begin{figure}[!tpb]%figure1
-%\centerline{\includegraphics{fig01.eps}}
-\caption{Caption, caption.}\label{fig:01}
-\end{figure}
-
-\begin{figure}[!tpb]%figure2
-%\centerline{\includegraphics{fig02.eps}}
-\caption{Caption, caption.}\label{fig:02}
-\end{figure}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     please remove the " % " symbol from \centerline{\includegraphics{fig01.eps}}
-%     as it may ignore the figures.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \section{Conclusion}
-
 This manuscript introduces the FTC, a free, open and extensible resource, which can assist drug repurposing 
 initiatives or enhance computational studies making use of the concept of mode of action. The construction of 
 the classification relies on description logics as a means to define the mode and mechanism of action of approved 
@@ -321,6 +318,12 @@ the ATC. We further illustrate the tight relationship between the MoA and the in
 resource can serve as a starting point to formulate hypotheses for Alzheimer's disease. The work leverages the 
 semantics of distinct databases, working in parallel on different thematics. The platform will be further used 
 to generate predictions in a systematic fashion, which can then be experimentally tested in the laboratory for validation.
+
+\section{Availability and Implementation}
+The code behind the creation of the resource is entirely open and available 
+at {{https://github.com/loopasam/ftc}}. The web application built on the top of the FTC can be 
+find at {{https://www.ebi.ac.uk/chembl/ftc}} and the documentation can be accessed at {{https://github.com/loopasam/ftc/wiki}}. The full
+description of the methodology used to generate the classification is available as supplementary material on Bioinformatics website.
 
 \section*{Acknowledgement}
 Text Text Text Text Text Text  Text Text.  \citealp{Boffelli03} might want to know about  text text text text
