@@ -1,3 +1,1 @@
-Article related to the FTC
-
-In progress
+## Article in preparation for submission to Bioinformatics
