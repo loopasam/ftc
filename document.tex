@@ -24,7 +24,7 @@ description logics and the Web Ontology Language (OWL) to fully understand the c
 knowledge base. An introduction to description logics from the perspective of the biomedical scientist is 
 available on the wiki at {{https://github.com/loopasam/ftc/wiki/Description-Logics}}. The FTC implementation 
 relies mostly on Brain (cite) and the web application builds on the top of the Play! framework (cite). 
-Classification tasks use the ELK reasoner (cite). The computer hosting the web application has 8Go of memory 
+Classification tasks use the ELK reasoner (cite). The computer hosting the web application has 8 Gb of memory 
 with 4 processors, this architecture allows fast parallel reasoning, thanks to ELK’s design. More functionalities 
 will be added to the web application following user requirements (lean implementation).
 
@@ -71,7 +71,7 @@ two possible ways a compound might impact the biological process. Anti-biologica
 contain the drugs that negatively perturb a target involved in the positive regulation of the biological process. 
 The anti categories also feature the compounds that positively perturb a negative regulator of the same process. 
 The pro categories are equivalent to the opposite pattern. Figure 5 illustrates the equivalent definitions for the 
-FTC class Anti-blood coagulation agent (FTC_A0007596).
+FTC class Anti-blood coagulation agent (FTC\_A0007596).
  
 \begin{figure}[!tpb]%figureS1
 \centerline{\includegraphics{figS1.png}}
@@ -156,10 +156,13 @@ by hand and not themselves evaluated. The full list of evaluation points as well
 are available online at https://www.ebi.ac.uk/chembl/ftc/evaluation/. Each evaluation point has a series of 
 true/false positive and false negative drugs associated with it.
  
-Figure 6: Example of evaluation point. Classes from the ATC are manually 
+\begin{figure}[!tpb]%figureS2
+\centerline{\includegraphics{figS2.png}}
+\caption{Example of evaluation point. Classes from the ATC are manually 
 mapped to classes from the FTC. The drugs present in each side of the equivalences 
 are compared, and some metrics are derived from it (false positive/negative and true positive). 
-A summary of the evaluation is available online at {{https://www.ebi.ac.uk/chembl/ftc/evaluation/}}.
+A summary of the evaluation is available online at {{https://www.ebi.ac.uk/chembl/ftc/evaluation/}}.}\label{fig:S02}
+\end{figure}
 
 \subsection{True Positives}
 Drugs that are present in both the FTC and the equivalent ATC class(es) are called true positives. 
@@ -230,7 +233,7 @@ Some of these core classes are coming from external ontologies, in which case th
 
 
 \begin{itemize}
-\item \textbf{molecular function} \\
+\item \textbf{Molecular Function} \\
 Identifier: http://purl.obolibrary.org/obo/GO\_0003674 \\
 Label: molecular function \\
 Definition: As defined by the Gene Ontology. Elemental activities, such as catalysis or binding, describing 
@@ -238,7 +241,7 @@ the actions of a gene product at the molecular level. A given gene product may e
 \end{itemize}
 
 \begin{itemize}
-\item \textbf{biological process} \\
+\item \textbf{Biological Process} \\
 Identifier: http://purl.obolibrary.org/obo/GO\_0008150 \\
 Label: biological process \\
 Definition: As defined by the Gene Ontology: Any process specifically pertinent to the functioning of 
@@ -259,81 +262,129 @@ Comment: Gene products present inside the FTC are all human proteins. Uniprot UR
 Identifier: http://schema.org/Drug \\
 Label: drug \\
 Definition: As defined by schema.org. A chemical or biologic substance, used as a medical therapy, that has a 
-physiological effect on an organism.
+physiological effect on an organism. \\
 Comment: In the context of the FTC, DrugBank chemicals are considered for their role as therapeutic agent 
 rather than for their chemical structure. Mode of action classes are representing agent types and are subclasses of this concept.
 \end{itemize}
 
-therapeutic agent
-Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC_C1
-Label: therapeutic agent
+\begin{itemize}
+\item \textbf{Therapeutic Agent} \\
+Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC\_C1 \\
+Label: therapeutic agent \\
 Definition: Role of a drug capable of producing a therapeutic effect.
+\end{itemize}
 
-DrugBank compound
-Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC_C2
-Label: DrugBank compound
+\begin{itemize}
+\item \textbf{DrugBank Compound} \\
+Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC\_C2 \\
+Label: DrugBank compound \\
 Definition: Drug coming from DrugBank.
+\end{itemize}
 
 \subsection{Core properties}
 The expressivity of the FTC comes mostly for the properties (RBox). Below is a list of the 
 OWL object properties present inside the FTC knowledge base.
-part-of
-Identifier: http://purl.obolibrary.org/obo/BFO_0000050
-Characteristic: Transitive
-Label: part-of
-Definition: As defined and used in the Gene Ontology. More information at http://www.geneontology.org/GO.ontology.relations.shtml#partof
-has-part
-Identifier: http://purl.obolibrary.org/obo/BFO_0000051
-Characteristic: Transitive
-Label: has-part
-Definition: As defined and used in the Gene Ontology. More information at http://www.geneontology.org/GO.ontology-ext.relations.shtml#haspart
-regulates
-Identifier: http://purl.obolibrary.org/obo/RO_0002211
-Chained property: regulates o part-of -> regulates
-Label: regulates
-Definition: As defined and used in the Gene Ontology. More information at http://www.geneontology.org/GO.ontology.relations.shtml#regulates
-negatively-regulates
-Identifier: http://purl.obolibrary.org/obo/RO_0002212
-SubPropertyOf: regulates
-Label: negatively-regulates
-Definition: As defined and used in the Gene Ontology. More information at http://www.geneontology.org/GO.ontology.relations.shtml#regulates
-positively-regulates
-Identifier: http://purl.obolibrary.org/obo/RO_0002213
-SubPropertyOf: regulates
-Label: positively-regulates
-Definition: As defined and used in the Gene Ontology. More information at http://www.geneontology.org/GO.ontology.relations.shtml#regulates
-involved-in
-Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC_R1
-Label: involved-in
-Domain: protein
-Range: biological process
-Definition: Entails the participation of a protein in a biological process
-has-function
-Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC_R2
-Label: has-function
-Domain: protein
-Range: molecular function
-Definition: Describes the molecular function a protein can realize.
-perturbs
-Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC_R3
-Label: perturbs
-Domain: drug
-Range: protein
+
+\begin{itemize}
+\item \textbf{Part Of} \\
+Identifier: http://purl.obolibrary.org/obo/BFO\_0000050 \\
+Characteristic: Transitive \\
+Label: part-of \\
+Definition: As defined and used in the Gene Ontology.
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Has Part} \\
+Identifier: http://purl.obolibrary.org/obo/BFO\_0000051 \\
+Characteristic: Transitive \\
+Label: has-part \\
+Definition: As defined and used in the Gene Ontology.
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Regulates} \\
+Identifier: http://purl.obolibrary.org/obo/RO\_0002211 \\
+Chained property: regulates o part-of -> regulates \\
+Label: regulates \\
+Definition: As defined and used in the Gene Ontology.
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Negatively Regulates} \\
+Identifier: http://purl.obolibrary.org/obo/RO\_0002212 \\
+SubPropertyOf: regulates \\
+Label: negatively-regulates \\
+Definition: As defined and used in the Gene Ontology.
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Positively Regulates} \\
+Identifier: http://purl.obolibrary.org/obo/RO\_0002213 \\
+SubPropertyOf: regulates \\
+Label: positively-regulates \\
+Definition: As defined and used in the Gene Ontology.
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Involved In} \\
+Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC\_R1 \\
+Label: involved-in \\
+Domain: protein \\
+Range: biological process \\
+Definition: Entails the participation of a protein in a biological process. \\
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Has Function} \\
+Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC\_R2 \\
+Label: has-function \\
+Domain: protein \\
+Range: molecular function \\
+Definition: Describes the molecular function a protein can realize. \\
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Perturbs} \\
+Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC\_R3 \\
+Label: perturbs \\
+Domain: drug \\
+Range: protein \\
 Definition: Specific biochemical interaction through which a drug substance 
 will affect the activity of a protein (mechanism of action). The property refers to the specific molecular 
 targets to which the drug binds, such as an enzyme or receptor.
-negatively-perturbs
-Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC_R4
-Label: negatively-perturbs
-SubPropertyOf: perturbs
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Negatively Perturbs} \\
+Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC\_R4 \\
+Label: negatively-perturbs \\
+SubPropertyOf: perturbs \\
 Definition: Specific biochemical interaction through which a drug substance will decrease the activity of a protein. 
 The property refers to the specific molecular targets to which the drug binds, such as an enzyme or receptor.
-positively-perturbs
-Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC_R5
-Label: positively-perturbs
-SubPropertyOf: perturbs
+\end{itemize}
+
+\begin{itemize}
+\item \textbf{Positively Perturbs} \\
+Identifier: https://www.ebi.ac.uk/chembl/ftc/FTC\_R5 \\
+Label: positively-perturbs \\
+SubPropertyOf: perturbs \\
 Definition: Specific biochemical interaction through which a drug substance will increase the activity of a protein. 
 The property refers to the specific molecular targets to which the drug binds, such as an enzyme or receptor.
+\end{itemize}
+
+\section*{Pairwise comparison of mode of action similarities}
+
+Supplementary Figure S1: Pairwise comparison of mode of action similarities. 
+The compounds are grouped by ATC code (2 levels - legend not shown) on panel A. 
+A hierarchical clustering step (based on manhattan distance) was applied on panel B. 
+The dendrogram reflects the original structure of the FTC. 
+Panel C shows the compounds sorted by DrugBank identifiers only (≈ random). 
+The colours displayed on panel B and C correspond to one level ATC categories and are indexed in the legend panel.
+
+\begin{figure*}[!tpb]%figureS3
+\centerline{\includegraphics{figS3.png}}
+\caption{Caption to be written.}\label{fig:S03}
+\end{figure*}
 
 %\bibliographystyle{natbib}
 %\bibliographystyle{achemnat}
