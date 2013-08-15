@@ -5,7 +5,7 @@
 \begin{document}
 \firstpage{1}
 
-\title[short Title]{The Functional Therapeutic Chemical Classification System}
+\title[The Functional Therapeutic Chemical Classification System]{The Functional Therapeutic Chemical Classification System}
 \author[Croset \textit{et~al}]{Samuel Croset\,$^{1, \footnote{to whom correspondence should be addressed}}$, John Overington\,$^{1}$ and Dietrich Rebholz-Schuhmann\,$^{1}$
 }
 \address{$^{1}$European Molecular Biology Laboratory
@@ -46,28 +46,36 @@ Supplementary data are available at Bioinformatics online.
 
 \section{Motivation}
 
-Drug repurposing is the application of known drugs and compounds to new indications (i.e., new diseases) (cite wikipedia and better source). 
+Drug repurposing is the use of known active compounds for new therapeutic indications \citep{Sanseau01072011}. 
 When administered in a living organism, a compound can indeed play various roles and affect different biological processes. 
 Accurately identifying these different functions helps to predict the potential side-effects a drug could have and can also lead to 
-interesting repurposing opportunities (http://www.ncbi.nlm.nih.gov/pubmed/23340113). For instance, sildenafil was initially developed 
-against angina and has been repurposed towards erectile dysfunction during the clinical trials (cite). Approved compounds are 
+interesting repurposing opportunities \citep{Medina-Franco2013}. For instance, sildenafil was initially developed 
+against angina and has been repurposed towards erectile dysfunction during the clinical trials \citep{Ashburn2004}. Approved compounds are 
 attractive because they have been extensively studied and have by definition already successfully passed clinical trials, where 
 most drugs fail because of safety or efficacy issues.
-There is an increasing number of approaches to predict repurposing opportunities using computational methods (cite). Most 
-methods operate on the profiles of physicochemical descriptors derived from molecular structures (cite). Other methods characterise 
-the drugs on more abstract levels, such as the gene expression signature (cite) or via the reported side-effects (cite). These approaches 
+There is an increasing number of approaches to predict repurposing opportunities using computational methods \citep{Sanseau01072011}. Most 
+methods operate on the profiles of physicochemical descriptors derived from molecular structures \citep{Haupt2011}. Other methods characterise 
+the drugs on more abstract levels, such as the gene expression signature \citep{Iorio2010} or 
+via the reported side-effects \citep{Campillos2008}. 
+These approaches 
 have in common to look for similarities within existing drugs and forward similar compounds as repurposing hypotheses.
-A feature of particular interest to describe drugs is the mode of action (MoA). The MoA describes a functional or anatomical change, 
-at the cellular level, resulting from the exposure of a living organism to a substance (cite wikipedia or better source). For instance 
+A feature of particular interest to describe drugs is the mode of action (MoA). According to Wikipedia, 
+the MoA describes a functional or anatomical change, 
+at the cellular level, resulting from the exposure of a living organism to a substance. For instance 
 terms such as transcriptional regulation agent or anticoagulant define MoAs and characterise the roles of a certain type of drugs. The 
 MoA abstracts over the relations between molecular functions, protein targets and drug activities; it is the central concept linking a 
 chemical structure to a set of biological effects. Intuitively, the indication of a drug logically depends on its MoA.
 Despite its widespread use in drug discovery, the MoA has not been used yet as a descriptor for repurposing analyses. One reason for this 
 might be the challenge of formally defining MoAs. Indeed, MoAs are terms or categories, it is not possible to represent 
 them straightforwardly with values and numbers like one can do for a 3D molecular structure or for a gene expression profile. 
-Nonetheless, the meaning of a concept can be formalised with controlled vocabularies and ontologies (cite); originating from description logics, such frameworks help to define the mathematical meaning of symbols and strings of characters. In an ontology or knowledge base, concepts are organised and linked following the logical type of relation they have between them. In the Gene Ontology (GO) for example (cite), biological processes and molecular functions are manually curated in this resource and the meaning of terms is specified by the relations linking two GO terms.
-MoA definitions are present in other classifications such as the Medical Subject Headings (cite) or the Chemical Entities of 
-Biological Interest (cite) for example. The Anatomical Therapeutic Chemical Classification System (ATC) also describes to some 
+Nonetheless, the meaning of a concept can be formalised with controlled vocabularies and ontologies \citep{Gruber1995}; 
+originating from description logics, such frameworks help to define the mathematical meaning of symbols and strings of characters. 
+In an ontology or knowledge base, concepts are organised and linked following the logical type of relation they have between them. 
+In the Gene Ontology (GO) for example \citep{Ashburner2000}, biological processes and molecular functions are manually curated in this resource 
+and the meaning of terms is specified by the relations linking two GO terms.
+MoA definitions are present in other classifications such as the Medical Subject Headings \citep{Nelson2004} or the Chemical Entities of 
+Biological Interest \citep{Hastings2012} for example. The Anatomical Therapeutic 
+Chemical Classification System (ATC) \citep{world2000anatomical} also describes to some 
 extent the action of drugs at the anatomical level. All these resources are valuable for the community as a source of carefully 
 manually curated information. Moreover, the categories described in these classification systems are sometimes used to annotate 
 drugs: For instance the compound sildenafil has been manually annotated as vasodilator agent (CHEBI:35620 or MeSH:D27.505.954.411.918).
@@ -78,16 +86,12 @@ drug as well as some predicted ones to be tested in experiments. The MoA categor
 evidences exposed in biomedical databases in an automated way.
 To address the lack of systematic MoA annotations, we have implemented the Functional Therapeutic Chemical 
 Classification System (FTC), presented here in this manuscript. The FTC is automatically built by leveraging the content 
-of various biomedical databases using description logics and automated reasoning. Over 20’000 new MoA categories are defined 
+of various biomedical databases using description logics and automated reasoning. Over 20'000 new MoA categories are defined 
 in the resource and further populated with approved drugs using the Web Ontology Language (OWL) in combination with a reasoner. 
 Most of the drugs are present in multiple FTC categories, reflecting the various roles a compound can play inside a biological system. 
 The resource was evaluated against the ATC, traditional classification scheme introduced before. We present as well some preliminary 
 analyses over the data, by looking at the relation between the MoA and the indication of a compound using semantic similarity. 
 Finally, we illustrate also how the FTC can be used as a pharmacological toolbox to analyse drug repurposing for Alzheimer’s disease.
-
-
- Text Text Text Text. Figure~\ref{fig:01} shows that the above method  Text 
-   Text Text.  \citep{Bag01} wants to know about text follows
 
 \section{Results}
 
@@ -96,7 +100,7 @@ The GO terms serve as template to create the FTC categories describing the MoAs;
 known links between drugs and their protein targets. Uniprot maps targets to their respective GO annotations. 
 Drugs are further assigned into mode of action categories based of the OWL constructs and axioms defined in the 
 FTC (see Availability and Implementation). A reasoner, a program capable of understanding such axioms, performed this task. 
-The process to build the FTC is summarised in Figure 0.
+The process to build the FTC is summarised in Figure~\ref{fig:01}.
 
 \begin{figure*}[!tpb]%figure1
 \centerline{\includegraphics{fig1.png}}
@@ -109,7 +113,7 @@ It takes around 5 seconds on a modern
 laptop (4 cores processor with 4 Gb of memory) to classify the knowledge base using the ELK reasoner (cite). 
 Other OWL reasoners have been tried (e.g, Hermit (cite), Pellet (cite), etc...) but none of them were suitable for this purpose; 
 the classification time was always superior to a few minutes (data not shown). The FTC has a taxonomic structure as illustrated 
-on Figure 1, which arises when the reasoner classifies the knowledge base. Categories can have multiple parents and multiple children. 
+on Figure~\ref{fig:02}, which arises when the reasoner classifies the knowledge base. Categories can have multiple parents and multiple children. 
 The reader can browse and access the content of the FTC online at {{https://www.ebi.ac.uk/chembl/ftc}}.
 
 \begin{figure}[!tpb]%figure2
@@ -232,24 +236,29 @@ manually grouped based on their mode of action similarities (subgroups B, C, D, 
 \end{figure}
  
 The subgroups B, C and D are inhibitors of the cholinergic system and some of them, such as galantamine (DB00674), are already 
-investigated to treat Alzheimer’s disease and other related dementias (pubchem). This class of agent is in line with the 
-cholinergic hypothesis (cite PMID:10071091), stating that Alzheimer’s disease could be caused by dysfunctions in the processing of acetylcholine. The subgroup E is exclusively composed of barbiturates (central nervous system depressants). The presence of this pharmacological class of compounds as an Alzheimer treatment is more surprising, as very little literature reports on it. Further investigations reveal that the neuronal acetylcholine receptor subunit alpha-7 (P36544), a common off-target of barbiturates, binds beta-amyloids with high affinity. As beta-amyloids are themselves strongly involved in the pathology (cite http://europepmc.org/abstract/MED/10681545), barbiturates could affect the state of the condition, similarly to cholinergic inhibitors.
+investigated to treat Alzheimer’s disease and other related dementias. This class of agent is in line with the 
+cholinergic hypothesis \citep{Francis1999}, stating that Alzheimer’s disease could be caused by dysfunctions in the processing of 
+acetylcholine. The subgroup E is exclusively composed of barbiturates (central nervous system depressants). 
+The presence of this pharmacological class of compounds as an Alzheimer treatment is more surprising, as very little 
+literature reports on it. Further investigations reveal that the neuronal acetylcholine receptor subunit alpha-7, a 
+common off-target of barbiturates, binds beta-amyloids with high affinity \citep{Wang2000}. As beta-amyloids are themselves strongly involved 
+in the pathology, barbiturates could affect the state of the condition \citep{Wang2000}, similarly to cholinergic inhibitors.
 The group F contains four compounds; nicotine and varenicline have been grouped because of similar pharmacology (group G). 
-Nicotine has been shown to improve some of the symptoms of Alzheimer’s disease (PMID:1410164), it is therefore expected to 
+Nicotine has been shown to improve some of the symptoms of Alzheimer’s disease \citep{Jones1992}, it is therefore expected to 
 find this molecule in the predictions. Varenicline possess a pharmacology related to that of nicotine, which would explain 
 the presence of the drug in this category. The two remaining drugs of group F are respectively pralidoxime and dipivefrin; 
 little information is available regarding their potential action against the disease, yet these compounds seem linked to the 
 cholinergic hypothesis and could be considered for experimental testing.
 The groups H and I contain respectively one molecule each. These compounds have been classified as agents perturbing some of 
-the physiological function of the Tau protein, key actor in Alzheimer's disease (cite). Vorinostat (group H) is currently 
-indicated for the treatment of cutaneous manifestations in patients with T-cell lymphoma (drugbank), yet a study has 
+the physiological function of the Tau protein, key actor in Alzheimer's disease \citep{Grundke-Iqbal1986}. Vorinostat (group H) is currently 
+indicated for the treatment of cutaneous manifestations in patients with T-cell lymphoma, yet a study has 
 shown in vivo (mouse model) the potential of the drug and other histone deacetylase inhibitors in regards to memory 
-deficit (cite http://www.nature.com/npp/journal/v35/n4/full/npp2009197a.html). The presence of lithium (group I) was 
+deficit \citep{Kilgore2010}. The presence of lithium (group I) was 
 unexpected and suspected of being a false positive at first glance. However a recent study demonstrated a long-term 
-protective effect for the ion in regards to Alzheimer’s disease (PMID:22500970 and 21525519). The last group (J) contains 
+protective effect for the ion in regards to Alzheimer’s disease \citep{Young2011}. The last group (J) contains 
 ezetimibe and hesperetin. These two compounds are primarily used as cholesterol lowering agents (statins). As cholesterol 
 metabolism in the brain appears to be related to dementia, statins are believed to prevent or improve the symptoms of the 
-patients. Although early studies (PMID:17877925) have failed to clearly show a beneficial effect, the investigation is still open.
+patients. Although early studies \citep{Wolozin2004} have failed to clearly show a beneficial effect, the investigation is still open.
 From the examples briefly presented above, reported and confirmed by the literature, the FTC appears to be suitable to 
 identify real repurposing hypotheses tailored to a disease. The MoAs help to retrieve the compounds which might impact 
 the treatment of a given set of symptoms.
@@ -330,46 +339,20 @@ Text Text Text Text Text Text  Text Text.  \citealp{Boffelli03} might want to kn
 
 \paragraph{Funding\textcolon} Text Text Text Text Text Text  Text Text.
 
-%\bibliographystyle{natbib}
-%\bibliographystyle{achemnat}
-%\bibliographystyle{plainnat}
-%\bibliographystyle{abbrv}
-%\bibliographystyle{bioinformatics}
-%
-%\bibliographystyle{plain}
-%
-%\bibliography{Document}
+\bibliographystyle{natbib}
+\bibliographystyle{achemnat}
+\bibliographystyle{plainnat}
+\bibliographystyle{abbrv}
+\bibliographystyle{bioinformatics}
+
+\bibliographystyle{plain}
+
+\bibliography{document}
 
 
-\begin{thebibliography}{}
-\bibitem[Bofelli {\it et~al}., 2000]{Boffelli03} Bofelli,F., Name2, Name3 (2003) Article title, {\it Journal Name}, {\bf 199}, 133-154.
-
-\bibitem[Bag {\it et~al}., 2001]{Bag01} Bag,M., Name2, Name3 (2001) Article title, {\it Journal Name}, {\bf 99}, 33-54.
-
-\bibitem[Yoo \textit{et~al}., 2003]{Yoo03}
-Yoo,M.S. \textit{et~al}. (2003) Oxidative stress regulated genes
-in nigral dopaminergic neurnol cell: correlation with the known
-pathology in Parkinson's disease. \textit{Brain Res. Mol. Brain
-Res.}, \textbf{110}(Suppl. 1), 76--84.
-
-\bibitem[Lehmann, 1986]{Leh86}
-Lehmann,E.L. (1986) Chapter title. \textit{Book Title}. Vol.~1, 2nd edn. Springer-Verlag, New York.
-
-\bibitem[Crenshaw and Jones, 2003]{Cre03}
-Crenshaw, B.,III, and Jones, W.B.,Jr (2003) The future of clinical
-cancer management: one tumor, one chip. \textit{Bioinformatics},
-doi:10.1093/bioinformatics/btn000.
-
-\bibitem[Auhtor \textit{et~al}. (2000)]{Aut00}
-Auhtor,A.B. \textit{et~al}. (2000) Chapter title. In Smith, A.C.
-(ed.), \textit{Book Title}, 2nd edn. Publisher, Location, Vol. 1, pp.
-???--???.
-
-\bibitem[Bardet, 1920]{Bar20}
-Bardet, G. (1920) Sur un syndrome d'obesite infantile avec
-polydactylie et retinite pigmentaire (contribution a l'etude des
-formes cliniques de l'obesite hypophysaire). PhD Thesis, name of
-institution, Paris, France.
-
-\end{thebibliography}
+%\begin{thebibliography}{}
+%\bibitem[Bardet, 1920]{Bar20}
+%Bardet, G. (1920) Sur un syndrome d'obesite infantile avec
+%polydactylie et retinite pigmentaire (contribution a l'etude des
+%\end{thebibliography}
 \end{document}
