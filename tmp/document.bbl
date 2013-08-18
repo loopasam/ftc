@@ -1,0 +1,83 @@
+\begin{thebibliography}{}
+
+\bibitem[Ashburner {\em et~al.}(2000)Ashburner, Ball, Blake, Botstein, Butler,
+  Cherry, Davis, Dolinski, Dwight, Eppig, Harris, Hill, Issel-Tarver,
+  Kasarskis, Lewis, Matese, Richardson, Ringwald, Rubin, and
+  Sherlock]{Ashburner2000}
+Ashburner, M., Ball, C.~A., Blake, J.~A., Botstein, D., Butler, H., Cherry,
+  J.~M., Davis, A.~P., Dolinski, K., Dwight, S.~S., Eppig, J.~T., Harris,
+  M.~A., Hill, D.~P., Issel-Tarver, L., Kasarskis, A., Lewis, S., Matese,
+  J.~C., Richardson, J.~E., Ringwald, M., Rubin, G.~M., and Sherlock, G.
+  (2000).
+\newblock {Gene ontology: tool for the unification of biology. The Gene
+  Ontology Consortium.}
+\newblock {\em Nature Genetics\/}, {\bf 25}(1), 25--29.
+
+\bibitem[Croset {\em et~al.}(2013)Croset, Overington, and
+  Rebholz-Schuhmann]{Croset2013}
+Croset, S., Overington, J., and Rebholz-Schuhmann, D. (2013).
+\newblock {Brain: Biomedical Knowledge Manipulation.}
+\newblock {\em Bioinformatics Oxford England\/}, pages 1--2.
+
+\bibitem[Dimmer {\em et~al.}(2012)Dimmer, Huntley, Alam-Faruque, Sawford,
+  O'Donovan, Martin, Bely, Browne, {Mun Chan}, Eberhardt, Gardner, Laiho,
+  Legge, Magrane, Pichler, Poggioli, Sehra, Auchincloss, Axelsen, Blatter,
+  Boutet, Braconi-Quintaje, Breuza, Bridge, Coudert, Estreicher, Famiglietti,
+  Ferro-Rojas, Feuermann, Gos, Gruaz-Gumowski, Hinz, Hulo, James, Jimenez,
+  Jungo, Keller, Lemercier, Lieberherr, Masson, Moinat, Pedruzzi, Poux,
+  Rivoire, Roechert, Schneider, Stutz, Sundaram, Tognolli, Bougueleret,
+  Argoud-Puy, Cusin, Duek-Roggli, Xenarios, and Apweiler]{Dimmer2012}
+Dimmer, E.~C., Huntley, R.~P., Alam-Faruque, Y., Sawford, T., O'Donovan, C.,
+  Martin, M.~J., Bely, B., Browne, P., {Mun Chan}, W., Eberhardt, R., Gardner,
+  M., Laiho, K., Legge, D., Magrane, M., Pichler, K., Poggioli, D., Sehra, H.,
+  Auchincloss, A., Axelsen, K., Blatter, M.-C., Boutet, E., Braconi-Quintaje,
+  S., Breuza, L., Bridge, A., Coudert, E., Estreicher, A., Famiglietti, L.,
+  Ferro-Rojas, S., Feuermann, M., Gos, A., Gruaz-Gumowski, N., Hinz, U., Hulo,
+  C., James, J., Jimenez, S., Jungo, F., Keller, G., Lemercier, P., Lieberherr,
+  D., Masson, P., Moinat, M., Pedruzzi, I., Poux, S., Rivoire, C., Roechert,
+  B., Schneider, M., Stutz, A., Sundaram, S., Tognolli, M., Bougueleret, L.,
+  Argoud-Puy, G., Cusin, I., Duek-Roggli, P., Xenarios, I., and Apweiler, R.
+  (2012).
+\newblock {The UniProt-GO Annotation database in 2011.}
+\newblock {\em Nucleic Acids Research\/}, {\bf 40}(Database issue), D565--70.
+
+\bibitem[Jaccard(1912)Jaccard]{jaccard1912distribution}
+Jaccard, P. (1912).
+\newblock The distribution of the flora in the alpine zone. 1.
+\newblock {\em New phytologist\/}, {\bf 11}(2), 37--50.
+
+\bibitem[Kazakov {\em et~al.}(2011)Kazakov, Kr\"{o}tzsch, and
+  Siman\v{c}\'{\i}k]{Kazakov2011}
+Kazakov, Y., Kr\"{o}tzsch, M., and Siman\v{c}\'{\i}k, F. (2011).
+\newblock {Concurrent classification of ℰℒ Ontologies}.
+
+\bibitem[Knox {\em et~al.}(2011)Knox, Law, Jewison, Liu, Ly, Frolkis, Pon,
+  Banco, Mak, Neveu, Djoumbou, Eisner, Guo, and Wishart]{Knox2011}
+Knox, C., Law, V., Jewison, T., Liu, P., Ly, S., Frolkis, A., Pon, A., Banco,
+  K., Mak, C., Neveu, V., Djoumbou, Y., Eisner, R., Guo, A.~C., and Wishart,
+  D.~S. (2011).
+\newblock {DrugBank 3.0: a comprehensive resource for 'omics' research on
+  drugs.}
+\newblock {\em Nucleic Acids Research\/}, {\bf 39}(Database issue),
+  D1035--D1041.
+
+\bibitem[Rogers and Tanimoto(1960)Rogers and Tanimoto]{rogers1960computer}
+Rogers, D.~J. and Tanimoto, T.~T. (1960).
+\newblock A computer program for classifying plants.
+\newblock {\em Science\/}, {\bf 132}(3434), 1115--1118.
+
+\bibitem[{The Uniprot Consortium}(2013){The Uniprot
+  Consortium}]{TheUniprotConsortium2013}
+{The Uniprot Consortium} (2013).
+\newblock {Update on activities at the Universal Protein Resource (UniProt) in
+  2013.}
+\newblock {\em Nucleic acids research\/}, {\bf 41}(Database issue), D43--7.
+
+\bibitem[WHO {\em et~al.}(2000)WHO {\em et~al.}]{world2000anatomical}
+WHO {\em et~al.} (2000).
+\newblock Anatomical therapeutic chemical (atc) classification index with
+  defined daily doses (ddd's).
+\newblock {\em Oslo: WHO Collaborating Centre for Drug Statistics
+  Methodology\/}.
+
+\end{thebibliography}

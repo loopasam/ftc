@@ -23,14 +23,15 @@ accessed at {{https://github.com/loopasam/ftc/wiki}}. The reader should be famil
 description logics and the Web Ontology Language (OWL) to fully understand the construction of the 
 knowledge base. An introduction to description logics from the perspective of the biomedical scientist is 
 available on the wiki at {{https://github.com/loopasam/ftc/wiki/Description-Logics}}. The FTC implementation 
-relies mostly on Brain (cite) and the web application builds on the top of the Play! framework (cite). 
-Classification tasks use the ELK reasoner (cite). The computer hosting the web application has 8 Gb of memory 
+relies mostly on Brain \citep{Croset2013} and the web application builds on the top of the Play! framework. 
+Classification tasks use the ELK reasoner \citep{Kazakov2011}. The computer hosting the web application has 8 Gb of memory 
 with 4 processors, this architecture allows fast parallel reasoning, thanks to ELK’s design. More functionalities 
 will be added to the web application following user requirements (lean implementation).
 
 \section{FTC categories creation}
 The mode of action categories present in the FTC are defined based on the terms coming from the 
-Gene Ontology (GO). Both the molecular function and biological process branches are used for this purpose, yet handled differently.
+Gene Ontology (GO) \citep{Ashburner2000}. Both the molecular function and biological process branches are used for 
+this purpose, yet handled differently.
 
 \subsection{Categories related to biological processes}
 All the biological processes featured by the GO are looked-up one by one. All the 
@@ -97,11 +98,11 @@ in order to create the axioms.
 
 \subsection{DrugBank}
 The DrugBank database is a unique bioinformatics and cheminformatics resource 
-that combines detailed drug data with comprehensive drug target information (cite). The approved 
+that combines detailed drug data with comprehensive drug target information \citep{Knox2011}. The approved 
 drugs (small molecules and biotherapeutics) acting on proteins are extracted from the database and 
 imported in the FTC knowledge base. In order to be selected, a compound must firstly be approved and 
-secondly have a pharmacological action on at least one human protein target present in Uniprot (cite). 
-The protein targets all have at least one manually asserted GO annotation for a biological process or a 
+secondly have a pharmacological action on at least one human protein target present in Uniprot \citep{TheUniprotConsortium2013}. 
+The protein targets all have at least one manually asserted GO annotation \citep{Dimmer2012} for a biological process or a 
 molecular function. DrugBank links compounds to targets via actions. The DrugBank actions are somehow 
 structured and consistent: Concepts such as inhibitor or agonist are reused throughout the database for 
 example, yet they are not strictly formalised as a controlled vocabulary. These actions are manually 
@@ -110,12 +111,12 @@ antagonist is mapped to the FTC negatively-perturbs.
 Compounds coming from DrugBank are represented as OWL classes and asserted 
 as subclasses of DrugBank compound (FTC\_C2). Protein targets are described as classes 
 too and subclasses of the core class protein. Each DrugBank compound is then connected to 
-its target via the following axiom pattern: drug SubClassOf perturbs some protein. 
-E.g. Ximelagatran SubClassOf negatively-perturbs some Prothrombin.
+its target via the following axiom pattern: \emph{drug SubClassOf perturbs some protein}. 
+E.g. \emph{Ximelagatran SubClassOf negatively-perturbs some Prothrombin}.
 
 \subsection{Gene Ontology annotations}
 The GO annotation program aims to provide high-quality GO annotations to 
-proteins in UniProt (cite). In the context of the FTC, such annotations are used 
+proteins in UniProt. In the context of the FTC, such annotations are used 
 to create axioms linking protein targets to molecular functions and biological processes. 
 Each protein annotated with a function creates an axiom such 
 as protein SubClassOf has-function some molecular function. 
@@ -124,7 +125,7 @@ as protein SubClassOf involved-in some biological process.
 E.g. Prothrombin SubClassOf involved-in some positive regulation of blood coagulation. 
 Each protein can be involved in multiple processes and capable of realizing multiple functions.
 
-\section{Knowledge base classification}Supplementary Material
+\section{Knowledge base classification}
 The knowledge base is fully built at this step and contains core classes, mode 
 of actions descriptions alongside the actions of approved DrugBank compounds on 
 protein targets in Uniprot. The proteins are linked to their molecular functions and involvement in 
@@ -139,7 +140,7 @@ of FTC appears also at this step from the logical definitions.
 As the classification of therapeutic agents is done in an automated way, it 
 is important to evaluate the results generated against a known resource which will be 
 considered as gold standard. The assessment of the FTC is done against another similar 
-classification, the Anatomical Therapeutic Chemical Classification System (ATC) (cite). 
+classification, the Anatomical Therapeutic Chemical Classification System (ATC) \citep{world2000anatomical}). 
 The ATC has been developed to serve as a tool for drug utilization research in order to 
 improve quality of drug use. In this resource, the information is manually curated, and drugs 
 are assigned to categories based of their legally approved indications. The goal of the ATC differs 
@@ -192,7 +193,7 @@ corresponding class in the FTC. The value is standardised as a percentage and co
 to the formula: True Positive / (True Positive + False Negative).
 
 \section{Semantic similarity}
-The semantic similarity measure performed over the FTC is a derivative of the Jaccard index (cite). 
+The semantic similarity measure performed over the FTC is a derivative of the Jaccard index \citep{jaccard1912distribution} \citep{rogers1960computer}. 
 It is probably best understood as an example: If we consider two classes A and B, the semantic similarity 
 between these classes corresponds to the number of OWL superclasses (direct and indirect, obtained with a reasoner) that 
 are shared by A and B (intersection) divided by the number of superclasses of A or B (union). The index ranges 
@@ -396,46 +397,14 @@ The colours displayed on panel B and C correspond to one level ATC categories an
 \caption{Caption to be written.}\label{fig:S05}
 \end{figure*}
 
-%\bibliographystyle{natbib}
-%\bibliographystyle{achemnat}
-%\bibliographystyle{plainnat}
-%\bibliographystyle{abbrv}
-%\bibliographystyle{bioinformatics}
-%
-%\bibliographystyle{plain}
-%
-%\bibliography{Document}
+\bibliographystyle{natbib}
+\bibliographystyle{achemnat}
+\bibliographystyle{plainnat}
+\bibliographystyle{abbrv}
+\bibliographystyle{bioinformatics}
 
+\bibliographystyle{plain}
 
-\begin{thebibliography}{}
-\bibitem[Bofelli {\it et~al}., 2000]{Boffelli03} Bofelli,F., Name2, Name3 (2003) Article title, {\it Journal Name}, {\bf 199}, 133-154.
+\bibliography{document}
 
-\bibitem[Bag {\it et~al}., 2001]{Bag01} Bag,M., Name2, Name3 (2001) Article title, {\it Journal Name}, {\bf 99}, 33-54.
-
-\bibitem[Yoo \textit{et~al}., 2003]{Yoo03}
-Yoo,M.S. \textit{et~al}. (2003) Oxidative stress regulated genes
-in nigral dopaminergic neurnol cell: correlation with the known
-pathology in Parkinson's disease. \textit{Brain Res. Mol. Brain
-Res.}, \textbf{110}(Suppl. 1), 76--84.
-
-\bibitem[Lehmann, 1986]{Leh86}
-Lehmann,E.L. (1986) Chapter title. \textit{Book Title}. Vol.~1, 2nd edn. Springer-Verlag, New York.
-
-\bibitem[Crenshaw and Jones, 2003]{Cre03}
-Crenshaw, B.,III, and Jones, W.B.,Jr (2003) The future of clinical
-cancer management: one tumor, one chip. \textit{Bioinformatics},
-doi:10.1093/bioinformatics/btn000.
-
-\bibitem[Auhtor \textit{et~al}. (2000)]{Aut00}
-Auhtor,A.B. \textit{et~al}. (2000) Chapter title. In Smith, A.C.
-(ed.), \textit{Book Title}, 2nd edn. Publisher, Location, Vol. 1, pp.
-???--???.
-
-\bibitem[Bardet, 1920]{Bar20}
-Bardet, G. (1920) Sur un syndrome d'obesite infantile avec
-polydactylie et retinite pigmentaire (contribution a l'etude des
-formes cliniques de l'obesite hypophysaire). PhD Thesis, name of
-institution, Paris, France.
-
-\end{thebibliography}
 \end{document}
