@@ -96,8 +96,9 @@ Finally, we illustrate also how the FTC can be used as a pharmacological toolbox
 \section{Results}
 
 The knowledge base behind the FTC is built by integrating information coming from various sources. 
-The GO terms serve as template to create the FTC categories describing the MoAs; DrugBank provides the 
-known links between drugs and their protein targets. Uniprot maps targets to their respective GO annotations. 
+The GO terms serve as template to create the FTC categories describing the MoAs; DrugBank \citep{Knox2011} provides the 
+known links between drugs and their protein targets. Uniprot \citep{TheUniprotConsortium2013} maps targets to their 
+respective GO annotations \citep{Dimmer2012}. 
 Drugs are further assigned into mode of action categories based of the OWL constructs and axioms defined in the 
 FTC (see Availability and Implementation). A reasoner, a program capable of understanding such axioms, performed this task. 
 The process to build the FTC is summarised in Figure~\ref{fig:01}.
@@ -110,8 +111,8 @@ between the terms (is a relation).}\label{fig:01}
 \end{figure*}
 
 It takes around 5 seconds on a modern 
-laptop (4 cores processor with 4 Gb of memory) to classify the knowledge base using the ELK reasoner (cite). 
-Other OWL reasoners have been tried (e.g, Hermit (cite), Pellet (cite), etc...) but none of them were suitable for this purpose; 
+laptop (4 cores processor with 4 Gb of memory) to classify the knowledge base using the ELK reasoner \citep{Kazakov2011}. 
+Other OWL reasoners have been tried (e.g, Hermit, Pellet, etc.) but none of them were suitable for this purpose; 
 the classification time was always superior to a few minutes (data not shown). The FTC has a taxonomic structure as illustrated 
 on Figure~\ref{fig:02}, which arises when the reasoner classifies the knowledge base. Categories can have multiple parents and multiple children. 
 The reader can browse and access the content of the FTC online at {{https://www.ebi.ac.uk/chembl/ftc}}.
@@ -330,8 +331,8 @@ to generate predictions in a systematic fashion, which can then be experimentall
 
 \section{Availability and Implementation}
 The code behind the creation of the resource is entirely open and available 
-at {{https://github.com/loopasam/ftc}}. The web application built on the top of the FTC can be 
-find at {{https://www.ebi.ac.uk/chembl/ftc}} and the documentation can be accessed at {{https://github.com/loopasam/ftc/wiki}}. The full
+at {{https://github.com/loopasam/ftc}}. The web application built on the top of the FTC using the Brain library \citep{Croset2013}, and can be 
+find at {{https://www.ebi.ac.uk/chembl/ftc}}. The documentation can be accessed at {{https://github.com/loopasam/ftc/wiki}}. The full
 description of the methodology used to generate the classification is available as supplementary material on Bioinformatics website.
 
 \section*{Acknowledgement}
