@@ -25,8 +25,8 @@ knowledge base. An introduction to description logics from the perspective of th
 available on the wiki at {{https://github.com/loopasam/ftc/wiki/Description-Logics}}. The FTC implementation 
 relies mostly on Brain \citep{Croset2013} and the web application builds on the top of the Play! framework. 
 Classification tasks use the ELK reasoner \citep{Kazakov2011}. The computer hosting the web application has 8 Gb of memory 
-with 4 processors, this architecture allows fast parallel reasoning, thanks to ELK’s design. More functionalities 
-will be added to the web application following user requirements (lean implementation).
+with 4 processors, this architecture allows fast parallel reasoning, thanks to ELK's design. More functionalities 
+will be added to the web application following user requirements (so called \emph{lean implementation}).
 
 \section{FTC categories creation}
 The mode of action categories present in the FTC are defined based on the terms coming from the 
@@ -35,33 +35,36 @@ this purpose, yet handled differently.
 
 \subsection{Categories related to biological processes}
 All the biological processes featured by the GO are looked-up one by one. All the 
-time a process is linked to another process (X) via a positive or negative regulation link, two FTC 
-classes are created: Anti-X agent and Pro-X agent. For instance the GO term positive regulation of blood 
-coagulation is linked to the term blood coagulation via a positively regulates relation, therefore two FTC 
-categories Anti-blood coagulation agent and Pro-blood coagulation agent are created. The identifiers of the 
+time a process is linked to another process (\emph{X}) via a \emph{positive} or \emph{negative regulation} link, two FTC 
+classes are created: \emph{Anti-X agent} and \emph{Pro-X agent}. For instance the GO term \emph{positive regulation of blood 
+coagulation} is linked to the term \emph{blood coagulation} via a \emph{positively regulates} relation, therefore two FTC 
+categories \emph{Anti-blood coagulation agent} and \emph{Pro-blood coagulation agent} are created. The identifiers of the 
 new FTC classes are also derived from the GO term used to create the class pattern. The GO numeric identifier 
-is re-used and the letter A or P is appended before to emphasize the anti or pro pattern. From the example presented 
-previously, the FTC class Anti-blood coagulation has FTC\_A0007596 as identifier, because the GO term blood coagulation is 
-referenced by GO:0007596. Following the same logic, FTC\_P0007596 is the identifier of the class Pro-blood coagulation. The 
+is re-used and the letter \emph{A} or \emph{P} is appended before to emphasize the \emph{anti} or \emph{pro} pattern. 
+From the example presented 
+previously, the FTC class \emph{Anti-blood coagulation} has FTC\_A0007596 as identifier, because the GO term \emph{blood coagulation} is 
+referenced by GO:0007596. Following the same logic, FTC\_P0007596 is the identifier of the class \emph{Pro-blood coagulation agent}. The 
 design choice for identifiers and labels allows the FTC to fully rely on the high quality work provided by the GO curation 
 team and scale over it.
 
 \subsection{Categories related to molecular functions}
 The mode and mechanism of actions related to molecular functions are created in the following manner: All the time 
-a molecular function (Y) is encountered then two FTC categories are created, as for the processes: Anti-Y agent and 
-Pro-Y agent. The identifiers are assigned the same way as described before. For instance, out of the GO term androgen 
-receptor activity (GO:0004882) two FTC classes are derived: Pro-androgen receptor activity agent (FTC\_P0004882) and 
-Anti-androgen receptor activity agent (FTC\_A0004882).
+a molecular function (\emph{Y}) is encountered then two FTC categories are created, as for the processes: \emph{Anti-Y agent} and 
+\emph{Pro-Y agent}. The identifiers are assigned the same way as described before. For instance, out of the GO term \emph{androgen 
+receptor activity} (GO:0004882) two FTC classes are derived: \emph{Pro-androgen receptor activity agent} (FTC\_P0004882) and 
+\emph{nti-androgen receptor activity agent} (FTC\_A0004882).
 
 
 \section{Equivalent definitions}
 FTC classes are generated as presented in the previous section. Up to this point, these categories 
-are only individual tokens with a human readable label as well as an identifier. The next step is going to 
+are only tokens with a human readable label as well as an identifier. The next step is going to 
 assign equivalent definitions to each FTC class. A reasoner can understand such definitions and will automatically 
 classify the knowledge base accordingly; drugs will then be assigned to FTC categories and the taxonomic structure 
-arises after the reasoning step. Equivalent definitions are written as OWL class expressions using the entities of 
-the knowledge base. The core classes and properties are presented in the supplementary material, this section assumes 
-that the reader is already familiar with the FTC specifications (summarised at {{https://github.com/loopasam/ftc/wiki/Knowledge-Base}}). 
+arises after this reasoning step. Equivalent definitions are written as OWL class expressions using the entities of 
+the knowledge base (summarised at {{https://github.com/loopasam/ftc/wiki/Knowledge-Base}} and in section ).
+
+//TODO refer to section
+
 There are two types of equivalences: The first one captures perturbation of regulatory 
 biological processes (so called regulatory patterns) and the second one handles the perturbed functions (functional patterns).
 
