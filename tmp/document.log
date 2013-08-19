@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  19 AUG 2013 18:04
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  19 AUG 2013 21:25
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -390,7 +390,7 @@ Underfull \hbox (badness 5147) in paragraph at lines 100--122
 \OT1/ptm/m/n/9 drugs and their protein targets and Uniprot [The Uniprot
  []
 
-<fig1.png, id=17, 506.3718pt x 146.4672pt>
+<fig1.png, id=17, 406.8801pt x 162.24615pt>
 File: fig1.png Graphic file (type png)
  <use fig1.png>
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
@@ -458,7 +458,7 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
- <fig3.png, id=25, 506.3718pt x 453.3738pt>
+ <fig3.png, id=25, 333.8874pt x 292.4526pt>
 File: fig3.png Graphic file (type png)
  <use fig3.png>
 <fig4.png, id=26, 506.3718pt x 405.4347pt>
@@ -493,6 +493,9 @@ Underfull \hbox (badness 1297) in paragraph at lines 205--222
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][][] 
  []
@@ -501,8 +504,6 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
  [3 <./fig1.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 Missing character: There is no â in font ptmb7t!
 Missing character: There is no € in font ptmb7t!
 Missing character: There is no ™ in font ptmb7t!
@@ -551,23 +552,10 @@ Overfull \hbox (27.15121pt too wide) in paragraph at lines 224--232
  []
 
 
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][][] 
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \vbox (1.0pt too high) has occurred while \output is active []
-
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][] 
- []
-
-[4 <./fig3.png
-
-pdfTeX warning: /usr/bin/pdflatex (file ./fig3.png): large interlaced PNG might
- cause out of memory (use non-interlaced PNG to fix this)
->] <fig5.png, id=35, 244.7544pt x 189.3474pt>
+<fig5.png, id=31, 244.7544pt x 189.3474pt>
 File: fig5.png Graphic file (type png)
  <use fig5.png>
 Missing character: There is no â in font ptmr7t!
@@ -589,11 +577,27 @@ Missing character: There is no ™ in font ptmr7t!
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+Overfull \hbox (261.0pt too wide) has occurred while \output is active
+[][][] 
+ []
+
+
+Overfull \vbox (1.0pt too high) has occurred while \output is active []
+
+
+Overfull \hbox (261.0pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[4 <./fig3.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][][] 
+[][] 
  []
 
 
@@ -604,8 +608,6 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
 pdfTeX warning: /usr/bin/pdflatex (file ./fig4.png): large interlaced PNG might
  cause out of memory (use non-interlaced PNG to fix this)
 >]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
@@ -682,66 +684,29 @@ Missing character: There is no ° in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no „ in font ptmr7t!
 Missing character: There is no ’ in font ptmr7t!
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][][] 
- []
-
-
-Overfull \vbox (1.0pt too high) has occurred while \output is active []
-
- [7])
+)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+Extra height:19.08044pt when 573.29794pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:10.0pt when 100.04022pt
+Extra height:19.08044pt when 574.29794pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:10.0pt when 101.04022pt
+Extra height:19.08044pt when 575.29794pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:10.0pt when 102.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 103.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 104.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 105.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 106.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 107.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 108.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:0.0pt when 109.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-(2)Left:109.04022pt Right:92.08044pt Output:109.04022pt
+Extra height:19.08044pt when 576.29794pt
+Extra height:0.0pt when 577.29794pt
+(2)Left:577.29794pt Right:570.59589pt Output:577.29794pt
 - LAST -
 Extra skip:0.0pt
-Left:109.04022pt
-Right:92.08044pt
-Output:109.04022pt
+Left:577.29794pt
+Right:570.59589pt
+Output:577.29794pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -753,14 +718,7 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][] 
- []
-
-[8
-
-]
+ [7]
 
 Package natbib Warning: There were undefined citations.
 
@@ -773,7 +731,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  2757 strings out of 493848
  32187 string characters out of 1152822
- 99536 words of memory out of 3000000
+ 125225 words of memory out of 3000000
  5963 multiletter control sequences out of 15000+50000
  52270 words of font info for 105 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
@@ -790,9 +748,9 @@ uhvr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvro8a.pfb></usr
 /share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive
 /fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on document.pdf (8 pages, 3831175 bytes).
+Output written on document.pdf (7 pages, 3599823 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
+ 90 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
