@@ -33,7 +33,7 @@ The mode of action categories present in the FTC are defined based on the terms 
 Gene Ontology (GO) \citep{Ashburner2000}. Both the molecular function and biological process branches are used for 
 this purpose, yet handled differently.
 
-\subsection{Categories related to biological processes}
+\subsection{Categories related to biological processes}\label{catprocess}
 All the biological processes featured by the GO are looked-up one by one. All the 
 time a process is linked to another process (\emph{X}) via a \emph{positive} or \emph{negative regulation} link, two FTC 
 classes are created: \emph{Anti-X agent} and \emph{Pro-X agent}. For instance the GO term \emph{positive regulation of blood 
@@ -47,13 +47,12 @@ referenced by GO:0007596. Following the same logic, FTC\_P0007596 is the identif
 design choice for identifiers and labels allows the FTC to fully rely on the high quality work provided by the GO curation 
 team and scale over it.
 
-\subsection{Categories related to molecular functions}
+\subsection{Categories related to molecular functions}\label{catfunc}
 The mode and mechanism of actions related to molecular functions are created in the following manner: All the time 
 a molecular function (\emph{Y}) is encountered then two FTC categories are created, as for the processes: \emph{Anti-Y agent} and 
 \emph{Pro-Y agent}. The identifiers are assigned the same way as described before. For instance, out of the GO term \emph{androgen 
 receptor activity} (GO:0004882) two FTC classes are derived: \emph{Pro-androgen receptor activity agent} (FTC\_P0004882) and 
-\emph{nti-androgen receptor activity agent} (FTC\_A0004882).
-
+\emph{Anti-androgen receptor activity agent} (FTC\_A0004882).
 
 \section{Equivalent definitions}
 FTC classes are generated as presented in the previous section. Up to this point, these categories 
@@ -61,34 +60,31 @@ are only tokens with a human readable label as well as an identifier. The next s
 assign equivalent definitions to each FTC class. A reasoner can understand such definitions and will automatically 
 classify the knowledge base accordingly; drugs will then be assigned to FTC categories and the taxonomic structure 
 arises after this reasoning step. Equivalent definitions are written as OWL class expressions using the entities of 
-the knowledge base (summarised at {{https://github.com/loopasam/ftc/wiki/Knowledge-Base}} and in section ).
-
-//TODO refer to section
-
+the knowledge base (summarised at {{https://github.com/loopasam/ftc/wiki/Knowledge-Base}} and in section \ref{specs}).
 There are two types of equivalences: The first one captures perturbation of regulatory 
-biological processes (so called regulatory patterns) and the second one handles the perturbed functions (functional patterns).
+biological processes (so called \emph{regulatory patterns}) and the second one handles the perturbed functions (\emph{functional patterns}).
 
 \subsection{Regulatory pattern}
 Some of the FTC categories are created from the biological processes present in the 
-GO (cf previous sections); these categories have two arbitrary equivalent definitions, representing the 
+GO (cf section \ref{catprocess}); these categories have two arbitrary equivalent definitions, representing the 
 two possible ways a compound might impact the biological process. Anti-biological process agent FTC categories 
 contain the drugs that negatively perturb a target involved in the positive regulation of the biological process. 
-The anti categories also feature the compounds that positively perturb a negative regulator of the same process. 
-The pro categories are equivalent to the opposite pattern. Figure 5 illustrates the equivalent definitions for the 
-FTC class Anti-blood coagulation agent (FTC\_A0007596).
+The \emph{anti} categories also feature the compounds that positively perturb a negative regulator of the same process. 
+The \emph{pro} categories are equivalent to the opposite pattern. Supplementary Figure \ref{fig:S01} illustrates the equivalent definitions for the 
+FTC class \emph{Anti-blood coagulation agent} (FTC\_A0007596).
  
 \begin{figure}[!tpb]%figureS1
 \centerline{\includegraphics{figS1.png}}
-\caption{Example of equivalent definitions (gray boxes) for the FTC category Anti-blood coagulation 
-agent (FTC\_A0007596). After the data integration step, a reasoner will look the definitions and identify 
-which drugs comply with the FTC definitions. Definitions are expressed using the Web Ontology Language (OWL), 
+\caption{Example of equivalent definitions (gray boxes) for the FTC category \emph{Anti-blood coagulation 
+agent} (FTC\_A0007596). After the data integration step, a reasoner will look the definitions and identify 
+which drugs satisfy the FTC definitions. Definitions are expressed using the Web Ontology Language (OWL), 
 serialised here using the Manchester syntax.}\label{fig:S01}
 \end{figure}
 
 \subsection{Functional pattern}
-The FTC categories generated from the GO molecular functions are also equivalent to a logical 
-definition. Anti FTC categories dealing with molecular activities are asserted as equals to the drugs 
-that negatively perturb the function. Pro categories are equivalent to the drugs that positively perturb the 
+The FTC categories generated from the GO molecular functions (cf section \ref{catfunc}) are also equivalent to a logical 
+definition. \emph{Anti} FTC categories dealing with molecular activities are asserted as equals to the drugs 
+that negatively perturb the function. \emph{Pro} categories are equivalent to the drugs that positively perturb the 
 function of interest. A summary of the patterns definitions is available on the 
 online wiki at {{https://github.com/loopasam/ftc/wiki/Mode-of-Action}}.
 
@@ -96,8 +92,7 @@ online wiki at {{https://github.com/loopasam/ftc/wiki/Mode-of-Action}}.
 At this stage, the knowledge base contains the created FTC classes associated with their 
 logical definitions, as well as the GO and the core FTC entities. The knowledge base is then 
 further populated with some information coming from various public databases. Only manually curated 
-information is considered. This section illustrates how the core entities interact with the different data types 
-in order to create the axioms.
+information is considered.
 
 \subsection{DrugBank}
 The DrugBank database is a unique bioinformatics and cheminformatics resource 
@@ -106,27 +101,28 @@ drugs (small molecules and biotherapeutics) acting on proteins are extracted fro
 imported in the FTC knowledge base. In order to be selected, a compound must firstly be approved and 
 secondly have a pharmacological action on at least one human protein target present in Uniprot \citep{TheUniprotConsortium2013}. 
 The protein targets all have at least one manually asserted GO annotation \citep{Dimmer2012} for a biological process or a 
-molecular function. DrugBank links compounds to targets via actions. The DrugBank actions are somehow 
-structured and consistent: Concepts such as inhibitor or agonist are reused throughout the database for 
+molecular function. DrugBank links compounds to targets via \emph{actions}. The DrugBank actions are somehow 
+structured and consistent: Concepts such as \emph{inhibitor} or \emph{agonist} are reused throughout the database for 
 example, yet they are not strictly formalised as a controlled vocabulary. These actions are manually 
-standardised to the core properties of the FTC according to their meaning: For instance the action 
-antagonist is mapped to the FTC negatively-perturbs.
+standardised to the core properties of the FTC according to their biochemical meaning: For instance the action 
+\emph{antagonist} is mapped to the FTC \emph{negatively-perturbs} property.
 Compounds coming from DrugBank are represented as OWL classes and asserted 
-as subclasses of DrugBank compound (FTC\_C2). Protein targets are described as classes 
-too and subclasses of the core class protein. Each DrugBank compound is then connected to 
-its target via the following axiom pattern: \emph{drug SubClassOf perturbs some protein}. 
+as subclasses of the class \emph{DrugBank compound} (FTC\_C2). Protein targets are described as OWL classes 
+too and subclasses of the core class \emph{Protein}. Each DrugBank compound is then connected to 
+its target via the following axiom pattern: \emph{[drug] SubClassOf perturbs some [protein]}. 
 E.g. \emph{Ximelagatran SubClassOf negatively-perturbs some Prothrombin}.
 
 \subsection{Gene Ontology annotations}
 The GO annotation program aims to provide high-quality GO annotations to 
-proteins in UniProt. In the context of the FTC, such annotations are used 
+proteins in UniProt \citep{Dimmer2012}. In the context of the FTC, such annotations are used 
 to create axioms linking protein targets to molecular functions and biological processes. 
 Each protein annotated with a function creates an axiom such 
-as protein SubClassOf has-function some molecular function. 
+as \emph{[protein] SubClassOf has-function some [molecular function]}. 
 Each protein annotated to a biological process creates an axiom such 
-as protein SubClassOf involved-in some biological process. 
-E.g. Prothrombin SubClassOf involved-in some positive regulation of blood coagulation. 
-Each protein can be involved in multiple processes and capable of realizing multiple functions.
+as \emph{[protein] SubClassOf involved-in some [biological process]}. 
+E.g. \emph{Prothrombin SubClassOf involved-in some positive regulation of blood coagulation}. 
+Each protein can be involved in multiple processes and capable of realizing multiple functions;
+the polypharmacology is captured at this level.
 
 \section{Knowledge base classification}
 The knowledge base is fully built at this step and contains core classes, mode 
@@ -134,8 +130,8 @@ of actions descriptions alongside the actions of approved DrugBank compounds on
 protein targets in Uniprot. The proteins are linked to their molecular functions and involvement in 
 biological processes via the GO annotations. The logical specifications of the FTC are there to glue 
 the different data together and to explicitly express the logical links between resources. The FTC 
-knowledge base follows an OWL2 EL profile, which enable the use of fast and parallelised reasoners such 
-as ELK (cite). During the classification process, the reasoner checks whether the mode of action equivalent 
+knowledge base follows an OWL2 EL profile \citep{Motik2009}, which enable the use of fast and parallelised reasoners such 
+as ELK. During the classification process, the reasoner checks whether the mode of action equivalent 
 definitions are satisfied or not and assigns drugs inside the corresponding FTC categories. The tree structure 
 of FTC appears also at this step from the logical definitions.
 
@@ -155,7 +151,7 @@ it is possible to define some evaluation points, which will help to assess the a
 \subsection{Evaluation Points}
 An evaluation point is defined as an equivalence between a class from the FTC with one or 
 more classes from the ATC. The idea is to look at the set of drugs contained in both side of the 
-equivalence and estimate the overlap. This is illustrated in the Figure 6. Evaluation points are defined 
+equivalence and estimate the overlap, as illustrated in the Supplementary Figure \ref{fig:S02}. Evaluation points are defined 
 by hand and not themselves evaluated. The full list of evaluation points as well as a summary of the results 
 are available online at https://www.ebi.ac.uk/chembl/ftc/evaluation/. Each evaluation point has a series of 
 true/false positive and false negative drugs associated with it.
@@ -203,28 +199,29 @@ are shared by A and B (intersection) divided by the number of superclasses of A 
 from 0 (totally different) to 1 (identical).
 
 \section{Mode of action similarity against indication}
-A statistical analysis was performed over the data presented on Figure 3. 
+A statistical analysis was performed over the data presented on Figure 4. 
 When two compounds are randomly taken, they have on average a higher mode of action similarity when 
-they are assigned to the same ATC category (one ATC level). In order to estimate whether this observation was 
-due to chance only, we formulated the following null hypothesis (H0): For a pair of drug A and B, it does not 
-matter to which ATC category they belong to, the average similarity is always the same. 
-The alternative hypothesis (H1) was: For a pair of drug A and B, if A and B have the same ATC code, 
-we expect on average to obtain a higher similarity value than if A and B have different ATC codes. 
+they are assigned to the same ATC category (one ATC level).
+In order to estimate whether this observation was 
+due to chance only, we formulated the following null hypothesis (H0): \emph{For a pair of drug A and B, it does not 
+matter to which ATC category they belong to, their similarity is always average.}
+The alternative hypothesis (H1) was: \emph{For a pair of drug A and B, if A and B have the same ATC code, 
+we expect on average to obtain a higher similarity value than if A and B have different ATC codes.}
+
+
 A permutation test was then performed for each ATC category. For example, we started with the ATC 
-category A (first row on Figure 3), looked at the similarity values when pairs of compounds both belong 
+category A (first row on Figure 4), looked at the similarity values when pairs of compounds both belong 
 to the category A (top right corner square) and compared it to the similarity values when the pair of compounds 
 belong to different categories (A and B, A and C and so forth). For each comparison we obtain two distributions of 
 values (not shown). On average the similarity values are always higher when the two compounds 
 belong to the same category (A/A versus A/B for instance). A permutation test (n = 20'000) was 
 performed in order to see whether this observation was due to chance only. We were able to reject the null 
-hypothesis for a significance level of 0.05 all the times. As the test is performed multiple times, 
-we applied a Bonferroni correction for multiple hypothesis testing, which changed the significance level accordingly. 
+hypothesis for a significance level of 0.05 all the times. 
 The choice for a permutation test was driven by the fact that MoA similarity values do not follow any type 
 of standard distribution (data not shown). For the significance levels set, the null hypothesis was rejected for 
 all first level ATC categories.
 
-
-\section{Knowledge base specification}
+\section{Knowledge base specification}\label{specs}
 This section presents the scaffold of the knowledge base underlying the FTC. 
 The logic structuring the FTC comes essentially from a set of core OWL properties (rich RBox). 
 Some of these properties originate from the GO. When necessary some new ones have also been introduced. 
@@ -265,7 +262,7 @@ Comment: Gene products present inside the FTC are all human proteins. Uniprot UR
 \item \textbf{Drug} \\
 Identifier: http://schema.org/Drug \\
 Label: drug \\
-Definition: As defined by schema.org. A chemical or biologic substance, used as a medical therapy, that has a 
+Definition: As defined by schema.org: A chemical or biologic substance, used as a medical therapy, that has a 
 physiological effect on an organism. \\
 Comment: In the context of the FTC, DrugBank chemicals are considered for their role as therapeutic agent 
 rather than for their chemical structure. Mode of action classes are representing agent types and are subclasses of this concept.
@@ -308,7 +305,7 @@ Definition: As defined and used in the Gene Ontology.
 \begin{itemize}
 \item \textbf{Regulates} \\
 Identifier: http://purl.obolibrary.org/obo/RO\_0002211 \\
-Chained property: regulates o part-of -> regulates \\
+Chained property: regulates o part-of -\textgreater regulates \\
 Label: regulates \\
 Definition: As defined and used in the Gene Ontology.
 \end{itemize}
@@ -376,28 +373,28 @@ Definition: Specific biochemical interaction through which a drug substance will
 The property refers to the specific molecular targets to which the drug binds, such as an enzyme or receptor.
 \end{itemize}
 
-\section*{Pairwise comparison of mode of action similarities}
-
-Supplementary Figure S1: Pairwise comparison of mode of action similarities. 
-The compounds are grouped by ATC code (2 levels - legend not shown) on panel A. 
-A hierarchical clustering step (based on manhattan distance) was applied on panel B. 
-The dendrogram reflects the original structure of the FTC. 
-Panel C shows the compounds sorted by DrugBank identifiers only (≈ random). 
-The colours displayed on panel B and C correspond to one level ATC categories and are indexed in the legend panel.
 
 \begin{figure*}[!tpb]%figureS3
 \centerline{\includegraphics{figS3.png}}
-\caption{Caption to be written.}\label{fig:S03}
+\caption{Pairwise comparison of MoA similarities. This graph presents the same 
+data as Figure 4 but with two ATC levels considered. It is possible to observe some clustering around the diagonal line (no
+statistical analysis performed).}\label{fig:S03}
 \end{figure*}
 
-\begin{figure*}[!tpb]%figureS4
+\begin{figure*}[!tpb]%figureS3
 \centerline{\includegraphics{figS4.png}}
-\caption{Caption to be written.}\label{fig:S04}
+\caption{Pairwise comparison of MoA similarities. This graph presents the same 
+data as Figure 4 but with a hierarchical clustering applied on the top of it, based on the manhattan distance.
+The dendrogram reflects the original structure of the FTC: Functionaly similar compounds being grouped toghether.
+This figure can be used for further analysis over functional clusters of drugs.}\label{fig:S04}
 \end{figure*}
 
 \begin{figure*}[!tpb]%figureS5
 \centerline{\includegraphics{figS5.png}}
-\caption{Caption to be written.}\label{fig:S05}
+\caption{Pairwise comparison of MoA similarities. This graph presents the same 
+data as Figure 4 but the compounds have been sorted horizontally and vertically only based on their identifiers, which
+we considered as equivalent to a pseudo-random sorting. In this case
+no visual pattern is observable, the similarity values appear homogeneously distributed (no statistical analysis performed).}\label{fig:S05}
 \end{figure*}
 
 \bibliographystyle{natbib}

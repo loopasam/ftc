@@ -61,6 +61,12 @@ Knox, C., Law, V., Jewison, T., Liu, P., Ly, S., Frolkis, A., Pon, A., Banco,
 \newblock {\em Nucleic Acids Research\/}, {\bf 39}(Database issue),
   D1035--D1041.
 
+\bibitem[Motik {\em et~al.}(2009)Motik, Grau, Horrocks, Wu, Fokoue, and
+  Lutz]{Motik2009}
+Motik, B., Grau, B.~C., Horrocks, I., Wu, Z., Fokoue, A., and Lutz, C. (2009).
+\newblock {OWL 2 Web Ontology Language Profiles}.
+\newblock {\em Language\/}, {\bf 2009}(October), 1--53.
+
 \bibitem[Rogers and Tanimoto(1960)Rogers and Tanimoto]{rogers1960computer}
 Rogers, D.~J. and Tanimoto, T.~T. (1960).
 \newblock A computer program for classifying plants.

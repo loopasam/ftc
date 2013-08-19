@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  19 AUG 2013 10:07
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  19 AUG 2013 13:15
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -271,17 +271,12 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 36.
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-Underfull \hbox (badness 3000) in paragraph at lines 59--65
+Underfull \hbox (badness 3000) in paragraph at lines 58--66
 \OT1/ptm/m/n/9 at https://github.com/loopasam/ftc/wiki/Knowledge-Base and in
  []
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 68--70
-\OT1/ptm/m/n/9 patterns) and the second one handles the perturbed functions
- []
-
-
-Underfull \hbox (badness 1418) in paragraph at lines 72--79
+Underfull \hbox (badness 1418) in paragraph at lines 68--75
 []\OT1/ptm/m/n/9 Some of the FTC categories are created from the biological
  []
 
@@ -289,13 +284,24 @@ Underfull \hbox (badness 1418) in paragraph at lines 72--79
 File: figS1.png Graphic file (type png)
  <use figS1.png>
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 85.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
+
+Overfull \hbox (13.63239pt too wide) in paragraph at lines 98--114
+[]\OT1/ptm/m/n/9 The DrugBank database is a unique bioinformatics and cheminfor
+matics
+ []
+
+
+Underfull \hbox (badness 1221) in paragraph at lines 98--114
+\OT1/ptm/m/n/9 coming from DrugBank are represented as OWL classes and
+ []
+
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 101.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 114.
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <8> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 101.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 114.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <8> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 101.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 114.
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][][] 
@@ -307,40 +313,30 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Overfull \hbox (13.63239pt too wide) in paragraph at lines 103--119
-[]\OT1/ptm/m/n/9 The DrugBank database is a unique bioinformatics and cheminfor
-matics
+Underfull \hbox (badness 1038) in paragraph at lines 116--126
+\OT1/ptm/m/n/9 annotations to proteins in UniProt [Dimmer \OT1/ptm/m/it/9 et al
+.\OT1/ptm/m/n/9 , 2012]. In
  []
 
 
-Underfull \hbox (badness 1874) in paragraph at lines 121--130
-\OT1/ptm/m/n/9 annotated with a function creates an axiom such as protein
+Underfull \hbox (badness 1320) in paragraph at lines 116--126
+\OT1/ptm/m/n/9 the context of the FTC, such annotations are used to create
  []
 
 
-Underfull \hbox (badness 2150) in paragraph at lines 121--130
-\OT1/ptm/m/n/9 annotated to a biological process creates an axiom such as
+Underfull \hbox (badness 1199) in paragraph at lines 116--126
+\OT1/ptm/m/n/9 processes. Each protein annotated with a function creates an
  []
 
 
-Underfull \hbox (badness 1454) in paragraph at lines 121--130
-\OT1/ptm/m/n/9 protein SubClassOf involved-in some biological process. E.g.
- []
-
-
-Underfull \hbox (badness 1442) in paragraph at lines 121--130
-\OT1/ptm/m/n/9 blood coagulation. Each protein can be involved in multiple
- []
-
-
-Underfull \hbox (badness 1831) in paragraph at lines 132--141
+Underfull \hbox (badness 1831) in paragraph at lines 128--137
 \OT1/ptm/m/n/9 in biological processes via the GO annotations. The logical
  []
 
 <figS2.png, id=12, 244.7544pt x 155.3805pt>
 File: figS2.png Graphic file (type png)
  <use figS2.png>
-Underfull \hbox (badness 1092) in paragraph at lines 177--182
+Underfull \hbox (badness 1092) in paragraph at lines 173--178
 []\OT1/ptm/m/n/9 These drugs are present in the ATC class(es) but not in the
  []
 
@@ -358,12 +354,17 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
  []
 
 [2 <./figS1.png>]
-Underfull \hbox (badness 1701) in paragraph at lines 199--204
+Underfull \hbox (badness 1701) in paragraph at lines 195--200
 []\OT1/ptm/m/n/9 The semantic similarity measure performed over the FTC is
  []
 
+
+Underfull \hbox (badness 1173) in paragraph at lines 212--223
+\OT1/ptm/m/n/9 both belong to the category A (top right corner square) and
+ []
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 240.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 237.
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][][] 
@@ -373,23 +374,41 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
  [3 <./figS2.png>]
-Underfull \hbox (badness 1394) in paragraph at lines 265--272
+Underfull \hbox (badness 1394) in paragraph at lines 262--269
 \OT1/ptm/m/n/9 for their chemical structure. Mode of action classes are
  []
 
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 308.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/omlptm.fd
+File: omlptm.fd 
+)
+LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <9> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 308.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--339
+Underfull \hbox (badness 10000) in paragraph at lines 330--336
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 342--348
+Underfull \hbox (badness 10000) in paragraph at lines 339--345
 
  []
 
+<figS3.png, id=22, 506.3718pt x 392.4261pt>
+File: figS3.png Graphic file (type png)
+ <use figS3.png>
+<figS4.png, id=23, 506.3718pt x 348.3414pt>
+File: figS4.png Graphic file (type png)
+ <use figS4.png>
+<figS5.png, id=24, 506.3718pt x 347.1369pt>
+File: figS5.png Graphic file (type png)
+ <use figS5.png> (./document.bbl
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 14.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -408,60 +427,40 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 
 [4]
 Missing character: There is no â in font ptmr7t!
-Missing character: There is no ‰ in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
- <figS3.png, id=25, 506.3718pt x 392.4261pt>
-File: figS3.png Graphic file (type png)
- <use figS3.png>
-<figS4.png, id=26, 506.3718pt x 348.3414pt>
-File: figS4.png Graphic file (type png)
- <use figS4.png>
-<figS5.png, id=27, 506.3718pt x 347.1369pt>
-File: figS5.png Graphic file (type png)
- <use figS5.png> (./document.bbl
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 14.
-Missing character: There is no â in font ptmr7t!
 Missing character: There is no „ in font ptmr7t!
 Missing character: There is no ° in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no „ in font ptmr7t!
 Missing character: There is no ’ in font ptmr7t!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:39.44545pt when 285.22272pt
+Extra height:11.44545pt when 166.34393pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+Extra height:0.0pt when 167.34393pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:39.44545pt when 286.22272pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:39.44545pt when 287.22272pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:39.44545pt when 288.22272pt
-Extra height:0.0pt when 289.22272pt
-(2)Left:289.22272pt Right:282.44545pt Output:289.22272pt
+(2)Left:167.34393pt Right:166.68788pt Output:167.34393pt
 - LAST -
 Extra skip:0.0pt
-Left:289.22272pt
-Right:282.44545pt
-Output:289.22272pt
+Left:167.34393pt
+Right:166.68788pt
+Output:167.34393pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][][] 
@@ -470,25 +469,7 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
- [5
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][] 
- []
-
-
-Overfull \vbox (1.0pt too high) has occurred while \output is active []
-
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][] 
- []
-
-[6 <./figS3.png
+ [5 <./figS3.png
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figS3.png): large interlaced PNG migh
 t cause out of memory (use non-interlaced PNG to fix this)
@@ -503,7 +484,12 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
- [7 <./figS4.png
+
+Overfull \hbox (261.0pt too wide) has occurred while \output is active
+[][] 
+ []
+
+[6 <./figS4.png
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figS4.png): large interlaced PNG migh
 t cause out of memory (use non-interlaced PNG to fix this)
@@ -518,12 +504,7 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][] 
- []
-
-[8 <./figS5.png
+ [7 <./figS5.png
 
 pdfTeX warning: /usr/bin/pdflatex (file ./figS5.png): large interlaced PNG migh
 t cause out of memory (use non-interlaced PNG to fix this)
@@ -534,22 +515,23 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 2625 strings out of 493848
- 30397 string characters out of 1152822
- 101374 words of memory out of 3000000
- 5854 multiletter control sequences out of 15000+50000
- 27575 words of font info for 54 fonts, out of 3000000 for 9000
+ 2647 strings out of 493848
+ 30723 string characters out of 1152822
+ 99484 words of memory out of 3000000
+ 5872 multiletter control sequences out of 15000+50000
+ 29259 words of font info for 56 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
- 34i,8n,26p,632b,248s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,8n,26p,632b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/typ
-e1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/u
-hvbo8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/sha
-re/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fon
-ts/type1/urw/times/utmri8a.pfb>
-Output written on document.pdf (8 pages, 5641495 bytes).
+ve/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/typ
+e1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helve
+tic/uhvb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvbo8a.pfb><
+/usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-tex
+live/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw
+/times/utmri8a.pfb>
+Output written on document.pdf (7 pages, 5649681 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
+ 66 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
