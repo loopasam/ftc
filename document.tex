@@ -25,12 +25,12 @@ United Kingdom\\}
 Drug repurposing is the discovery of new indications for compounds already approved and used in a clinical setting. 
 Recently, some computational approaches have been developed to unveil new opportunities in a systematic fashion, by taking 
 into consideration gene expression signatures or chemical features for instance. 
-We present here a novel method based on knowledge integration using semantic technologies. 
-In order to computationally generate repurposing hypotheses, we used the Web Ontology Language (OWL) to 
-mathematically define the meaning of over 20'000 terms formally describing various modes and mechanisms of action.
-
+We present here a novel method based on knowledge integration using semantic technologies, 
+to capture the functional role of approuved chemical compounds.
 \section{Results:}
-Based on an integration of public data, we have automatically assigned over a thousand of approved drugs into 
+In order to computationally generate repurposing hypotheses, we used the Web Ontology Language (OWL) to 
+mathematically define the meaning of over 20'000 terms formally describing various modes and mechanisms of action. Based on an 
+integration of public data, we have automatically assigned over a thousand of approved drugs into 
 these mode of action categories. The resulting new resource is called the Functional Therapeutic Chemical Classification System (FTC) 
 and was further evaluated against the content of the traditional Anatomical Therapeutic Chemical Classification System (ATC). 
 We illustrate how the new classification can be used to generate drug repurposing hypotheses, using Alzheimer’s disease as a use-case.
@@ -49,7 +49,7 @@ Supplementary data are available at Bioinformatics online.
 Drug repurposing is the use of known active compounds for new therapeutic indications \citep{Sanseau01072011}. 
 When administered in a living organism, a compound can indeed play various roles and affect different biological processes. 
 Accurately identifying these different functions helps to predict the potential side-effects a drug could have and can also lead to 
-interesting repurposing opportunities \citep{Medina-Franco2013}. For instance, sildenafil was initially developed 
+interesting repurposing opportunities \citep{Medina-Franco2013}. For instance, \emph{sildenafil} was initially developed 
 against angina and has been repurposed towards erectile dysfunction during the clinical trials \citep{Ashburn2004}. Approved compounds are 
 attractive because they have been extensively studied and have by definition already successfully passed clinical trials, where 
 most drugs fail because of safety or efficacy issues.
@@ -59,10 +59,11 @@ the drugs on more abstract levels, such as the gene expression signature \citep{
 via the reported side-effects \citep{Campillos2008}. 
 These approaches 
 have in common to look for similarities within existing drugs and forward similar compounds as repurposing hypotheses.
-A feature of particular interest to describe drugs is the mode of action (MoA). According to Wikipedia, 
-the MoA describes a functional or anatomical change, 
-at the cellular level, resulting from the exposure of a living organism to a substance. For instance 
-terms such as transcriptional regulation agent or anticoagulant define MoAs and characterise the roles of a certain type of drugs. The 
+A feature of particular interest to describe drugs is the Mode of Action (MoA). According to Wikipedia, 
+the MoA describes \emph{a functional or anatomical change, 
+at the cellular level, resulting from the exposure of a living organism to a substance}. For instance 
+terms such as \emph{transcriptional regulation agent} or \emph{anticoagulant} define MoAs and characterise the 
+roles of a certain type of drugs. The 
 MoA abstracts over the relations between molecular functions, protein targets and drug activities; it is the central concept linking a 
 chemical structure to a set of biological effects. Intuitively, the indication of a drug logically depends on its MoA.
 Despite its widespread use in drug discovery, the MoA has not been used yet as a descriptor for repurposing analyses. One reason for this 
@@ -71,14 +72,14 @@ them straightforwardly with values and numbers like one can do for a 3D molecula
 Nonetheless, the meaning of a concept can be formalised with controlled vocabularies and ontologies \citep{Gruber1995}; 
 originating from description logics, such frameworks help to define the mathematical meaning of symbols and strings of characters. 
 In an ontology or knowledge base, concepts are organised and linked following the logical type of relation they have between them. 
-In the Gene Ontology (GO) for example \citep{Ashburner2000}, biological processes and molecular functions are manually curated in this resource 
-and the meaning of terms is specified by the relations linking two GO terms.
+In the Gene Ontology (GO) for example \citep{Ashburner2000}, biological processes and molecular functions terms are manually curated  
+and their meaning is specified by the relation types linking two GO terms.
 MoA definitions are present in other classifications such as the Medical Subject Headings \citep{Nelson2004} or the Chemical Entities of 
 Biological Interest \citep{Hastings2012} for example. The Anatomical Therapeutic 
 Chemical Classification System (ATC) \citep{world2000anatomical} also describes to some 
 extent the action of drugs at the anatomical level. All these resources are valuable for the community as a source of carefully 
-manually curated information. Moreover, the categories described in these classification systems are sometimes used to annotate 
-drugs: For instance the compound sildenafil has been manually annotated as vasodilator agent (CHEBI:35620 or MeSH:D27.505.954.411.918).
+manually curated information; moreover, the categories described in these classification systems are sometimes used to annotate 
+drugs: For instance the compound \emph{sildenafil} has been manually annotated as \emph{vasodilator agent} (CHEBI:35620 or MeSH:D27.505.954.411.918).
 The classifications mentioned previously are not specially designed for drug repurposing; they purposefully report only the 
 well-known and major MoAs of chemical compounds. The pharmacological spectrum of each drug is not necessarily well covered, yet 
 it would be the best way to predict new indications. In our context, an ideal knowledge base would feature the known MoAs of a 
@@ -88,7 +89,8 @@ To address the lack of systematic MoA annotations, we have implemented the Funct
 Classification System (FTC), presented here in this manuscript. The FTC is automatically built by leveraging the content 
 of various biomedical databases using description logics and automated reasoning. Over 20'000 new MoA categories are defined 
 in the resource and further populated with approved drugs using the Web Ontology Language (OWL) in combination with a reasoner. 
-Most of the drugs are present in multiple FTC categories, reflecting the various roles a compound can play inside a biological system. 
+Most of the drugs are present in multiple FTC categories, reflecting the various roles a compound can play inside a biological system which 
+can serve as starting point for repurposing. 
 The resource was evaluated against the ATC, traditional classification scheme introduced before. We present as well some preliminary 
 analyses over the data, by looking at the relation between the MoA and the indication of a compound using semantic similarity. 
 Finally, we illustrate also how the FTC can be used as a pharmacological toolbox to analyse drug repurposing for Alzheimer’s disease.
@@ -97,42 +99,41 @@ Finally, we illustrate also how the FTC can be used as a pharmacological toolbox
 
 The knowledge base behind the FTC is built by integrating information coming from various sources. 
 The GO terms serve as template to create the FTC categories describing the MoAs; DrugBank \citep{Knox2011} provides the 
-known links between drugs and their protein targets. Uniprot \citep{TheUniprotConsortium2013} maps targets to their 
+known links between drugs and their protein targets and Uniprot \citep{TheUniprotConsortium2013} maps targets to their 
 respective GO annotations \citep{Dimmer2012}. 
-Drugs are further assigned into mode of action categories based of the OWL constructs and axioms defined in the 
-FTC (see Availability and Implementation). A reasoner, a program capable of understanding such axioms, performed this task. 
+Drugs are further assigned into MoA categories based of the OWL constructs and axioms defined in the 
+FTC (see \emph{Availability and Implementation}). A reasoner, a program capable of understanding such axioms, performed this task. 
 The process to build the FTC is summarised in Figure~\ref{fig:01}.
-
-\begin{figure*}[!tpb]%figure1
-\centerline{\includegraphics{fig1.png}}
-\caption{Parent categories to the FTC class Pro-fibrinolysis agent (FTC\_P0042730). The classification is a direct 
-acyclic graph where categories are describing increasingly specific concepts. Arrows entails subclass relationships 
-between the terms (is a relation).}\label{fig:01}
-\end{figure*}
-
 It takes around 5 seconds on a modern 
 laptop (4 cores processor with 4 Gb of memory) to classify the knowledge base using the ELK reasoner \citep{Kazakov2011}. 
 Other OWL reasoners have been tried (e.g, Hermit, Pellet, etc.) but none of them were suitable for this purpose; 
 the classification time was always superior to a few minutes (data not shown). The FTC has a taxonomic structure as illustrated 
 on Figure~\ref{fig:02}, which arises when the reasoner classifies the knowledge base. Categories can have multiple parents and multiple children. 
 The reader can browse and access the content of the FTC online at {{https://www.ebi.ac.uk/chembl/ftc}}.
-
-\begin{figure}[!tpb]%figure2
-\centerline{\includegraphics{fig2.png}}
-\caption{Parent categories to the FTC class Pro-fibrinolysis agent (FTC\_P0042730). The classification is a direct 
-acyclic graph where categories are describing increasingly specific concepts. Arrows entails subclass relationships 
-between the terms (is a relation).}\label{fig:02}
-\end{figure}
-
 In total there are 1280 approved DrugBank compounds (chemical and biotherapeutics) perturbing 1264 human protein targets. 
 The FTC introduces 23'353 new categories describing the mode and mechanism of action of therapeutic compounds. 4289 of these 
 categories are related to biological processes and 19'064 to the molecular functions. A summary of the metrics behind the latest 
 build is available online at {{https://www.ebi.ac.uk/chembl/ftc/evaluation/}}. Out of all FTC classes, 1432 
 categories (\textgreater 6\%) directly contain at least one approved drug. This number increases up to 2532 (\textgreater 11\%) 
 when direct and 
-indirect drugs are considered. FTC categories not containing drugs (e.g, FTC\_A0001771 - Anti-immunological synapse 
-formation agent) represent modes and mechanisms of action for which no approved compounds exist yet or that have not been identified 
+indirect drugs are considered. FTC categories not containing drugs (e.g, FTC\_A0001771 - \emph{Anti-immunological synapse 
+formation agent}) represent modes and mechanisms of action for which no approved compounds exist yet or that have not been identified 
 as such in the FTC.
+
+\begin{figure*}[!tpb]%figure1
+\centerline{\includegraphics{fig1.png}}
+\caption{Summary of the methodology used to construct the resource. The FTC categories are first created (A) from the existing GO terms
+describing molecular functions and biological processes. Then, each category has an equivalent definition assign to it (B).
+The content of various databases in incorporated (C) and linked using the FTC specific properties. Finally a reasoner runs over the knowledge
+base and assigns drugs to MoA categories based on whether or not a definition can be satisfied.}\label{fig:01}
+\end{figure*}
+
+\begin{figure}[!tpb]%figure2
+\centerline{\includegraphics{fig2.png}}
+\caption{Parent categories to the FTC class \emph{Pro-fibrinolysis agent} (FTC\_P0042730). The classification is a direct 
+acyclic graph where categories are describing increasingly specific concepts. Arrows entails subclass relationships 
+between the terms (\emph{is a} relation).}\label{fig:02}
+\end{figure}
 
 \subsection{Evaluation}
 The content of the FTC has been evaluated against the information present in the ATC. The motivation behind 
@@ -329,7 +330,7 @@ resource can serve as a starting point to formulate hypotheses for Alzheimer's d
 semantics of distinct databases, working in parallel on different thematics. The platform will be further used 
 to generate predictions in a systematic fashion, which can then be experimentally tested in the laboratory for validation.
 
-\section{Availability and Implementation}
+\section{Availability and Implementation}\label{impl}
 The code behind the creation of the resource is entirely open and available 
 at {{https://github.com/loopasam/ftc}}. The web application built on the top of the FTC using the Brain library \citep{Croset2013}, and can be 
 find at {{https://www.ebi.ac.uk/chembl/ftc}}. The documentation can be accessed at {{https://github.com/loopasam/ftc/wiki}}. The full
