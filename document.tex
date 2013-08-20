@@ -113,7 +113,8 @@ The reader can browse and access the content of the FTC online at {{https://www.
 In total there are 1280 approved DrugBank compounds (chemical and biotherapeutics) perturbing 1264 human protein targets. 
 The FTC introduces 23'353 new categories describing the mode and mechanism of action of therapeutic compounds. 4289 of these 
 categories are related to biological processes and 19'064 to the molecular functions. A summary of the metrics behind the latest 
-build is available online at {{https://www.ebi.ac.uk/chembl/ftc/evaluation/}}. Out of all FTC classes, 1432 
+build is available online at {{https://www.ebi.ac.uk/chembl/ftc/evaluation/}}.
+Out of all FTC classes, 1432 
 categories (\textgreater 6\%) directly contain at least one approved drug. This number increases up to 2532 (\textgreater 11\%) 
 when direct and 
 indirect drugs are considered. FTC categories not containing drugs (e.g, FTC\_A0001771 - \emph{Anti-immunological synapse 
@@ -164,24 +165,33 @@ equivalent ATC categories. This result was expected and comes the original idea 
 the implicit and explicit MoAs of drugs, in particular the ones not already indexed by current classification scheme.
 
 \subsection{Exploration}
-The FTC was designed to assist drug repurposing analyses by explicitly representing the poly-pharmacology of 
+The FTC was designed to assist drug repurposing analyses by explicitly representing the polypharmacology of 
 approved drugs. In this section we exemplify how the resource can be used to perform different types of analysis.
 
 \subsubsection{Polypharmacology spectrum}
 With more information on a drug’s molecular targets and their physiological roles, the more opportunities 
 exist to re-orient a drug into doing something new. The therapeutic agents described in the FTC can have several MoAs, 
-representing the intrinsic polypharmacology of the approved compounds. Figure 2 illustrates the poly-pharmacology 
-spectrum by showing the distribution of number of MoAs per compound. This number ranges from one to more 
-than eighty for certain drugs, when indirect parents are considered. Not all the MoAs are biologically relevant, 
-some FTC categories are particularly abstract (e.g, Anti-biological process agent) yet they represent discrete 
+representing the intrinsic polypharmacology of the approved compounds. Figure \ref{fig:03} illustrates the polypharmacology 
+spectrum by showing the distribution of number of MoAs per compound. When only direct categories are considered, compounds belong on average
+to 13.5 MoA categories. This number increases to 61.2 when parent categories are taken into consideration (super classes).
+Not all the MoAs are disease relevant, 
+some FTC categories are particularly abstract (e.g, \emph{Anti-biological process agent}) yet they represent discrete 
 categories to which the drug belongs with an explicit and clear meaning. These discrete MoAs are a good starting 
-point to understand what a compound can do when administered in a human system. The human readable definitions 
+point to understand what a compound can do when administered in a human system, as it will be shown with Alzheimer's disease.
+The human readable definitions 
 associated to each FTC category furthermore help the user to choose the adequate MoA for the desired outcome.
+According to these results, compound's polypharmacology is 
+well represented in the FTC, as shown by the numerous MoAs each approuved drug can exhibit.
 
 \begin{figure*}[!tpb]%figure3
 \centerline{\includegraphics{fig3.png}}
-\caption{Distribution of the direct and indirect number of MoAs per drug. 
-Means are indicated with a solid line. When considering indirect categories, the distribution range is wider.}\label{fig:03}
+\caption{Distribution of the direct (blue) and indirect (red) number of MoAs per drug.
+Means are indicated with a solid line. On average each compound has 13.5 MoAs when only direct classes are considered. The number rises
+to 61.2 when indirect MoAs are included. Indirect MoAs are the ancestor classes in the taxonomy as shown in Figure \ref{fig:02}.
+The ditribution range is wider (number) when indirect MoAs are considered, emphasizing the fact that some drugs
+are well characterised in databases and could be used for a variety of specific biological tasks. Finally some compounds have been assigned
+to a small number of FTC categories; in such cases little is known or reported about their pharmacology and repurposing opportunities
+might be limited.}\label{fig:03}
 \end{figure*}
 
 \subsubsection{Drugs with similar mode of actions have similar indications}
