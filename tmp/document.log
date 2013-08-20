@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  20 AUG 2013 16:45
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  20 AUG 2013 18:41
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -529,9 +529,15 @@ Overfull \hbox (27.12433pt too wide) in paragraph at lines 242--251
  amyloid binding agent \OT1/ptm/m/n/9 (FTC[]A0001540)
  []
 
-<fig5.png, id=31, 244.7544pt x 189.3474pt>
+<fig5.png, id=31, 244.70622pt x 161.8848pt>
 File: fig5.png Graphic file (type png)
  <use fig5.png>
+Underfull \hbox (badness 1072) in paragraph at lines 257--257
+\OT1/ptm/m/n/8 affect the dementia. Drugs classified in these FTC categories fu
+rther
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -548,9 +554,13 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
  []
 
 [4 <./fig3.png>]
-Underfull \hbox (badness 4699) in paragraph at lines 260--289
-\OT1/ptm/m/n/9 hypothesis [Francis \OT1/ptm/m/it/9 et al.\OT1/ptm/m/n/9 , 1999]
-, stating that Alzheimer's
+Underfull \hbox (badness 3503) in paragraph at lines 260--290
+\OT1/ptm/m/n/9 could be caused by dysfunctions in the processing of the
+ []
+
+
+Underfull \hbox (badness 2229) in paragraph at lines 260--290
+\OT1/ptm/m/n/9 acetylcholine. The subgroup (4) is exclusively composed of
  []
 
 
@@ -576,14 +586,17 @@ Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 
-Underfull \hbox (badness 1067) in paragraph at lines 299--325
+Underfull \hbox (badness 1067) in paragraph at lines 300--326
 \OT1/ptm/m/n/9 help to generate a larger number of hypotheses, the primary
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 299--325
+Underfull \hbox (badness 1533) in paragraph at lines 300--326
 \OT1/ptm/m/n/9 results. No document was found to support the involvement
  []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
@@ -599,46 +612,49 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
  []
 
 [6 <./fig5.png>]
-Underfull \hbox (badness 5008) in paragraph at lines 356--360
+Underfull \hbox (badness 5008) in paragraph at lines 357--361
 []\OT1/ptm/m/n/9 The code behind the creation of the resource is entirely
  []
 
 
-Underfull \hbox (badness 8019) in paragraph at lines 356--360
+Underfull \hbox (badness 8019) in paragraph at lines 357--361
 \OT1/ptm/m/n/9 open and available at https://github.com/loopasam/ftc. The
  []
 
 
-Underfull \hbox (badness 5771) in paragraph at lines 356--360
+Underfull \hbox (badness 5771) in paragraph at lines 357--361
 \OT1/ptm/m/n/9 web application built on the top of the FTC using the
  []
 
 
-Underfull \hbox (badness 5607) in paragraph at lines 356--360
+Underfull \hbox (badness 5607) in paragraph at lines 357--361
 \OT1/ptm/m/n/9 Brain library [Croset \OT1/ptm/m/it/9 et al.\OT1/ptm/m/n/9 , 201
 3], and can be find at
  []
 
 
-Underfull \hbox (badness 5862) in paragraph at lines 356--360
+Underfull \hbox (badness 5862) in paragraph at lines 357--361
 \OT1/ptm/m/n/9 https://www.ebi.ac.uk/chembl/ftc. The documentation can be
  []
 
 
-Overfull \hbox (5.35172pt too wide) in paragraph at lines 356--360
+Overfull \hbox (5.35172pt too wide) in paragraph at lines 357--361
 \OT1/ptm/m/n/9 accessed at https://github.com/loopasam/ftc/wiki. The full descr
 iption
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 362.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 363.
 
 Package natbib Warning: Citation `Boffelli03' on page 7 undefined on input line
- 362.
+ 363.
 
 (./document.bbl
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 7.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no „ in font ptmr7t!
 Missing character: There is no ° in font ptmr7t!
@@ -756,7 +772,7 @@ uhvr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvro8a.pfb></usr
 /share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive
 /fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on document.pdf (8 pages, 3603644 bytes).
+Output written on document.pdf (8 pages, 3629637 bytes).
 PDF statistics:
  93 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
