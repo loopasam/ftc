@@ -123,9 +123,10 @@ as such in the FTC.
 \begin{figure*}[!tpb]%figure1
 \centerline{\includegraphics{fig1.png}}
 \caption{Summary of the methodology used to construct the resource. (A) The FTC categories are first created from the existing GO terms
-describing molecular functions and biological processes. (B) Then, each category has an equivalent definition assign to it.
+describing molecular functions and biological processes. (B) Then, each category has a logical equivalent definition assign to it.
 (C) The content of various databases in incorporated and linked using the FTC specific properties. (D) Finally a reasoner runs over the knowledge
-base and assigns drugs to MoA categories based on whether or not a definition can be satisfied.}\label{fig:01}
+base and assigns drugs to MoA categories based on whether or not a definition can be satisfied. The taxonomic structure of the
+FTC appears also in the reasoning step, from the entailements of the equivalent defintions.}\label{fig:01}
 \end{figure*}
 
 \begin{figure}[!tpb]%figure2
@@ -140,23 +141,27 @@ The content of the FTC has been evaluated against the information present in the
 this step is to have an estimation of how the automatically-built classification (FTC) compares to a manually curated 
 one (ATC). In the context of this work, we have considered the ATC as a gold standard against which the FTC 
 has been assessed. In practice, these two resources have different goals; therefore the evaluation should be 
-interpreted accordingly. The full methodology behind the evaluation is described in the section “Evaluation methodology”. 
-Briefly, 68 classes present in the FTC have an equivalent meaning to a combination of classes present in the ATC. 
-This semantic equivalence was manually asserted and called evaluation point (see “Evaluation points” from Availability and Implementation). 
-The set of drugs present in both classes for each evaluation points were then compared and some metrics are derived 
-from this comparison. For example, the FTC category Anti-hydrogen:potassium-exchanging ATPase activity agent (FTC\_A0008900) has 
-been manually asserted as equivalent to the ATC category Proton pump inhibitors (A02BC). A summary of this 
+interpreted accordingly. The full methodology behind the evaluation is 
+described in the section 6 of the supplementary material (\emph{Evaluation methodology}). 
+Briefly, 68 categories present in the FTC have an equivalent meaning to a combination of categories present in the ATC. 
+This semantic equivalence was manually asserted 
+and called \emph{evaluation point} (see supplementary material section 6.1 for details). 
+The set of drugs present in both classes for each evaluation points were then compared and some metrics derived. 
+For example, the FTC category \emph{Anti-hydrogen:potassium-exchanging ATPase activity agent} (FTC\_A0008900) has 
+been manually asserted as equivalent to the ATC category \emph{Proton pump inhibitors} (A02BC). A summary of this 
 evaluation point is furthermore available online at {{https://www.ebi.ac.uk/chembl/ftc/evaluation/FTC\_A0008900}}.
 Out of the 1280 DrugBank compounds present in the FTC, 1134 are also present in the ATC, therefore only those were 
-considered. The evaluation points cover a total of 471 DrugBank compounds. Out of these, 277 compounds are true positives, 
-meaning that given an evaluation point, they are present in both FTC and ATC categories. The proton pump inhibitor 
-evaluation point is such an example where all the drugs (omeprazole, esomeprazole, pantoprazole, lansoprazole, rabeprazole) are 
-present both in the FTC category and in the corresponding ATC class. The total number of compounds presents in an ATC class but 
+considered. The \emph{evaluation points} cover a total of 471 DrugBank compounds or around 41\% of common drugs to both classifications.
+Out of these, 277 compounds are true positives, 
+meaning that given an evaluation point, they are present in both FTC and ATC categories. The \emph{proton pump inhibitor} 
+evaluation point is such an example where all the drugs (\emph{omeprazole, esomeprazole, pantoprazole, lansoprazole, rabeprazole}) are 
+present both in the FTC category and in the corresponding ATC class(es). The total number of compounds present in an ATC class but 
 not in the corresponding FTC category (false negatives) is 36. Finally, 279 compounds are present in a FTC class but not in the 
-corresponding ATC class; such agents are the false positives. From these values, it is possible to derive a 
+corresponding ATC class(es); such agents are the false positives. From these values, it is possible to derive a 
 recall of 88\%; this percentage indicates that the automatic build of the FTC covers a good portion of the content 
 already present in the ATC. The precision of 50\% shows that the FTC contains for a given MoA many more drugs than the 
-equivalent ATC categories.
+equivalent ATC categories. This result was expected and comes the original idea behind the FTC: Representing in a systematic fashion
+the implicit and explicit MoAs of drugs, in particular the ones not already indexed by current classification scheme.
 
 \subsection{Exploration}
 The FTC was designed to assist drug repurposing analyses by explicitly representing the poly-pharmacology of 
