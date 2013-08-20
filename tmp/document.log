@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  20 AUG 2013 15:07
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  20 AUG 2013 16:45
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -326,8 +326,18 @@ Underfull \hbox (badness 1881) in paragraph at lines 30--37
  []
 
 
-Underfull \hbox (badness 3407) in paragraph at lines 30--37
-\OT1/phv/m/n/8 against the content of the traditional Anatomical Therapeutic
+Underfull \hbox (badness 1292) in paragraph at lines 30--37
+\OT1/phv/m/n/8 Classification System (FTC) and was further evaluated against
+ []
+
+
+Underfull \hbox (badness 1436) in paragraph at lines 30--37
+\OT1/phv/m/n/8 the content of the traditional Anatomical Therapeutic Chemical
+ []
+
+
+Underfull \hbox (badness 1430) in paragraph at lines 30--37
+\OT1/phv/m/n/8 can be used to generate drug repurposing hypotheses, using
  []
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10> not available
@@ -455,117 +465,75 @@ Missing character: There is no ô in font ptmr7t!
  <fig3.png, id=25, 333.8874pt x 292.4526pt>
 File: fig3.png Graphic file (type png)
  <use fig3.png>
-<fig4.png, id=26, 506.3718pt x 405.4347pt>
-File: fig4.png Graphic file (type png)
- <use fig4.png>
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
+Underfull \hbox (badness 1490) in paragraph at lines 199--227
+\OT1/ptm/m/n/9 to the same ATC category is significantly higher than when
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][] 
+[][][] 
  []
 
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
  [3 <./fig1.png>]
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ú in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ù in font ptmr7t!
-
-Underfull \hbox (badness 1521) in paragraph at lines 220--237
-\OT1/ptm/m/n/9 when compounds from the same ATC group are considered.
- []
-
-
-Underfull \hbox (badness 1297) in paragraph at lines 220--237
-\OT1/ptm/m/n/9 clustering - manhattan distance) in order to reveal functional
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Missing character: There is no ‚ in font ptmb7t!
-Missing character: There is no Ä in font ptmb7t!
-Missing character: There is no ô in font ptmb7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
 
-Underfull \hbox (badness 6396) in paragraph at lines 239--247
+<fig4.png, id=30, 506.3718pt x 405.4347pt>
+File: fig4.png Graphic file (type png)
+ <use fig4.png>
+Underfull \hbox (badness 6396) in paragraph at lines 242--251
 \OT1/ptm/m/n/9 hypotheses can be derived from the FTC. The approach
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 239--247
+Underfull \hbox (badness 1742) in paragraph at lines 242--251
 \OT1/ptm/m/n/9 presented here makes use of the FTC categories as analogs
  []
 
 
-Underfull \hbox (badness 7273) in paragraph at lines 239--247
+Underfull \hbox (badness 7273) in paragraph at lines 242--251
 \OT1/ptm/m/n/9 to compartments of a toolbox helping to find drugs to
  []
 
 
-Underfull \hbox (badness 7667) in paragraph at lines 239--247
-\OT1/ptm/m/n/9 treat Alzheimers disease. Five FTC categories containing
+Underfull \hbox (badness 6220) in paragraph at lines 242--251
+\OT1/ptm/m/n/9 treat Alzheimer's disease. Five FTC categories containing
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 239--247
+Underfull \hbox (badness 1960) in paragraph at lines 242--251
 \OT1/ptm/m/n/9 drugs are directly related to the biological processes of the
  []
 
 
-Underfull \hbox (badness 5802) in paragraph at lines 239--247
-\OT1/ptm/m/n/9 neurodegenerative condition: Anti-amyloid precursor protein
+Underfull \hbox (badness 6047) in paragraph at lines 242--251
+\OT1/ptm/m/n/9 neurodegenerative condition: \OT1/ptm/m/it/9 Anti-amyloid precur
+sor protein
  []
 
 
-Underfull \hbox (badness 1888) in paragraph at lines 239--247
-\OT1/ptm/m/n/9 biosynthetic process agent (FTC[]A0042983), Anti-tau protein
+Underfull \hbox (badness 1975) in paragraph at lines 242--251
+\OT1/ptm/m/it/9 biosynthetic process agent \OT1/ptm/m/n/9 (FTC[]A0042983), \OT1
+/ptm/m/it/9 Anti-tau protein
  []
 
 
-Overfull \hbox (27.15121pt too wide) in paragraph at lines 239--247
-\OT1/ptm/m/n/9 agent (FTC[]A0048156), Anti-beta amyloid binding agent (FTC[]A00
-01540)
+Overfull \hbox (27.12433pt too wide) in paragraph at lines 242--251
+\OT1/ptm/m/it/9 agent \OT1/ptm/m/n/9 (FTC[]A0048156), \OT1/ptm/m/it/9 Anti-beta
+ amyloid binding agent \OT1/ptm/m/n/9 (FTC[]A0001540)
  []
 
 <fig5.png, id=31, 244.7544pt x 189.3474pt>
 File: fig5.png Graphic file (type png)
  <use fig5.png>
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][][] 
@@ -580,6 +548,12 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
  []
 
 [4 <./fig3.png>]
+Underfull \hbox (badness 4699) in paragraph at lines 260--289
+\OT1/ptm/m/n/9 hypothesis [Francis \OT1/ptm/m/it/9 et al.\OT1/ptm/m/n/9 , 1999]
+, stating that Alzheimer's
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -587,7 +561,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][] 
+[][][] 
  []
 
 
@@ -602,12 +576,12 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
 
-Underfull \hbox (badness 1067) in paragraph at lines 292--318
+Underfull \hbox (badness 1067) in paragraph at lines 299--325
 \OT1/ptm/m/n/9 help to generate a larger number of hypotheses, the primary
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 292--318
+Underfull \hbox (badness 1533) in paragraph at lines 299--325
 \OT1/ptm/m/n/9 results. No document was found to support the involvement
  []
 
@@ -625,42 +599,42 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
  []
 
 [6 <./fig5.png>]
-Underfull \hbox (badness 5008) in paragraph at lines 349--353
+Underfull \hbox (badness 5008) in paragraph at lines 356--360
 []\OT1/ptm/m/n/9 The code behind the creation of the resource is entirely
  []
 
 
-Underfull \hbox (badness 8019) in paragraph at lines 349--353
+Underfull \hbox (badness 8019) in paragraph at lines 356--360
 \OT1/ptm/m/n/9 open and available at https://github.com/loopasam/ftc. The
  []
 
 
-Underfull \hbox (badness 5771) in paragraph at lines 349--353
+Underfull \hbox (badness 5771) in paragraph at lines 356--360
 \OT1/ptm/m/n/9 web application built on the top of the FTC using the
  []
 
 
-Underfull \hbox (badness 5607) in paragraph at lines 349--353
+Underfull \hbox (badness 5607) in paragraph at lines 356--360
 \OT1/ptm/m/n/9 Brain library [Croset \OT1/ptm/m/it/9 et al.\OT1/ptm/m/n/9 , 201
 3], and can be find at
  []
 
 
-Underfull \hbox (badness 5862) in paragraph at lines 349--353
+Underfull \hbox (badness 5862) in paragraph at lines 356--360
 \OT1/ptm/m/n/9 https://www.ebi.ac.uk/chembl/ftc. The documentation can be
  []
 
 
-Overfull \hbox (5.35172pt too wide) in paragraph at lines 349--353
+Overfull \hbox (5.35172pt too wide) in paragraph at lines 356--360
 \OT1/ptm/m/n/9 accessed at https://github.com/loopasam/ftc/wiki. The full descr
 iption
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 355.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 362.
 
 Package natbib Warning: Citation `Boffelli03' on page 7 undefined on input line
- 355.
+ 362.
 
 (./document.bbl
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
@@ -683,21 +657,57 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
  [7])
-Overfull \vbox (4.45978pt too high) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:0.0pt when 14.54022pt
 
-Overfull \vbox (4.45978pt too high) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-(2)Left:14.54022pt Right:10.0pt Output:14.54022pt
+Extra height:10.0pt when 37.04022pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 38.04022pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 39.04022pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 40.04022pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 41.04022pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 42.04022pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 43.04022pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 44.04022pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:10.0pt when 45.04022pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:0.0pt when 46.04022pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+(2)Left:46.04022pt Right:29.08044pt Output:46.04022pt
 - LAST -
 Extra skip:0.0pt
-Left:14.54022pt
-Right:10.0pt
-Output:14.54022pt
-
-Overfull \vbox (4.45978pt too high) has occurred while \output is active []
-
+Left:46.04022pt
+Right:29.08044pt
+Output:46.04022pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -733,7 +743,7 @@ Here is how much of TeX's memory you used:
  5963 multiletter control sequences out of 15000+50000
  52270 words of font info for 105 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
- 36i,13n,26p,856b,307s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,13n,26p,939b,303s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/typ
 e1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
@@ -746,7 +756,7 @@ uhvr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvro8a.pfb></usr
 /share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive
 /fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on document.pdf (8 pages, 3602163 bytes).
+Output written on document.pdf (8 pages, 3603644 bytes).
 PDF statistics:
  93 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

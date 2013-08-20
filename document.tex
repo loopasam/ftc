@@ -31,7 +31,7 @@ to capture the functional role of approuved chemical compounds.
 In order to computationally generate repurposing hypotheses, we used the Web Ontology Language (OWL) to 
 mathematically define the meaning of over 20'000 terms formally describing various modes and mechanisms of action. Based on an 
 integration of public data, we have automatically assigned over a thousand of approved drugs into 
-these mode of action categories. The resulting new resource is called the Functional Therapeutic Chemical Classification System (FTC) 
+these MoA categories. The resulting new resource is called the Functional Therapeutic Chemical Classification System (FTC) 
 and was further evaluated against the content of the traditional Anatomical Therapeutic Chemical Classification System (ATC). 
 We illustrate how the new classification can be used to generate drug repurposing hypotheses, using Alzheimer’s disease as a use-case.
 
@@ -188,39 +188,28 @@ well represented in the FTC, as shown by the numerous MoAs each approuved drug c
 \caption{Distribution of the direct (blue) and indirect (red) number of MoAs per drug.
 Means are indicated with a solid line. On average each compound has 13.5 MoAs when only direct classes are considered. The number rises
 to 61.2 when indirect MoAs are included. Indirect MoAs are the ancestor classes in the taxonomy as shown in Figure \ref{fig:02}.
-The ditribution range is wider (number) when indirect MoAs are considered, emphasizing the fact that some drugs
+The distribution range is wider when indirect MoAs are considered (range=299; min=7; max=306) versus direct MoAs only (range=79; min=3; max=82).
+These results emphasises the fact that some drugs
 are well characterised in databases and could be used for a variety of specific biological tasks. Finally some compounds have been assigned
 to a small number of FTC categories; in such cases little is known or reported about their pharmacology and repurposing opportunities
 might be limited.}\label{fig:03}
 \end{figure*}
 
-\subsubsection{Drugs with similar mode of actions have similar indications}
-The list of MoAs attributed to a drug can be exploited as a descriptor for the therapeutic agent. 
+\subsubsection{Drugs with similar MoAs have similar indications}
+The list of MoAs attributed to a drug can be exploited as a descriptor for the therapeutic agent:
 The tree structure of the FTC can be used to derive some similarity metrics over the MoAs. The underlying 
-heuristic is to assume that the closer two entities are in a taxonomy or ontology, the more similar they are. 
-We used a straightforward approach derived from the Jaccard index (see method for more details) in order to compare 
+heuristic is to assume that the closer two entities are in the taxonomy, the more similar they are. 
+We used a straightforward approach derived from the Jaccard index (see supplementary section 7) in order to compare 
 approved drugs based on the similarity of their MoAs. For instance, the similarity between two compounds present in 
-the same FTC category is 1 (maximum). The similarity between an anti-blood coagulant and pro-blood coagulant is 0.29, 
-reflecting the fact that such compounds are dissimilar in regards to the outcome of their biological effect. As the MoA is 
+the same FTC category is 1 (maximum). The similarity between an \emph{anti-blood coagulant} and \emph{pro-blood coagulant} is 0.29, 
+reflecting the fact that such compounds are not similar in regards to the outcome of their biological effect. As the MoA is 
 intuitively expected to be the central concept leading to the indication of the drug, we expected that on average, drugs with 
-similar MoAs would be indicated towards similar therapeutic areas. The heat map presented in Figure 3 shows a pairwise 
+similar MoAs would be indicated towards similar therapeutic areas. The heat map presented in Figure \ref{fig:04} shows a pairwise 
 comparison of all the drugs of the FTC based on their relative MoA similarity. The compounds are further grouped by 
 therapeutic indications as defined by the ATC.
-
-\begin{figure*}[!tpb]%figure4
-\centerline{\includegraphics{fig4.png}}
-\caption{Pairwise comparison of mode of action similarities. Only the first level of 
-the ATC is considered. The reader can refer to Supplementary Figure 1A for a two ATC level granularity. 
-The similarity descriptor ranges from 0 (not similar - white) to 1 (identical - black). Drugs are grouped according 
-to their first ATC level (colours on the side). For instance, the compound reteplase (DB00015) has the ATC code B01AD07, 
-which appears as “B” (dark orange) on the plot. The average similarity of drugs present in the same therapeutic category 
-is significantly higher on average when separately compared to all other indications.}\label{fig:04}
-\end{figure*}
-
-The heat map displayed in Figure 3 reveals some square patches around the central diagonal. 
-The overall similarity appears higher when compounds from the same ATC group are considered. 
-A significance analysis (cf details covered in sections “Semantic similarity” 
-and “Mode of action similarity against indication” from Availability and Implementation) 
+The heatmap (Figure \ref{fig:04}) reveals some square patches around the central diagonal;
+the overall similarity appears higher when compounds from the same ATC group are considered. 
+A significance analysis (details covered in supplementary section 8)
 revealed that the average MoA similarity of compounds belonging to the same ATC category is 
 significantly higher than when compounds belonging to different categories are compared. Indeed, for 
 each category, the p-value was inferior to 0.05 based on 20'000 random permutations over the similarity values. 
@@ -228,57 +217,75 @@ This result supports the idea that drugs with similar MoAs have similar indicati
 similarity values was considered for the statistical analysis; some outliers are also present in the map, which 
 can be interpreted as repurposing hypotheses. These outliers have indeed similar MoAs, yet they belong to totally 
 different therapeutic areas and are used for different purposes according to the ATC. We are currently further analysing 
-such cases in a systematic fashion. Supplementary Figure S1A present similar association behavior when two levels of the ATC are 
-considered (no statistical significance performed). Supplementary Figure S1B re-uses the same data as Figure 1 (one ATC level) 
+such cases in a systematic fashion. Supplementary Figure 3 present similar association behavior when two levels of the ATC are 
+considered (no statistical significance performed). Supplementary Figure 4 re-uses the same data as Figure \ref{fig:04} (one ATC level) 
 but with a clustering function apply to it (hierarchical clustering - manhattan distance) in order to reveal 
-functional clusters of drugs. Finally, Figure S1C shows the distribution when compounds are sorted based on 
+functional clusters of drugs. Finally, Supplementary Figure 5 shows the distribution when compounds are sorted based on 
 their identifiers; no patterns are identifiable in this case. Taken together, these results emphasize that the MoAs as 
-defined in the FTC are indeed on average associated with the therapeutic indication of a drug.
- 
-\subsection{Drug repurposing hypotheses for Alzheimer’s disease}
+defined in the FTC are indeed on average associated with the therapeutic indication of a drug. This result supports the validity of the
+resource and its potential to computationally address indication discovery.
+
+\begin{figure*}[!tpb]%figure4
+\centerline{\includegraphics{fig4.png}}
+\caption{Pairwise comparison of MoAs similarities. Only the first level of 
+the ATC is considered. The reader can refer to Supplementary Figure 1A for a two ATC level granularity. 
+The similarity descriptor ranges from 0 (not similar - white) to 1 (identical - black). Drugs are grouped according 
+to their first ATC level (colours on the side). For instance, the compound reteplase (DB00015) has the ATC code B01AD07, 
+which appears as ``B'' (dark orange) on the plot.
+Some compounds belong to multiple ATC categories (Mulitple - black) and some others do not have
+an ATC code (NoCategory - white)
+The average similarity of drugs present in the same therapeutic category 
+is significantly higher on average when separately compared to all other indications.}\label{fig:04}
+\end{figure*}
+
+\subsection{Drug repurposing hypotheses for Alzheimer's disease}
 In this section we provide examples how actual drug repurposing hypotheses can be derived from the FTC. 
 The approach presented here makes use of the FTC categories as analogs to compartments of a toolbox helping to 
-find drugs to treat Alzheimer’s disease. Five FTC categories containing drugs are directly related to the biological 
-processes of the neurodegenerative condition: Anti-amyloid precursor protein biosynthetic process agent (FTC\_A0042983), 
-Anti-tau protein kinase activity agent (FTC\_A0050321), Anti-tau protein binding agent (FTC\_A0048156), Anti-beta amyloid 
-binding agent (FTC\_A0001540) and Pro-beta amyloid binding agent (FTC\_P0001540). We have then considered the drugs present 
-inside each of these classes as potential candidates. Figure 4 shows these drugs, which have been further manually grouped 
-based on the overall similarity of their actions (letters on Figure 4).
+find drugs to treat Alzheimer's disease. Five FTC categories containing drugs are directly related to the biological 
+processes of the neurodegenerative condition: \emph{Anti-amyloid precursor protein biosynthetic process agent} (FTC\_A0042983), 
+\emph{Anti-tau protein kinase activity agent} (FTC\_A0050321), \emph{Anti-tau protein binding agent} (FTC\_A0048156), 
+\emph{Anti-beta amyloid 
+binding agent} (FTC\_A0001540) and finally \emph{Pro-beta amyloid binding agent} (FTC\_P0001540). We have then considered the drugs present 
+inside each of these classes as potential candidates. Figure \ref{fig:05} shows these drugs, which have been further manually grouped 
+based on the overall similarity of their actions (letters on Figure \ref{fig:05}).
 
 \begin{figure}[!tpb]%figure5
 \centerline{\includegraphics{fig5.png}}
-\caption{FTC categories (letters A, F, H, I and J) describing some of the modes and mechanisms of 
-action that could impact Alzheimer’s disease. Drugs classified in these FTC categories are listed and further 
-manually grouped based on their mode of action similarities (subgroups B, C, D, E and G).}\label{fig:05}
+\caption{FTC categories describing some of the modes and mechanisms of 
+action that could impact Alzheimer's disease. The categories have been manually picked on the basis that they could directly affect
+the dementia. Drugs classified in these FTC categories further 
+manually grouped based on their MoAs similarities (subgroups B, C, D, E and G).}\label{fig:05}
 \end{figure}
  
-The subgroups B, C and D are inhibitors of the cholinergic system and some of them, such as galantamine (DB00674), are already 
-investigated to treat Alzheimer’s disease and other related dementias. This class of agent is in line with the 
-cholinergic hypothesis \citep{Francis1999}, stating that Alzheimer’s disease could be caused by dysfunctions in the processing of 
+The subgroups B, C and D are inhibitors of the cholinergic system and some of them, such as \emph{galantamine} (DB00674), are already 
+investigated to treat Alzheimer's disease and other related dementias. This class of agent is in line with the 
+cholinergic hypothesis \citep{Francis1999}, stating that Alzheimer's disease could be caused by dysfunctions in the processing of the
 acetylcholine. The subgroup E is exclusively composed of barbiturates (central nervous system depressants). 
-The presence of this pharmacological class of compounds as an Alzheimer treatment is more surprising, as very little 
+The presence of this pharmacological class of compounds as an Alzheimer's disease treatment is more surprising, as very little 
 literature reports on it. Further investigations reveal that the neuronal acetylcholine receptor subunit alpha-7, a 
 common off-target of barbiturates, binds beta-amyloids with high affinity \citep{Wang2000}. As beta-amyloids are themselves strongly involved 
-in the pathology, barbiturates could affect the state of the condition \citep{Wang2000}, similarly to cholinergic inhibitors.
-The group F contains four compounds; nicotine and varenicline have been grouped because of similar pharmacology (group G). 
-Nicotine has been shown to improve some of the symptoms of Alzheimer’s disease \citep{Jones1992}, it is therefore expected to 
-find this molecule in the predictions. Varenicline possess a pharmacology related to that of nicotine, which would explain 
-the presence of the drug in this category. The two remaining drugs of group F are respectively pralidoxime and dipivefrin; 
-little information is available regarding their potential action against the disease, yet these compounds seem linked to the 
+in the pathology, barbiturates could affect the state of the condition, similarly to cholinergic inhibitors \citep{Wang2000}.
+The group F contains four compounds; \emph{nicotine} and \emph{varenicline} have been further grouped together because of 
+similar pharmacology (group G).
+\emph{Nicotine} has been shown to improve some of the symptoms of Alzheimer's disease \citep{Jones1992}, it is therefore expected to 
+find this molecule in the predictions. \emph{Varenicline} possess a pharmacology related to that of \emph{nicotine}, which would explain 
+the presence of the drug in this category. The two remaining drugs of group F are respectively \emph{pralidoxime} and \emph{dipivefrin}; 
+little information is available regarding their potential action against the condition, yet these compounds seem linked to the 
 cholinergic hypothesis and could be considered for experimental testing.
 The groups H and I contain respectively one molecule each. These compounds have been classified as agents perturbing some of 
-the physiological function of the Tau protein, key actor in Alzheimer's disease \citep{Grundke-Iqbal1986}. Vorinostat (group H) is currently 
+the physiological function of the Tau protein, key actor in Alzheimer's 
+disease \citep{Grundke-Iqbal1986}. \emph{Vorinostat} (group H) is currently 
 indicated for the treatment of cutaneous manifestations in patients with T-cell lymphoma, yet a study has 
 shown in vivo (mouse model) the potential of the drug and other histone deacetylase inhibitors in regards to memory 
-deficit \citep{Kilgore2010}. The presence of lithium (group I) was 
+deficit \citep{Kilgore2010}. The presence of \emph{lithium} (group I) was 
 unexpected and suspected of being a false positive at first glance. However a recent study demonstrated a long-term 
-protective effect for the ion in regards to Alzheimer’s disease \citep{Young2011}. The last group (J) contains 
-ezetimibe and hesperetin. These two compounds are primarily used as cholesterol lowering agents (statins). As cholesterol 
+protective effect for the ion in regards to Alzheimer's disease \citep{Young2011}. The last group (J) contains 
+\emph{ezetimibe} and \emph{hesperetin}. These two compounds are primarily used as cholesterol lowering agents (statins). As cholesterol 
 metabolism in the brain appears to be related to dementia, statins are believed to prevent or improve the symptoms of the 
 patients. Although early studies \citep{Wolozin2004} have failed to clearly show a beneficial effect, the investigation is still open.
 From the examples briefly presented above, reported and confirmed by the literature, the FTC appears to be suitable to 
 identify real repurposing hypotheses tailored to a disease. The MoAs help to retrieve the compounds which might impact 
-the treatment of a given set of symptoms.
+the treatment of a given set of symptoms or dysfunctionning biological processes.
 
 \section{Discussion}
 
@@ -337,7 +344,7 @@ taxonomy, like the Medical Subject Headings for example, which can be subject to
 
 \section{Conclusion}
 This manuscript introduces the FTC, a free, open and extensible resource, which can assist drug repurposing 
-initiatives or enhance computational studies making use of the concept of mode of action. The construction of 
+initiatives or enhance computational studies making use of the concept of \emph{mode of action}. The construction of 
 the classification relies on description logics as a means to define the mode and mechanism of action of approved 
 drugs. We shown the validity of the approach by comparing the content of the FTC to another well implemented taxonomy, 
 the ATC. We further illustrate the tight relationship between the MoA and the indication of a drug and shown how the 
