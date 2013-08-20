@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  20 AUG 2013 18:41
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  20 AUG 2013 20:35
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -529,7 +529,7 @@ Overfull \hbox (27.12433pt too wide) in paragraph at lines 242--251
  amyloid binding agent \OT1/ptm/m/n/9 (FTC[]A0001540)
  []
 
-<fig5.png, id=31, 244.70622pt x 161.8848pt>
+<fig5.png, id=31, 242.8272pt x 218.54448pt>
 File: fig5.png Graphic file (type png)
  <use fig5.png>
 Underfull \hbox (badness 1072) in paragraph at lines 257--257
@@ -596,9 +596,6 @@ Underfull \hbox (badness 1533) in paragraph at lines 300--326
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][][] 
  []
@@ -652,9 +649,6 @@ Package natbib Warning: Citation `Boffelli03' on page 7 undefined on input line
 (./document.bbl
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 7.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no „ in font ptmr7t!
 Missing character: There is no ° in font ptmr7t!
@@ -772,7 +766,7 @@ uhvr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvro8a.pfb></usr
 /share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive
 /fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on document.pdf (8 pages, 3629637 bytes).
+Output written on document.pdf (8 pages, 3565211 bytes).
 PDF statistics:
  93 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
