@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  20 AUG 2013 20:35
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  21 AUG 2013 14:45
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -484,7 +484,7 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-<fig4.png, id=30, 506.3718pt x 405.4347pt>
+<fig4.png, id=30, 401.5803pt x 321.6015pt>
 File: fig4.png Graphic file (type png)
  <use fig4.png>
 Underfull \hbox (badness 6396) in paragraph at lines 242--251
@@ -529,7 +529,7 @@ Overfull \hbox (27.12433pt too wide) in paragraph at lines 242--251
  amyloid binding agent \OT1/ptm/m/n/9 (FTC[]A0001540)
  []
 
-<fig5.png, id=31, 242.8272pt x 218.54448pt>
+<fig5.png, id=31, 219.26718pt x 194.83992pt>
 File: fig5.png Graphic file (type png)
  <use fig5.png>
 Underfull \hbox (badness 1072) in paragraph at lines 257--257
@@ -577,22 +577,19 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
- [5 <./fig4.png
-
-pdfTeX warning: /usr/bin/pdflatex (file ./fig4.png): large interlaced PNG might
- cause out of memory (use non-interlaced PNG to fix this)
->]
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-
-Underfull \hbox (badness 1067) in paragraph at lines 300--326
-\OT1/ptm/m/n/9 help to generate a larger number of hypotheses, the primary
+ [5 <./fig4.png>]
+Underfull \hbox (badness 1087) in paragraph at lines 328--351
+\OT1/ptm/m/n/9 repositories funded and curated in parallel, can be integrated
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 300--326
-\OT1/ptm/m/n/9 results. No document was found to support the involvement
+Underfull \hbox (badness 1052) in paragraph at lines 328--351
+\OT1/ptm/m/n/9 external gold standard (ATC) and relies on description logics
+ []
+
+
+Underfull \hbox (badness 1057) in paragraph at lines 328--351
+\OT1/ptm/m/n/9 we have compared the content of the FTC against the ATC,
  []
 
 
@@ -609,42 +606,36 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
  []
 
 [6 <./fig5.png>]
-Underfull \hbox (badness 5008) in paragraph at lines 357--361
+Underfull \hbox (badness 5008) in paragraph at lines 363--367
 []\OT1/ptm/m/n/9 The code behind the creation of the resource is entirely
  []
 
 
-Underfull \hbox (badness 8019) in paragraph at lines 357--361
+Underfull \hbox (badness 8019) in paragraph at lines 363--367
 \OT1/ptm/m/n/9 open and available at https://github.com/loopasam/ftc. The
  []
 
 
-Underfull \hbox (badness 5771) in paragraph at lines 357--361
+Underfull \hbox (badness 5771) in paragraph at lines 363--367
 \OT1/ptm/m/n/9 web application built on the top of the FTC using the
  []
 
 
-Underfull \hbox (badness 5607) in paragraph at lines 357--361
+Underfull \hbox (badness 7326) in paragraph at lines 363--367
 \OT1/ptm/m/n/9 Brain library [Croset \OT1/ptm/m/it/9 et al.\OT1/ptm/m/n/9 , 201
-3], and can be find at
+3] and can be find at
  []
 
 
-Underfull \hbox (badness 5862) in paragraph at lines 357--361
+Underfull \hbox (badness 5862) in paragraph at lines 363--367
 \OT1/ptm/m/n/9 https://www.ebi.ac.uk/chembl/ftc. The documentation can be
  []
 
 
-Overfull \hbox (5.35172pt too wide) in paragraph at lines 357--361
+Overfull \hbox (5.35172pt too wide) in paragraph at lines 363--367
 \OT1/ptm/m/n/9 accessed at https://github.com/loopasam/ftc/wiki. The full descr
 iption
  []
-
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 363.
-
-Package natbib Warning: Citation `Boffelli03' on page 7 undefined on input line
- 363.
 
 (./document.bbl
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
@@ -655,69 +646,14 @@ Missing character: There is no ° in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no „ in font ptmr7t!
 Missing character: There is no ’ in font ptmr7t!
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][][] 
- []
-
-
-Overfull \vbox (1.0pt too high) has occurred while \output is active []
-
- [7])
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 37.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 38.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 39.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 40.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 41.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 42.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 43.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 44.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:10.0pt when 45.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:0.0pt when 46.04022pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-(2)Left:46.04022pt Right:29.08044pt Output:46.04022pt
+)
+Extra height:0.0pt when 631.79794pt
+(2)Left:631.79794pt Right:631.08044pt Output:631.79794pt
 - LAST -
 Extra skip:0.0pt
-Left:46.04022pt
-Right:29.08044pt
-Output:46.04022pt
+Left:631.79794pt
+Right:631.08044pt
+Output:631.79794pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -729,17 +665,7 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
-
-Overfull \hbox (261.0pt too wide) has occurred while \output is active
-[][] 
- []
-
-[8
-
-]
-
-Package natbib Warning: There were undefined citations.
-
+ [7]
 (./document.aux)
 
 LaTeX Font Warning: Size substitutions with differences
@@ -747,13 +673,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 2757 strings out of 493848
- 32187 string characters out of 1152822
- 100536 words of memory out of 3000000
- 5963 multiletter control sequences out of 15000+50000
- 52270 words of font info for 105 fonts, out of 3000000 for 9000
+ 2755 strings out of 493848
+ 32163 string characters out of 1152822
+ 129334 words of memory out of 3000000
+ 5962 multiletter control sequences out of 15000+50000
+ 50644 words of font info for 103 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
- 36i,13n,26p,939b,303s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,13n,26p,939b,298s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/typ
 e1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
@@ -766,9 +692,9 @@ uhvr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvro8a.pfb></usr
 /share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive
 /fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on document.pdf (8 pages, 3565211 bytes).
+Output written on document.pdf (7 pages, 2752802 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
+ 90 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
