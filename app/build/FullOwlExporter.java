@@ -80,7 +80,7 @@ public class FullOwlExporter extends OwlExporter {
 									//Add the class for the drug if not present
 									this.getBrain().addClass(drugBankFullClassName);
 									this.getBrain().label(drugBankClassName, "'" + drug.getName() + "'");
-									this.getBrain().subClassOf(drugBankClassName, "CHEBI_23888");
+									this.getBrain().subClassOf(drugBankClassName, "Drug");
 									this.getBrain().subClassOf(drugBankClassName, "FTC_C2");
 								}
 
@@ -137,7 +137,7 @@ public class FullOwlExporter extends OwlExporter {
 					"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + goTerm.getName() + "</a>.");
 			this.getBrain().subClassOf(antiClassId, "FTC_C1");
 
-			String antiExpression = "CHEBI_23888 and FTC_R4 some (Protein and FTC_R2 some (GO_0003674 and " +
+			String antiExpression = "Drug and FTC_R4 some (Protein and FTC_R2 some (GO_0003674 and " +
 					goTermId + "))";
 
 			this.getBrain().equivalentClasses(antiClassId, antiExpression);
@@ -151,7 +151,7 @@ public class FullOwlExporter extends OwlExporter {
 					"rate or extent of the " +
 					"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + goTerm.getName() + "</a>.");			
 			this.getBrain().subClassOf(proClassId, "FTC_C1");
-			String proExpression = "CHEBI_23888 and FTC_R5 some (Protein and FTC_R2 some (GO_0003674 and " +
+			String proExpression = "Drug and FTC_R5 some (Protein and FTC_R2 some (GO_0003674 and " +
 					goTermId + "))";
 
 			this.getBrain().equivalentClasses(proClassId, proExpression);
@@ -191,7 +191,7 @@ public class FullOwlExporter extends OwlExporter {
 					//('negative regulation of blood coagulation') we get the descendant classes and not the subclasses
 					//Some classes got better classified this way, (ex: pro-fibrinolysis becomes a subclass
 					//of anti-blood coagulation when using the full class name.)
-					String antiExpression = "CHEBI_23888 and FTC_R4 some (Protein and FTC_R1 some (GO_0008150 and " +
+					String antiExpression = "Drug and FTC_R4 some (Protein and FTC_R1 some (GO_0008150 and " +
 							goTermId + "))";
 
 					this.getBrain().equivalentClasses(antiClassId, antiExpression);
@@ -208,7 +208,7 @@ public class FullOwlExporter extends OwlExporter {
 							"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + 
 							positivelyRegulatedparentTerm.getName() + "</a>.");					
 					this.getBrain().subClassOf(proClassId, "FTC_C1");
-					String proExpression = "CHEBI_23888 and FTC_R5 some (Protein and FTC_R1 some (GO_0008150 and " +
+					String proExpression = "Drug and FTC_R5 some (Protein and FTC_R1 some (GO_0008150 and " +
 							goTermId + "))";
 
 					this.getBrain().equivalentClasses(proClassId, proExpression);
@@ -234,7 +234,7 @@ public class FullOwlExporter extends OwlExporter {
 							negativelyRegulatedparentTerm.getName() + "</a>.");					
 					this.getBrain().subClassOf(antiClassId, "FTC_C1");
 
-					String antiExpression = "CHEBI_23888 and FTC_R5 some (Protein and FTC_R1 some (GO_0008150 and " +
+					String antiExpression = "Drug and FTC_R5 some (Protein and FTC_R1 some (GO_0008150 and " +
 							goTermId + "))";
 
 					this.getBrain().equivalentClasses(antiClassId, antiExpression);
@@ -251,7 +251,7 @@ public class FullOwlExporter extends OwlExporter {
 							"<a href='http://amigo.geneontology.org/cgi-bin/amigo/term_details?term=" + idForUrl + "'>" + 
 							negativelyRegulatedparentTerm.getName() + "</a>.");					
 					this.getBrain().subClassOf(proClassId, "FTC_C1");
-					String proExpression = "CHEBI_23888 and FTC_R4 some (Protein and FTC_R1 some (GO_0008150 and " +
+					String proExpression = "Drug and FTC_R4 some (Protein and FTC_R1 some (GO_0008150 and " +
 							goTermId + "))";
 
 					this.getBrain().equivalentClasses(proClassId, proExpression);

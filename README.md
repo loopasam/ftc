@@ -8,8 +8,6 @@ Application: https://www.ebi.ac.uk/chembl/ftc
 
 Documentation: https://github.com/loopasam/ftc/wiki
 
-Blog: http://loopasam.github.com/ftc/
-
 ## Source code licensing
 
 Copyright [2013] EMBL - European Bioinformatics Institute
