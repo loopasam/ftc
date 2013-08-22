@@ -22,45 +22,45 @@ Illegal, another \bibstyle command---line 48 of file document.aux
  :          {plain}
 I'm skipping whatever remains of this command
 Database file #1: document.bib
-You've used 10 entries,
+You've used 11 entries,
             2378 wiz_defined-function locations,
-            606 strings with 7771 characters,
-and the built_in function-call counts, 6907 in all, are:
-= -- 482
-> -- 731
+            614 strings with 7990 characters,
+and the built_in function-call counts, 7475 in all, are:
+= -- 531
+> -- 771
 < -- 5
-+ -- 236
-- -- 232
-* -- 772
-:= -- 1311
-add.period$ -- 47
-call.type$ -- 10
-change.case$ -- 61
-chr.to.int$ -- 10
-cite$ -- 10
-duplicate$ -- 196
-empty$ -- 310
-format.name$ -- 245
-if$ -- 1266
++ -- 248
+- -- 244
+* -- 833
+:= -- 1411
+add.period$ -- 52
+call.type$ -- 11
+change.case$ -- 67
+chr.to.int$ -- 11
+cite$ -- 11
+duplicate$ -- 216
+empty$ -- 345
+format.name$ -- 258
+if$ -- 1376
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 9
-newline$ -- 52
-num.names$ -- 40
-pop$ -- 60
+missing$ -- 10
+newline$ -- 57
+num.names$ -- 44
+pop$ -- 66
 preamble$ -- 1
-purify$ -- 61
+purify$ -- 67
 quote$ -- 0
-skip$ -- 129
+skip$ -- 141
 stack$ -- 0
-substring$ -- 324
-swap$ -- 40
+substring$ -- 362
+swap$ -- 44
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 90
+type$ -- 99
 warning$ -- 0
-while$ -- 47
+while$ -- 51
 width$ -- 0
-write$ -- 128
+write$ -- 141
 (There were 5 error messages)

@@ -31,7 +31,7 @@ will be added to the web application following user requirements (so called \emp
 \section{FTC categories creation}
 The mode of action categories present in the FTC are defined based on the terms coming from the 
 Gene Ontology (GO) \citep{Ashburner2000}. Both the molecular function and biological process branches are used for 
-this purpose, yet handled differently.
+this purpose, yet handled slightly differently.
 
 \subsection{Categories related to biological processes}\label{catprocess}
 All the biological processes featured by the GO are looked-up one by one. All the 
@@ -173,7 +173,7 @@ information present in the gold standard (ATC).
 These drugs are present in the ATC class(es) but not in the corresponding FTC class. 
 The automated classification failed to retrieve these compounds. The smaller the number of 
 false negatives is, the better the FTC is at recalling drugs. A small number of false negatives 
-means that if a drug is present in the ATC (gold standard), then it is likely that this drug will 
+means that if a drug is present in the ATC (gold standard), then it is likely that the drug will 
 also be correctly categorised in the FTC.
 
 \subsection{False Positives}
@@ -192,7 +192,8 @@ corresponding class in the FTC. The value is standardised as a percentage and co
 to the formula: True Positive / (True Positive + False Negative).
 
 \section{Semantic similarity}
-The semantic similarity measure performed over the FTC is a derivative of the Jaccard index \citep{jaccard1912distribution} \citep{rogers1960computer}. 
+The semantic similarity measure performed over the FTC is a derivative of the 
+Jaccard index \citep{jaccard1912distribution} \citep{rogers1960computer} (see \cite{pesquita2009semantic} for review). 
 It is probably best understood as an example: If we consider two classes A and B, the semantic similarity 
 between these classes corresponds to the number of OWL superclasses (direct and indirect, obtained with a reasoner) that 
 are shared by A and B (intersection) divided by the number of superclasses of A or B (union). The index ranges 
@@ -212,7 +213,7 @@ we expect on average to obtain a higher similarity value than if A and B have di
 A permutation test was then performed for each ATC category. For example, we started with the ATC 
 category A (first row on Figure 4), looked at the similarity values when pairs of compounds both belong 
 to the category A (top right corner square) and compared it to the similarity values when the pair of compounds 
-belong to different categories (A and B, A and C and so forth). For each comparison we obtain two distributions of 
+belong to different categories (A and B, A and C and so forth). For each comparison we obtained two distributions of 
 values (not shown). On average the similarity values are always higher when the two compounds 
 belong to the same category (A/A versus A/B for instance). A permutation test (n = 20'000) was 
 performed in order to see whether this observation was due to chance only. We were able to reject the null 
@@ -385,7 +386,7 @@ statistical analysis performed).}\label{fig:S03}
 \centerline{\includegraphics{figS4.png}}
 \caption{Pairwise comparison of MoA similarities. This graph presents the same 
 data as Figure 4 but with a hierarchical clustering applied on the top of it, based on the manhattan distance.
-The dendrogram reflects the original structure of the FTC: Functionaly similar compounds being grouped toghether.
+The dendrogram reflects the original structure of the FTC: Functionaly similar compounds being grouped together.
 This figure can be used for further analysis over functional clusters of drugs.}\label{fig:S04}
 \end{figure*}
 

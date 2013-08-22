@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  19 AUG 2013 13:15
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.15)  22 AUG 2013 11:17
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -354,17 +354,17 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
  []
 
 [2 <./figS1.png>]
-Underfull \hbox (badness 1701) in paragraph at lines 195--200
+Underfull \hbox (badness 1701) in paragraph at lines 195--201
 []\OT1/ptm/m/n/9 The semantic similarity measure performed over the FTC is
  []
 
 
-Underfull \hbox (badness 1173) in paragraph at lines 212--223
+Underfull \hbox (badness 1173) in paragraph at lines 213--224
 \OT1/ptm/m/n/9 both belong to the category A (top right corner square) and
  []
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 237.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 238.
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][][] 
@@ -374,27 +374,27 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 Overfull \vbox (1.0pt too high) has occurred while \output is active []
 
  [3 <./figS2.png>]
-Underfull \hbox (badness 1394) in paragraph at lines 262--269
+Underfull \hbox (badness 1394) in paragraph at lines 263--270
 \OT1/ptm/m/n/9 for their chemical structure. Mode of action classes are
  []
 
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 308.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 309.
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <9> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 308.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 309.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--336
+Underfull \hbox (badness 10000) in paragraph at lines 331--337
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--345
+Underfull \hbox (badness 10000) in paragraph at lines 340--346
 
  []
 
@@ -441,20 +441,20 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:11.44545pt when 166.34393pt
+Extra height:11.44545pt when 175.34393pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:0.0pt when 167.34393pt
+Extra height:0.0pt when 176.34393pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-(2)Left:167.34393pt Right:166.68788pt Output:167.34393pt
+(2)Left:176.34393pt Right:175.68788pt Output:176.34393pt
 - LAST -
 Extra skip:0.0pt
-Left:167.34393pt
-Right:166.68788pt
-Output:167.34393pt
+Left:176.34393pt
+Right:175.68788pt
+Output:176.34393pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -515,10 +515,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 2647 strings out of 493848
- 30723 string characters out of 1152822
- 99484 words of memory out of 3000000
- 5872 multiletter control sequences out of 15000+50000
+ 2648 strings out of 493848
+ 30745 string characters out of 1152822
+ 100562 words of memory out of 3000000
+ 5873 multiletter control sequences out of 15000+50000
  29259 words of font info for 56 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
  34i,8n,26p,632b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -529,7 +529,7 @@ tic/uhvb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvbo8a.pfb><
 /usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-tex
 live/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw
 /times/utmri8a.pfb>
-Output written on document.pdf (7 pages, 5649681 bytes).
+Output written on document.pdf (7 pages, 5649905 bytes).
 PDF statistics:
  66 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

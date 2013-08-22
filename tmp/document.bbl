@@ -67,6 +67,12 @@ Motik, B., Grau, B.~C., Horrocks, I., Wu, Z., Fokoue, A., and Lutz, C. (2009).
 \newblock {OWL 2 Web Ontology Language Profiles}.
 \newblock {\em Language\/}, {\bf 2009}(October), 1--53.
 
+\bibitem[Pesquita {\em et~al.}(2009)Pesquita, Faria, Falcao, Lord, and
+  Couto]{pesquita2009semantic}
+Pesquita, C., Faria, D., Falcao, A.~O., Lord, P., and Couto, F.~M. (2009).
+\newblock Semantic similarity in biomedical ontologies.
+\newblock {\em PLoS computational biology\/}, {\bf 5}(7), e1000443.
+
 \bibitem[Rogers and Tanimoto(1960)Rogers and Tanimoto]{rogers1960computer}
 Rogers, D.~J. and Tanimoto, T.~T. (1960).
 \newblock A computer program for classifying plants.
