@@ -128,6 +128,8 @@ public class ATCParser extends Parser {
 		Brain brain = new Brain("http://www.ebi.ac.uk/Rebholz-srv/atc/", 
 				"http://www.ebi.ac.uk/Rebholz-srv/atc/public/ontologies/atc.owl", 1);
 
+		DrugBank drugBank = new DrugBank("data/tmp/drugbank.ser");
+
 		brain.addClass("DrugBankCompound");
 
 		for (ATCTerm term : this.getAtc().getTerms()) {
@@ -142,6 +144,9 @@ public class ATCParser extends Parser {
 
 					if(!brain.knowsClass(dbid)){
 						brain.addClass(dbid);
+						if(drugBank.getDrug(dbid).getSmiles() != null){
+							brain.label(dbid, drugBank.getDrug(dbid).getSmiles());
+						}
 					}
 
 					brain.subClassOf(term.getCode(), dbid);
