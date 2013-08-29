@@ -5,7 +5,7 @@
 # All these compounds are selected because they are present in very different ATC categories
 # (one level - tunable from file name).
 
-values <- read.csv("/home/samuel/git/ftc/data/analysis/diff_cats_1lvl.csv", 
+values <- read.csv("/home/samuel/git/ftc/data/analysis/diff_cats_2lvl.csv", 
                    head=TRUE, 
                    sep=","
 )
@@ -24,10 +24,10 @@ new_atc1 <- {}
 new_atc2 <- {}
 new_id1 <- {}
 new_id2 <- {}
-cutoff_struc_sup = 0.11
-cutoff_struc_inf = 0.07
-cutoff_moa_sup = 0.9
-cutoff_moa_inf = 0.82
+cutoff_struc_sup = 1.0
+cutoff_struc_inf = 0.0
+cutoff_moa_sup = 1.0
+cutoff_moa_inf = 0.8
 
 for(i in 1:size) {
   if(moa[i] >= cutoff_moa_inf && moa[i] <= cutoff_moa_sup && struc[i] >= cutoff_struc_inf && cutoff_struc_sup >= struc[i]) {
@@ -60,7 +60,7 @@ for(i in 1:length(new_atc1)) {
 }
 
 library(TeachingDemos)
-ms.2circ <- function(r=1, adj=pi/2, col1='orange', col2='red', npts=180) {
+ms.2circ <- function(r=0.5, adj=pi/2, col1='orange', col2='red', npts=180) {
   tmp1 <- seq(0,   pi, length.out=npts+1) + adj
   tmp2 <- seq(pi, 2*pi, length.out=npts+1) + adj
   polygon(cos(tmp1)*r,sin(tmp1)*r, border=NA, col=col1) 
