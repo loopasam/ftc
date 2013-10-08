@@ -15,6 +15,6 @@
     <booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
     <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="play.server.Server"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="ftc"/>
-    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value=" -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -Dplay.debug=yes -Dplay.id= -Dapplication.path=&quot;${project_loc:ftc}&quot; -Djava.endorsed.dirs=&quot;/home/samuel/workspace/lib/play-1.2.5/framework/endorsed&quot; -javaagent:&quot;/home/samuel/workspace/lib/play-1.2.5/framework/play-1.2.5.jar&quot;"/>
+    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value=" -Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n -Dplay.debug=yes -Dplay.id= -Dapplication.path=&quot;${project_loc:ftc}&quot; -Djava.endorsed.dirs=&quot;/opt/play-1.2.7/framework/endorsed&quot; -javaagent:&quot;/opt/play-1.2.7/framework/play-1.2.7.jar&quot;"/>
 </launchConfiguration>
 
