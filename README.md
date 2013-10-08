@@ -1,4 +1,6 @@
-# Functional Therapeutic Chemical Classification System (FTC) Source Code
+# Functional Therapeutic Chemical Classification System (FTC)
+
+## Source Code
 
 Source code and logic of the FTC.
 
