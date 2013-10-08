@@ -1,46 +1,41 @@
 #{extends 'main.html' /}
 #{set title:'FTC - Functional Therapeutic Chemical Classification System' /}
 
-<section id="introduction">
-<div class="box" style="margin-left: 4%;">
-<h2 class="title-presentation">
-<img class="logo-presentation" src="@{'/public/images/gear.png'}" /><span>Mode of Action</span></h2>
-<p class="feature-presentation">
-<strong>The Functional Therapeutic Chemical Classification System (FTC) defines over 
+
+<div class="container">
+  <div class="page-header">
+    <h1><img src="@{'/public/images/logo.png'}" style="vertical-align: middle"> Functional Therapeutic Chemical Classification System <small>(FTC)</small></h1>
+  </div>
+</div>
+
+
+<div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-4">
+          <h2 class="text-center"><span class="glyphicon glyphicon-cog"></span> Mode of Action</h2>
+          <p style="text-align: justify;"> <strong>The Functional Therapeutic Chemical Classification System (FTC) defines over 
 20'000 mechanisms and modes of action for approuved drugs.</strong>
 The resource abstracts 
 away from the traditional chemical structure-based approach and focuses solely on the mode
 of action of drugs. The classification sorts therapeutic
 agents based on their function in the human body.</p>
-</div>
-<div class="box">
-<h2 class="title-presentation">
-<img class="logo-presentation" src="@{'/public/images/recycling.png'}" />Drug Repurposing</h2>
-<p class="feature-presentation">
-<strong>The classification helps to understand the polypharmacology of drugs.</strong>
+        </div>
+        <div class="col-lg-4">
+          <h2 class="text-center"><span class="glyphicon glyphicon-refresh"></span> Drug Repurposing</h2>
+          <p style="text-align: justify;"><strong>The classification helps to understand the polypharmacology of drugs.</strong>
 Modes of actions categories are the starting points to find new diseases indications.
 The Functional Therapeutic Chemical Classification 
-System (FTC) helps to generate drug repurposing hypotheses to be tested in the laboratory.
-</p>
-</div>
-<div class="box">
-<h2 class="title-presentation">
-<img class="logo-presentation" src="@{'/public/images/octocat.png'}" />Open Source</h2>
-<p class="feature-presentation"><strong>From the web application code to drug
+System (FTC) helps to generate drug repurposing hypotheses to be tested in the laboratory.</p>
+       </div>
+        <div class="col-lg-4">
+          <h2 class="text-center"><span class="glyphicon glyphicon-folder-open"></span> Open Source</h2>
+          <p style="text-align: justify;"><strong>From the web application code to drug
 repositionning hypotheses, everything is open and free.</strong> The 
 Functional Therapeutic Chemical Classification System (FTC) integrates and leverages the public content of
 the Gene Ontology, 
 DrugBank, Uniprot and
-GO annotations into a unique resource. <a href="https://github.com/loopasam/ftc">View the project on GitHub</a>.
-</p>
-</div>
-</section>
-
-<footer class="footer-intro">
-  <ul>
-     <li><a href="http://www.ebi.ac.uk/">EMBL-EBI</a></li>
-     <li><a href="http://www.ebi.ac.uk/Information/termsofuse.html">Terms of Use</a></li>
-     <li><a href="http://www.ebi.ac.uk/Information/Privacy.html">Privacy</a></li>
-     <li><a href="http://samuelcroset.com/contact">Contact</a></li>
-  </ul>
-</footer>
+GO annotations into a unique resource. <a href="https://github.com/loopasam/ftc">View the project on GitHub</a>.</p>
+        </div>
+      </div>
+    </div>

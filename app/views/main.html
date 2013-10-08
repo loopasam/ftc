@@ -11,9 +11,14 @@ mode and mechanism of actions. The FTC has been designed to support drug repurpo
 <!-- Site verification Google web master -->
 <meta name="google-site-verification" content="Z-Cnbi_rxIDKs2OIa3PZsIlZb6TrXegBOuwlz-H5Nlw" />
 
-<link rel="stylesheet" media="screen"
-    href="@{'/public/stylesheets/main.css'}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- <link rel="stylesheet" media="screen"
+    href="@{'/public/stylesheets/main.css'}"> -->
     
+<link rel="stylesheet" media="screen"
+    href="@{'/public/stylesheets/bootstrap.min.css'}">
+
 #{get 'moreStyles' /}
 <link rel="shortcut icon" type="image/png"
     href="@{'/public/images/logo.png'}">
@@ -24,27 +29,18 @@ mode and mechanism of actions. The FTC has been designed to support drug repurpo
 <script src="@{'/public/javascripts/analytics.js'}"
     type="text/javascript" charset="UTF-8"></script>
 
+<script src="@{'/public/javascripts/bootstrap.min.js'}"
+    type="text/javascript" charset="UTF-8"></script>
+
 #{get 'moreScripts' /}
 </head>
-<body>
-    <div id="header">
-        <img src="@{'/public/images/logo.png'}" style="vertical-align: middle">
-        <span><a href="@{Application.index()}">Functional Therapeutic Chemical
-            Classification System (FTC)</a></span>
-    </div>
+<body style="padding-top: 50px">
 
-    <nav id="menu">
-        <ul>
-            <li class="transition"><a href="@{Application.index()}">Home</a></li>
-            <li class="transition"><a href="https://github.com/loopasam/ftc/wiki">Documentation</a></li>
-            <li class="transition"><a href="@{Application.classVisu("FTC_C1")}">Browse</a></li>
-            <li class="transition"><a href="@{Application.initQuery()}">Query</a></li>
-            <li class="transition"><a href="@{Application.search()}">Search</a></li>
-            <li class="transition"><a href="@{Application.data()}">Data</a></li>
-        </ul>
-    </nav>
+	#{nav /}
 
+	<div class="container">
     #{doLayout /}
-    
+    #{footer /}
+    </div>
 </body>
 </html>

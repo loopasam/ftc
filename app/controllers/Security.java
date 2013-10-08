@@ -50,15 +50,18 @@ public class Security extends Controller {
 		}
 
 		//The user is supposed to let access to it's information
-		String urlGoogleOAuth = "https://accounts.google.com/o/oauth2/auth?" +
-				"scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+" +
-				"&state=%2Fprofile&redirect_uri=http%3A%2F%2F" +
-				"localhost:9000%2Fchembl%2Fftc%2Fauth" +
-				"&response_type=code" +
-				"&client_id=1009954177381.apps.googleusercontent.com" +
-				"&approval_prompt=auto";
+//		String urlGoogleOAuth = "https://accounts.google.com/o/oauth2/auth?" +
+//				"scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+" +
+//				"&state=%2Fprofile&redirect_uri=http%3A%2F%2F" +
+//				"localhost:9000%2Fchembl%2Fftc%2Fauth" +
+//				"&response_type=code" +
+//				"&client_id=1009954177381.apps.googleusercontent.com" +
+//				"&approval_prompt=auto";
 		//The response is redirected on the auth() method.
-		redirect(urlGoogleOAuth);
+//		redirect(urlGoogleOAuth);
+		
+		//TODO just for debug, uncomment for prod and delete line
+		auth("");
 	}
 
 
@@ -66,40 +69,42 @@ public class Security extends Controller {
 	public static void auth(String code) {
 
 		//Depending on what the user entered, could be an error
-		if(code == null){
-			redirect("Application.index");
-		}
+//		if(code == null){
+//			redirect("Application.index");
+//		}
 
 		//call for access token
-		HttpResponse res = WS.url("https://accounts.google.com/o/oauth2/token").
-				setParameter("code", code).setParameter("client_id", "1009954177381.apps.googleusercontent.com").
-				setParameter("client_secret", "ClzAiwp6nuTvRqbQpkMq4GS7").setParameter("redirect_uri", "http://localhost:9000/chembl/ftc/auth").
-				setParameter("grant_type", "authorization_code").post();
+//		HttpResponse res = WS.url("https://accounts.google.com/o/oauth2/token").
+//				setParameter("code", code).setParameter("client_id", "1009954177381.apps.googleusercontent.com").
+//				setParameter("client_secret", "ClzAiwp6nuTvRqbQpkMq4GS7").setParameter("redirect_uri", "http://localhost:9000/chembl/ftc/auth").
+//				setParameter("grant_type", "authorization_code").post();
 
-		JsonObject json = res.getJson().getAsJsonObject();
+//		JsonObject json = res.getJson().getAsJsonObject();
 
-		if(json.get("access_token") != null){
-			String accessToken = json.get("access_token").getAsString();
-			HttpResponse resToken = WS.url("https://www.googleapis.com/oauth2/v1/userinfo?access_token="+accessToken).get();
+//		if(json.get("access_token") != null){
+//			String accessToken = json.get("access_token").getAsString();
+//			HttpResponse resToken = WS.url("https://www.googleapis.com/oauth2/v1/userinfo?access_token="+accessToken).get();
 
-			JsonObject profile = resToken.getJson().getAsJsonObject();
-			if(profile.get("email") != null){
-				String email = profile.get("email").getAsString().replaceAll("\\\"", "");
-				String[] admins = ((String) Play.configuration.get("admin.emails")).split(",");
-				for (String emailAdmin : admins) {
-					if(email.equals(emailAdmin)){
+//			JsonObject profile = resToken.getJson().getAsJsonObject();
+//			if(profile.get("email") != null){
+//				String email = profile.get("email").getAsString().replaceAll("\\\"", "");
+//				String[] admins = ((String) Play.configuration.get("admin.emails")).split(",");
+//				for (String emailAdmin : admins) {
+//					if(email.equals(emailAdmin)){
+						//TODO uncomment for pord and delete that
+						String email = "samuel.croset@gmail.com";
 						session.put("username", email);
 						Date expiration = new Date();
 						String duration = "10mn";
 						expiration.setTime(expiration.getTime() + Time.parseDuration(duration));
 						response.setCookie("rememberme", Crypto.sign(email + "-" + expiration.getTime()) + "-" + email + "-" + expiration.getTime(), duration);
 						Administration.index();
-					}
-				}
+//					}
+//				}
 
-			}
+//			}
 
-		}
+//		}
 		Application.index();
 	}
 

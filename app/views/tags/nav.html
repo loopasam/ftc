@@ -1,0 +1,35 @@
+<div class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="@{Application.index()}">FTC</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="@{Application.index()}">
+				<span class="glyphicon glyphicon-home"></span>  Home</a></li>
+				<li><a href="https://github.com/loopasam/ftc/wiki">
+				<span class="glyphicon glyphicon-book"></span>  Documentation</a></li>
+				<li><a href="@{Application.classVisu("FTC_C1")}">
+				<span class="glyphicon glyphicon-list-alt"></span>  Browse</a></li>
+				<li><a href="@{Application.initQuery()}">
+				<span class="glyphicon glyphicon-eye-open"></span>  Query</a></li>
+				<li><a href="@{Application.search()}">
+				<span class="glyphicon glyphicon-search"></span>  Search</a></li>
+				<li><a href="@{Application.data()}">
+				<span class="glyphicon glyphicon-save"></span>  Data</a></li>				
+				
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+  //$(".navbar-nav li").removeClass("active");
+  //var active = $("##{get 'menu' /}").addClass("active");
+</script>

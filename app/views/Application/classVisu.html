@@ -1,80 +1,105 @@
 #{extends 'main.html' /}
 #{set title:ftcClass.ftcId + ' - ' + ftcClass.label /}
 
-#{script 'toggle.js' /}
 #{script 'showMore.js' /}
 #{script 'jquery.poshytip.min.js' /}
 #{script 'help.js' /}
 
-<h1 id="class-title" itemscope itemtype="http://schema.org/DrugClass">
-	<span id="classId" class="classTitle">${ftcClass.ftcId}</span> - <span itemprop="name">${ftcClass.label}</span>
-</h1>
+<div itemscope itemtype="http://schema.org/DrugClass">
 
-<div class="block-information" id="definition">
-    <h2>Definition
-    <span title="The human-readable<br>definition of the category" class="help-text">(?)</span>
-    </h2>
-    <p itemprop="description">${ftcClass.comment.raw()}</p>
+<div id="class-title" class="page-header">
+	<h1><span id="classId" class="classTitle label label-primary">${ftcClass.ftcId}</span><span itemprop="name">
+	<small> ${ftcClass.label}</small></span>
+	</h1>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+    <span class="glyphicon glyphicon-chevron-right"></span> Definition</h3>
+  </div>
+  <div class="panel-body">
+    <span itemprop="description">${ftcClass.comment.raw()}</span>
+  </div>
 </div>
 
 #{if directAgents.size() > 0}
-<nav class="agents block-information moreDirectAgentsWrap">
-    <h2>
-    <span class="togglable">[-] </span>
-    <span class="togglable" style="display: none">[+] </span>
-    Direct Agents<span class="numbers"> (<span id="currentNumbermoreDirectAgents">${directAgents.size()}</span> 
-    of <span id="totalNumbermoreDirectAgents">${ftcClass.directAgents.size()})</span>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h3 class="panel-title">
+  <span class="glyphicon glyphicon-chevron-right"></span> 
+ Direct Agents<span class="numbers"> (<span id="currentNumbermoreDirectAgents">${directAgents.size()}</span> 
+    of <span id="totalNumbermoreDirectAgents">${ftcClass.directAgents.size()})</span></span>
     <span title="<strong>The therapeutic agents that might act as ${ftcClass.label} (computer generated hypothesis).</strong>
     These compounds are direct children of the category ${ftcClass.label}, 
     they are therefore marked as <i>direct</i>." class="help-text">(?)</span>
-    </h2>
-    <div id="members">
-      <ul>
+
+</h3></div>
+<table class="table table-hover table-condensed">
+	<thead>
+		<tr>
+			<th>DrugBank identifier</th>
+			<th>label</th>
+		</tr>
+	</thead>
+	<tbody>
         #{list items:directAgents, as:'directAgent' }
-        <a href="@{Application.agent(directAgent.drugBankId)}">
-        	<li class="transition direct" itemprop="drug" itemscope itemtype="http://schema.org/Drug">
-        	${directAgent.drugBankId} - <span itemprop="name">${directAgent.label}</span></li>
-        </a>
+        <tr itemprop="drug" itemscope itemtype="http://schema.org/Drug">
+        <td><a href="@{Application.agent(directAgent.drugBankId)}">${directAgent.drugBankId}</a></td>
+        <td><span itemprop="name">${directAgent.label}</span></td>
+        </tr>
         #{/list}
-      </ul>
+	</tbody>
+</table>
       #{if directAgents.size() < ftcClass.directAgents.size()}
+      <div class="panel-footer">
       <div class="showMore" id="moreDirectAgents">
       <img style="display: none;" src="@{'/public/images/ajax-loader.gif'}">
-      <span class="textShowMore">Show more</span></div>
-		
-      #{/if}
+      <span class="textShowMore"><span class="glyphicon glyphicon-plus"></span> Show more</span></div>
       </div>
-</nav>
+      #{/if}
+</div>
 #{/if}
 
 #{if indirectAgents.size() > 0}
-<nav class="agents block-information moreIndirectAgentsWrap">
-    <h2>
-    <span class="togglable">[-] </span>
-    <span class="togglable" style="display: none">[+] </span>
-    Indirect Agents<span class="numbers"> (<span id="currentNumbermoreIndirectAgents">${indirectAgents.size()}</span> 
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h3 class="panel-title">
+  <span class="glyphicon glyphicon-chevron-right"></span> 
+ Indirect Agents<span class="numbers"> (<span id="currentNumbermoreIndirectAgents">${indirectAgents.size()}</span> 
     of <span id="totalNumbermoreIndirectAgents">${ftcClass.indirectAgents.size()})</span>
     <span title="<strong>The therapeutic agents that might act as ${ftcClass.label} (computer generated hypothesis).</strong>
     These compounds are not direct children of the category ${ftcClass.label}, 
     they are therefore marked as <i>indirect</i> (dashed border)." class="help-text">(?)</span>
-    </h2>
-    <div id="members">
-      <ul>
+
+</h3></div>
+<table class="table table-hover table-condensed">
+	<thead>
+		<tr>
+			<th>DrugBank identifier</th>
+			<th>label</th>
+		</tr>
+	</thead>
+	<tbody>
         #{list items:indirectAgents, as:'indirectAgent' }
-        <a href="@{Application.agent(indirectAgent.drugBankId)}">
-        	<li class="transition inferred" itemprop="drug" itemscope itemtype="http://schema.org/Drug">
-        		${indirectAgent.drugBankId} - <span itemprop="name">${indirectAgent.label}</span>
-        	</li>
-        </a>
+        <tr itemprop="drug" itemscope itemtype="http://schema.org/Drug">
+        <td><a href="@{Application.agent(directAgent.drugBankId)}">${indirectAgent.drugBankId}</a></td>
+        <td><span itemprop="name">${indirectAgent.label}</span></td>
+        </tr>
         #{/list}
-      </ul>
+	</tbody>
+</table>
       #{if indirectAgents.size() < ftcClass.indirectAgents.size()}
-      <div class="showMore" id="moreIndirectAgents">
+      <div class="panel-footer">
+      <div class="showMore" id="moreDirectAgents">
       <img style="display: none;" src="@{'/public/images/ajax-loader.gif'}">
-      <span class="textShowMore">Show more</span></div>
-      #{/if}
+      <span class="textShowMore"><span class="glyphicon glyphicon-plus"></span> Show more</span></div>
       </div>
-</nav>
+      #{/if}
+</div>
 #{/if}
 
 #{if superClasses.size() > 0}
@@ -148,3 +173,5 @@
 </div>
 </nav>
 #{/if}
+
+</div>
