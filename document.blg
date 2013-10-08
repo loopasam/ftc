@@ -1,0 +1,67 @@
+This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: document.aux
+The style file: natbib.bst
+Illegal, another \bibstyle command---line 52 of file document.aux
+ : \bibstyle
+ :          {achemnat}
+I'm skipping whatever remains of this command
+Illegal, another \bibstyle command---line 53 of file document.aux
+ : \bibstyle
+ :          {plainnat}
+I'm skipping whatever remains of this command
+Illegal, another \bibstyle command---line 54 of file document.aux
+ : \bibstyle
+ :          {abbrv}
+I'm skipping whatever remains of this command
+Illegal, another \bibstyle command---line 55 of file document.aux
+ : \bibstyle
+ :          {bioinformatics}
+I'm skipping whatever remains of this command
+Illegal, another \bibstyle command---line 56 of file document.aux
+ : \bibstyle
+ :          {plain}
+I'm skipping whatever remains of this command
+Database file #1: document.bib
+You've used 24 entries,
+            2378 wiz_defined-function locations,
+            722 strings with 12007 characters,
+and the built_in function-call counts, 14374 in all, are:
+= -- 1153
+> -- 1263
+< -- 10
++ -- 392
+- -- 392
+* -- 1534
+:= -- 2648
+add.period$ -- 110
+call.type$ -- 24
+change.case$ -- 147
+chr.to.int$ -- 24
+cite$ -- 24
+duplicate$ -- 457
+empty$ -- 744
+format.name$ -- 423
+if$ -- 2701
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 21
+newline$ -- 121
+num.names$ -- 96
+pop$ -- 143
+preamble$ -- 1
+purify$ -- 147
+quote$ -- 0
+skip$ -- 297
+stack$ -- 0
+substring$ -- 780
+swap$ -- 88
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 216
+warning$ -- 0
+while$ -- 109
+width$ -- 0
+write$ -- 306
+(There were 5 error messages)
