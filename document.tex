@@ -181,11 +181,28 @@ to 13.5 MoA categories. This number increases to 61.2 when parent categories are
 Not all the MoAs are disease relevant, 
 some FTC categories are particularly abstract (e.g, \emph{Anti-biological process agent}) yet they represent discrete 
 categories to which the drug belongs with an explicit and clear meaning. These discrete MoAs are a good starting 
-point to understand what a compound can do when administered in a human system, as it will be shown with Alzheimer's disease.
-The human readable definitions 
-associated to each FTC category furthermore help the user to choose the adequate MoA for the desired outcome.
+point to understand what a compound can do when administered in a human system.
 Compound's polypharmacology is 
 well represented in the FTC, as shown by the numerous MoAs each approved drug can exhibit.
+We decided to further look at a well-known repositioning example, 
+in order to see whether the FTC was suitable to identify the new
+uses of an old drug. We picked the \emph{thalidomide} for 
+this exercise ({{https://www.ebi.ac.uk/chembl/ftc/agent/DB01041}}). The molecule was 
+first indicated to treat morning sickness
+in pregnant women, but got quickly withdrawn from the market after the dramatic identification 
+of teratogenic effect in newborns, caused by the drug. The accepted molecular mechanism behind the side-effect is  
+an impairment of the angiogenic process responsible for the development of members, affecting in particular the limbs \citep{therapontos2009thalidomide}.
+The \emph{thalidomide} was accurately classified as \emph{Anti-cell migration involved in sprouting angiogenesis agent} in the FTC, capturing the known toxicity of the drug. The \emph{thalidomide} is currently investigated for a multitude of new usages,
+in particular for anti-cancer and immunomodulatory activities among others \citep{teo2005thalidomide}.
+These new indications are well represented in the FTC too, for 
+example by the categories \emph{Anti-vascular endothelial growth factor production agent} or 
+\emph{Anti-cell division agent} for neoplastic activities, 
+or by the classes \emph{Anti-cytokine secretion agent} and \emph{Anti-I-kappaB kinase/NF-kappaB cascade agent} for its effect
+on the immune system. These observations demonstrate that the FTC can successfully capture the 
+molecular reasons behind the repositioning of an old compound. 
+Moreover the classification can also provide valuable insight regarding
+potential toxicity too.
+
 
 \begin{figure*}[!tpb]%figure3
 \centerline{\includegraphics{fig3.png}}
@@ -305,6 +322,10 @@ generate drug repurposing hypotheses. We have guided the reader through some of 
 can be explored. No experimental validations have been presented in this manuscript, yet references to 
 supporting literature was provided in order to legitimate the claims. The main goal of this document is to 
 introduce the resource to the community; deeper analyses are being performed over the classification at the time of writing.
+This classification leverages the information present in various databases and ontologies, similarly to the 
+Open PHACTS initiative \citep{williams2012open} and to the work done by \cite{hoehndorf2012identifying}. The FTC
+mostly differentiates itself from these projects by providing a whole new set of novel categories, 
+dedicated to tackle a very specific problem: drug repositioning.
 
 \subsection{Biological assumptions}
 An asset of the FTC is its ability to handle efficiently categorical data: Classes and relationships 

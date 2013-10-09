@@ -1,6 +1,5 @@
 //TODO add to article
 
-- Show a case of repurposing: Use thalidomide, and show the anti-cancer properties as well as new indications. See paper.
 - Add in discussion the differences with Hoendorf et al. 
 - Add in discussion the differences with openphacts.
 

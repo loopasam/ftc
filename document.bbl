@@ -107,6 +107,13 @@ Haupt, V.~J. and Schroeder, M. (2011).
   structural bioinformatics}.
 \newblock {\em Briefings in Bioinformatics\/}, {\bf 12}(4), 312--326.
 
+\bibitem[Hoehndorf {\em et~al.}(2012)Hoehndorf, Dumontier, and
+  Gkoutos]{hoehndorf2012identifying}
+Hoehndorf, R., Dumontier, M., and Gkoutos, G.~V. (2012).
+\newblock Identifying aberrant pathways through integrated analysis of
+  knowledge in pharmacogenomics.
+\newblock {\em Bioinformatics\/}, {\bf 28}(16), 2169--2175.
+
 \bibitem[Iorio {\em et~al.}(2010)Iorio, Bosotti, Scacheri, Belcastro,
   Mithbaokar, Ferriero, Murino, Tagliaferri, Brunetti-Pierri, Isacchi, and {Di
   Bernardo}]{Iorio2010}
@@ -177,12 +184,27 @@ Sanseau, P. and Koehler, J. (2011).
 \newblock Editorial: Computational methods for drug repurposing.
 \newblock {\em Briefings in Bioinformatics\/}, {\bf 12}(4), 301--302.
 
+\bibitem[Teo {\em et~al.}(2005)Teo, Stirling, and Zeldis]{teo2005thalidomide}
+Teo, S.~K., Stirling, D.~I., and Zeldis, J.~B. (2005).
+\newblock Thalidomide as a novel therapeutic agent: new uses for an old
+  product.
+\newblock {\em Drug discovery today\/}, {\bf 10}(2), 107--114.
+
 \bibitem[{The Uniprot Consortium}(2013){The Uniprot
   Consortium}]{TheUniprotConsortium2013}
 {The Uniprot Consortium} (2013).
 \newblock {Update on activities at the Universal Protein Resource (UniProt) in
   2013.}
 \newblock {\em Nucleic acids research\/}, {\bf 41}(Database issue), D43--7.
+
+\bibitem[Therapontos {\em et~al.}(2009)Therapontos, Erskine, Gardner, Figg, and
+  Vargesson]{therapontos2009thalidomide}
+Therapontos, C., Erskine, L., Gardner, E.~R., Figg, W.~D., and Vargesson, N.
+  (2009).
+\newblock Thalidomide induces limb defects by preventing angiogenic outgrowth
+  during early limb formation.
+\newblock {\em Proceedings of the National Academy of Sciences\/}, {\bf
+  106}(21), 8573--8578.
 
 \bibitem[Wang {\em et~al.}(2000)Wang, Lee, D'Andrea, Peterson, Shank, and
   Reitz]{Wang2000}
@@ -199,6 +221,15 @@ WHO {\em et~al.} (2000).
   defined daily doses (ddd's).
 \newblock {\em Oslo: WHO Collaborating Centre for Drug Statistics
   Methodology\/}.
+
+\bibitem[Williams {\em et~al.}(2012)Williams, Harland, Groth, Pettifer,
+  Chichester, Willighagen, Evelo, Blomberg, Ecker, Goble, {\em
+  et~al.}]{williams2012open}
+Williams, A.~J., Harland, L., Groth, P., Pettifer, S., Chichester, C.,
+  Willighagen, E.~L., Evelo, C.~T., Blomberg, N., Ecker, G., Goble, C., {\em
+  et~al.} (2012).
+\newblock Open phacts: semantic interoperability for drug discovery.
+\newblock {\em Drug discovery today\/}, {\bf 17}(21), 1188--1198.
 
 \bibitem[Wolozin(2004)Wolozin]{Wolozin2004}
 Wolozin, B. (2004).
