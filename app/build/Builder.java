@@ -15,6 +15,8 @@ import play.test.Fixtures;
 import uk.ac.ebi.brain.error.BrainException;
 
 public class Builder {
+	
+	//TODO create a zip file method for download here.
 
 	public void createTmpStructure() {
 		Logger.info("Creating the temporary directory structure...");

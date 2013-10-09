@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.MapKeyColumn;
 
+import org.hibernate.annotations.Type;
+
 import play.db.jpa.Model;
 
 /**
@@ -19,6 +21,7 @@ import play.db.jpa.Model;
 public class OwlResult extends Model {
 
 	@Lob
+	@Type(type = "org.hibernate.type.TextType")
 	public String query;
 	
 	public int numberOfTimes;

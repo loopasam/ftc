@@ -210,6 +210,8 @@ public class Application extends Controller {
 	//Performs the query
 	public static void query(String query) throws NonExistingEntityException{
 
+		Logger.info(query);
+		
 		try {
 			//Checks whether the query is parsable
 			brain.parseLabelClassExpression(query);
