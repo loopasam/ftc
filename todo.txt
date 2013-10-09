@@ -1,9 +1,12 @@
 //TODO add to article
 
-- Quick explanation reasoner in supplementaries
 - Show a case of repurposing: Use thalidomide, and show the anti-cancer properties as well as new indications. See paper.
--  
+- Add in discussion the differences with Hoendorf et al. 
+- Add in discussion the differences with openphacts.
 
+- Quick explanation reasoner in supplementaries
+- Suup: "FTC can be found"
+- Play framework ref in supps
 
 //TODO respond to editors
 
@@ -11,4 +14,4 @@
 - R1: Explain the prothrombin case: Basically the linkmis there, show the GOA page too.
 - R1: Differences between ATC and FTC: Basically characterised in result section and already accessible on the web.
 - R1: Wants all the results as supplementary. We believe it's better on the web, and saved on GitHub.
-
+- R2: lots of categories: The web app provide good assistance, plus there is a search functionality, good as starting point.

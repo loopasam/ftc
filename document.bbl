@@ -1,5 +1,12 @@
 \begin{thebibliography}{}
 
+\bibitem[Andronis {\em et~al.}(2011)Andronis, Sharma, Virvilis, Deftereos, and
+  Persidis]{andronis2011literature}
+Andronis, C., Sharma, A., Virvilis, V., Deftereos, S., and Persidis, A. (2011).
+\newblock Literature mining, ontologies and information visualization for drug
+  repurposing.
+\newblock {\em Briefings in bioinformatics\/}, {\bf 12}(4), 357--368.
+
 \bibitem[Ashburn and Thor(2004)Ashburn and Thor]{Ashburn2004}
 Ashburn, T.~T. and Thor, K.~B. (2004).
 \newblock {Drug repositioning: identifying and developing new uses for existing
@@ -52,6 +59,13 @@ Dimmer, E.~C., Huntley, R.~P., Alam-Faruque, Y., Sawford, T., O'Donovan, C.,
   (2012).
 \newblock {The UniProt-GO Annotation database in 2011.}
 \newblock {\em Nucleic Acids Research\/}, {\bf 40}(Database issue), D565--70.
+
+\bibitem[Dudley {\em et~al.}(2011)Dudley, Deshpande, and
+  Butte]{dudley2011exploiting}
+Dudley, J.~T., Deshpande, T., and Butte, A.~J. (2011).
+\newblock Exploiting drug--disease relationships for computational drug
+  repositioning.
+\newblock {\em Briefings in bioinformatics\/}, {\bf 12}(4), 303--311.
 
 \bibitem[Francis {\em et~al.}(1999)Francis, Palmer, Snape, and
   Wilcock]{Francis1999}
