@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.10.8)  9 OCT 2013 17:21
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.10.8)  10 OCT 2013 09:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -830,7 +830,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  3338 strings out of 495059
  42371 string characters out of 3182030
- 120234 words of memory out of 3000000
+ 120233 words of memory out of 3000000
  6414 multiletter control sequences out of 15000+200000
  50644 words of font info for 103 fonts, out of 3000000 for 9000
  18 hyphenation exceptions out of 8191
@@ -848,7 +848,7 @@ e/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on document.pdf (8 pages, 2769904 bytes).
+Output written on document.pdf (8 pages, 2769939 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  61 compressed objects within 1 object stream
