@@ -1,48 +1,11 @@
+Dear Editors,
 
-Reviewer: 1
-Comments to the Author
-This manuscript describes a classification system for automatic creation MoA annotations and generation of drug repurposing hypotheses. The authors have developed an online database and released its source code to disseminate this data. The article is clearly laid out and well explained. The approach is novel and should be useful both to the bioinformatic community and a wider scientific audience, but several issues certainly require further clarification.
+We read with care the comments provided by the reviewers. We hereby present a modified version of the manuscript, based on their valuable input. Reviewer 1 asked for a more detailed presentation of the reasoning algorithm and methodology. In this regard, we have provided a supplementary reference to an introductory text. It is challenging to add more information to the main document, as reasoning services and tools have been developed by other research groups and are simply used in the context of our work. We rely on the W3C OWL international standard to interact with reasoning engines, for which extensive documentation is available. Moreover, we specially wrote an introductory text to description logics, available on the wiki for biomedical users non familiar with the domain. Ideally description logics would be presented in greater details in the main manuscript, unfortunately and because of space concerns we decided to focus on the presentation of the biomedical novelty brought by our project. Understanding in details the methodology requires some knowledge about description logics (as noticed by Reviewer 2 too), yet we believe that Figure 1 provides a clear simplified overview. Reviewer 1 did not manage to find the Gene Ontology (GO) annotation "positive regulation of blood coagulation" for the protein Prothrombin (P00734). The annotation exists and is present on the GO annotations website: http://www.ebi.ac.uk/QuickGO/GProtein?ac=P00734. Reviewer 1 understood correctly the methodology, yet probably missed the link "Complete GO annotation..." on the Uniprot website, leading to the complete list where the mentioned annotation can be found. Reviewer 1 also asks for "how much of the different results between ATC and FTC". The relation between the two resources is described in section 2.1 "Evaluation" and furthermore on the website of the application (https://www.ebi.ac.uk/chembl/ftc/evaluation/), where we compare equivalent classes and derive metrics (precision and recall) summarising the overlap between these resources. It is not clear to us what are the specific requirements of reviewer 1 regarding this revision.
+Reviewer 2 asked us to illustrate the potential of the resource with a known repurposing example. We chose the thalidomide to fulfil this legitimate requirement, as it is possibly one of the best known repositioning case. We have added a paragraph to the manuscript (end of section 2.2.1) explaining how the teratogenic effect of the molecule is described in the FTC and how the new indications of the drug are captured (anti-cancer and immunomodulatory activities, nowadays routinely prescribed to patients). We briefly discussed the relationship between our resource and the work done in Bioinformatics 28.16 (2012): 2169-2175 and the Open PHACTS platform. Moreover, the methodology section further references an omitted similar approach presented in Nucleic Acids Res. 2011 Oct;39(18):e119. Reviewer 2 pointed the confusing number of drugs and their origin. This section was clarified in the manuscript (section 2); we used the FDA-approved drugs as described in DrugBank and interacting with at least one human protein target. Reviewer 2 asked whether the outliers points present in Figure 4 could have different interpretation; the text was extended accordingly, and the meaning of the data points summarily discussed. Reviewer 2 expressed concerns regarding the user interaction with the resource, as a large number of new classes are present. We argue that the web application greatly improves the accessibility of the FTC's content. Each FTC category is described in details on the web application, and is further linked to related terms for the user to browse. Moreover, a text search functionality is available (https://www.ebi.ac.uk/chembl/ftc/search/), in order to easily find categories or drugs of interest. More search functionality might be added in the future, depending on the adoption of the classification.
+Minor corrections have been incorporated, as the exception of supplementary tables listing all the evaluation points. We believe that the website summarises better this aspect of the work. The text of the manuscript was also extensively edited and proof-read. Finally, Reviewer 3 did not manifest any major or minor objections.
 
-Major revisions
-1) The authors describes FTC is built by integrating information coming from various sources and using ELK algorithm to classify the knowledge. However, I cannot find any clear and detail introduction in manuscript or supplement. This should be explained in detail, being one of the most distinctive features of the paper.
+We believe to have addressed or answered all the major comments raised by the referees with this new improved version of the manuscript. We are looking forward to hear your decision.
 
-2) Result section 2, 2.1 is mostly methods benchmarking. I suggest those section should be renamed as “methodology” section. In addition, the detail classification description in supplementary (i.e. section 3, 3.1 and 3.2) should be wrote at manuscript. It would make it clearer how the methods are developed and tested.
+Best regards,
 
-3) In Figure 1, part C (Incorporation of databases), authors show ‘Prothrombin’ (P00734) is involved in ‘positive regulation of blood coagulation’ (GO_0030194). I tried to check this information from UniProt, but I cannot find any description there (http://www.uniprot.org/uniprot/P00734). How is this relationship module structured? This should be explained in detail.
-
-4) How much of the different results between ATC and FTC? It should be listed and accessed via web.
-
-Minor points:
-1) Authors used ATC corpus to evaluate proposed FTC algorithm. The detailed evaluation results were shown on project’s web. I suggest the results should be listed at manuscript, not only at web.
-2) 4 Gb of memory --> 4 GB of memory
-
-
-
-Reviewer: 2
-Comments to the Author
-The authors present a taxonomy, the Functional Therapeutic Chemical Classification System, and a knowledge base to assist drug repurposing analyses. The mode of action of a drug, represented by Gene Ontology derived terms, forms the basis for the drug similarity. The authors evaluate their taxonomy by comparing it against the Anatomical Therapeutic Chemical Classification System, and show the usefulness of their system by applying it in a use case to find new drugs for Alzheimers disease.
-
-The knowledge base and taxonomy is very well-documented, but requires deep knowledge about both the system and description logic in general in order to use. Also, presenting a single example use case with only literature evidence to back up the results is not very convincing for a research paper.
-
-Major
-Please show that the system can reproduce one known case of drug repurposing.
-
-The authors should describe differences with their system to related efforts such as work by Hoehndorf, Dumontier, and Gkoutos. Bioinformatics 28.16 (2012): 2169-2175, and the Open PHACTS discovery platform http://www.openphacts.org/. A reference to a recent review paper such as the one by Andronis et al in Brief Bioinform. 2011 Jul;12(4):357-68 would be helpful as well.
-
-In addition, the following specific revisions are needed:
-p. 2, line 39: “In total there are 1280 approved DrugBank compounds (chemical and biotherapeutics) perturbing 1264 human protein targets.” I looked up the current Drugbank figures: the database contains 6811 drug entries including 1528 FDA-approved small molecule drugs, 150 FDA-approved biotech (protein/peptide) drugs, 87 nutraceuticals and 5080 experimental drugs. It is therefore not clear to me where the number 1280 comes from. Later the authors talk about “approved” drugs. Do they refer to FDA-approved?
-
-p. 4 line 47: “Note that the mean of the similarity values was considered for the statistical analysis; some outliers are also present in the map, which can be interpreted as repurposing hypotheses.” Is this the only interpretation?
-
-p. 4 line 51: “Five FTC categories containing drugs are directly related to the biological processes of the neurodegenerative condition:..” It seems like a user needs to know a lot of details about the system with > 23000 categories in order to use it. How can the user be helped here?
-
-Minor
-
-p. 2 line 26: “Drugs are further assigned into MoA categories based of the OWL constructs and axioms defined in the FTC (see Availability and Implementation).” Provide an example here.
-
-p. 5 line 52: “The presence of lithium (group D) was unexpected and suspected of being a false positive at first glance.” Please explain why this result was unexpected.
-
-Supplemental material:
-“The web application built on the top of the FTC can be find …” should be “FTC can be found”
-
-“The FTC implementation relies mostly on Brain [Croset et al., 2013] and the web application builds on the top of the Play! framework”. Please provide reference for the Play! Framework.
+Samuel Croset
