@@ -10,20 +10,22 @@ The Functional Therapeutic Chemical Classification System}
 
 \section*{Availability and Implementation}
 
-This section describes the building mechanism behind the FTC. 
+This section describes the building mechanism behind the FTC.
 First, a list of categories describing the mode and mechanism of action of drugs is defined. 
 Then in a second step the newly created categories are automatically populated with approved compounds. 
-Finally, the FTC is evaluated and repurposing hypotheses can be generated.
+Finally, the FTC is evaluated and repositioning hypotheses can be generated.
 
 \section{Source code}
 The code behind the creation of the resource is entirely open and available 
 at {{https://github.com/loopasam/ftc}}. The web application built on the top of the 
-FTC can be find at {{https://www.ebi.ac.uk/chembl/ftc}} and the documentation can be 
+FTC can be found at {{https://www.ebi.ac.uk/chembl/ftc}} and the documentation can be 
 accessed at {{https://github.com/loopasam/ftc/wiki}}. The reader should be familiar with 
 description logics and the Web Ontology Language (OWL) to fully understand the construction of the 
 knowledge base. An introduction to description logics from the perspective of the biomedical scientist is 
-available on the wiki at {{https://github.com/loopasam/ftc/wiki/Description-Logics}}. The FTC implementation 
-relies mostly on Brain \citep{Croset2013} and the web application builds on the top of the Play! framework. 
+available on the wiki at {{https://github.com/loopasam/ftc/wiki/Description-Logics}}. We also refer the readers non-familiar
+with description logics and reasoning algorithms to excellent introductory text by \cite{krotzsch2012description}.
+The FTC implementation 
+relies mostly on Brain \citep{Croset2013} and the web application builds on the top of the Play! framework \citep{playframework}. 
 Classification tasks use the ELK reasoner \citep{Kazakov2011}. The computer hosting the web application has 8 Gb of memory 
 with 4 processors, this architecture allows fast parallel reasoning, thanks to ELK's design. More functionalities 
 will be added to the web application following user requirements (so called \emph{lean implementation}).
