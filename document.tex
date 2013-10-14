@@ -22,14 +22,14 @@ United Kingdom\\}
 
 
 \section{Motivation:}
-Drug repurposing is the discovery of new indications for compounds already approved and used in a clinical setting. 
-Recently, some computational approaches have been developed to unveil new opportunities in a systematic fashion, by taking 
+Drug repurposing is the discovery of new indications for compounds that have already been approved and used in a clinical setting. 
+Recently, some computational approaches have been suggested to unveil new opportunities in a systematic fashion, by taking 
 into consideration gene expression signatures or chemical features for instance. 
 We present here a novel method based on knowledge integration using semantic technologies, 
 to capture the functional role of approved chemical compounds.
 \section{Results:}
-In order to computationally generate repurposing hypotheses, we used the Web Ontology Language (OWL) to 
-mathematically define the meaning of over 20'000 terms formally describing various modes and mechanisms of action. Based on an 
+In order to computationally generate repositioning hypotheses, we used the Web Ontology Language (OWL) to 
+formally define the semantics of over 20'000 terms with axioms to correctly denote various modes of action (MoA). Based on an 
 integration of public data, we have automatically assigned over a thousand of approved drugs into 
 these MoA categories. The resulting new resource is called the Functional Therapeutic Chemical Classification System (FTC) 
 and was further evaluated against the content of the traditional Anatomical Therapeutic Chemical Classification System (ATC). 
@@ -48,21 +48,27 @@ Supplementary data are available at Bioinformatics online.
 
 \begin{figure*}[!tpb]%figure1
 \centerline{\includegraphics{fig1.png}}
-\caption{Summary of the methodology used to construct the resource. (A) The FTC categories are first created from the existing GO terms
-describing molecular functions and biological processes. (B) Then, each category has a logical equivalent definition assign to it.
-(C) The content of various databases in incorporated and linked using the FTC specific properties. (D) Finally a reasoner runs over the knowledge
-base and assigns drugs to MoA categories based on whether or not a definition can be satisfied. For example here, the drug
+\caption{The diagram gives an overview of the integrated resources. (A) The name of FTC categories representing MoAs are derived from the GO terms representing the molecular 
+functions and biological processes. A 
+prefix \emph{anti} or \emph{pro} is appended to the original 
+GO term, as well as the word \emph{agent} as suffix. (B) Each of the new FTC class has a logical
+equivalent definition assigned to it (axiom), representing the necessary and sufficient conditions for a drug to be classified
+in the corresponding MoA class.
+(C) The content of various databases is incorporated and linked using the FTC specific logical properties. (D) Finally a reasoner classifies the knowledge
+base and assigns drugs to MoA classes based on whether or not a definition can be satisfied. For example, the drug
 \emph{ximelagatran} will be assigned as member of the category \emph{Anti-blood coagulation agent} because of the logical
 links \emph{ximelagatran negatively-perturbs prothrombin} and \emph{prothrombin involved-in positive regulation of blood coagulation}.
 The taxonomic structure of the
-FTC appears also in the reasoning step, from the entailements of the equivalent defintions.}\label{fig:01}
+FTC appears also in the reasoning step, from the entailment of the equivalent definitions.}\label{fig:01}
 \end{figure*}
 
 Drug repurposing is the use of known active compounds for new therapeutic indications \citep{Sanseau01072011}. 
-When administered in a living organism, a compound can indeed play various roles and affect different biological processes; 
-accurately identifying these different functions helps to predict the potential side-effects a drug could have and can also lead to 
+When administered in a living organism, a compound can indeed play 
+various roles and affect different biological processes (called \emph{mode of action}, MoA); 
+accurately identifying these different functions 
+helps to predict the potential side-effects a drug could have and can also lead to 
 interesting repurposing opportunities \citep{Medina-Franco2013}. For instance, \emph{sildenafil} was initially developed 
-against angina and has been repurposed towards erectile dysfunction during the clinical trials \citep{Ashburn2004}. Approved compounds are 
+to relieve angina pectoris symptoms and has been repurposed towards erectile dysfunction during the clinical trials \citep{Ashburn2004} when a new function of the target enzyme was discovered. Approved compounds are 
 attractive because they have been extensively studied and have by definition already successfully passed clinical trials, where 
 most drugs fail because of safety or efficacy issues.
 There is an increasing number of approaches to predict repurposing opportunities using computational methods (see \cite{dudley2011exploiting} or \cite{andronis2011literature} for recent reviews). Most 
@@ -71,21 +77,22 @@ the drugs on more abstract levels, such as the gene expression signature \citep{
 via the reported side-effects \citep{Campillos2008}. 
 These approaches 
 have in common to look for similarities within existing drugs and forward similar compounds as repurposing hypotheses.
-A feature of particular interest to describe drugs is the Mode of Action (MoA). According to Wikipedia, 
+A feature of particular interest to describe drugs is the MoA. According to Wikipedia, 
 the MoA describes \emph{a functional or anatomical change, 
 at the cellular level, resulting from the exposure of a living organism to a substance}. For instance 
 terms such as \emph{transcriptional regulation agent} or \emph{anticoagulant} define MoAs and characterise the 
 roles of a certain type of drugs. The 
-MoA abstracts over the relations between molecular functions, protein targets and drug activities; it is the central concept linking a 
-chemical structure to a set of biological effects. Intuitively, the indication of a drug logically depends on its MoA.
+MoA abstracts over the relations between molecular functions, protein targets and drug activities; it is the central concept linking a chemical structure to a set of biological activities.
+Intuitively, the indication of a drug logically depends on its MoA.
 Despite its widespread use in drug discovery, the MoA has not been used yet as a descriptor for repurposing analyses. One reason for this 
 might be the challenge of formally defining MoAs. Indeed, MoAs are terms or categories, it is not possible to represent 
 them straightforwardly with values and numbers like one can do for a 3D molecular structure or for a gene expression profile. 
 Nonetheless, the meaning of a concept can be formalised with controlled vocabularies and ontologies \citep{Gruber1995}; 
-originating from description logics, such frameworks help to define the mathematical meaning of symbols and strings of characters. 
-In an ontology or knowledge base, concepts are organised and linked following the logical type of relation they have among them. 
-In the Gene Ontology (GO) for example \citep{Ashburner2000}, biological processes and molecular functions terms are manually curated  
-and their meaning specified by the relation types linking two GO terms.
+originating from description logics, such frameworks help to formalise the semantics of symbols and strings of characters with explicit axioms. 
+In an ontology or knowledge base, 
+\emph{concepts} (interchangeable with \emph{category}, \emph{term} and \emph{class} in this manuscript) are 
+organised and linked following the logical type of relation they have among them. 
+In the Gene Ontology (GO) for example \citep{Ashburner2000}, biological processes and molecular functions terms are manually curated  and their meaning specified by the relation types linking two GO terms.
 MoA definitions are present in other classifications such as the Medical Subject Headings \citep{Nelson2004} or the Chemical Entities of 
 Biological Interest \citep{Hastings2012} for example. The Anatomical Therapeutic 
 Chemical Classification System (ATC) \citep{world2000anatomical} also describes to some 
@@ -96,13 +103,14 @@ The classifications mentioned previously are not specially designed for drug rep
 well-known and major MoAs of chemical compounds. The pharmacological spectrum of each drug is not necessarily well covered, yet 
 it would be the best way to predict new indications. In our context, an ideal knowledge base would feature the known MoAs of a 
 drug as well as some predicted ones to be tested in experiments. The MoA categories should derive and scale over primary molecular 
-evidences exposed in biomedical databases in an automated way.
+evidences exposed in biomedical databases, in an automated way.
 To address the lack of systematic MoA annotations, we have implemented the Functional Therapeutic Chemical 
 Classification System (FTC), presented here in this manuscript. The FTC is automatically built by leveraging the content 
 of various biomedical databases using description logics and automated reasoning. Over 20'000 new MoA categories are defined 
-in the resource and further populated with approved drugs using the Web Ontology Language (OWL) in combination with a reasoner. 
-Most of the drugs are present in multiple FTC categories, reflecting the various roles a compound can play inside a biological system which 
-can serve as starting point for repurposing. 
+in the resource and further populated with approved drugs using the Web Ontology Language (OWL) in combination with a reasoner.
+The population step takes in account the type of pharmacological action, the molecular targets of the drug and their involvement
+into biological processes. Drugs can exhibit several MoAs, and the same MoA can be reached through different mechanisms.
+Most of the drugs are present in multiple FTC categories, reflecting the various roles a compound can play inside a biological system which can serve as starting point for repurposing. 
 The resource was evaluated against the ATC, traditional classification scheme introduced before. We present as well some preliminary 
 analyses over the data, by looking at the relation between the MoA and the indication of a compound using semantic similarity. 
 Finally, we illustrate also how the FTC can be used as a pharmacological toolbox to analyse drug repurposing for Alzheimer’s disease.
@@ -113,26 +121,25 @@ The knowledge base behind the FTC is built by integrating information coming fro
 The GO terms serve as template to create the FTC categories describing the MoAs; DrugBank \citep{Knox2011} provides the 
 known links between drugs and their protein targets and Uniprot \citep{TheUniprotConsortium2013} maps targets to their 
 respective GO annotations \citep{Dimmer2012}. 
-Drugs are further assigned into MoA categories based of the OWL constructs and axioms defined in the 
+Drugs are further assigned into MoA categories according to the OWL constructs and axioms defined in the 
 FTC. A reasoner, a program capable of understanding such axioms, performed this task (see \emph{Availability and Implementation} for details). 
 The process to build the FTC is summarised in Figure~\ref{fig:01} alongside an example.
-It takes around 5 seconds on a modern 
-laptop (4 cores processor with 4 GB of memory) to classify the knowledge base using the ELK reasoner \citep{Kazakov2011}. 
-Other OWL reasoners have been tried (e.g, Hermit, Pellet, etc.) but none of them were suitable for this purpose; 
-the classification time was always superior to a few minutes (data not shown). The FTC has a taxonomic structure as illustrated 
-on Figure~\ref{fig:02}, which arises when the reasoner classifies the knowledge base. Categories can have multiple parents and multiple children. 
-The reader can browse and access the content of the FTC online at {{https://www.ebi.ac.uk/chembl/ftc}}.
-In total there are 1280 FDA-approved DrugBank compounds (chemical and biotherapeutics) perturbing 1264 human protein targets.
-Only drugs acting on at least one human protein target were selected.
-The FTC introduces 23'353 new categories describing the mode and mechanism of action of therapeutic compounds. 4289 of these 
-categories are related to biological processes and 19'064 to the molecular functions. A summary of the metrics behind the latest 
+The core step is the generation of axiomatic representations of MoAs by decomposing GO types into positive and negative regulations of biomolecular functions and processes. 
+The help of reasoning techniques we can further derive and assign MoA across the knowledge base to given drugs. It requires a few seconds (four processing cores, 4 GB RAM) to classify the knowledge base (ELK reasoner, \citep{Kazakov2011}). 
+Other OWL reasoners (e.g, Hermit, Pellet, etc.) disqualified mainly due to long processing time (data not shown). 
+The FTC forms a taxonomic structure as illustrated 
+on Figure~\ref{fig:02}, which arises when the reasoner classifies the knowledge base. In general, categories may have multiple parents and multiple children (see {{https://www.ebi.ac.uk/chembl/ftc}} for interactive use).
+In total there are 1'280 FDA-approved DrugBank compounds (chemical and biotherapeutics) associated with 1'264 human protein targets, where each drug is acting on at least one human protein target.
+The FTC introduces 23'353 new categories new categories describing the mode and mechanism of action of therapeutic compounds. 
+4'289 of these categories belong to the biological processes in GO and 19'064 to the molecular functions. A summary of the metrics behind the latest 
 build is available online at {{https://www.ebi.ac.uk/chembl/ftc/evaluation/}}.
-Out of all FTC classes, 1432 
-categories (\textgreater 6\%) directly contain at least one approved drug. This number increases up to 2532 (\textgreater 11\%) 
+Out of all FTC categories, 1'432 
+categories (\textgreater 6\%) directly contain at least one approved drug. This number increases up to 2'532 (\textgreater 11\%) 
 when direct and 
 indirect drugs are considered. FTC categories not containing drugs (e.g, FTC\_A0001771 - \emph{Anti-immunological synapse 
-formation agent}) represent modes and mechanisms of action for which no approved compounds exist yet or that have not been identified 
+formation agent}) represent MoAs for which no approved compounds has qualified yet or that have not been identified  
 as such in the FTC.
+
 
 \begin{figure}[!tpb]%figure2
 \centerline{\includegraphics{fig2.png}}
@@ -142,67 +149,26 @@ between the terms (\emph{is a} relation).}\label{fig:02}
 \end{figure}
 
 \subsection{Evaluation}
-The content of the FTC has been evaluated against the information present in the ATC. The motivation behind 
-this step is to have an estimation of how the automatically-built classification (FTC) compares to a manually curated 
-one (ATC). In the context of this work, we have considered the ATC as a gold standard against which the FTC 
-has been assessed. In practice, these two resources have different goals; therefore the evaluation should be 
-interpreted accordingly (cf section \ref{interpreting}). The full methodology behind the evaluation is 
-described in the section 6 of the supplementary material (\emph{Evaluation methodology}). 
-Briefly, 68 categories present in the FTC have an equivalent meaning to a combination of categories present in the ATC. 
-This semantic equivalence was manually asserted 
-and called \emph{evaluation point} (see supplementary material section 6.1 for details). 
-The set of drugs present in both classes for each evaluation points were then compared and some metrics derived. 
+The content of the FTC has been evaluated against the drug categorisation of the ATC, which has been produced by manual curation and serves as a gold standard. 
+\emph{A priori}, both resources serve different purposes and as a consequence, the evaluation has to take this into consideration (cf section \ref{interpreting}). 
+The full methodology behind the evaluation is described in the section 6 of the supplementary material (\emph{Evaluation methodology}).
+Briefly, for 68 categories from the FTC we can manually identify a set of semantically equivalent categories in the ATC. We call these equivalent categories the \emph{evaluation points} (see supplementary material section 6.1 for details). 
+All drugs from each evaluation point were then assessed to determine the quality of the FTC against our gold standard, i.e.\ the ATC.
 For example, the FTC category \emph{Anti-hydrogen:potassium-exchanging ATPase activity agent} (FTC\_A0008900) has 
 been manually asserted as equivalent to the ATC category \emph{Proton pump inhibitors} (A02BC). A summary of this 
 evaluation point is furthermore available online at {{https://www.ebi.ac.uk/chembl/ftc/evaluation/FTC\_A0008900}}.
-Out of the 1280 DrugBank compounds present in the FTC, 1134 are also present in the ATC, therefore only those were 
+For 1'280 DrugBank compounds in the FTC, 1'134 are also present in the ATC, therefore only those were 
 considered. The \emph{evaluation points} cover a total of 471 DrugBank compounds or around 41\% of common drugs to both classifications.
-Out of these, 275 compounds are true positives, 
-meaning that given an evaluation point, they are present in both FTC and ATC categories. The \emph{proton pump inhibitor} 
-evaluation point is such an example where all the drugs (\emph{omeprazole, esomeprazole, pantoprazole, lansoprazole, rabeprazole}) are 
-present both in the FTC category and in the corresponding ATC class(es). The total number of compounds present in an ATC class but 
-not in the corresponding FTC category (false negatives) is 35. Finally, 280 compounds are present in a FTC class but not in the 
-corresponding ATC class(es); such agents are the false positives. From these values, it is possible to derive a 
+Out of these, 275 compounds are true positives, i.e.\ they match both, the FTC and ATC categories for a given evaluation point.
+The \emph{proton pump inhibitor} 
+evaluation point is such a case where all the drugs (\emph{omeprazole, esomeprazole, pantoprazole, lansoprazole, rabeprazole}) are 
+present both in the FTC category and in the corresponding ATC categori(es). The total number of compounds from an ATC category but 
+where we could not identify a corresponding FTC category is 35 (false negatives). Finally, 280 compounds are present in a FTC class but not in any 
+corresponding ATC category (false positives). Overall we derive a 
 recall of 89\%; this percentage indicates that the automatic build of the FTC covers a good portion of the content 
 already present in the ATC. The precision of 50\% shows that the FTC contains for a given MoA many more drugs than the 
 equivalent ATC categories. This result was expected and comes the original idea behind the FTC: Representing in a systematic fashion
 the implicit and explicit MoAs of drugs, in particular the ones not already indexed by current classification scheme.
-
-\subsection{Exploration}\label{exploration}
-The FTC was designed to assist drug repurposing analyses by explicitly representing the polypharmacology of 
-approved drugs. In this section we exemplify how the resource can be used to perform different types of analysis.
-
-\subsubsection{Polypharmacology spectrum}
-The more information on a drug’s molecular targets and their physiological roles, the more opportunities 
-exist to re-orient a drug into doing something new. The therapeutic agents described in the FTC can have several MoAs, 
-representing the intrinsic polypharmacology of the approved compounds. Figure \ref{fig:03} illustrates the polypharmacology 
-spectrum by showing the distribution of number of MoAs per compound. When only direct categories are considered, compounds belong on average
-to 13.5 MoA categories. This number increases to 61.2 when parent categories are taken into consideration (super classes).
-Not all the MoAs are disease relevant, 
-some FTC categories are particularly abstract (e.g, \emph{Anti-biological process agent}) yet they represent discrete 
-categories to which the drug belongs with an explicit and clear meaning. These discrete MoAs are a good starting 
-point to understand what a compound can do when administered in a human system.
-Compound's polypharmacology is 
-well represented in the FTC, as shown by the numerous MoAs each approved drug can exhibit.
-We decided to further look at a well-known repositioning example, 
-in order to see whether the FTC was suitable to identify the new
-uses of an old drug. We picked the \emph{thalidomide} for 
-this exercise ({{https://www.ebi.ac.uk/chembl/ftc/agent/DB01041}}). The molecule was 
-first indicated to treat morning sickness
-in pregnant women, but got quickly withdrawn from the market after the dramatic identification 
-of teratogenic effect in newborns, caused by the drug. The accepted molecular mechanism behind the side-effect is  
-an impairment of the angiogenic process responsible for the development of members, affecting in particular the limbs \citep{therapontos2009thalidomide}.
-The \emph{thalidomide} was accurately classified as \emph{Anti-cell migration involved in sprouting angiogenesis agent} in the FTC, capturing the known toxicity of the drug. The \emph{thalidomide} is currently investigated for a multitude of new usages,
-in particular for anti-cancer and immunomodulatory activities among others \citep{teo2005thalidomide}.
-These new indications are well represented in the FTC too, for 
-example by the categories \emph{Anti-vascular endothelial growth factor production agent} or 
-\emph{Anti-cell division agent} for neoplastic activities, 
-or by the classes \emph{Anti-cytokine secretion agent} and \emph{Anti-I-kappaB kinase/NF-kappaB cascade agent} for its effect
-on the immune system. These observations demonstrate that the FTC can successfully capture the 
-molecular reasons behind the repositioning of an old compound. 
-Moreover the classification can also provide valuable insight regarding
-potential toxicity too.
-
 
 \begin{figure*}[!tpb]%figure3
 \centerline{\includegraphics{fig3.png}}
@@ -216,6 +182,56 @@ to a small number of FTC categories; in such cases little is known or reported a
 might be limited.}\label{fig:03}
 \end{figure*}
 
+
+\subsection{Exploration}\label{exploration}
+The FTC was designed to assist drug repositioning analyses by explicitly representing the polypharmacology of 
+approved drugs. In this section we exemplify how the resource can be used to perform different types of analysis.
+
+\subsubsection{Polypharmacology spectrum}
+The more information on a drug’s molecular targets and their physiological roles, the more opportunities 
+exist to re-orient a drug into doing something new. The therapeutic agents described in the FTC can have several MoAs, 
+i.e.\ may be acting on different biomolecular functions or processes, 
+which demonstrates the intrinsic polypharmacology of the approved compounds. Figure \ref{fig:03} illustrates the polypharmacology 
+spectrum by showing the distribution of number of MoAs per compound. When only direct categories are considered, compounds belong on average
+to 13.5 MoA categories. This number increases to 61.2 when parent categories are taken into consideration (super classes).
+Not all the MoAs are relevant to a disease, 
+some FTC categories are particularly abstract (e.g, \emph{Anti-biological process agent}) yet they represent discrete 
+categories to which the drug belongs with an explicit and clear meaning. These discrete MoAs are a good starting 
+point to understand what a compound can do when administered in a human system.
+Compound's polypharmacology is 
+well represented in the FTC, as shown by the numerous MoAs each approved drug can exhibit.
+We decided to further look at a well-known repositioning example, 
+in order to see whether the FTC was suitable to identify the new
+uses of an old drug. We picked the \emph{thalidomide} for 
+this exercise ({{https://www.ebi.ac.uk/chembl/ftc/agent/DB01041}}). The molecule was 
+first indicated to treat morning sickness
+in pregnant women, but has been quickly abandoned after its developmental toxicity has been discovered in newborns. 
+The accepted molecular mechanism behind the side-effect is  
+an impairment of the angiogenic process responsible for the development of members, affecting in particular the limbs \citep{therapontos2009thalidomide}.
+We found that the \emph{thalidomide} was accurately classified as \emph{Anti-cell migration involved in sprouting angiogenesis agent} in the FTC, capturing the known toxicity of the drug. Furthermore, the \emph{thalidomide} is currently investigated for a multitude of new usages, in particular for anti-cancer and immunomodulatory activities among others \citep{teo2005thalidomide}.
+These new indications are well represented in the FTC too, for 
+example by the categories \emph{Anti-vascular endothelial growth factor production agent} or 
+\emph{Anti-cell division agent} for neoplastic activities, 
+or by the classes \emph{Anti-cytokine secretion agent} and \emph{Anti-I-kappaB kinase/NF-kappaB cascade agent} for its effect
+on the immune system. These observations demonstrate that the FTC can successfully capture the 
+molecular reasons behind the repositioning of an old compound. 
+Moreover the classification can also provide valuable insight regarding
+potential toxicity too.
+
+\begin{figure*}[!tpb]%figure4
+\centerline{\includegraphics{fig4.png}}
+\caption{Pairwise comparison of MoAs similarities. Therapeutic indications are represented by ATC categories which are the colours on the side.
+For instance, the compound reteplase (DB00015) has the ATC code B01AD07, 
+which appears as \emph{B} (dark orange) on the plot.
+Only the first ATC level 
+is considered. The reader can refer to Supplementary Figure 1A for a two ATC level granularity. 
+The similarity descriptor ranges from 0 (not similar - white) to 1 (identical - black).
+Some compounds belong to multiple ATC categories (\emph{Multiple}) and some others do not have
+an ATC code (\emph{NoCategory}).
+The average similarity of drugs present in the same therapeutic category 
+is significantly higher on average when separately compared to all other indications.}\label{fig:04}
+\end{figure*}
+
 \subsubsection{Drugs with similar MoAs have similar indications}
 The list of MoAs attributed to a drug can be exploited as a descriptor for the therapeutic agent:
 The tree structure of the FTC can be used to derive some similarity metrics over the MoAs. The underlying 
@@ -223,14 +239,14 @@ heuristic is to assume that the closer two entities are in the taxonomy, the mor
 We used a straightforward approach derived from the Jaccard index (see supplementary section 7) in order to compare 
 approved drugs based on the similarity of their MoAs. For instance, the similarity between two compounds present in 
 the same FTC category is 1 (maximum). The similarity between an \emph{anti-blood coagulant} and \emph{pro-blood coagulant} is 0.29, 
-reflecting the fact that such compounds are not similar in regards to the outcome of their biological effect. As the MoA is 
+reflecting the fact that such compounds are dissimilar with regards to the outcome of their biological effect. As the MoA is 
 intuitively expected to be the central concept leading to the indication of the drug, we expected that on average, drugs with 
 similar MoAs would be indicated towards similar therapeutic areas. The heat map presented in Figure \ref{fig:04} shows a pairwise 
 comparison of all the drugs of the FTC based on their relative MoA similarity. The compounds are further grouped by 
 therapeutic indications as defined by the ATC.
 The heatmap reveals some square patches around the central diagonal;
 the overall similarity appears higher when compounds from the same ATC group are considered. 
-A significance analysis (details covered in supplementary section 8)
+A significance analysis (see supplement, section 8)
 revealed that the average MoA similarity of compounds belonging to the same ATC category is 
 significantly higher than when compounds belonging to different categories are compared. Indeed, for 
 each category, the p-value was inferior to 0.05 based on 20'000 random permutations over the similarity values. 
@@ -241,28 +257,21 @@ different therapeutic areas and are used for different purposes according to the
 such cases in a systematic fashion. Hypotheses have to be manually examined and interpreted, as ATC categories are
 only covering some of the legal usage of the drugs. We expect to find off-label indications in 
 the predictions for instance, as well as false positives.
-
 Supplementary Figure 3 present similar association behaviour when two levels of the ATC are 
 considered (no statistical significance performed). Supplementary Figure 4 re-uses the same data as Figure \ref{fig:04} (one ATC level) 
 but with a clustering function apply to it (hierarchical clustering - manhattan distance) in order to reveal 
 functional clusters of drugs. Finally, Supplementary Figure 5 shows the distribution when compounds are sorted based on 
-their identifiers; no patterns are identifiable in this case. Taken together, these results emphasize that the MoAs as 
+their identifiers; no patterns are identifiable in this case. Taken together, these results emphasise that the MoAs as 
 defined in the FTC are indeed on average associated with the therapeutic indication of a drug. This result supports the validity of the
 resource and its potential to computationally address indication discovery.
 
-\begin{figure*}[!tpb]%figure4
-\centerline{\includegraphics{fig4.png}}
-\caption{Pairwise comparison of MoAs similarities. Therapeutic indications are represented by ATC categories which are the colors on the side.
-For instance, the compound reteplase (DB00015) has the ATC code B01AD07, 
-which appears as \emph{B} (dark orange) on the plot.
-Only the first ATC level 
-is considered. The reader can refer to Supplementary Figure 1A for a two ATC level granularity. 
-The similarity descriptor ranges from 0 (not similar - white) to 1 (identical - black).
-Some compounds belong to multiple ATC categories (\emph{Mulitple}) and some others do not have
-an ATC code (\emph{NoCategory}).
-The average similarity of drugs present in the same therapeutic category 
-is significantly higher on average when separately compared to all other indications.}\label{fig:04}
-\end{figure*}
+\begin{figure}[!tpb]%figure5
+\centerline{\includegraphics{fig5.png}}
+\caption{FTC categories describing some of the modes of 
+action that could impact Alzheimer's disease (letters on figure). The categories have been manually picked on the basis that they could directly affect
+the dementia. Drugs classified in these FTC categories further 
+manually grouped based on their MoAs similarities (numbers on figure).}\label{fig:05}
+\end{figure}
 
 \subsection{Drug repurposing hypotheses for Alzheimer's disease}
 In this section we provide examples how actual drug repurposing hypotheses can be derived from the FTC. 
@@ -270,19 +279,10 @@ The approach presented here makes use of the FTC categories as analogs to compar
 find drugs to treat Alzheimer's disease. Five FTC categories containing drugs are directly related to the biological 
 processes of the neurodegenerative condition: \emph{Anti-amyloid precursor protein biosynthetic process agent} (FTC\_A0042983), 
 \emph{Anti-tau protein kinase activity agent} (FTC\_A0050321), \emph{Anti-tau protein binding agent} (FTC\_A0048156), 
-\emph{Anti-beta amyloid 
+\emph{Anti beta amyloid 
 binding agent} (FTC\_A0001540) and finally \emph{Pro-beta amyloid binding agent} (FTC\_P0001540). We have then considered the drugs present 
 inside each of these classes as potential candidates. Figure \ref{fig:05} shows these drugs, which have been further manually grouped 
 based on the overall similarity of their actions (numbers on Figure \ref{fig:05}).
-
-\begin{figure}[!tpb]%figure5
-\centerline{\includegraphics{fig5.png}}
-\caption{FTC categories describing some of the modes and mechanisms of 
-action that could impact Alzheimer's disease (letters on figure). The categories have been manually picked on the basis that they could directly affect
-the dementia. Drugs classified in these FTC categories further 
-manually grouped based on their MoAs similarities (numbers on figure).}\label{fig:05}
-\end{figure}
- 
 The subgroups (1), (2) and (3) are inhibitors of the cholinergic system and some of them, such as \emph{galantamine} (DB00674), are already 
 investigated to treat Alzheimer's disease and other related dementias. This class of agent is in line with the 
 cholinergic hypothesis \citep{Francis1999}, stating that Alzheimer's disease could be caused by dysfunctions in the processing of the
@@ -302,7 +302,7 @@ The groups (C) and (D) contain respectively one molecule each. These compounds h
 the physiological function of the Tau protein, key actor in Alzheimer's 
 disease \citep{Grundke-Iqbal1986}. \emph{Vorinostat} (group C) is currently 
 indicated for the treatment of cutaneous manifestations in patients with T-cell lymphoma, yet a study has 
-shown in vivo (mouse model) the potential of the drug and other histone deacetylase inhibitors in regards to memory 
+shown \emph{in vivo} (mouse model) the potential of the drug and other histone deacetylase inhibitors in regards to memory 
 deficit \citep{Kilgore2010}. 
 The presence of the \emph{lithium} (group D) was 
 confirmed by a recent study demonstrating a long-term 
@@ -318,10 +318,7 @@ the treatment of a condition.
 \section{Discussion}
 
 The FTC is a novel classification for approved drugs, which can be used as a starting point to 
-generate drug repurposing hypotheses. We have guided the reader through some of the ways the resource 
-can be explored. No experimental validations have been presented in this manuscript, yet references to 
-supporting literature was provided in order to legitimate the claims. The main goal of this document is to 
-introduce the resource to the community; deeper analyses are being performed over the classification at the time of writing.
+generate drug repurposing hypotheses. 
 This classification leverages the information present in various databases and ontologies, similarly to the 
 Open PHACTS initiative \citep{williams2012open} and to the work done by \cite{hoehndorf2012identifying}. The FTC
 mostly differentiates itself from these projects by providing a whole set of new categories on the top of the integrated
@@ -381,14 +378,13 @@ incorporated in the next release of the resource. It is also possible to evaluat
 taxonomy, like the Medical Subject Headings for example, which can be subject to future work.
 
 \section{Conclusion}
-This manuscript introduces the FTC, a free, open and extensible resource, which can assist drug repurposing 
-initiatives or enhance computational studies making use of the concept of \emph{mode of action}.
-The resource annotates the biological functions of drugs, in a similar way the GO serves to annotate gene products.
-The construction of 
-the classification relies on description logics as a means to define the mode and mechanism of action of approved 
-drugs. We shown the validity of the approach by comparing the content of the FTC to another well implemented taxonomy, 
-the ATC. We further illustrate the tight relationship between the MoA and the indication of a drug and shown how the 
-resource can serve as a starting point to formulate hypotheses for Alzheimer's disease. The work leverages the 
+The FTC is public resource, which should assist drug repurposing 
+initiatives or enhance computational studies that judge drugs according to their \emph{mode of action}.
+The resource attributes biomolecular functions and processes to drugs, the same way as GO types have been assigned to gene products.
+The construction of FTC relies on axiomatic representations of MoA as the core means to attribute and derive the MoA for approved 
+drugs. We shown the validity of the approach by comparing the content of the FTC to a well established gold standard, 
+the ATC. We further illustrate the tight relationship between the MoA and the indication of a drug and demonstrate using Alzheimer's disease as an example how the 
+resource helps to formulate drug repositioning hypotheses. The work leverages the 
 semantics of distinct databases, working in parallel on different thematics. The platform will be further used 
 to generate predictions in a systematic fashion, which can then be experimentally tested in the laboratory for validation.
 
@@ -399,7 +395,8 @@ find at {{https://www.ebi.ac.uk/chembl/ftc}}. The documentation can be accessed 
 description of the methodology used to generate the classification is available as supplementary material on Bioinformatics website.
 
 \section*{Acknowledgement}
-We would like to thank Rita Santos, Sarah Carl and Felix Kruger for the fruitful input on this manuscript.
+We would like to thank Rita Santos, Sarah Carl and Felix Kruger, as well 
+as the reviewers for the fruitful input on this manuscript.
 
 \paragraph{Funding\textcolon} EMBL member states. S.C. is a member of Darwin College, University of Cambridge.
 
