@@ -11,7 +11,7 @@ The Functional Therapeutic Chemical Classification System}
 \section*{Availability and Implementation}
 
 This section describes the building mechanism behind the FTC.
-First, a list of categories describing the mode and mechanism of action of drugs is defined. 
+First, a list of \emph{categories} describing the mode and mechanism of action of drugs is defined (the word \emph{category} is interchangeable with \emph{term}, \emph{class} or \emph{concept} in this manuscript). 
 Then in a second step the newly created categories are automatically populated with approved compounds. 
 Finally, the FTC is evaluated and repositioning hypotheses can be generated.
 
@@ -59,8 +59,9 @@ receptor activity} (GO:0004882) two FTC classes are derived: \emph{Pro-androgen 
 \section{Equivalent definitions}
 FTC classes are generated as presented in the previous section. Up to this point, these categories 
 are only tokens with a human readable label as well as an identifier. The next step is going to 
-assign equivalent definitions to each FTC class. A reasoner can understand such definitions and will automatically 
-classify the knowledge base accordingly; drugs will then be assigned to FTC categories and the taxonomic structure 
+assign equivalent definitions to each FTC class. An OWL reasoner can understand such definitions and will automatically 
+classify the knowledge base accordingly, following standard description logics reasoning services (see wiki for introduction).
+Drugs will then be assigned to FTC categories and the taxonomic structure 
 arises after this reasoning step. Equivalent definitions are written as OWL class expressions using the entities of 
 the knowledge base (summarised at {{https://github.com/loopasam/ftc/wiki/Knowledge-Base}} and in section \ref{specs}).
 There are two types of equivalences: The first one captures perturbation of regulatory 
@@ -123,8 +124,8 @@ as \emph{[protein] SubClassOf has-function some [molecular function]}.
 Each protein annotated to a biological process creates an axiom such 
 as \emph{[protein] SubClassOf involved-in some [biological process]}. 
 E.g. \emph{Prothrombin SubClassOf involved-in some positive regulation of blood coagulation}. 
-Each protein can be involved in multiple processes and capable of realizing multiple functions;
-the polypharmacology is captured at this level.
+Each protein can be involved in multiple processes and capable of realising multiple functions;
+some of the polypharmacology is captured at this level.
 
 \section{Knowledge base classification}
 The knowledge base is fully built at this step and contains core classes, mode 
