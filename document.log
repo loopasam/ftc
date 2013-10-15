@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.10.8)  14 OCT 2013 14:04
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.10.8)  15 OCT 2013 10:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -377,113 +377,119 @@ File: fig1.png Graphic file (type png)
 Package pdftex.def Info: fig1.png used on input line 50.
 (pdftex.def)             Requested size: 395.31592pt x 157.5482pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 62.
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
 
-Underfull \hbox (badness 1142) in paragraph at lines 65--117
+Underfull \hbox (badness 1142) in paragraph at lines 67--82
 \OT1/ptm/m/n/9 Drug repurposing is the use of known active compounds for
  []
 
 
-Underfull \hbox (badness 1735) in paragraph at lines 65--117
+Underfull \hbox (badness 1735) in paragraph at lines 67--82
 \OT1/ptm/m/n/9 various roles and affect different biological processes (called
  []
 
 
-Underfull \hbox (badness 1642) in paragraph at lines 65--117
+Underfull \hbox (badness 1642) in paragraph at lines 67--82
 \OT1/ptm/m/it/9 mode of action\OT1/ptm/m/n/9 , MoA); accurately identifying the
 se different
  []
 
 
-Underfull \hbox (badness 1354) in paragraph at lines 65--117
+Underfull \hbox (badness 1354) in paragraph at lines 67--82
 \OT1/ptm/m/n/9 developed to relieve angina pectoris symptoms and has been
  []
 
 
-Underfull \hbox (badness 2393) in paragraph at lines 65--117
+Underfull \hbox (badness 2393) in paragraph at lines 67--82
 \OT1/ptm/m/n/9 enzyme was discovered. Approved compounds are attractive
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 65--117
+Underfull \hbox (badness 1769) in paragraph at lines 67--82
 \OT1/ptm/m/n/9 because of safety or efficacy issues. There is an increasing
+ []
+
+
+Underfull \hbox (badness 1019) in paragraph at lines 67--82
+\OT1/ptm/m/n/9 existing drugs and forward similar compounds as repurposing
+ []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 83--108
+\OT1/ptm/m/n/9 According to Wikipedia, the MoA describes \OT1/ptm/m/it/9 a func
+tional or
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 117.
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 108.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 117.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 108.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+
+Underfull \hbox (badness 1348) in paragraph at lines 109--122
+\OT1/ptm/m/n/9 Chemical Classification System (FTC), presented here in this
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 137.
 
+Underfull \hbox (badness 1708) in paragraph at lines 125--135
+\OT1/ptm/m/n/9 The knowledge base behind the FTC is built by integrating
+ []
+
+
+Underfull \hbox (badness 5147) in paragraph at lines 125--135
+\OT1/ptm/m/n/9 drugs and their protein targets and Uniprot [The Uniprot
+ []
+
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 143.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <9> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 137.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 143.
 
-Underfull \hbox (badness 1708) in paragraph at lines 120--142
-\OT1/ptm/m/n/9 The knowledge base behind the FTC is built by integrating
- []
-
-
-Underfull \hbox (badness 5147) in paragraph at lines 120--142
-\OT1/ptm/m/n/9 drugs and their protein targets and Uniprot [The Uniprot
- []
-
-
-Underfull \hbox (badness 1038) in paragraph at lines 120--142
-\OT1/ptm/m/n/9 for details). The process to build the FTC is summarised in
- []
-
-
-Underfull \hbox (badness 1616) in paragraph at lines 120--142
-\OT1/ptm/m/n/9 derive and assign MoA across the knowledge base to given
- []
-
-
-Underfull \hbox (badness 1082) in paragraph at lines 120--142
+Underfull \hbox (badness 1082) in paragraph at lines 136--148
 \OT1/ptm/m/n/9 In total there are 1'280 FDA-approved DrugBank compounds
  []
 
 
-Underfull \hbox (badness 1320) in paragraph at lines 120--142
+Underfull \hbox (badness 1320) in paragraph at lines 136--148
 \OT1/ptm/m/n/9 describing the mode and mechanism of action of therapeutic
  []
 
 
-Underfull \hbox (badness 1783) in paragraph at lines 120--142
+Underfull \hbox (badness 1783) in paragraph at lines 136--148
 \OT1/ptm/m/n/9 processes in GO and 19'064 to the molecular functions. A
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 120--142
+Underfull \hbox (badness 1762) in paragraph at lines 136--148
 \OT1/ptm/m/n/9 approved drug. This number increases up to 2'532 (\OML/cmm/m/it/
 9 >\OT1/ptm/m/n/9 11%)
  []
 
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <8> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 142.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 148.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <8> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 142.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 148.
 
 Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][] 
@@ -500,58 +506,50 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [2 <./fig1.png>] <fig2.png, id=25, 235.8411pt x 273.6624pt>
 File: fig2.png Graphic file (type png)
  <use fig2.png>
-Package pdftex.def Info: fig2.png used on input line 145.
+Package pdftex.def Info: fig2.png used on input line 151.
 (pdftex.def)             Requested size: 235.8405pt x 273.66171pt.
 
-Underfull \hbox (badness 6032) in paragraph at lines 148--148
+Underfull \hbox (badness 6032) in paragraph at lines 154--154
 []\OT1/ptm/b/n/8 Fig. 2. \OT1/ptm/m/n/8 Parent categories to the FTC class \OT1
 /ptm/m/it/8 Pro-fibrinolysis agent
  []
 
 
-Underfull \hbox (badness 2073) in paragraph at lines 148--148
+Underfull \hbox (badness 2073) in paragraph at lines 154--154
 \OT1/ptm/m/n/8 (FTC[]P0042730). The classification is a direct acyclic graph wh
 ere
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 152--172
-\OT1/ptm/m/n/9 has to take this into consideration (cf section 3.2[]). The full
-
+Underfull \hbox (badness 1303) in paragraph at lines 162--167
+[]\OT1/ptm/m/n/9 Briefly, for 68 categories from the FTC we can manually
  []
 
 
-Underfull \hbox (badness 1052) in paragraph at lines 152--172
-\OT1/ptm/m/n/9 equivalent categories the \OT1/ptm/m/it/9 evaluation points \OT1
-/ptm/m/n/9 (see supplementary
+Underfull \hbox (badness 1603) in paragraph at lines 162--167
+\OT1/ptm/m/n/9 the FTC category \OT1/ptm/m/it/9 Anti-hydrogen:potassium-exchang
+ing ATPase
  []
 
 
-Underfull \hbox (badness 2469) in paragraph at lines 152--172
-\OT1/ptm/m/n/9 against our gold standard, i.e. the ATC. For example, the
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-Underfull \hbox (badness 4144) in paragraph at lines 152--172
-\OT1/ptm/m/n/9 to the ATC category \OT1/ptm/m/it/9 Proton pump inhibitors \OT1/
-ptm/m/n/9 (A02BC). A
- []
-
-
-Underfull \hbox (badness 3601) in paragraph at lines 152--172
-\OT1/ptm/m/n/9 https://www.ebi.ac.uk/chembl/ftc/evaluation/FTC[]A0008900. For
- []
 
 <fig3.png, id=26, 333.8874pt x 292.4526pt>
 File: fig3.png Graphic file (type png)
  <use fig3.png>
-Package pdftex.def Info: fig3.png used on input line 174.
+Package pdftex.def Info: fig3.png used on input line 182.
 (pdftex.def)             Requested size: 333.88658pt x 292.45189pt.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 
-Underfull \hbox (badness 3826) in paragraph at lines 191--220
+Underfull \hbox (badness 1824) in paragraph at lines 212--229
+[]\OT1/ptm/m/n/9 We decided to further look at a well-known repositioning
+ []
+
+
+Underfull \hbox (badness 3826) in paragraph at lines 212--229
 \OT1/ptm/m/n/9 was accurately classified as \OT1/ptm/m/it/9 Anti-cell migration
  involved in
  []
@@ -567,7 +565,7 @@ Overfull \vbox (1.0pt too high) has occurred while \output is active []
  [3 <./fig2.png>] <fig4.png, id=31, 401.5803pt x 321.6015pt>
 File: fig4.png Graphic file (type png)
  <use fig4.png>
-Package pdftex.def Info: fig4.png used on input line 222.
+Package pdftex.def Info: fig4.png used on input line 231.
 (pdftex.def)             Requested size: 401.57932pt x 321.60071pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -589,85 +587,90 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
  []
 
 [4 <./fig3.png>]
+Underfull \hbox (badness 2990) in paragraph at lines 272--279
+\OT1/ptm/m/n/9 when two levels of the ATC are considered (no statistical
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 <fig5.png, id=36, 219.26718pt x 194.83992pt>
 File: fig5.png Graphic file (type png)
  <use fig5.png>
-Package pdftex.def Info: fig5.png used on input line 269.
+Package pdftex.def Info: fig5.png used on input line 281.
 (pdftex.def)             Requested size: 219.26663pt x 194.83943pt.
 
-Underfull \hbox (badness 6396) in paragraph at lines 277--317
+Underfull \hbox (badness 6396) in paragraph at lines 289--329
 \OT1/ptm/m/n/9 hypotheses can be derived from the FTC. The approach
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 277--317
+Underfull \hbox (badness 1742) in paragraph at lines 289--329
 \OT1/ptm/m/n/9 presented here makes use of the FTC categories as analogs
  []
 
 
-Underfull \hbox (badness 7273) in paragraph at lines 277--317
+Underfull \hbox (badness 7273) in paragraph at lines 289--329
 \OT1/ptm/m/n/9 to compartments of a toolbox helping to find drugs to
  []
 
 
-Underfull \hbox (badness 6220) in paragraph at lines 277--317
+Underfull \hbox (badness 6220) in paragraph at lines 289--329
 \OT1/ptm/m/n/9 treat Alzheimer's disease. Five FTC categories containing
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 277--317
+Underfull \hbox (badness 1960) in paragraph at lines 289--329
 \OT1/ptm/m/n/9 drugs are directly related to the biological processes of the
  []
 
 
-Underfull \hbox (badness 6047) in paragraph at lines 277--317
+Underfull \hbox (badness 6047) in paragraph at lines 289--329
 \OT1/ptm/m/n/9 neurodegenerative condition: \OT1/ptm/m/it/9 Anti-amyloid precur
 sor protein
  []
 
 
-Underfull \hbox (badness 1975) in paragraph at lines 277--317
+Underfull \hbox (badness 1975) in paragraph at lines 289--329
 \OT1/ptm/m/it/9 biosynthetic process agent \OT1/ptm/m/n/9 (FTC[]A0042983), \OT1
 /ptm/m/it/9 Anti-tau protein
  []
 
 
-Underfull \hbox (badness 7308) in paragraph at lines 277--317
+Underfull \hbox (badness 7308) in paragraph at lines 289--329
 \OT1/ptm/m/it/9 agent \OT1/ptm/m/n/9 (FTC[]A0048156), \OT1/ptm/m/it/9 Anti beta
  amyloid binding agent
  []
 
 
-Underfull \hbox (badness 1960) in paragraph at lines 277--317
+Underfull \hbox (badness 1960) in paragraph at lines 289--329
 \OT1/ptm/m/n/9 (FTC[]A0001540) and finally \OT1/ptm/m/it/9 Pro-beta amyloid bin
 ding agent
  []
 
 
-Underfull \hbox (badness 1142) in paragraph at lines 277--317
+Underfull \hbox (badness 1142) in paragraph at lines 289--329
 \OT1/ptm/m/n/9 (FTC[]P0001540). We have then considered the drugs present
  []
 
 
-Underfull \hbox (badness 1584) in paragraph at lines 277--317
+Underfull \hbox (badness 1584) in paragraph at lines 289--329
 \OT1/ptm/m/n/9 based on the overall similarity of their actions (numbers on
  []
 
 
-Underfull \hbox (badness 1484) in paragraph at lines 277--317
+Underfull \hbox (badness 1484) in paragraph at lines 289--329
 \OT1/ptm/m/n/9 Figure 5[]). The subgroups (1), (2) and (3) are inhibitors of
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 277--317
+Underfull \hbox (badness 2042) in paragraph at lines 289--329
 \OT1/ptm/m/n/9 and other related dementias. This class of agent is in line
  []
 
 
-Underfull \hbox (badness 1122) in paragraph at lines 277--317
+Underfull \hbox (badness 1122) in paragraph at lines 289--329
 \OT1/ptm/m/n/9 disease [Grundke-Iqbal \OT1/ptm/m/it/9 et al.\OT1/ptm/m/n/9 , 19
 86]. \OT1/ptm/m/it/9 Vorinostat \OT1/ptm/m/n/9 (group C) is
  []
@@ -694,44 +697,44 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
  []
 
 [6 <./fig5.png>]
-Underfull \hbox (badness 1087) in paragraph at lines 356--379
+Underfull \hbox (badness 1087) in paragraph at lines 368--391
 \OT1/ptm/m/n/9 repositories funded and curated in parallel, can be integrated
  []
 
 
-Underfull \hbox (badness 1052) in paragraph at lines 356--379
+Underfull \hbox (badness 1052) in paragraph at lines 368--391
 \OT1/ptm/m/n/9 external gold standard (ATC) and relies on description logics
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 356--379
+Underfull \hbox (badness 1057) in paragraph at lines 368--391
 \OT1/ptm/m/n/9 we have compared the content of the FTC against the ATC,
  []
 
 
-Underfull \hbox (badness 1874) in paragraph at lines 381--390
+Underfull \hbox (badness 1874) in paragraph at lines 393--402
 \OT1/ptm/m/n/9 initiatives or enhance computational studies that judge drugs
  []
 
 
-Underfull \hbox (badness 3333) in paragraph at lines 381--390
+Underfull \hbox (badness 3333) in paragraph at lines 393--402
 \OT1/ptm/m/n/9 according to their \OT1/ptm/m/it/9 mode of action\OT1/ptm/m/n/9 
 . The resource attributes
  []
 
 
-Overfull \hbox (13.16383pt too wide) in paragraph at lines 392--396
+Overfull \hbox (13.16383pt too wide) in paragraph at lines 404--408
 \OT1/ptm/m/n/9 documentation can be accessed at https://github.com/loopasam/ftc
 /wiki.
  []
 
 
-Underfull \hbox (badness 4531) in paragraph at lines 392--396
+Underfull \hbox (badness 4531) in paragraph at lines 404--408
 \OT1/ptm/m/n/9 The full description of the methodology used to generate
  []
 
 
-Underfull \hbox (badness 3942) in paragraph at lines 392--396
+Underfull \hbox (badness 3942) in paragraph at lines 404--408
 \OT1/ptm/m/n/9 the classification is available as supplementary material on
  []
 
@@ -758,39 +761,60 @@ Missing character: There is no ° in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no „ in font ptmr7t!
 Missing character: There is no ’ in font ptmr7t!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:10.0pt when 320.54022pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:10.0pt when 321.54022pt
+Extra height:19.08044pt when 338.6172pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:10.0pt when 322.54022pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:10.0pt when 323.54022pt
+Extra height:19.08044pt when 339.6172pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:10.0pt when 324.54022pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:0.0pt when 325.54022pt
+Extra height:19.08044pt when 340.6172pt
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-(2)Left:325.54022pt Right:317.08044pt Output:325.54022pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:19.08044pt when 341.6172pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:19.08044pt when 342.6172pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:0.0pt when 343.6172pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+(2)Left:343.6172pt Right:335.23442pt Output:343.6172pt
 - LAST -
 Extra skip:0.0pt
-Left:325.54022pt
-Right:317.08044pt
-Output:325.54022pt
+Left:343.6172pt
+Right:335.23442pt
+Output:343.6172pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -807,9 +831,7 @@ Overfull \hbox (261.0pt too wide) has occurred while \output is active
 [][] 
  []
 
-[8
-
-] (./document.aux)
+[8] (./document.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
@@ -818,11 +840,11 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  3338 strings out of 495059
  42371 string characters out of 3182030
- 123234 words of memory out of 3000000
+ 124234 words of memory out of 3000000
  6414 multiletter control sequences out of 15000+200000
  50644 words of font info for 103 fonts, out of 3000000 for 9000
  18 hyphenation exceptions out of 8191
- 38i,13n,26p,1295b,298s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,13n,26p,1475b,298s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fo
@@ -836,7 +858,7 @@ e/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on document.pdf (8 pages, 2770057 bytes).
+Output written on document.pdf (8 pages, 2770165 bytes).
 PDF statistics:
  95 PDF objects out of 1000 (max. 8388607)
  61 compressed objects within 1 object stream
