@@ -4,6 +4,7 @@
 <p>
 <a href="@{Security.logout()}">Logout</a>: Logout from adminitration section.
 </p>
+<hr>
 
 #{if flash.success}
     <p style="color:green">
@@ -16,11 +17,13 @@
         ${flash.error}
     </p>
 #{/if}
+
 <p>(1) <a href="@{Administration.build()}">Knowledge base build</a>: Download the resources,
-integrate them and creates the knowledge base (data/ftc-kb-full.owl). Overrides content! Doesn't
+integrate them and creates the knowledge base (data/ftc-kb-full.owl).
+Overrides content! Doesn't
 stop the application from working. Saves a copy of the knowledge base in the archive folder, if needed.
 Should be done every 3 months or so in order
-to include the latest annotations. At the moment there is no mecanism to know the
+to include the latest annotations. At the moment there is no mechanism to know the
 differences between a previous and new version. The FTC is just re-built from scratch.</p>
 
 <p>(2) <a href="@{Administration.exportQueries()}">Export the OWL queries that have been done:</a>
@@ -39,5 +42,15 @@ and redundant information.</p>
 Analyze the differences with the ATC from the mapping file and store the results in the 
 database.</p>
 
-<p>(6) <a href="@{Administration.cleanTmpResources()}">Clean the temporary resources:</a>
+<p>(6) <a href="@{Administration.exportFlatData()}">Create a flat file:</a> Export a file OBO-style format.</p>
+
+<p>(7) <a href="@{Administration.cleanTmpResources()}">Clean the temporary resources:</a>
 These resources are the files downloaded and generated during the build phase.</p>
+<hr>
+<h3>Guide to upgrade to new version</h3>
+<p>(1) Commit and push all changes to GitHub.</p>
+<p>(2) Log on prod machine, clone the code into folder with version number.</p>
+<p>(3) Connect to the database server. Create a new database, name it ftc_model_[version].</p>
+<p>(4) Change the port number in config and starts the app.</p>
+<p>(5) Go in the admin section and starts the build - can turn security off (no exposition).</p>
+<p>(6) Once the build is done, change the port to 9000, then turn off the previous version and start the new one.</p>

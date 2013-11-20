@@ -65,7 +65,7 @@ public class DatabaseFiller {
 //				ftcAndDrugBankClasses.add("FTC_C1");
 
 		//Anti-blood coagulation - x-small for debug
-		//List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
+//		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0050817", false);
 
 		//Anti molecular function --> bigger (2500 classes) for debug too
 		List<String> ftcAndDrugBankClasses = brain.getSubClasses("FTC_A0008150", false);
@@ -248,7 +248,9 @@ public class DatabaseFiller {
 		//Block to hack the SVG content and replace it in an Web friendly way
 		String svgContent = play.vfs.VirtualFile.fromRelativePath(pathSvgFile).contentAsString();
 		String withoutXlinkSvgContent = svgContent.replaceAll("xlink:href", "target='_top' xlink:href")
-				.replaceAll("<svg.*\n", "<svg").replaceAll("<title>G</title>", "<title>" + ftcClass.ftcId + "</title>");
+				.replaceAll("<svg.*\n", "<svg")
+				.replaceAll("<title>G</title>", "<title>" + ftcClass.ftcId + "</title>")
+				.replaceAll("]>", "");
 
 		//Get the width and height of the SVG. Used later to render the SVG correctly on the browser
 		Pattern pattern = Pattern.compile("viewBox=\"\\d+\\.\\d\\d \\d+\\.\\d\\d (\\d+)\\.\\d\\d (\\d+)\\.\\d\\d\"");

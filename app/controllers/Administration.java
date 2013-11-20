@@ -10,6 +10,7 @@ import jobs.CleanJob;
 import jobs.ConvertionJob;
 import jobs.EraseJob;
 import jobs.EvaluationJob;
+import jobs.ExportDataJob;
 import jobs.ExportQueriesJob;
 import jobs.FullBuildJob;
 
@@ -21,7 +22,7 @@ import play.mvc.Controller;
 import play.mvc.With;
 import play.vfs.VirtualFile;
 
-@With(Security.class)
+//@With(Security.class)
 public class Administration extends Controller {
 
 	public static void index() {
@@ -88,5 +89,16 @@ public class Administration extends Controller {
 		}
 		index();
 	}
+
+	public static void exportFlatData() {
+		if(Cache.get("jobRunning") != null){
+			flash.error("A job is already running!");
+		}else{
+			flash.success("Export running - Follow progresses on the log file or console");
+			new ExportDataJob().now();
+		}
+		index();
+	}
+
 
 }
