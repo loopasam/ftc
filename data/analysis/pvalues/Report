@@ -5,6 +5,7 @@ Category
 same category mean similarity
 different category mean similarity
 (same category mean similarity) - (different category mean similarity)
+p-value from 1,000,000 permutations
 
 A
 0.1509364
@@ -75,7 +76,14 @@ V
 0.150825
 0.133993
 0.01683197
+3.5e-05
 
-nsim=1000000
+nsim=1,000,000
+n-tests = 14
+http://en.wikipedia.org/wiki/Bonferroni_correction
+p < 0.01
+α/n = 0.01/14 = 0.000714286 = 7.14286×10⁻⁴
+p value must under this value, multiple hypothesis correction.
+http://en.wikipedia.org/wiki/Bonferroni_correction
 pvalue = 2.4e-05
 see graph distribution
